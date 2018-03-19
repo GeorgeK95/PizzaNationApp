@@ -1,0 +1,98 @@
+/*About, ContactUs Page Styles*/
+
+div#page_hero {
+    background-repeat: none;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    height: 600px;
+}
+
+div.hero_about {
+    background-image: url('../../img/background/pizza.jpg');
+}
+
+div.page_hero_text {
+    width: 50%;
+    height: 500px;
+    margin: 100px 0 0 0;
+    float: left;
+    background: #F1F2F2;
+    -webkit-border-top-left-radius: 2px;
+    -webkit-border-top-right-radius: 2px;
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-topright: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    -moz-box-shadow: 0 -2px 2px rgba(29, 29, 33, 0.07);
+    -webkit-box-shadow: 0 -2px 2px rgba(29, 29, 33, 0.07);
+    box-shadow: 0 -2px 2px rgba(29, 29, 33, 0.07);
+}
+
+div.page_hero_pad {
+    padding: 50px;
+    text-align: left;
+}
+
+/* Desktops */
+@media only screen and (min-width: 980px) and (max-width: 1199px) {
+    div#enter_postcode_block {
+        width: 970px;
+        height: 60px;
+        margin: 0 auto 0 auto;
+    }
+
+    div#enter_postcode_block div.left {
+        width: 80%;
+        height: 60px;
+        float: left;
+    }
+
+    div#enter_postcode_block div.right {
+        width: 20%;
+        height: 60px;
+        float: left;
+    }
+
+    div.page_hero_text {
+        width: 60%;
+        height: 500px;
+    }
+
+    div.pb_text h1,
+    div.pb_text h2,
+    div.pb_text h3 {
+        font-size: 24px;
+        margin: 0 0 10px 0;
+    }
+
+    div.pb_text p {
+        font-size: 18px;
+    }
+}
+
+/* iPad (or small monitor) Styles */
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+    div.page_hero_text {
+        width: 75%;
+        height: 500px;
+    }
+}
+
+/* Mobile Styles */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    div.page_hero_text {
+        width: 100%;
+        margin: 0;
+        height: auto;
+    }
+
+    div.page_hero_pad {
+        padding: 10px;
+    }
+
+    div#page_hero {
+        height: auto;
+    }
+}

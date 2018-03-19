@@ -1,0 +1,746 @@
+/*
+	app core style
+*/
+html, body {
+    background: #F1F2F2;
+    font-size: 14px;
+    color: #444444;
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-align: center;
+}
+
+::-moz-selection {
+    background: #EE1B23;
+    color: #FFFFFF;
+}
+
+::selection {
+    background: #EE1B23;
+    color: #FFFFFF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Exo 2', arial, sans-serif;
+    color: #4A4B4C;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 0 0 15px 0;
+}
+
+h2 {
+    font-size: 28px;
+    margin: 0 0 15px 0;
+}
+
+h3 {
+    font-size: 28px;
+    margin: 0 0 15px 0;
+}
+
+h4 {
+    font-size: 26px;
+    margin: 0 0 15px 0;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6em;
+    margin: 0 0 15px 0;
+    color: #444444;
+    font-family: 'Open Sans', arial, serif;
+}
+
+a {
+    color: #343434;
+    color: #E0121A;
+    text-decoration: none;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+}
+
+a:hover {
+    color: #EE1B23;
+}
+
+ul {
+    margin: 0 0 20px 0;
+}
+
+ul.standard li {
+    list-style: square;
+    font-size: 16px;
+    line-height: 1.6em;
+    margin: 0 0 15px 0;
+    color: #444444;
+    font-family: 'Open Sans', arial, serif;
+}
+
+ul.non_standard li {
+    list-style: none;
+    font-size: 16px;
+    line-height: 1.6em;
+    margin: 0 0 10px 0;
+    color: #444444;
+    font-family: 'Open Sans', arial, serif;
+}
+
+div#ui_mask,
+div.ui_mask {
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+    position: absolute;
+    z-index: 5000;
+}
+
+div.info_page_text {
+    padding: 100px;
+}
+
+div.info_page_text h1 {
+    text-align: center;
+}
+
+div.info_page_text h3 {
+    margin: 50px 0 5px 0;
+}
+
+div.info_page_text a {
+    color: #EE1B23;
+}
+
+.icon_green {
+    color: #00CC00;
+}
+
+.icon_red {
+    color: #CC0000;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #CCCCCC;
+    margin: 1em 0;
+    padding: 0;
+}
+
+div.form p {
+    font-size: 11px;
+    color: #777777;
+    margin: 0 0 3px 0;
+}
+
+.coloured {
+    color: #E0121A;
+}
+
+/*Background Image*/
+div.page_bckgrnd_img {
+    background-image: url('../../img/background/pizza.jpg');
+}
+
+/* Wrapper */
+div.wrapper {
+    width: 1200px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+/* Page content */
+div.content {
+    text-align: left;
+}
+
+div.page_pad {
+    padding: 50px 40px 50px 40px;
+}
+
+div.page_pad_smaller {
+    padding: 20px 40px 50px 40px;
+}
+
+div.page_pad_smalltop {
+    padding: 20px 40px 50px 40px;
+}
+
+.white_page {
+    background: #FFFFFF;
+}
+
+.offset_page {
+    background: #F1F2F2;
+}
+
+.poly_page {
+}
+
+.red_page {
+    background: #E0121A;
+}
+
+.shadow_element {
+    -moz-box-shadow: 0 2px 0 rgba(29, 29, 33, 0.07);
+    -webkit-box-shadow: 0 2px 0 rgba(29, 29, 33, 0.07);
+    box-shadow: 0 2px 0 rgba(29, 29, 33, 0.07);
+}
+
+.shadow_element_large {
+    -moz-box-shadow: 2px 2px 5px rgba(29, 29, 33, 0.1);
+    -webkit-box-shadow: 2px 2px 5px rgba(29, 29, 33, 0.1);
+    box-shadow: 2px 2px 5px rgba(29, 29, 33, 0.1);
+}
+
+.shadow_element_heavy {
+    -moz-box-shadow: 2px 2px 5px rgba(29, 29, 33, 0.5);
+    -webkit-box-shadow: 2px 2px 5px rgba(29, 29, 33, 0.5);
+    box-shadow: 2px 2px 5px rgba(29, 29, 33, 0.5);
+}
+
+div.align_left {
+    text-align: left;
+}
+
+div.align_right {
+    text-align: right;
+}
+
+div.align_center {
+    text-align: center;
+}
+
+div.sep_dash {
+    border: 0;
+    border-top: 2px dashed #EEEEEE;
+    overflow: hidden;
+    height: 1px;
+    margin: 30px 0 30px 0;
+}
+
+/* Header */
+div#hold_header {
+    height: 75px;
+    margin: 0;
+}
+
+div.header {
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: none;
+    height: 75px;
+    margin: 0;
+}
+
+div.header_red {
+    background: #E0121A;
+    -moz-box-shadow: 0 2px 2px rgba(29, 29, 33, 0.4);
+    -webkit-box-shadow: 0 2px 2px rgba(29, 29, 33, 0.4);
+    box-shadow: 0 2px 2px rgba(29, 29, 33, 0.4);
+}
+
+a.logo {
+    display: block;
+    width: 120px;
+    height: 120px;
+    background: url('../img/logo/pizza-nation-logo.jpg') 0px 0px no-repeat;
+    text-decoration: none;
+    text-indent: -9999px;
+    float: left;
+    margin: 10px 0 0 0;
+}
+
+div.header_right {
+    width: 600px;
+    float: right;
+    text-align: right;
+}
+
+div.header_right a {
+    display: inline-block;
+    height: 75px;
+    font-size: 20px;
+    font-weight: 700px;
+    color: #FFFFFF;
+    font-family: 'Exo 2', arial, sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+div.header_right a i.icon {
+    color: rgba(255, 255, 255, 0.4);
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+}
+
+div.header_right a span.paddy {
+    display: block;
+    padding: 28px 15px 0 15px;
+}
+
+div.header_right a:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+div.header_right a:hover i.icon {
+    color: rgba(255, 255, 255, 1);
+}
+
+div.header_right a.cart i.icon {
+    color: rgba(255, 255, 255, 1);
+}
+
+div.header_right a.checkout_active {
+    background: #f1c40f;
+    color: #222222;
+}
+
+div.header_right a.checkout_active {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px #333333;
+}
+
+div.header_right a.checkout_active i.icon {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px #333333;
+}
+
+/* Mobile navigation */
+div.mobile_navigation {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 74px;
+    background: #EE1B23;
+    z-index: 4000;
+    text-decoration: none;
+    display: none;
+}
+
+div.mobile_navigation,
+div.mobile_nav,
+ul#mobile_navigation {
+    display: none;
+}
+
+div.mobile_nav span.cart_mobile_count {
+    display: block;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    font-size: 16px;
+    font-family: arial, sans-serif;
+    color: #FFFFFF;
+    background: #6BC72A;
+    background: rgba(107, 199, 42, 0.9);
+    position: absolute;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    top: 2px;
+    right: 2px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+/* Content page */
+div#content_page {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -250px auto;
+}
+
+div#content_page_bottom {
+    height: 250px;
+}
+
+/* Footer */
+div#footer {
+    width: 100%;
+    min-height: 250px;
+    background: #222222;
+}
+
+div#footer_top {
+    background: #E0121A;
+}
+
+div#footer_top ul {
+    margin: 0;
+    padding: 0;
+}
+
+div#footer_top ul li {
+    float: left;
+}
+
+div#footer_top ul li a {
+    display: block;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+div#footer_top ul li a:hover {
+    background: #EE1B23;
+}
+
+div#footer_top ul li a span {
+    display: block;
+    padding: 25px 15px 25px 15px;
+}
+
+div#footer_inner {
+    text-align: center;
+}
+
+div#footer_inner_pad {
+    padding: 50px 0 50px 0;
+}
+
+p.footer_links,
+p.footer_copy {
+    color: #555555;
+}
+
+p.footer_links a {
+    color: #777777;
+}
+
+p.footer_links a:hover {
+    color: #FFFFFF;
+}
+
+div.footer_social {
+    width: 140px;
+    float: right;
+    margin: 18px 0 0 0;
+    text-align: right;
+}
+
+div.footer_social a.social_icon {
+    margin: 0 5px 0 5px;
+}
+
+a.social_icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+}
+
+a.social_icon_large {
+    width: 150px;
+    height: 40px;
+    background-position: 5px center;
+    background-repeat: no-repeat;
+    margin: 5px;
+}
+
+span.si_pad {
+    display: block;
+    padding: 12px 0 0 40px;
+    text-align: left;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+a.social_icon_facebook {
+    background-image: url('../img/social/facebook.png');
+    background-color: #3B5998;
+}
+
+a.social_icon_twitter {
+    background-image: url('../img/social/twitter.png');
+    background-color: #56A3D9;
+}
+
+a.social_icon_instagram {
+    background-image: url('../img/social/instagram.png');
+    background-color: #CD5959;
+}
+
+/******************************/
+/*
+	Responsive
+*/
+
+@media only screen and (min-width: 1200px) and (max-width: 1500px) {
+    /* WRAPPER */
+    div.wrapper {
+        width: 1100px;
+    }
+
+    /* PAGE PAD */
+    div.page_pad {
+        padding: 50px 40px 50px 40px;
+    }
+
+    div.page_pad_smaller {
+        padding: 25px 20px 25px 20px;
+    }
+
+    div.page_pad_smalltop {
+        padding: 20px 40px 50px 40px;
+    }
+}
+
+/* Desktops */
+@media only screen and (min-width: 980px) and (max-width: 1199px) {
+    /* WRAPPER */
+    div.wrapper {
+        width: 970px;
+    }
+
+    /* PAGE PAD */
+    div.page_pad {
+        padding: 50px 40px 50px 40px;
+    }
+
+    div.page_pad_smaller {
+        padding: 25px 20px 25px 20px;
+    }
+
+    div.page_pad_smalltop {
+        padding: 20px 40px 50px 40px;
+    }
+}
+
+/* iPad (or small monitor) Styles */
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+    /* WRAPPER */
+    div.wrapper {
+        width: 750px;
+    }
+
+    /* PAGE PAD */
+    div.page_pad {
+        padding: 50px 40px 50px 40px;
+    }
+
+    div.page_pad_smaller {
+        padding: 25px 20px 25px 20px;
+    }
+
+    div.page_pad_smalltop {
+        padding: 20px 40px 50px 40px;
+    }
+}
+
+/* Mobile Styles */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    /* WRAPPER */
+    div.wrapper,
+    div.mini_wrapper {
+        width: 100%;
+    }
+
+    /* Text */
+    h1 {
+        font-size: 28px;
+        margin: 0 0 15px 0;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin: 0 0 15px 0;
+    }
+
+    h3 {
+        font-size: 24px;
+        margin: 0 0 15px 0;
+    }
+
+    h4 {
+        font-size: 22px;
+        margin: 0 0 15px 0;
+    }
+
+    /* PAGE PAD */
+    div.page_pad {
+        padding: 10px 10px 10px 10px;
+    }
+
+    div.page_pad_smaller {
+        padding: 5px 5px 5px 5px;
+    }
+
+    div.page_pad_smalltop {
+        padding: 5px 5px 5px 5px;
+    }
+
+    div.mobile_pad_me {
+        padding: 20px 0 20px 0;
+    }
+
+    div.info_page_text {
+        padding: 10px;
+    }
+
+    div.info_page_text h1 {
+        text-align: center;
+    }
+
+    div.info_page_text h3 {
+        margin: 30px 0 5px 0;
+    }
+
+    a.logo {
+        display: block;
+        width: 140px;
+        height: 70px;
+        background: url('../img/logo/pizza-nation-logo.jpg') 0px 0px no-repeat;
+        text-decoration: none;
+        text-indent: -9999px;
+        float: left;
+        margin: 3px 0 0 3px;
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+    }
+
+    div#footer_top {
+        background: #E0121A;
+    }
+
+    div.footer_social {
+        width: 100%;
+        float: none;
+        padding: 10px 0 10px 0;
+        text-align: left;
+        background: #E0121A;
+        border-bottom: 2px solid #333333;
+    }
+
+    div#footer_top ul li {
+        float: left;
+        width: 50%;
+    }
+
+    p.footer_links,
+    p.footer_copy {
+        color: #222222;
+        text-align: center;
+    }
+
+    p.footer_links a {
+        color: #777777;
+        display: block;
+    }
+
+    p.footer_links a:hover {
+        color: #FFFFFF;
+    }
+
+    p.footer_copy {
+        color: #555555;
+        font-size: 12px;
+        margin: 5px;
+    }
+
+    /* MOBILE NAVIGATION */
+    div.header_right {
+        width: 100px;
+    }
+
+    div.standard_nav {
+        display: none;
+    }
+
+    div.mobile_nav {
+        display: block;
+        width: 130px;
+        height: 54px;
+        float: right;
+        margin: 10px 10px 0 0;
+        text-align: right;
+    }
+
+    div.mobile_nav a {
+        display: inline-block;
+        color: #FFFFFF;
+        background: #EE1B23;
+        text-decoration: none;
+        font-size: 32px;
+        width: 54px;
+        height: 54px;
+        text-align: center;
+        position: relative;
+    }
+
+    div.mobile_nav a:hover {
+        background: #FF333B;
+    }
+
+    div.mobile_nav a span.paddy {
+        display: block;
+        padding: 12px 0 0 0;
+    }
+
+    div.mobile_navigation {
+        -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    div.mobile_navigation ul#mobile_navigation {
+        display: block;
+        width: 100%;
+        background: #F5F5F5;
+        margin: 0;
+    }
+
+    div.mobile_navigation ul#mobile_navigation li {
+        width: 100%;
+        float: none;
+        background: #F5F5F5;
+    }
+
+    div.mobile_navigation ul#mobile_navigation li a {
+        display: block;
+        width: 100%;
+        text-align: left;
+        font-size: 18px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        border: 1px solid #CC0000;
+        text-shadow: 1px 1px 1px #111111;
+        background: #EE1B23;
+        color: #FFFFFF;
+    }
+
+    div.mobile_navigation ul#mobile_navigation li a span {
+        display: block;
+        padding: 20px;
+    }
+
+    div.mobile_navigation ul#mobile_navigation li a span i.icon {
+        font-size: 18px;
+        color: #CCCCCC;
+        text-shadow: 1px 1px 1px #222222;
+    }
+
+    div.mobile_navigation ul#mobile_navigation li a span.cart_item_count {
+        display: inline-block;
+        padding: 0;
+    }
+}

@@ -1,0 +1,269 @@
+/* Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+:focus {
+    outline: 0;
+}
+
+ins {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Base */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #333333;
+}
+
+div.clear {
+    clear: both;
+}
+
+span.clear {
+    display: block;
+    clear: both;
+}
+
+div.pad5 {
+    padding: 5px;
+}
+
+div.pad10 {
+    padding: 10px;
+}
+
+div.pad40 {
+    padding: 40px;
+}
+
+a {
+    text-decoration: underline;
+    color: #222222;
+}
+
+.errorbox p {
+    color: #D8000C;
+    font-size: 12px;
+    margin: 0;
+}
+
+.errorbox a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.errorbox a:hover {
+    color: #333333;
+    text-decoration: underline;
+}
+
+.noticebox p {
+    color: #9F6000;
+    font-size: 12px;
+    margin: 0;
+}
+
+.noticebox a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.noticebox a:hover {
+    color: #333333;
+    text-decoration: underline;
+}
+
+.infobox p {
+    color: #00529B;
+    font-size: 12px;
+    margin: 0;
+}
+
+.infobox a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.infobox a:hover {
+    color: #333333;
+    text-decoration: underline;
+}
+
+.successbox p {
+    color: #4F8A10;
+    font-size: 12px;
+    margin: 0;
+}
+
+.successbox a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.successbox a:hover {
+    color: #333333;
+    text-decoration: underline;
+}
+
+.content_on {
+    display: block;
+}
+
+/* Pagination */
+
+div.pagination a {
+    border: 1px solid #ccc;
+    background: #EEEEEE;
+    text-shadow: 1px 1px #F7F7F7;
+    color: #333333;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 7px 15px;
+    font-size: 12px;
+    display: inline-block;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: 1px 1px 2px #EEE;
+    -webkit-box-shadow: 1px 1px 2px #EEE;
+    box-shadow: 1px 1px 2px #EEE;
+    cursor: pointer;
+    margin: 0 5px 0 5px;
+}
+
+/* Buttons: Standard coloured button */
+.button {
+    color: #FFFFFF;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 7px 15px;
+    font-size: 12px;
+    display: inline-block;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+table.padded_table tr td {
+    padding: 6px;
+}
+
+table.padded_table tr.thead td {
+    background: #EEEEEE;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+table.padded_table tr.odd_even:hover td {
+    background: #D7F0F5;
+}
+
+table.padded_table tr.odd td {
+    background: #F7F7F7;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+table.padded_table tr.even td {
+    background: #FFFFFF;
+    border-bottom: 1px solid #F7F7F7;
+}
+
+textarea {
+    min-height: 60px;
+}
+
+label,
+legend {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+input[type="checkbox"] {
+    display: inline;
+}
+
+label span,
+legend span {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+/* Forms */
+div.aform p {
+    margin: 0;
+    font-weight: bold;
+    font-style: italic;
+    color: #888888;
+}
+
+/******************************/
+/*
+	Responsive
+*/
+
+/* Desktops */
+@media only screen and (min-width: 980px) {
+
+}
+
+/* iPad (or small monitor) Styles */
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+
+}
+
+/* Mobile Styles */
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+
+}
+
+.footer-credits {
+    font-size: 35px;
+}

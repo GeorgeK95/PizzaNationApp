@@ -1,0 +1,82 @@
+<main>
+    <div class="page_bckgrnd_img">
+        <div class="wrapper">
+            <div class="white_page">
+                <div class="page_pad">
+
+                    <div class="ui_page_left_70 align_left">
+                        <h1>Contact Us</h1>
+                        <p><span class="coloured">Pizza Nation Address:</span></p>
+                        <p>ul. "Pobeda" 65-55</p>
+                        <p>4003 Plovdiv</p>
+                        <p>Bulgaria</p>
+                    </div>
+
+                    <div class="clear"><!-- --></div>
+                    <div class="pad10"><!-- spacer --></div>
+
+
+                    <div class="pad10"><!-- spacer --></div>
+                    <div class="pad10"><!-- spacer --><h3>What is your Email regarding?</h3></div>
+
+                    <a name="contactform"></a>
+                    <div id="send_form" class="content_off" style="display: block;">
+
+                        <form name="sendmessage" id="sendmessage" method="post"
+                              th:action="@{/contact}" onsubmit="">
+                            <table width="100%" cellspacing="0" cellpadding="0" class="padded_table">
+                                <tbody>
+                                <tr>
+                                    <td width="15%"></td>
+                                    <td colspan="2" width="85%">
+
+                                        <select name="email_subject" id="email_subject" class="form_item">
+                                            <option value="0">Please select</option>
+                                            <option value="3">Customer feedback / support</option>
+                                            <option value="1">Franchise opportunities</option>
+                                            <option value="2">Marketing opportunities</option>
+                                            <option value="5">Special orders / products</option>
+                                        </select><br><br>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="15%">Name*</td>
+                                    <td width="85%"><input type="text" name="name" placeholder="Your name" class="form_item"
+                                                           value=""></td>
+                                </tr>
+                                <tr>
+                                    <td>Email*</td>
+                                    <td><input type="email" name="email" placeholder="Your Email" class="form_item"
+                                               value=""></td>
+                                </tr>
+                                <tr>
+                                    <td>Phone</td>
+                                    <td><input type="tel" name="phone" placeholder="Your phone number (optional)"
+                                               class="form_item" value=""></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Message*</td>
+                                    <td colspan="2"><textarea name="message" class="form_item"
+                                                              placeholder="Your message"></textarea></td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2"><input type="hidden" name="sendmessage" value="1"><input type="submit"
+                                                                                                             name="submit"
+                                                                                                             class="button_flat button_flat_green"
+                                                                                                             value="Send message">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>

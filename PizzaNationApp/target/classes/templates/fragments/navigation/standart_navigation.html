@@ -1,0 +1,54 @@
+<div class="header_right">
+    <div class="standard_nav">
+        <a th:href="@{/menu}">
+            <span class="paddy">
+                <i class="icon ion-pizza"></i>
+                Menu
+            </span>
+        </a>
+        <a th:href="@{/stores}">
+            <span class="paddy">
+                <i
+                        class="icon ion-location"></i>
+                Stores
+            </span>
+        </a>
+        <a th:href="@{/login}">
+            <span class="paddy">
+                <i class="icon ion-key"></i>
+                Log in
+            </span>
+        </a>
+        <a th:href="@{/register}">
+            <span class="paddy">
+                <i class="icon ion-plus"></i>
+                Register
+            </span>
+        </a>
+        <a th:href="@{/shoppingCart}" class="cart">
+            <span class="paddy">
+                <i
+                        class="icon ion-android-cart"></i>
+                <span class="cart_item_count">0</span>
+            </span>
+        </a>
+    </div>
+    <div class="mobile_nav">
+        <a href="#" id="mobile_nav_button">
+            <span class="paddy">
+                <i class="ion-navicon-round"></i>
+            </span>
+        </a>
+        <a th:href="@{cart}" class="cart">
+            <span class="paddy">
+                <i
+                        class="icon ion-android-cart"></i>
+                <span class="cart_mobile_count">
+                    <span class="cart_item_count">0
+                    </span>
+                </span>
+            </span>
+        </a>
+    </div>
+    <div class="clear"><!-- --></div>
+</div>

@@ -1,0 +1,16 @@
+<div id="mobnav" class="mobile_navigation" th:fragment="mobile_navigation">
+    <ul id="mobile_navigation">
+        <li><a th:href="@{/menu}"><span class="paddy"><i
+                class="icon ion-pizza"></i> Menu</span></a></li>
+        <li><a th:href="@{/stores}"><span class="paddy"><i
+                class="icon ion-location"></i> Stores</span></a></li>
+        <li><a th:href="@{/login}"><span class="paddy"><i class="icon ion-key"></i> Log in</span></a>
+        </li>
+        <li><a th:href="@{/register}"><span class="paddy"><i
+                class="icon ion-plus"></i> Register</span></a></li>
+        <li><a th:href="@{/cart}" class="cart"><span class="paddy"><i
+                class="icon ion-android-cart"></i> Cart (<span class="cart_item_count">0</span>)</span></a>
+        </li>
+    </ul>
+    <div class="clear">&lt;!&ndash; clear &ndash;&gt;</div>
+</div>
