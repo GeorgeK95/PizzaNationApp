@@ -244,10 +244,7 @@ div.aform p {
     color: #888888;
 }
 
-/******************************/
-/*
-	Responsive
-*/
+/*Responsive*/
 
 /* Desktops */
 @media only screen and (min-width: 980px) {

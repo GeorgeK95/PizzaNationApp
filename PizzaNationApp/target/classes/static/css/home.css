@@ -24,29 +24,19 @@ div#entry {
     height: 95%;
     height: 700px;
     height: 90vh;
-
     width: 100%;
-    /*
-    height: 90vh;
-
-    -webkit-box-shadow: 0 0 350px 150px rgba(111,43,144,0.2) inset;
-    box-shadow: 0 0 350px 150px rgba(111,43,144,0.2) inset;
-    */
     background: rgba(0, 0, 0, 0.5);
     background: none;
-
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
-
     overflow: hidden;
 }
 
 header {
-
 }
 
 div.header {
@@ -144,38 +134,6 @@ div#enter_postcode_block div.right input.postcode_submit:hover {
     background-color: #FC3E45;
 }
 
-/* Video */
-div#video_background video {
-    position: fixed;
-    /*position: relative;*/
-    /*top: 50%;*/
-    /*left: 50%;*/
-    /*transform: translateX(-50%) translateY(-50%);*/
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    background: url('../img/background/pizza.jpg') no-repeat;
-    background-size: cover;
-    transition: 1s opacity;
-    /* Centralise. Custom width gets set by JavaScript */
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-    /*
-    transform: translate(-50%, -50%);
-
-
-    transform: scale(1.4875, 1.4875);
-    width: 1280px;
-    height: 720px;
-    */
-}
-
 div.entry_spacer {
     height: 50px;
 }
@@ -240,23 +198,7 @@ div.eb_text p {
     font-size: 18px;
 }
 
-/*
-div.entry_block_1 div.eb_left img,
-div.entry_block_1 div.eb_right img,
-div.entry_block_2 div.eb_left img,
-div.entry_block_2 div.eb_right img {
-	width: 100%;
-	height: auto;
-}
-*/
-
-/* Postcode */
-
-/******************************/
-/*
-	Responsive
-*/
-
+/*Responsive*/
 @media only screen and (min-width: 1200px) and (max-width: 1500px) {
     div#enter_postcode_block {
         width: 1100px;
@@ -475,20 +417,6 @@ div.entry_block_2 div.eb_right img {
         margin: 0;
     }
 
-    /*a.logo {
-        display: block;
-        width: 140px;
-        height: 70px;
-        background: url('../img/logo/pizza-nation-logo.jpg') 0px 0px no-repeat;
-        text-decoration: none;
-        text-indent: -9999px;
-        float: left;
-        margin: 3px 0 0 3px;
-        background-size: cover;
-        -moz-background-size: cover;
-        -webkit-background-size: cover;
-        -o-background-size: cover;
-    }*/
     div#enter_postcode_inner {
         padding: 250px 5px 0 5px;
     }

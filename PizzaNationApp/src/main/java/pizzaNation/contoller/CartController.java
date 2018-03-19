@@ -14,7 +14,7 @@ import static java.util.Map.entry;
 @Controller
 public class CartController extends BaseController {
 
-    @GetMapping("/shoppingCart")
+    @GetMapping("/cart")
     public ModelAndView cart() {
         return super.constructStaticModelAndViewResponse(Map.ofEntries(
                 entry("layout", "base-layout"),
