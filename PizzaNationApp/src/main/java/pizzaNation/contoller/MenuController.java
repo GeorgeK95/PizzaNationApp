@@ -16,13 +16,14 @@ import static java.util.Map.entry;
 public class MenuController extends BaseController {
     @GetMapping("menu")
     public ModelAndView menu() {
-        ModelAndView modelAndView = super.constructStaticModelAndViewResponse(Map.ofEntries(
-                entry("layout", "base-layout"),
-                entry("view", "menu/menu"),
-                entry("pageTitle", "Menu")
+        ModelAndView modelAndView = super.constructStaticModelAndViewResponse(
+                "base-layout",
+                Map.ofEntries(
+                        entry("view", "menu/menu"),
+                        entry("pageTitle", "Menu")
                 )
         );
-        modelAndView.getModelMap().addAttribute("headCssIncludeFiles", List.of("/css/menu.css"));
+        modelAndView.getModelMap().addAttribute("pageStyles", List.of("/css/page/menu.css"));
         return modelAndView;
     }
 

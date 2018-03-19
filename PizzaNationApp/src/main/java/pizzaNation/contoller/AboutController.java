@@ -17,13 +17,14 @@ public class AboutController extends BaseController {
 
     @GetMapping("/about")
     public ModelAndView about() {
-        ModelAndView modelAndView = super.constructStaticModelAndViewResponse(Map.ofEntries(
-                entry("layout", "base-layout"),
-                entry("view", "about/about"),
-                entry("pageTitle", "About us")
+        ModelAndView modelAndView = super.constructStaticModelAndViewResponse(
+                "base-layout",
+                Map.ofEntries(
+                        entry("view", "about/about"),
+                        entry("pageTitle", "About us")
                 )
         );
-        modelAndView.getModelMap().addAttribute("headCssIncludeFiles", List.of("/css/staticStyles.css"));
+        modelAndView.getModelMap().addAttribute("pageStyles", List.of("/css/page/staticStyles.css"));
         return modelAndView;
     }
 }

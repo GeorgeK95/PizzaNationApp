@@ -11,9 +11,9 @@ import java.util.Map;
 @Controller
 public abstract class BaseController {
 
-    protected ModelAndView constructStaticModelAndViewResponse(Map<String, String> attributesMap) {
-        ModelAndView modelAndView = new ModelAndView(attributesMap.get("layout"));
-        attributesMap.forEach((key, value) -> modelAndView.getModelMap().addAttribute(key, value));
+    protected ModelAndView constructStaticModelAndViewResponse(String viewName, Map<String, Object> attributes) {
+        ModelAndView modelAndView = new ModelAndView(viewName);
+        attributes.forEach((key, value) -> modelAndView.getModelMap().addAttribute(key, value));
         return modelAndView;
     }
 }

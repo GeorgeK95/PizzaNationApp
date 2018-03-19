@@ -17,13 +17,14 @@ public class HomeController extends BaseController {
 
     @GetMapping("/")
     public ModelAndView home() {
-        ModelAndView modelAndView = super.constructStaticModelAndViewResponse(Map.ofEntries(
-                entry("layout", "base-layout"),
+        ModelAndView modelAndView = super.constructStaticModelAndViewResponse(
+                "base-layout",
+                Map.ofEntries(
                 entry("view", "home/home"),
                 entry("pageTitle", "Pizza Nation")
                 )
         );
-        modelAndView.getModelMap().addAttribute("headCssIncludeFiles", List.of("/css/home.css"));
+        modelAndView.getModelMap().addAttribute("pageStyles", List.of("/css/page/home.css"));
         return modelAndView;
     }
 }

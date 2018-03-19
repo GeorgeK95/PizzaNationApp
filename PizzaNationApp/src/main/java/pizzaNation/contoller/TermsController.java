@@ -17,13 +17,14 @@ public class TermsController extends BaseController {
 
     @GetMapping("/terms")
     public ModelAndView terms() {
-        ModelAndView modelAndView = super.constructStaticModelAndViewResponse(Map.ofEntries(
-                entry("layout", "base-layout"),
+        ModelAndView modelAndView = super.constructStaticModelAndViewResponse(
+                "base-layout",
+                Map.ofEntries(
                 entry("view", "terms/terms"),
                 entry("pageTitle", "Terms and Conditions")
                 )
         );
-        modelAndView.getModelMap().addAttribute("headCssIncludeFiles", List.of("/css/terms.css"));
+        modelAndView.getModelMap().addAttribute("pageStyles", List.of("/css/page/terms.css"));
         return modelAndView;
     }
 }

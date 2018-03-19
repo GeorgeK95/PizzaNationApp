@@ -19,17 +19,18 @@ import static java.util.Map.entry;
  * Created by George-Lenovo on 14/03/2018.
  */
 @Controller
-public class ContactController extends BaseController{
+public class ContactController extends BaseController {
 
     @GetMapping("/contactUs")
     public ModelAndView contactUs() {
-        ModelAndView modelAndView = super.constructStaticModelAndViewResponse(Map.ofEntries(
-                entry("layout", "base-layout"),
-                entry("view", "contact/contactUs"),
-                entry("pageTitle", "Contact us")
+        ModelAndView modelAndView = super.constructStaticModelAndViewResponse(
+                "base-layout",
+                Map.ofEntries(
+                        entry("view", "contact/contactUs"),
+                        entry("pageTitle", "Contact us")
                 )
         );
-        modelAndView.getModelMap().addAttribute("headCssIncludeFiles", List.of("/css/staticStyles.css"));
+        modelAndView.getModelMap().addAttribute("pageStyles", List.of("/css/page/staticStyles.css"));
         return modelAndView;
     }
 

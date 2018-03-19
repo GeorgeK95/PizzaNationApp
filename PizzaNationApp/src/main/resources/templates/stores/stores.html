@@ -1,0 +1,39 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head" th:with="pageTitle='${pageTitle}'"></head>
+
+<body>
+<header th:replace="fragments/header"></header>
+
+<main th:replace="${view}"></main>
+
+<footer th:replace="fragments/footer"></footer>
+</body>
+
+<script th:inline="javascript">
+    function initMap() {
+        var lat;
+        var long;
+        /*<![CDATA[*/
+        lat = /*[[${lat1}]]*/ 0;
+        long = /*[[${long1}]]*/ 0;
+        /*]]>*/
+
+        var myCenter = new google.maps.LatLng(lat, long);
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {center: myCenter, zoom: 10};
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var marker = new google.maps.Marker({position: myCenter});
+        marker.setMap(map);
+        google.maps.event.addListener(marker, 'click', function () {
+            var infowindow = new google.maps.InfoWindow({
+                content: "Pari nema deistvaite!!!"
+            });
+            infowindow.open(map, marker);
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW_AEkfqP5zRCJmRmbqRx7giXRRlVWK6o&callback=initMap"></script>
+
+</html>

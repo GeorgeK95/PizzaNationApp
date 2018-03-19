@@ -22,20 +22,22 @@ public class UserController extends BaseController {
 
     @GetMapping("/register")
     public ModelAndView register() {
-        return super.constructStaticModelAndViewResponse(Map.ofEntries(
-                entry("layout", "base-layout"),
-                entry("view", "user/register"),
-                entry("pageTitle", "Register")
+        return super.constructStaticModelAndViewResponse(
+                "base-layout",
+                Map.ofEntries(
+                        entry("view", "user/register"),
+                        entry("pageTitle", "Register")
                 )
         );
     }
 
     @GetMapping("/login")
     public ModelAndView login() {
-        return super.constructStaticModelAndViewResponse(Map.ofEntries(
-                entry("layout", "base-layout"),
-                entry("view", "user/login"),
-                entry("pageTitle", "Log In")
+        return super.constructStaticModelAndViewResponse(
+                "base-layout",
+                Map.ofEntries(
+                        entry("view", "user/login"),
+                        entry("pageTitle", "Log In")
                 )
         );
     }

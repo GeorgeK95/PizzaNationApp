@@ -16,10 +16,11 @@ public class CartController extends BaseController {
 
     @GetMapping("/cart")
     public ModelAndView cart() {
-        return super.constructStaticModelAndViewResponse(Map.ofEntries(
-                entry("layout", "base-layout"),
-                entry("view", "cart/cart"),
-                entry("pageTitle", "Shopping Cart")
+        return super.constructStaticModelAndViewResponse(
+                "base-layout",
+                Map.ofEntries(
+                        entry("view", "cart/cart"),
+                        entry("pageTitle", "Shopping Cart")
                 )
         );
     }

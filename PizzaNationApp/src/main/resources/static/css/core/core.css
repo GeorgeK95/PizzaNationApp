@@ -260,7 +260,7 @@ a.logo {
     display: block;
     width: 120px;
     height: 60px;
-    background: url('../img/logo/pizza-nation-logo.jpg') 0px 0px no-repeat;
+    background: url('../../img/logo/pizza-nation-logo.jpg') 0px 0px no-repeat;
     text-decoration: none;
     text-indent: -9999px;
     float: left;
@@ -463,17 +463,17 @@ span.si_pad {
 }
 
 a.social_icon_facebook {
-    background-image: url('../img/social/facebook.png');
+    background-image: url('../../img/social/facebook.png');
     background-color: #3B5998;
 }
 
 a.social_icon_twitter {
-    background-image: url('../img/social/twitter.png');
+    background-image: url('../../img/social/twitter.png');
     background-color: #56A3D9;
 }
 
 a.social_icon_instagram {
-    background-image: url('../img/social/instagram.png');
+    background-image: url('../../img/social/instagram.png');
     background-color: #CD5959;
 }
 
@@ -597,7 +597,7 @@ a.social_icon_instagram {
         display: block;
         width: 140px;
         height: 70px;
-        background: url('../img/logo/pizza-nation-logo.jpg') 0px 0px no-repeat;
+        background: url('../../img/logo/pizza-nation-logo.jpg') 0px 0px no-repeat;
         text-decoration: none;
         text-indent: -9999px;
         float: left;

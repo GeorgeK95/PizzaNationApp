@@ -1,1 +1,8 @@
 <script th:src="@{/js/jquery-3.2.1.slim.min.js}"></script>
+
+<th:block th:if="${pageScripts} != null" th:each="current: ${pageScripts}">
+    <script th:inline="javascript" th:src="@{${current}}"></script>
+    <th:block th:if="${#strings.equals(current, '/js/map.js')}">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW_AEkfqP5zRCJmRmbqRx7giXRRlVWK6o&callback=initMap"></script>
+    </th:block>
+</th:block>
