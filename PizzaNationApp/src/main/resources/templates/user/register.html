@@ -1,0 +1,154 @@
+<main>
+    <div class="page_bckgrnd_img">
+
+        <div id="" class="wrapper">
+
+            <div class="login_spacer"><!-- --></div>
+
+            <div class="white_page content_on" id="tabpanel_2">
+                <div class="page_pad">
+
+                    <!-- Register -->
+
+                    <div class="align_left">
+                        <h1>Register</h1>
+                        <div class="sep_dash"><!-- sep --></div>
+
+
+                        <form name="reg_register" id="reg_register" method="post"
+                              th:action="@{/register}" onsubmit="">
+                            <div class="form">
+
+                                <table width="100%" cellspacing="0" cellpadding="0" class="padded_table">
+                                    <tbody>
+                                    <tr>
+                                        <td colspan="2">
+                                            <h3>Sign in Details</h3>
+                                            <p>This is how you'll sign in to Pizza Nation.</p>
+                                            <div class="pad5"><!-- spacer --></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%"><p><label for="email">Email*</label></p></td>
+                                        <td width="80%"><input type="email" name="email" id="email" placeholder="Email"
+                                                               value="" class="form_item"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label for="pass1">Password*</label></p></td>
+                                        <td><input type="password" name="pass1" id="pass1" placeholder="Password"
+                                                   value=""
+                                                   class="form_item"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label for="pass2">Repeat Password*</label></p></td>
+                                        <td><input type="password" name="pass2" id="pass2" placeholder="Password"
+                                                   value=""
+                                                   class="form_item"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="sep_dash"><!-- sep --></div>
+                                            <h3>Billing Address</h3>
+                                            <p>Please enter your address as it appears on your credit card.</p>
+                                            <div class="pad5"><!-- spacer --></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label for="first_name">First Name*</label></p></td>
+                                        <td><input type="text" name="first_name" id="first_name"
+                                                   placeholder="Your first name" value="" class="form_item"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label for="last_name">Last Name*</label></p></td>
+                                        <td><input type="text" name="last_name" id="last_name"
+                                                   placeholder="Your last name"
+                                                   value="" class="form_item"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label for="address_1">Door Number*</label></p></td>
+                                        <td><input type="text" name="door_number" id="door_number"
+                                                   placeholder="Door number"
+                                                   value="" class="form_item"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label for="address_1">Street Address*</label></p></td>
+                                        <td><input type="text" name="address_1" id="address_1"
+                                                   placeholder="Street line 1"
+                                                   value="" class="form_item"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label for="address_2">Address line 2</label></p></td>
+                                        <td><input type="text" name="address_2" id="address_2"
+                                                   placeholder="Street line 2"
+                                                   value="" class="form_item"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label for="city">City*</label></p></td>
+                                        <td><input type="text" name="city" id="city" placeholder="City" value=""
+                                                   class="form_item"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label for="postcode">Postcode*</label></p></td>
+                                        <td><input type="text" name="postcode" id="postcode" placeholder="Postcode"
+                                                   value=""
+                                                   class="form_item"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label for="postcode">Gender</label></p></td>
+                                        <td>
+                                            <select name="gender" class="form_item form_item_auto">
+                                                <option value="">-</option>
+                                                <option value="F">Female</option>
+                                                <option value="M">Male</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="sep_dash"><!-- sep --></div>
+                                            <h3>Contact Details</h3>
+                                            <p>Please enter your phone number incase we need to confirm your order.</p>
+                                            <div class="pad5"><!-- spacer --></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label for="phone">Phone*</label></p></td>
+                                        <td><input type="tel" name="phone" id="phone" placeholder="Your phone number"
+                                                   value="" class="form_item"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label>Email newsletters</label></p></td>
+                                        <td><label><input type="checkbox" name="subscribe_email" id="subscribe_email"
+                                                          value="1" checked="checked"> Send me great offers by
+                                            email</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label>Terms*</label></p></td>
+                                        <td><label><input type="checkbox" name="agree" id="agree" value="1"
+                                                          checked="checked"> I agree to the
+                                            Pizza Nation <a th:href="@{/terms}" target="_blank"
+                                                            id="show_terms">Terms</a></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><!-- --></td>
+                                        <td><input type="submit" name="register" id="register"
+                                                   class="button_flat button_flat_red" value="Register"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+
+                        <div class="clear"><!-- clear --></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="clear"><!-- clear --></div>
+        <div class="clear"><!-- clear --></div>
+    </div>
+    </div>
+</main>
