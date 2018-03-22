@@ -15,10 +15,20 @@
                                 about us</a>
                         </div>
                     </div>
+
                     <div class="eb_right" id="play_dough_though" style="background: #FFFFFF;">
+                        <a href="https://www.pizzagogo.co.uk/video/fresh-dough" id="load_dough_though"
+                           onclick="return load_video_in('a#load_dough_though', 'div#play_dough_though');"
+                           data-videowebm="https://www.pizzagogo.co.uk/inc/vid/videos/pgg_dough.webm"
+                           data-videomp4="https://www.pizzagogo.co.uk/inc/vid/videos/pgg_dough.mp4"><img
+                                th:src="@{/img/info/dough.jpg}" width="700" height="350"
+                                alt="Pizza Slice fresh dough, though" title="" border="0"></a>
+                    </div>
+
+                    <!--<div class="eb_right" id="play_dough_though" style="background: #FFFFFF;">
                         <img th:src="@{/img/info/dough.jpg}" width="700" height="350"
                              alt="Pizza Nation fresh dough, though" title="" border="0"/>
-                    </div>
+                    </div>-->
 
                     <div class="clear"><!-- clear --></div>
                 </div>
@@ -30,8 +40,7 @@
                         <div class="eb_text">
                             <h3>Leave some room for dessert!</h3>
                             <p>Our latest delicious desserts are here to give you an unprecedentedly pleasure!</p>
-                            <a th:href="@{menu/desserts}" class="button_flat button_flat_red">Check out
-                                desserts</a>
+                            <a th:href="@{menu/desserts}" class="button_flat button_flat_red">Check it out</a>
                         </div>
                     </div>
                     <div class="eb_left">

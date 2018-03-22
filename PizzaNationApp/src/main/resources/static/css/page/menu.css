@@ -1,4 +1,13 @@
 /*Menu Page Styles*/
+.description {
+    display: none;
+    color: #FFFFFF;
+    background: #EE1B23;
+    position: absolute;
+    border: 0px solid #000;
+    width: 350px;
+    height: 250px;
+}
 
 .menu_item_primary {
     background-image: url('../../img/menu/primary.jpg');

@@ -1,4 +1,7 @@
 <script th:src="@{/js/jquery-3.2.1.slim.min.js}"></script>
+<script th:src="@{/js/video.js}"></script>
+<script th:src="@{/js/hamburger_btn.js}"></script>
+<script th:src="@{/js/menu-elem-descr.js}"></script>
 
 <th:block th:if="${pageScripts} != null" th:each="current: ${pageScripts}">
     <script th:inline="javascript" th:src="@{${current}}"></script>

@@ -3,6 +3,7 @@ package pizzaNation.contoller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -15,5 +16,9 @@ public abstract class BaseController {
         ModelAndView modelAndView = new ModelAndView(viewName);
         attributes.forEach((key, value) -> modelAndView.getModelMap().addAttribute(key, value));
         return modelAndView;
+    }
+
+    protected ModelAndView constructStaticModelAndViewResponse(String viewName) {
+        return this.constructStaticModelAndViewResponse(viewName,new HashMap<>());
     }
 }
