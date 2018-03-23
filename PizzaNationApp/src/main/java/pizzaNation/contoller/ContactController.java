@@ -10,7 +10,6 @@ import pizzaNation.model.request.ContactUsRequestModel;
 
 import javax.validation.Valid;
 
-import java.util.List;
 import java.util.Map;
 
 import static java.util.Map.entry;
@@ -23,15 +22,7 @@ public class ContactController extends BaseController {
 
     @GetMapping("/contactUs")
     public ModelAndView contactUs() {
-        ModelAndView modelAndView = super.constructStaticModelAndViewResponse(
-                "base-layout",
-                Map.ofEntries(
-                        entry("view", "contact/contactUs"),
-                        entry("pageTitle", "Contact us")
-                )
-        );
-        modelAndView.getModelMap().addAttribute("pageStyles", List.of("/css/page/staticStyles.css"));
-        return modelAndView;
+        return super.view(null,Map.ofEntries(entry("pageTitle", "Contact us")));
     }
 
     @PostMapping("/contactUs")

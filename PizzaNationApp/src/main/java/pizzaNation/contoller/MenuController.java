@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
 import java.util.Map;
 
 import static java.util.Map.entry;
@@ -16,15 +15,7 @@ import static java.util.Map.entry;
 public class MenuController extends BaseController {
     @GetMapping("menu")
     public ModelAndView menu() {
-        ModelAndView modelAndView = super.constructStaticModelAndViewResponse(
-                "base-layout",
-                Map.ofEntries(
-                        entry("view", "menu/menu"),
-                        entry("pageTitle", "Menu")
-                )
-        );
-        modelAndView.getModelMap().addAttribute("pageStyles", List.of("/css/page/menu.css"));
-        return modelAndView;
+        return super.view(null,Map.ofEntries(entry("pageTitle", "Menu")));
     }
 
 }

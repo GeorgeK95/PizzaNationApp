@@ -1,6 +1,4 @@
-/*
-	App core style
-*/
+/*Core styles*/
 html, body {
     background: #F1F2F2;
     font-size: 14px;
@@ -10,16 +8,6 @@ html, body {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     text-align: center;
-}
-
-::-moz-selection {
-    background: #EE1B23;
-    color: #FFFFFF;
-}
-
-::selection {
-    background: #EE1B23;
-    color: #FFFFFF;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -63,40 +51,6 @@ a {
     text-decoration: none;
     -webkit-transition: 0.25s;
     transition: 0.25s;
-}
-
-a:hover {
-    color: #EE1B23;
-}
-
-ul {
-    margin: 0 0 20px 0;
-}
-
-ul.standard li {
-    list-style: square;
-    font-size: 16px;
-    line-height: 1.6em;
-    margin: 0 0 15px 0;
-    color: #444444;
-    font-family: 'Open Sans', arial, serif;
-}
-
-ul.non_standard li {
-    list-style: none;
-    font-size: 16px;
-    line-height: 1.6em;
-    margin: 0 0 10px 0;
-    color: #444444;
-    font-family: 'Open Sans', arial, serif;
-}
-
-div#ui_mask,
-div.ui_mask {
-    filter: alpha(opacity=60);
-    opacity: 0.6;
-    position: absolute;
-    z-index: 5000;
 }
 
 div.info_page_text {
@@ -183,31 +137,6 @@ div.page_pad_smalltop {
 
 .offset_page {
     background: #F1F2F2;
-}
-
-.poly_page {
-}
-
-.red_page {
-    background: #E0121A;
-}
-
-.shadow_element {
-    -moz-box-shadow: 0 2px 0 rgba(29, 29, 33, 0.07);
-    -webkit-box-shadow: 0 2px 0 rgba(29, 29, 33, 0.07);
-    box-shadow: 0 2px 0 rgba(29, 29, 33, 0.07);
-}
-
-.shadow_element_large {
-    -moz-box-shadow: 2px 2px 5px rgba(29, 29, 33, 0.1);
-    -webkit-box-shadow: 2px 2px 5px rgba(29, 29, 33, 0.1);
-    box-shadow: 2px 2px 5px rgba(29, 29, 33, 0.1);
-}
-
-.shadow_element_heavy {
-    -moz-box-shadow: 2px 2px 5px rgba(29, 29, 33, 0.5);
-    -webkit-box-shadow: 2px 2px 5px rgba(29, 29, 33, 0.5);
-    box-shadow: 2px 2px 5px rgba(29, 29, 33, 0.5);
 }
 
 div.align_left {
@@ -477,10 +406,7 @@ a.social_icon_instagram {
     background-color: #CD5959;
 }
 
-/*
-	Responsive
-*/
-
+/*Responsive*/
 @media only screen and (min-width: 1200px) and (max-width: 1500px) {
     div.wrapper {
         width: 1100px;
@@ -499,7 +425,7 @@ a.social_icon_instagram {
     }
 }
 
-/* Desktops */
+/*Desktops*/
 @media only screen and (min-width: 980px) and (max-width: 1199px) {
     div.wrapper {
         width: 970px;
@@ -518,7 +444,7 @@ a.social_icon_instagram {
     }
 }
 
-/* iPad (or small monitor) Styles */
+/*iPad Styles*/
 @media only screen and (min-width: 768px) and (max-width: 979px) {
     div.wrapper {
         width: 750px;
@@ -537,7 +463,7 @@ a.social_icon_instagram {
     }
 }
 
-/* Mobile Styles */
+/*Mobile Styles*/
 @media only screen and (min-width: 0px) and (max-width: 767px) {
     div.wrapper,
     div.mini_wrapper {
@@ -643,7 +569,7 @@ a.social_icon_instagram {
 
     p.footer_copy {
         color: #555555;
-        font-size: 12px;
+        font-size: 14px;
         margin: 5px;
     }
 
@@ -734,4 +660,175 @@ a.social_icon_instagram {
         display: inline-block;
         padding: 0;
     }
+}
+
+/************************************BASE**************************************************/
+/* Reset */
+html, body, div, span, applet, object, iframe,
+    /*h1, h2, h3, h4, h5, h6, p,a,*/
+blockquote, pre,
+abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.footer-credits {
+    font-size: 25px;
+}
+
+div.clear {
+    clear: both;
+}
+
+span.clear {
+    display: block;
+    clear: both;
+}
+
+div.pad5 {
+    padding: 5px;
+}
+
+div.pad10 {
+    padding: 10px;
+}
+
+div.pad40 {
+    padding: 40px;
+}
+
+/****************FORMS******************/
+/*App Forms styles*/
+
+input[type='submit'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.button_flat {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #CCCCCC;
+    display: inline-block;
+    border-radius: 2px;
+    border: 1px solid #999999;
+    box-shadow: inset 0px 1px rgba(255, 255, 255, 0.1);
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4em;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.3s;
+    text-align: center;
+    margin: 0;
+    cursor: pointer;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.button_flat:hover {
+    color: #FFFFFF;
+}
+
+/* Green */
+.button_flat_green {
+    color: #FFFFFF;
+    background-color: #2ecc71;
+    border-color: #21BF64;
+
+    background-color: #3CB600;
+    border-color: #38A900;
+}
+
+.button_flat_green:hover {
+    color: #FFFFFF;
+    background-color: #45D200;
+    border-color: #38A900;
+}
+
+.button_flat_green:active {
+    background-color: #38A900;
+}
+
+/* Red */
+.button_flat_red {
+    color: #FFFFFF;
+    background-color: #EE1B23;
+    border-color: #DA040C;
+}
+
+.button_flat_red:hover {
+    color: #FFFFFF;
+    background-color: #FC3E45;
+    border-color: #DA040C;
+}
+
+.button_flat_red:active {
+    background-color: #DA040C;
+}
+
+/* FORMS */
+.form_item {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 12px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #CCC;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    margin: 0;
+}
+
+.form label {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.5em;
+    margin: 0 0 5px 3px;
+    color: #888888;
+    display: block;
+}
+
+div.form_security img {
+    float: left;
+    margin: 0 10px 0 0;
 }

@@ -4,23 +4,21 @@
 <head th:replace="fragments/head" th:with="pageTitle='${pageTitle}'"></head>
 
 <body>
-<header th:replace="fragments/header"></header>
+<!--<header th:replace="fragments/header"></header>-->
 
-<main th:replace="${view}"></main>
+<main th:replace="${mapView}"></main>
 
 <footer th:replace="fragments/footer"></footer>
 </body>
 
 <script th:inline="javascript">
     function initMap() {
-        var lat;
-        var long;
+        var destination;
         /*<![CDATA[*/
-        lat = /*[[${lat1}]]*/ 0;
-        long = /*[[${long1}]]*/ 0;
+        destination = /*[[${model}]]*/ null;
         /*]]>*/
 
-        var myCenter = new google.maps.LatLng(lat, long);
+        var myCenter = new google.maps.LatLng(destination.x, destination.y);
         var mapCanvas = document.getElementById("map");
         var mapOptions = {center: myCenter, zoom: 10};
         var map = new google.maps.Map(mapCanvas, mapOptions);

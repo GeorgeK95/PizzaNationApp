@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
 import java.util.Map;
 
 import static java.util.Map.entry;
@@ -17,14 +16,6 @@ public class AboutController extends BaseController {
 
     @GetMapping("/about")
     public ModelAndView about() {
-        ModelAndView modelAndView = super.constructStaticModelAndViewResponse(
-                "base-layout",
-                Map.ofEntries(
-                        entry("view", "about/about"),
-                        entry("pageTitle", "About us")
-                )
-        );
-        modelAndView.getModelMap().addAttribute("pageStyles", List.of("/css/page/staticStyles.css"));
-        return modelAndView;
+        return super.view(null,Map.ofEntries(entry("pageTitle", "About Us")));
     }
 }

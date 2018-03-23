@@ -2,14 +2,15 @@
     <meta charset="UTF-8"/>
     <title th:if="${pageTitle}" th:text="${pageTitle}"></title>
 
-    <link th:href="@{/css/core/base12.css}" rel="stylesheet" type="text/css"/>
-    <link th:href="@{/css/core/forms.css}" rel="stylesheet" type="text/css"/>
-    <link th:href="@{/css/core/core12.css}" rel="stylesheet" type="text/css"/>
-
+    <!--API-->
     <link th:href="@{/css/api/ionicons.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/api/fonts-googleapis.css}" rel="stylesheet" type="text/css"/>
 
-    <th:block th:if="${pageStyles} != null" th:each="current: ${pageStyles}">
+    <!--CORE-->
+    <link th:href="@{/css/core/core.css}" rel="stylesheet" type="text/css"/>
+
+    <!--REQUIRED FROM CONTROLLER-->
+    <th:block th:if="${pageStyle} != null" th:each="current: ${pageStyle}">
         <link th:href="@{${current}}" rel="stylesheet" type="text/css"/>
     </th:block>
 </head>
