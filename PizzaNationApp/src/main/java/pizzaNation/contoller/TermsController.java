@@ -7,6 +7,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Map;
 
 import static java.util.Map.entry;
+import static pizzaNation.util.WebConstants.PAGE_TITLE_STR;
+import static pizzaNation.util.WebConstants.TERMS_AND_CONDITIONS_PAGE_TITLE;
+import static pizzaNation.util.WebConstants.TERMS_URL;
 
 /**
  * Created by George-Lenovo on 15/03/2018.
@@ -14,8 +17,8 @@ import static java.util.Map.entry;
 @Controller
 public class TermsController extends BaseController {
 
-    @GetMapping("/terms")
+    @GetMapping(TERMS_URL)
     public ModelAndView terms() {
-        return super.view(null, Map.ofEntries(entry("pageTitle", "Terms and Conditions")));
+        return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, TERMS_AND_CONDITIONS_PAGE_TITLE)));
     }
 }

@@ -8,6 +8,7 @@ import pizzaNation.model.response.StoreResponseModel;
 import java.util.Map;
 
 import static java.util.Map.entry;
+import static pizzaNation.util.WebConstants.*;
 
 /**
  * Created by George-Lenovo on 15/03/2018.
@@ -15,10 +16,9 @@ import static java.util.Map.entry;
 @Controller
 public class StoresController extends BaseController {
 
-
-    @GetMapping("/stores")
+    @GetMapping(STORES_URL)
     public ModelAndView stores() {
         StoreResponseModel m = new StoreResponseModel(42.156429, 24.731036);
-        return super.view(m, Map.ofEntries(entry("pageTitle", "Our Stores"), entry("mapView", "stores/map")));
+        return super.view(m, Map.ofEntries(entry(PAGE_TITLE_STR, OUR_STORES_PAGE_TITLE), entry(MAP_VIEW_STR, STORES_MAP_PAGE_TITLE)));
     }
 }

@@ -7,6 +7,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Map;
 
 import static java.util.Map.entry;
+import static pizzaNation.util.WebConstants.CART_URL;
+import static pizzaNation.util.WebConstants.PAGE_TITLE_STR;
+import static pizzaNation.util.WebConstants.SHOPPING_CART_PAGE_TITLE;
 
 /**
  * Created by George-Lenovo on 15/03/2018.
@@ -14,8 +17,8 @@ import static java.util.Map.entry;
 @Controller
 public class CartController extends BaseController {
 
-    @GetMapping("/cart")
+    @GetMapping(CART_URL)
     public ModelAndView cart() {
-        return super.view(null,Map.ofEntries(entry("pageTitle", "Shopping Cart")));
+        return super.view(null,Map.ofEntries(entry(PAGE_TITLE_STR, SHOPPING_CART_PAGE_TITLE)));
     }
 }

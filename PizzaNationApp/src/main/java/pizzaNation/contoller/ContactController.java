@@ -13,6 +13,9 @@ import javax.validation.Valid;
 import java.util.Map;
 
 import static java.util.Map.entry;
+import static pizzaNation.util.WebConstants.CONTACT_US_PAGE_TITLE;
+import static pizzaNation.util.WebConstants.CONTACT_US_URL;
+import static pizzaNation.util.WebConstants.PAGE_TITLE_STR;
 
 /**
  * Created by George-Lenovo on 14/03/2018.
@@ -20,12 +23,12 @@ import static java.util.Map.entry;
 @Controller
 public class ContactController extends BaseController {
 
-    @GetMapping("/contactUs")
+    @GetMapping(CONTACT_US_URL)
     public ModelAndView contactUs() {
-        return super.view(null,Map.ofEntries(entry("pageTitle", "Contact us")));
+        return super.view(null,Map.ofEntries(entry(PAGE_TITLE_STR, CONTACT_US_PAGE_TITLE)));
     }
 
-    @PostMapping("/contactUs")
+    @PostMapping(CONTACT_US_URL)
     public ModelAndView contactUsProcess(@Valid @ModelAttribute ContactUsRequestModel bindingModel, BindingResult bindingResult) {
         return new ModelAndView();
     }

@@ -832,3 +832,7 @@ div.form_security img {
     float: left;
     margin: 0 10px 0 0;
 }
+/*Tables Padding Style*/
+table.padded_table tr td {
+    padding: 6px;
+}

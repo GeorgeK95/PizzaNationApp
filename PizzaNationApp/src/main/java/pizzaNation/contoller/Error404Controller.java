@@ -8,19 +8,20 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Map;
 
 import static java.util.Map.entry;
+import static pizzaNation.util.WebConstants.ERROR_URL;
+import static pizzaNation.util.WebConstants.NOT_FOUND_PAGE_TITLE;
+import static pizzaNation.util.WebConstants.PAGE_TITLE_STR;
 
 @RestController
 public class Error404Controller extends BaseController implements ErrorController {
 
-    private static final String PATH = "/error";
-
-    @RequestMapping(value = PATH)
+    @RequestMapping(value = ERROR_URL)
     public ModelAndView error404() {
-        return super.view(null,Map.ofEntries(entry("pageTitle", "Page Not Found")));
+        return super.view(null,Map.ofEntries(entry(PAGE_TITLE_STR, NOT_FOUND_PAGE_TITLE)));
     }
 
     @Override
     public String getErrorPath() {
-        return PATH;
+        return ERROR_URL;
     }
 }
