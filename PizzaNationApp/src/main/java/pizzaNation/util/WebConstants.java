@@ -6,8 +6,12 @@ package pizzaNation.util;
 public final class WebConstants {
 
     //paths
-    static final String CSS_PAGE_FILES = "E:\\GITHUB\\PizzaNationApp\\PizzaNationApp\\src\\main\\resources\\static\\css\\page";
-    static final String JS_PAGE_FILES = "E:\\GITHUB\\PizzaNationApp\\PizzaNationApp\\src\\main\\resources\\static\\js\\page";
+    public static final String CSS_PAGE_FILES = System.getProperty("user.dir").concat("\\src\\main\\resources\\static\\css\\page");
+    public static final String JS_PAGE_FILES = System.getProperty("user.dir").concat("\\src\\main\\resources\\static\\js\\page");
+
+
+    public static final String CSS_PAGE_DIR = "/css/page/";
+    public static final String JS_PAGE_DIR = "/js/page/";
 
     //URL-s
     public static final String ERROR_URL = "/error";
@@ -45,6 +49,7 @@ public final class WebConstants {
     public static final String PAGE_STYLE_STR = "pageStyle";
     public static final String PAGE_SCRIPT_STR = "pageScript";
     public static final String VIEW_STR = "view";
+    public static final String EMPTY_STR = "";
 
     //Extensions
     public static final String CSS_EXTENSION = ".css";

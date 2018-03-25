@@ -1,12 +1,10 @@
 package pizzaNation.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import pizzaNation.model.PeshoModel;
 
 @Configuration
 @EnableWebSecurity
@@ -32,21 +30,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf()
                 .disable();*/
-    }
-
-//    @Bean
-//    public StaticFilesContainer getStaticFilesContainer() {
-//        StaticFilesContainer filesContainer = new StaticFilesContainer();
-//        filesContainer.setCssFiles(DirectoryScanner.getDirectoryFilesNames(CSS_PAGE_FILES));
-//        filesContainer.setJsFiles(DirectoryScanner.getDirectoryFilesNames(JS_PAGE_FILES));
-//        return filesContainer;
-//    }
-
-    //ako stane,nov config file i tam
-    @Bean
-    public PeshoModel getPeshoModel() {
-        PeshoModel peshoModel = new PeshoModel();
-        peshoModel.setEmail("pecata_ludq@abv.bg");
-        return peshoModel;
     }
 }

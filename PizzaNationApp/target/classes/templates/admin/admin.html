@@ -1,3 +1,25 @@
 <main>
-    admin panel in process
+    <div class="page_bckgrnd_img">
+        <div class="wrapper">
+            <div id="menu_page">
+
+                <th:block th:each="i: ${#numbers.sequence(0, 8)}">
+                    <div class="menu_item menu_item_third">
+                        <div class="menu_item_pad">
+                            <div class="menu_inner menu_hover shadow_element menu_item_secondary">
+                                <div class="menu_title">
+                                    <div class="menu_title_pad">
+                                        <h3>Desserts</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </th:block>
+
+                <div class="clear"><!-- clear --></div>
+
+            </div>
+        </div>
+    </div>
 </main>

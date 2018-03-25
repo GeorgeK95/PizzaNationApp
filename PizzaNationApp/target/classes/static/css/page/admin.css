@@ -1,0 +1,88 @@
+/*Menu Style*/
+.menu_item_secondary {
+    background-image: url('../../img/menu/secondary.jpg');
+}
+
+div#menu_page {
+    padding: 20px 0 20px 0;
+}
+
+div.menu_item {
+    float: left;
+}
+
+div.menu_item_third {
+    width: 33.3%;
+}
+
+div.menu_item_pad {
+    padding: 8px;
+    padding: 12px;
+}
+
+div.menu_inner {
+    background: #FFFFFF;
+    position: relative;
+
+    background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+}
+
+div.menu_item_third div.menu_inner,
+div.menu_item_third div.menu_inner_quick,
+div.menu_item_third div.menu_inner a {
+    height: 200px;
+}
+
+div.menu_title {
+    position: absolute;
+    z-index: 100;
+    width: 90%;
+    left: 5%;
+    height: 46px;
+
+    background: #FFFFFF;
+    background: rgba(255, 255, 255, 0.8);
+
+    background: #E0121A;
+    background: rgba(224, 18, 26, 0.8);
+
+    background: #0054A5;
+    background: rgba(0, 84, 165, 0.8);
+
+    background: #333333;
+    background: rgba(51, 51, 51, 0.6);
+
+    -webkit-transition: 0.15s;
+    transition: 0.25s;
+
+    text-align: center;
+}
+
+div.menu_hover:hover div.menu_title {
+    background: rgba(51, 51, 51, 1);
+    background: #e0121a;
+}
+
+div.menu_item_third div.menu_title {
+    top: 135px;
+}
+
+div.menu_title_pad {
+    padding: 10px;
+}
+
+div.menu_title h2,
+div.menu_title h3 {
+    font-size: 26px;
+    margin: 0;
+    line-height: 1em;
+
+    color: #ec0d0d;
+    color: #FFFFFF;
+}

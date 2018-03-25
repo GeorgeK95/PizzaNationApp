@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+>
 
 <head th:replace="fragments/head" th:with="pageTitle='${pageTitle}'"></head>
 
@@ -9,6 +9,8 @@
 <header th:replace="fragments/header"></header>
 
 <main th:replace="${view}"></main>
+
+<button onclick="topFunction()" id="gotoTopBtn">Home</button>
 
 <footer th:replace="fragments/footer"></footer>
 
