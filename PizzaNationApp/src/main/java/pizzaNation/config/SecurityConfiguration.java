@@ -13,15 +13,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest().permitAll();
-        /*http.authorizeRequests()
-                .antMatchers("/").permitAll();
+//        http.authorizeRequests().anyRequest().permitAll();
+        http.authorizeRequests()
+                .antMatchers("/", "/menu", "/map", "/cart","/about","/terms","/contactUs").permitAll()
                 .antMatchers("/register", "/login").access("isAnonymous()")
-                .antMatchers("/viruses/show", "/logout").access("isAuthenticated()")
-                .antMatchers("/viruses/**").access("hasAnyRole('ROLE_MODERATOR', 'ROLE_ADMIN')")
+                .antMatchers("/logout").access("isAuthenticated()")
+                .antMatchers("/admin/**").access("hasAnyRole('ROLE_ADMIN')")
                 .and()
                 .formLogin().loginPage("/login")
-                .usernameParameter("username")
+                .usernameParameter("email")
                 .passwordParameter("password")
                 .and()
                 .logout().logoutSuccessUrl("/login?logout").permitAll()
@@ -29,6 +29,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().accessDeniedPage("/unauthorized")
                 .and()
                 .csrf()
-                .disable();*/
+                .disable();
     }
 }

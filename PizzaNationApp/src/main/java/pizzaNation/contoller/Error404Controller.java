@@ -17,7 +17,7 @@ public class Error404Controller extends BaseController implements ErrorControlle
 
     @RequestMapping(value = ERROR_URL)
     public ModelAndView error404() {
-        return super.view(null,Map.ofEntries(entry(PAGE_TITLE_STR, NOT_FOUND_PAGE_TITLE)));
+        return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, NOT_FOUND_PAGE_TITLE)));
     }
 
     @Override

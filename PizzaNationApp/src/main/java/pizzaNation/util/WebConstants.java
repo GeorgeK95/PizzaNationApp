@@ -5,11 +5,11 @@ package pizzaNation.util;
  */
 public final class WebConstants {
 
-    //paths
+    //Paths
     public static final String CSS_PAGE_FILES = System.getProperty("user.dir").concat("\\src\\main\\resources\\static\\css\\page");
     public static final String JS_PAGE_FILES = System.getProperty("user.dir").concat("\\src\\main\\resources\\static\\js\\page");
 
-
+    //Static resources dir
     public static final String CSS_PAGE_DIR = "/css/page/";
     public static final String JS_PAGE_DIR = "/js/page/";
 
@@ -50,10 +50,23 @@ public final class WebConstants {
     public static final String PAGE_SCRIPT_STR = "pageScript";
     public static final String VIEW_STR = "view";
     public static final String EMPTY_STR = "";
+    public static final String REDIRECT_STR = "redirect:";
 
     //Extensions
     public static final String CSS_EXTENSION = ".css";
     public static final String JS_EXTENSION = ".js";
+
+    //Errors
+    public static final String USER_REGISTER_ERROR = "user_register_error";
+
+    //Messages
+    public static final String PASSWORD_MISMATCH_MESSAGE = "Password mismatch.";
+    public static final String MUST_NOT_BE_BLANK_MESSAGE = "must not be blank";
+    public static final String MUST_NOT_BE_NULL_MESSAGE = "must not be null";
+    public static final String COMPLETE_ALL_FIELDS_MESSAGE = "Please complete all required fields.";
+
+    //Models
+    public static final String USER_REGISTER_REQUEST_MODEL = "userRegisterRequestModel";
 
     private WebConstants() {
     }

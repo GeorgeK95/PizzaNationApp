@@ -115,3 +115,32 @@ div.form_security img {
     float: left;
     margin: 0 10px 0 0;
 }
+
+/* Boxes */
+.errorbox {
+    color: #D8000C;
+    background-color: #FFBABA;
+    border: 1px solid;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.5em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.errorbox p {
+    color: #D8000C;
+    font-size: 12px;
+    margin: 0;
+}
+
+.errorbox a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.errorbox a:hover {
+    color: #333333;
+    text-decoration: underline;
+}

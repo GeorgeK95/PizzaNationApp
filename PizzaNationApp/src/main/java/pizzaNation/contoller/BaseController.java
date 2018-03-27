@@ -46,6 +46,10 @@ public abstract class BaseController {
         return modelAndView;
     }
 
+    protected ModelAndView redirect(String redirectUrl) {
+        return new ModelAndView(REDIRECT_STR.concat(redirectUrl));
+    }
+
     private void addAttributes(String viewName, ModelAndView modelAndView) {
         String viewSimpleName = viewName.split(SLASH_STR)[0];
 
