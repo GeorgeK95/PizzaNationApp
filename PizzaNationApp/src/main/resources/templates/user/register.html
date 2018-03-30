@@ -34,8 +34,7 @@
                                         <td width="20%"><p><label for="email">Email*</label></p></td>
                                         <td width="80%">
                                             <input type="email" name="email" id="email" placeholder="Email"
-                                                   class="form_item" th:field="*{email}"
-                                            >
+                                                   class="form_item" th:field="*{email}" required="required">
                                         </td>
                                     </tr>
                                     <tr>
@@ -43,8 +42,7 @@
                                         <td>
                                             <input type="password" name="password" id="password" placeholder="Password"
                                                    th:field="*{password}"
-                                                   class="form_item"
-                                            >
+                                                   class="form_item" required="required">
                                         </td>
                                     </tr>
                                     <tr>
@@ -52,7 +50,7 @@
                                         <td><input type="password" name="confirmPassword" id="confirmPassword"
                                                    placeholder="Password"
                                                    th:field="*{confirmPassword}"
-                                                   class="form_item"></td>
+                                                   class="form_item" required="required"></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">
@@ -66,64 +64,68 @@
                                         <td><p><label for="firstName">First Name*</label></p></td>
                                         <td><input type="text" name="firstName" id="firstName"
                                                    placeholder="Your first name" th:field="*{firstName}"
-                                                   class="form_item"></td>
+                                                   class="form_item" required="required"></td>
                                     </tr>
                                     <tr>
                                         <td><p><label for="lastName">Last Name*</label></p></td>
                                         <td><input type="text" name="lastName" id="lastName"
                                                    placeholder="Your last name" th:field="*{lastName}"
-                                                   class="form_item"></td>
+                                                   class="form_item" required="required"></td>
                                     </tr>
                                     <tr>
                                         <td><p><label for="address">Address*</label></p></td>
                                         <td><input type="text" name="address" id="address"
                                                    placeholder="Address" class="form_item"
-                                                   th:field="*{address}"></td>
+                                                   th:field="*{address}" required="required"></td>
                                     </tr>
                                     <tr>
                                         <td><p><label for="city">City*</label></p></td>
                                         <td><input type="text" name="city" id="city" placeholder="City"
                                                    th:field="*{city}"
-                                                   class="form_item"></td>
+                                                   class="form_item" required="required"></td>
                                     </tr>
-                                    <!--<tr>
+                                    <tr>
                                         <td><p><label for="gender">Gender</label></p></td>
                                         <td>
                                             <select id="gender" name="gender" class="form_item form_item_auto"
-                                                    th:field="*{gender}">
-                                                <option value="Female">Female</option>
-                                                <option value="Male">Male</option>
+                                                    th:field="*{gender}" required="required">
+                                                <option th:each="gender : ${gendersList}" th:value="${gender}"
+                                                        th:text="${#strings.capitalize(#strings.toLowerCase(gender))}">1
+                                                </option>
                                             </select>
                                         </td>
                                     </tr>
-                                     <tr>
-                                         <td colspan="2">
-                                             <div class="sep_dash">sep</div>
-                                             <h3>Contact Details</h3>
-                                             <p>Please enter your phone number incase we need to confirm your order.</p>
-                                             <div class="pad5">&lt;!&ndash; spacer &ndash;&gt;</div>
-                                         </td>
-                                     </tr>
-                                     <tr>
-                                         <td><p><label for="phone">Phone*</label></p></td>
-                                         <td><input type="text" name="phone" id="phone"
-                                                    placeholder="1234567890, (123)5467890, (123)456-7890, (123)4567890"
-                                                    value="" class="form_item"></td>
-                                     </tr>
-                                     <tr>
-                                         <td><p><label>Email newsletters</label></p></td>
-                                         <td><label><input type="checkbox" name="subscribe_email" id="subscribe_email"
-                                                           value="1" checked="checked"> Send me great offers by
-                                             email</label>
-                                         </td>
-                                     </tr>
-                                     <tr>
-                                         <td><p><label>Terms*</label></p></td>
-                                         <td><label><input type="checkbox" name="agree" id="agree" value="1"
-                                                           checked="checked"> I agree to the
-                                             Pizza Nation <a th:href="@{/terms}" target="_blank"
-                                                             id="show_terms">Terms</a></label></td>
-                                     </tr>-->
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="sep_dash">sep</div>
+                                            <h3>Contact Details</h3>
+                                            <p>Please enter your phone number incase we need to confirm your order.</p>
+                                            <div class="pad5"><!--spacer--></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label for="phone">Phone*</label></p></td>
+                                        <td><input type="text" name="phone" id="phone"
+                                                   placeholder="1234567890, (123)5467890, (123)456-7890, (123)4567890"
+                                                   value="" class="form_item" th:field="*{phone}" required="required">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label>Email newsletters</label></p></td>
+                                        <td><label><input type="checkbox" name="subscribe_email" id="subscribe_email"
+                                                          value="1" checked="checked" th:field="*{emailNewsletters}">
+                                            Send me great offers by
+                                            email</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><label>Terms*</label></p></td>
+                                        <td><label><input type="checkbox" name="agree" id="agree" value="1"
+                                                          checked="checked" th:field="*{terms}" required="required"> I
+                                            agree to the
+                                            Pizza Nation <a th:href="@{/terms}" target="_blank"
+                                                            id="show_terms">Terms</a></label></td>
+                                    </tr>
                                     <tr>
                                         <td><!-- --></td>
                                         <td><input type="submit" name="register" id="register"

@@ -17,13 +17,14 @@
 
 
                     <div class="pad10"><!-- spacer --></div>
+
                     <div class="pad10"><!-- spacer --><h3>What is your Email regarding?</h3></div>
 
                     <a name="contactform"></a>
                     <div id="send_form" class="content_off" style="display: block;">
 
                         <form name="sendmessage" id="sendmessage" method="post"
-                              th:action="@{/contactUs}" onsubmit="">
+                              th:action="@{/contactUs}" th:object="${model}" onsubmit="">
                             <table width="100%" cellspacing="0" cellpadding="0" class="padded_table">
                                 <tbody>
                                 <tr>
@@ -34,8 +35,8 @@
                                             <option value="0">Please select</option>
                                             <option value="1">Customer feedback / support</option>
                                             <option value="4">Products feedback / support</option>
-                                            <option value="2">Franchise opportunities</option>
-                                            <option value="3">Marketing opportunities</option>
+                                            <!--<option value="2">Franchise opportunities</option>
+                                            <option value="3">Marketing opportunities</option>-->
                                         </select><br><br>
 
                                     </td>
@@ -43,31 +44,28 @@
                                 <tr>
                                     <td width="15%">Name*</td>
                                     <td width="85%"><input type="text" name="name" placeholder="Your name"
-                                                           class="form_item"
-                                                           value=""></td>
+                                                           class="form_item" th:field="*{name}"></td>
                                 </tr>
                                 <tr>
                                     <td>Email*</td>
                                     <td><input type="email" name="email" placeholder="Your Email" class="form_item"
-                                               value=""></td>
+                                               th:field="*{email}"></td>
                                 </tr>
                                 <tr>
                                     <td>Phone</td>
                                     <td><input type="tel" name="phone" placeholder="Your phone number (optional)"
-                                               class="form_item" value=""></td>
+                                               class="form_item" th:field="*{phone}"></td>
                                 </tr>
 
                                 <tr>
                                     <td>Message*</td>
-                                    <td colspan="2"><textarea name="message" class="form_item"
+                                    <td colspan="2"><textarea name="message" class="form_item" th:field="*{message}"
                                                               placeholder="Your message"></textarea></td>
                                 </tr>
 
                                 <tr>
                                     <td colspan="2"><input type="hidden" name="sendmessage" value="1"><input
-                                            type="submit"
-                                            name="submit"
-                                            class="button_flat button_flat_green"
+                                            type="submit" name="submit" class="button_flat button_flat_green"
                                             value="Send message">
                                     </td>
                                 </tr>

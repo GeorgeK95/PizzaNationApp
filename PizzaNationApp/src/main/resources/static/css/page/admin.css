@@ -1,88 +1,119 @@
-/*Menu Style*/
-.menu_item_secondary {
-    background-image: url('../../img/menu/secondary.jpg');
-}
+/* Admin Style */
 
-div#menu_page {
-    padding: 20px 0 20px 0;
-}
-
-div.menu_item {
+div.account_box_wrap {
+    width: 30%;
     float: left;
 }
 
-div.menu_item_third {
-    width: 33.3%;
-}
-
-div.menu_item_pad {
-    padding: 8px;
-    padding: 12px;
-}
-
-div.menu_inner {
+div.account_box,
+div.account_box_nonlink {
     background: #FFFFFF;
+    margin: 5px;
     position: relative;
-
-    background-color: #FFFFFF;
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-}
-
-div.menu_item_third div.menu_inner,
-div.menu_item_third div.menu_inner_quick,
-div.menu_item_third div.menu_inner a {
-    height: 200px;
-}
-
-div.menu_title {
-    position: absolute;
-    z-index: 100;
-    width: 90%;
-    left: 5%;
-    height: 46px;
-
-    background: #FFFFFF;
-    background: rgba(255, 255, 255, 0.8);
-
-    background: #E0121A;
-    background: rgba(224, 18, 26, 0.8);
-
-    background: #0054A5;
-    background: rgba(0, 84, 165, 0.8);
-
-    background: #333333;
-    background: rgba(51, 51, 51, 0.6);
-
-    -webkit-transition: 0.15s;
-    transition: 0.25s;
-
     text-align: center;
 }
 
-div.menu_hover:hover div.menu_title {
-    background: rgba(51, 51, 51, 1);
-    background: #e0121a;
+div.account_box_nonlink a.red_button {
+    float: right;
+    margin: 0 0 10px 10px;
 }
 
-div.menu_item_third div.menu_title {
-    top: 135px;
+div.account_box i.account_icon {
+    position: absolute;
+    top: 35%;
+    left: 5%;
+    font-size: 40px;
+    color: #CCCCCC;
+    z-index: 200;
 }
 
-div.menu_title_pad {
-    padding: 10px;
+div.account_box a {
+    display: block;
+    position: relative;
+    z-index: 300;
+    text-decoration: none;
+    width: 100%;
+    padding: 40px 0 40px 0;
 }
 
-div.menu_title h2,
-div.menu_title h3 {
-    font-size: 26px;
-    margin: 0;
-    line-height: 1em;
+div.account_box a span.title,
+div.account_box_nonlink span.title {
+    display: block;
+    padding: 7px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #222222;
+}
 
-    color: #ec0d0d;
-    color: #FFFFFF;
+div.account_box a span.desc,
+div.account_box_nonlink span.desc {
+    display: block;
+    padding: 7px;
+    font-weight: normal;
+    font-size: 12px;
+    color: #444444;
+}
+
+/* Responsive */
+@media only screen and (min-width: 980px) {
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+    div.account_box_wrap {
+        width: 40%;
+    }
+}
+
+@media only screen and (min-width: 475px) and (max-width: 767px) {
+    div.account_box_wrap {
+        width: 100%;
+        float: none;
+    }
+
+    div.account_circle {
+        width: 140px;
+        height: 140px;
+        margin: 30px auto 30px auto;
+        -moz-border-radius: 80px;
+        -webkit-border-radius: 80px;
+        border-radius: 80px;
+        display: inline-block;
+    }
+
+}
+
+@media only screen and (min-width: 0px) and (max-width: 474px) {
+    div.account_box_wrap {
+        width: 100%;
+        float: none;
+    }
+
+    div.account_circle {
+        width: 140px;
+        height: 140px;
+        margin: 30px auto 30px auto;
+        -moz-border-radius: 80px;
+        -webkit-border-radius: 80px;
+        border-radius: 80px;
+        display: inline-block;
+    }
+}
+
+/*TABLE*/
+table {
+    text-align: center;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }

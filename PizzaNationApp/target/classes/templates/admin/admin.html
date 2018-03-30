@@ -1,25 +1,40 @@
 <main>
-    <div class="page_bckgrnd_img">
-        <div class="wrapper">
-            <div id="menu_page">
+    <div class="wrapper">
 
-                <th:block th:each="i: ${#numbers.sequence(0, 8)}">
-                    <div class="menu_item menu_item_third">
-                        <div class="menu_item_pad">
-                            <div class="menu_inner menu_hover shadow_element menu_item_secondary">
-                                <div class="menu_title">
-                                    <div class="menu_title_pad">
-                                        <h3>Desserts</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </th:block>
+        <div class="pad25"></div>
 
-                <div class="clear"><!-- clear --></div>
-
+        <div class="account_box_wrap">
+            <div class="account_box curve_me_3 shadow_element scale_me_hover">
+                <a href="/admin/stores/all">
+                    <i class="account_icon ion-location"></i>
+                    <span class="title">Stores</span>
+                    <span class="desc">Add, Edit, Delete stores.</span>
+                </a>
             </div>
         </div>
+        <div class="account_box_wrap">
+            <div class="account_box curve_me_3 shadow_element scale_me_hover">
+                <a href="/admin/menu/all">
+                    <i class="account_icon ion-log-out"></i>
+                    <span class="title">Menu</span>
+                    <span class="desc">Add, Edit, Delete menu elements.</span>
+                </a>
+            </div>
+        </div>
+        <div class="account_box_wrap" sec:authorize="hasRole('ROLE_ADMIN')">
+            <div class="account_box curve_me_3 shadow_element scale_me_hover">
+                <a href="/admin/users/all">
+                    <i class="account_icon ion-log-out"></i>
+                    <span class="title">Users</span>
+                    <span class="desc">Add, Edit, Delete users.</span>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="clear"><!-- clear --></div>
+
+        <div class="pad25"></div>
     </div>
+
 </main>

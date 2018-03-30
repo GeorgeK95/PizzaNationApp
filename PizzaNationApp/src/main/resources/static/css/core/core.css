@@ -710,6 +710,10 @@ div.pad10 {
     padding: 10px;
 }
 
+div.pad25 {
+    padding: 25px;
+}
+
 div.pad40 {
     padding: 40px;
 }

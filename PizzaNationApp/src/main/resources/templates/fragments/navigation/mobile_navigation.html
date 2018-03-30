@@ -16,7 +16,7 @@
                 </span>
             </a>
         </li>
-        <li>
+        <li sec:authorize="isAnonymous()">
             <a th:href="@{/login}">
                 <span class="paddy">
                     <i class="icon ion-key"></i>
@@ -24,11 +24,19 @@
                 </span>
             </a>
         </li>
-        <li>
+        <li sec:authorize="isAnonymous()">
             <a th:href="@{/register}">
                 <span class="paddy">
                     <i class="icon ion-plus"></i>
                     Register
+                </span>
+            </a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/logout}" class="cart">
+                <span class="paddy">
+                    <i class="icon ion-key"></i>
+                    Logout
                 </span>
             </a>
         </li>
