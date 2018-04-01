@@ -1,0 +1,45 @@
+<main>
+    <table>
+        <a th:href="@{/admin/menus/add}" class="button_flat button_flat_green">Add</a>
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>Email Subscribe</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>email</td>
+            <td>namef</td>
+            <td>names</td>
+            <td>somephone</td>
+            <td>muj</td>
+            <td>pld</td>
+            <td>pobeda</td>
+            <td>true</td>
+
+            <td>
+                <!--@{admin/stores/delete/{id}(id=${store.getId()})}-->
+                <a href="#" class="button_flat button_flat_orange">Edit</a>
+                <a href="#" class="button_flat button_flat_red">Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Ivan</td>
+            <td>Ivanov</td>
+            <td>Spanak, chesan</td>
+            <td>purvi</td>
+            <td>
+                <!--@{admin/stores/delete/{id}(id=${store.getId()})}-->
+                <a href="#" class="button_flat button_flat_orange">Edit</a>
+                <a href="#" class="button_flat button_flat_red">Delete</a>
+            </td>
+        </tr>
+    </table>
+</main>

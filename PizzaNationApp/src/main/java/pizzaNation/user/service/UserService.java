@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.user.model.entity.User;
 import pizzaNation.user.model.request.UserRegisterRequestModel;
@@ -26,7 +25,7 @@ import static pizzaNation.app.util.WebConstants.*;
  */
 @Service
 @Transactional
-public class UserService implements IUserService {
+public class UserService extends BaseService implements IUserService {
 
     private final UserRepository userRepository;
 
@@ -63,7 +62,7 @@ public class UserService implements IUserService {
     public boolean addUser(UserRegisterRequestModel requestModel, BindingResult bindingResult, RedirectAttributes attributes) {
         attributes.addFlashAttribute(USER_REGISTER_REQUEST_MODEL, requestModel);
 
-        if (this.containErrors(bindingResult, attributes)) return false;
+        if (super.containErrors(bindingResult, attributes, USER_REGISTER_ERROR)) return false;
 
         if (this.passwordsMismatch(requestModel, attributes)) return false;
 
@@ -83,24 +82,6 @@ public class UserService implements IUserService {
         this.userRepository.saveAndFlush(user);
 
         return true;
-    }
-
-    private boolean containErrors(BindingResult bindingResult, RedirectAttributes attributes) {
-        if (bindingResult.hasErrors()) {
-            ObjectError error = bindingResult.getAllErrors().get(0);
-            String errorMessage = this.getDefaultMessage(error.getDefaultMessage());
-            attributes.addFlashAttribute(USER_REGISTER_ERROR, errorMessage);
-            return true;
-        }
-
-        return false;
-    }
-
-    private String getDefaultMessage(String message) {
-        if (message.equals(MUST_NOT_BE_BLANK_MESSAGE) || message.equals(MUST_NOT_BE_NULL_MESSAGE)) {
-            message = COMPLETE_ALL_FIELDS_MESSAGE;
-        }
-        return message;
     }
 
     private boolean passwordsMismatch(UserRegisterRequestModel requestModel, RedirectAttributes attributes) {

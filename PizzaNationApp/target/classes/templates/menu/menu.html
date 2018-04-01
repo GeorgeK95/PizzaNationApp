@@ -3,67 +3,35 @@
         <div class="wrapper">
             <div id="menu_page">
 
-                <div class="menu_item menu_item_half">
-                    <div class="menu_item_pad">
-                        <div class="menu_inner menu_hover shadow_element menu_item_primary tiptext">
-                            <div class="description">Here is the big fat description box</div>
-                            <div class="menu_title">
-                                <div class="menu_title_pad">
-                                    <h3>Sides &amp; Starters</h3>
+                <th:block th:each="i: ${#numbers.sequence(0, 1)}">
+                    <div class="menu_item menu_item_half">
+                        <div class="menu_item_pad">
+                            <div class="menu_inner menu_hover shadow_element menu_item_primary tiptext">
+                                <div class="description">Here is the big fat description box</div>
+                                <div class="menu_title">
+                                    <div class="menu_title_pad">
+                                        <h3>Meals</h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </th:block>
 
-                <div class="menu_item menu_item_half">
-                    <div class="menu_item_pad">
-                        <div class="menu_inner menu_hover shadow_element menu_item_primary">
-                            <div class="menu_title">
-                                <div class="menu_title_pad">
-                                    <h3>Drinks</h3>
+                <th:block th:each="i: ${#numbers.sequence(0, 2)}">
+                    <div class="menu_item menu_item_third">
+                        <div class="menu_item_pad">
+                            <div class="menu_inner menu_hover shadow_element menu_item_secondary">
+                                <div class="menu_title">
+                                    <div class="menu_title_pad">
+                                        <h3>Desserts</h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </th:block>
 
-                <div class="menu_item menu_item_third">
-                    <div class="menu_item_pad">
-                        <div class="menu_inner menu_hover shadow_element menu_item_secondary">
-                            <div class="menu_title">
-                                <div class="menu_title_pad">
-                                    <h3>Desserts</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu_item menu_item_third">
-                    <div class="menu_item_pad">
-                        <div class="menu_inner menu_hover shadow_element menu_item_secondary">
-                            <div class="menu_title">
-                                <div class="menu_title_pad">
-                                    <h3>Pastas</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu_item menu_item_third">
-                    <div class="menu_item_pad">
-                        <div class="menu_inner menu_hover shadow_element menu_item_secondary">
-                            <div class="menu_title">
-                                <div class="menu_title_pad">
-                                    <h3>Dips</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
                 <div class="clear"><!-- clear --></div>
 
             </div>

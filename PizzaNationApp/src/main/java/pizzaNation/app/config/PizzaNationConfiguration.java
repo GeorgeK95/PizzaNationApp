@@ -22,4 +22,9 @@ public class PizzaNationConfiguration {
                 DirectoryScanner.getDirectoryFilesNames(JS_PAGE_FILES)
         );
     }
+
+    @Bean
+    public BCryptPasswordEncoder getBCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }

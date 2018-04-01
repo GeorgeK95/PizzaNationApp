@@ -71,6 +71,18 @@ div.account_box_nonlink span.desc {
         float: none;
     }
 
+    /*div.mobile_nav a {*/
+        /*display: inline-block;*/
+        /*color: #FFFFFF;*/
+        /*background: #949498;*/
+        /*text-decoration: none;*/
+        /*font-size: 32px;*/
+        /*width: 54px;*/
+        /*height: 54px;*/
+        /*text-align: center;*/
+        /*position: relative;*/
+    /*}*/
+
     div.account_circle {
         width: 140px;
         height: 140px;
@@ -81,6 +93,30 @@ div.account_box_nonlink span.desc {
         display: inline-block;
     }
 
+    /*div.mobile_nav a {*/
+        /*display: inline-block;*/
+        /*color: #FFFFFF;*/
+        /*background: #949498;*/
+        /*text-decoration: none;*/
+        /*font-size: 32px;*/
+        /*width: 54px;*/
+        /*height: 54px;*/
+        /*text-align: center;*/
+        /*position: relative;*/
+    /*}*/
+
+    div.mobile_nav a:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+   /* div.footer_social {
+        width: 100%;
+        float: none;
+        padding: 10px 0 10px 0;
+        text-align: left;
+        background: #949498;
+        border-bottom: 2px solid #333333;
+    }*/
 }
 
 @media only screen and (min-width: 0px) and (max-width: 474px) {
@@ -98,6 +134,31 @@ div.account_box_nonlink span.desc {
         border-radius: 80px;
         display: inline-block;
     }
+
+   /* div.mobile_nav a {
+        display: inline-block;
+        color: #FFFFFF;
+        background: #949498;
+        text-decoration: none;
+        font-size: 32px;
+        width: 54px;
+        height: 54px;
+        text-align: center;
+        position: relative;
+    }*/
+
+    div.mobile_nav a:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+   /* div.footer_social {
+        width: 100%;
+        float: none;
+        padding: 10px 0 10px 0;
+        text-align: left;
+        background: #949498;
+        border-bottom: 2px solid #333333;
+    }*/
 }
 
 /*TABLE*/
@@ -105,7 +166,8 @@ table {
     text-align: center;
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 90%;
+    margin: 100px 50px 70px 50px;
 }
 
 td, th {

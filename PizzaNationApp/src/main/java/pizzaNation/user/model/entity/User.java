@@ -7,15 +7,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pizzaNation.user.enumeration.Gender;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.util.*;
 
 /**
  * Created by George-Lenovo on 27/03/2018.
  */
 @Entity
-@Table(name = "users")
+//@Table(name = "users")
 public class User implements UserDetails {
 
     @Id
@@ -63,6 +63,9 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Set<Role> authorities;
 
+    private Date date;
+
+    private String emailVerificationCode;
 
     public String getId() {
         return id;
@@ -74,6 +77,7 @@ public class User implements UserDetails {
 
     public User() {
         this.authorities = new HashSet<>();
+        this.emailVerificationCode = UUID.randomUUID().toString();
     }
 
     public User(String email, String password) {
@@ -91,6 +95,7 @@ public class User implements UserDetails {
         this.gender = gender;
         this.phone = phone;
         this.city = city;
+        this.date = new Date();
     }
 
     @PrePersist
@@ -187,6 +192,10 @@ public class User implements UserDetails {
         return city;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
     //SETTERS
 
     public void setEmail(String email) {
@@ -243,5 +252,17 @@ public class User implements UserDetails {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public void setDate(Date localDate) {
+        this.date = localDate;
+    }
+
+    public String getEmailVerificationCode() {
+        return emailVerificationCode;
+    }
+
+    public void setEmailVerificationCode(String emailVerificationCode) {
+        this.emailVerificationCode = emailVerificationCode;
     }
 }

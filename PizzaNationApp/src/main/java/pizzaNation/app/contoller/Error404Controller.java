@@ -1,3 +1,4 @@
+/*
 package pizzaNation.app.contoller;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
@@ -24,4 +25,4 @@ public class Error404Controller extends BaseController implements ErrorControlle
     public String getErrorPath() {
         return ERROR_URL;
     }
-}
+}*/

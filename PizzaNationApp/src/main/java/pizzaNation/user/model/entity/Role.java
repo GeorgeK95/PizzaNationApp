@@ -9,7 +9,7 @@ import javax.persistence.*;
  * Created by George-Lenovo on 27/03/2018.
  */
 @Entity
-@Table(name = "roles")
+//@Table(name = "roles")
 public class Role implements GrantedAuthority {
 
     @Id
@@ -18,6 +18,7 @@ public class Role implements GrantedAuthority {
     @Column(name = "id", updatable = false, nullable = false)
     private String id;
 
+    @Column(unique = true, nullable = false, length = 50)
     private String authority;
 
     public Role() {

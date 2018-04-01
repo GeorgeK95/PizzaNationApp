@@ -17,14 +17,23 @@ public final class WebConstants {
     public static final String ERROR_URL = "/error";
     public static final String ABOUT_URL = "/about";
     public static final String ADMIN_URL = "/admin";
-    public static final String BASE_LAYOUT_URL = "base-layout";
-    public static final String CART_URL = "/cart";
-    public static final String CONTACT_US_URL = "/contactUs";
-    public static final String STORES_URL = "/stores";
     public static final String TERMS_URL = "/terms";
+    public static final String CART_URL = "/cart";
     public static final String REGISTER_URL = "/register";
     public static final String LOGIN_URL = "/login";
-    public static final String SLASH_URL = "/";
+    public static final String CONTACT_US_URL = "/contactUs";
+    public static final String STORES_URL = "/stores";
+    public static final String BASE_LAYOUT_URL = "base-layout";
+    public static final String ADD_STORES_URL = "/stores/add";
+    public static final String ALL_MENUS_URL = "/menus/all";
+    public static final String ADD_MENUS_URL = "/menus/add";
+    public static final String EDIT_MENUS_URL = "/menus/edit/{id}";
+    public static final String DELETE_MENUS_URL = "/menus/delete/{id}";
+    public static final String ADMIN_ALL_MENUS_URL = "/admin/menus/all";
+    public static final String ADMIN_ADD_MENUS_URL = "/admin/menus/add";
+    public static final String ADMIN_EDIT_MENUS_URL = "/admin/menus/edit";
+    public static final String ALL_USERS_URL = "/users/all";
+    public static final String EMPTY_URL = "";
 
     //Page Titles
     public static final String ABOUT_US_PAGE_TITLE = "About Us";
@@ -59,20 +68,27 @@ public final class WebConstants {
 
     //Errors
     public static final String USER_REGISTER_ERROR = "user_register_error";
+    public static final String ADD_MENU_ERROR = "add_menu_error";
+    public static final String EDIT_MENU_ERROR = "edit_menu_error";
 
     //Messages
     public static final String PASSWORD_MISMATCH_MESSAGE = "Password mismatch.";
     public static final String MUST_NOT_BE_BLANK_MESSAGE = "must not be blank";
+    public static final String PRIORITY_VALIDATION_MESSAGE = "must be less than or equal to 100";
     public static final String MUST_NOT_BE_NULL_MESSAGE = "must not be null";
     public static final String COMPLETE_ALL_FIELDS_MESSAGE = "Please complete all required fields.";
-    public static final String INVALID_PASSWORD_MESSAGE = "Password length cannot be empty and must be more than 8 and less than 50 symbols long.";
-    public static final String INVALID_FIRST_NAME_MESSAGE = "First name length cannot be empty and must be less than 50 symbols long.";
-    public static final String INVALID_LAST_NAME_MESSAGE = "Last name length cannot be empty and must be less than 50 symbols long.";
-    public static final String INVALID_ADDRESS_MESSAGE = "Address length cannot be empty and must less than 50 symbols long.";
-    public static final String INVALID_CITY_MESSAGE = "City length cannot be empty and must be less than 50 symbols long.";
+    public static final String INVALID_PRIORITY_CONSTAINT_MESSAGE = "Invalid value for priority.";
+    public static final String INVALID_PASSWORD_MESSAGE = "Password cannot be empty and must be more than 8 and less than 50 symbols long.";
+    public static final String INVALID_FIRST_NAME_MESSAGE = "First name cannot be empty and must be less than 50 symbols long.";
+    public static final String INVALID_LAST_NAME_MESSAGE = "Last name cannot be empty and must be less than 50 symbols long.";
+    public static final String INVALID_ADDRESS_MESSAGE = "Address cannot be empty and must less than 50 symbols long.";
+    public static final String INVALID_CITY_MESSAGE = "City cannot be empty and must be less than 50 symbols long.";
     public static final String INVALID_PHONE_FORMAT_MESSAGE = "Invalid phone format.";
     public static final String ACCEPT_TERMS_MESSAGE = "Please, accept our terms.";
     public static final String WRONG_LOGIN_DATA_MESSAGE = "Invalid email or password.";
+    public static final String INVALID_MENU_NAME_MESSAGE = "Menu name cannot be empty and must less than 20 symbols long.";
+    public static final String INVALID_DESCRIPTION_MESSAGE = "Description name cannot be empty.";
+    public static final String INVALID_PRIORITY_MESSAGE = "Priority name cannot be empty and must be between 1 and 100.";
 
     //Admin Data
     public static final String ADMIN_EMAIL = "admin@admin.com";
@@ -99,6 +115,8 @@ public final class WebConstants {
 
     //Models
     public static final String USER_REGISTER_REQUEST_MODEL = "userRegisterRequestModel";
+    public static final String ADD_MENU_REQUEST_MODEL = "addMenuRequestModel";
+    public static final String EDIT_MENU_REQUEST_MODEL = "editMenuRequestModel";
 
     //Patterns
     public static final String PHONE_PATTERN = "\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}";

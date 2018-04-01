@@ -1,64 +1,87 @@
-<!--<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-
-<!--<head th:replace="fragments/head" th:with="pageTitle='${pageTitle}'"></head>-->
-
-<!--<body>-->
-
-<!--<main th:replace="${mapView}"></main>-->
-
-<!--<footer th:replace="fragments/footer"></footer>-->
-<!--</body>-->
-
-<!--<script th:inline="javascript">-->
-<!--function initMap() {-->
-<!--var destination;-->
-<!--/*<![CDATA[*/-->
-<!--destination = /*[[${model}]]*/ null;-->
-<!--/*]]>*/-->
-
-<!--var myCenter = new google.maps.LatLng(destination.x, destination.y);-->
-<!--var mapCanvas = document.getElementById("map");-->
-<!--var mapOptions = {center: myCenter, zoom: 10};-->
-<!--var map = new google.maps.Map(mapCanvas, mapOptions);-->
-<!--var marker = new google.maps.Marker({position: myCenter});-->
-<!--marker.setMap(map);-->
-<!--google.maps.event.addListener(marker, 'click', function () {-->
-<!--var infowindow = new google.maps.InfoWindow({-->
-<!--content: "Pari nema deistvaite!!!"-->
-<!--});-->
-<!--infowindow.open(map, marker);-->
-<!--});-->
-<!--}-->
-<!--</script>-->
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW_AEkfqP5zRCJmRmbqRx7giXRRlVWK6o&callback=initMap"></script>-->
-
-<!--</html>-->
-
-
 <main>
     <div id="map" style="width:100%;height:500px"></div>
 </main>
 
-<script th:inline="javascript">
-    function initMap() {
-        var destination;
-        /*<![CDATA[*/
-        destination = /*[[${model}]]*/ null;
-        /*]]>*/
+<th:block sec:authorize="isAnonymous() or hasAnyRole('ROLE_MODERATOR', 'ROLE_USER')">
+    <script th:inline="javascript">
+        function initMap() {
+            var destination;
+            /*<![CDATA[*/
+            destination = /*[[${model}]]*/ null;
+            /*]]>*/
 
-        var myCenter = new google.maps.LatLng(destination.x, destination.y);
-        var mapCanvas = document.getElementById("map");
-        var mapOptions = {center: myCenter, zoom: 10};
-        var map = new google.maps.Map(mapCanvas, mapOptions);
-        var marker = new google.maps.Marker({position: myCenter});
-        marker.setMap(map);
-        google.maps.event.addListener(marker, 'click', function () {
-            var infowindow = new google.maps.InfoWindow({
-                content: "Pari nema deistvaite!!!"
+            var myCenter = new google.maps.LatLng(destination.x, destination.y);
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {center: myCenter, zoom: 10};
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var marker = new google.maps.Marker({position: myCenter});
+            marker.setMap(map);
+        }
+    </script>
+</th:block>
+<th:block sec:authorize="hasRole('ROLE_ADMIN')">
+    <script th:inline="javascript">
+        function initMap() {
+            var destination;
+            /*<![CDATA[*/
+            destination = /*[[${model}]]*/ null;
+            /*]]>*/
+
+            var myCenter = new google.maps.LatLng(destination.x, destination.y);
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {center: myCenter, zoom: 10};
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var marker = new google.maps.Marker({position: myCenter});
+            marker.setMap(map);
+
+            addPopUpListener(marker, map);
+
+            addClickListener(map);
+        }
+
+        function placeMarker(location, map) {
+            var userMarker = new google.maps.Marker({
+                position: location,
+                map: map
             });
-            infowindow.open(map, marker);
-        });
-    }
-</script>
+
+            addPopUpListener(userMarker, map);
+        }
+
+        function addPopUpListener(marker, map) {
+            google.maps.event.addListener(marker, 'dblclick', function () {
+                    var coordinates = {"lat": marker.getPosition().lat(), "lng": marker.getPosition().lng()};
+                    console.log(coordinates);
+                    var infowindow = new google.maps.InfoWindow({
+                        content:
+                        //onclick="saveMarker(\'' + coordinates + '\');"
+                        '<button id="saveBtn"  onclick="saveMarker(\'' + coordinates + '\')">Add</button>' +
+                        '<button id="editBtn" onclick="editMarker(\'' + coordinates + '\')">Edit</button>' +
+                        '<button id="deleteBtn" onclick="deleteMarker(\'' + coordinates + '\')">Delete</button>'
+                    });
+
+                    infowindow.open(map, marker);
+                }
+            );
+        }
+
+        function addClickListener(map) {
+            google.maps.event.addListener(map, 'click', function (event) {
+                placeMarker(event.latLng, map);
+            });
+        }
+
+        /* function saveMarker(coordinates) {
+             console.log(coordinates);
+             $.post("/admin/stores/add", coordinates)
+                 .done(function () {
+                     alert("Stores added successfully.");
+                 })
+                 .fail(function () {
+                     alert("Something went wrong, adding stores failed!");
+                 });
+         }*/
+
+    </script>
+</th:block>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW_AEkfqP5zRCJmRmbqRx7giXRRlVWK6o&callback=initMap"></script>

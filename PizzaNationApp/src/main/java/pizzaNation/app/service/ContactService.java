@@ -33,12 +33,10 @@ public class ContactService implements IContactService {
 
     @Override
     public ContactUsRequestModel constructModel(Principal principal) {
-        if (principal == null) return null;
+        if (principal == null) return new ContactUsRequestModel();
 
-        User u = this.userService.findUserByEmail(principal.getName());
+        User user = this.userService.findUserByEmail(principal.getName());
 
-        ContactUsRequestModel convert = DTOConverter.convert(u, ContactUsRequestModel.class);
-
-        return convert;
+        return DTOConverter.convert(user, ContactUsRequestModel.class);
     }
 }
