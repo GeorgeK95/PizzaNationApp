@@ -42,31 +42,31 @@ public class DataLoader implements ApplicationRunner {
     }
 
     private void addMenus() {
-        Menu m1 = new Menu("name1", "description1",
-                this.productRepository.findAllOrderById().stream().limit(3).collect(Collectors.toSet()), 2, null);
-        Menu m2 = new Menu("name2", "description1da",
-                this.productRepository.findAllOrderById().stream().limit(3).collect(Collectors.toSet()), 2, null);
-        Menu m3 = new Menu("name3", "descriptiondas1",
-                this.productRepository.findAllOrderById().stream().limit(3).collect(Collectors.toSet()), 3, null);
-        Menu m4 = new Menu("name4", "descriptiondsadsa1",
-                this.productRepository.findAllOrderById().stream().limit(3).collect(Collectors.toSet()), 4, null);
-        Menu m5 = new Menu("name5", "description1dasadsadsadsdas",
-                this.productRepository.findAllOrderById().stream().limit(3).collect(Collectors.toSet()), 5, null);
+        Menu m1 = new Menu("name1", "description1"
+                , 2, null);
+        Menu m2 = new Menu("name2", "description1da"
+                , 2, null);
+        Menu m3 = new Menu("name3", "descriptiondas1"
+                , 3, null);
+        Menu m4 = new Menu("name4", "descriptiondsadsa1"
+                , 4, null);
+        Menu m5 = new Menu("name5", "description1dasadsadsadsdas"
+                , 5, null);
 
         this.menuRepository.saveAll(Set.of(m1, m2, m3, m4, m5));
     }
 
     private void addProducts() {
-        Product product1 = new Product("pizzanamee1 ", "details list details  details  details list details list ", null);
-        Product product2 = new Product("pizzanamee2 ", "details list details  details  details list details list ", null);
-        Product product3 = new Product("pizzanamee3 ", "details list details  details  details list details list ", null);
-        Product product4 = new Product("pizzanamee4 ", "details list details  details  details list details list ", null);
-        Product product5 = new Product("pizzanamee5 ", "details list details  details  details list details list ", null);
-        Product product6 = new Product("pizzanamee6 ", "details list details  details  details list details list ", null);
-        Product product7 = new Product("pizzanamee7 ", "details list details  details  details list details list ", null);
-        Product product8 = new Product("pizzanamee8 ", "details list details  details  details list details list ", null);
-        Product product9 = new Product("pizzanamee9 ", "details list details  details  details list details list ", null);
-        Product product10 = new Product("pizzaname10 ", "details list details  details  details list details list ", null);
+        Product product1 = new Product("pizzanamee1 ", "details list details  details  details list details list ");
+        Product product2 = new Product("pizzanamee2 ", "details list details  details  details list details list ");
+        Product product3 = new Product("pizzanamee3 ", "details list details  details  details list details list ");
+        Product product4 = new Product("pizzanamee4 ", "details list details  details  details list details list ");
+        Product product5 = new Product("pizzanamee5 ", "details list details  details  details list details list ");
+        Product product6 = new Product("pizzanamee6 ", "details list details  details  details list details list ");
+        Product product7 = new Product("pizzanamee7 ", "details list details  details  details list details list ");
+        Product product8 = new Product("pizzanamee8 ", "details list details  details  details list details list ");
+        Product product9 = new Product("pizzanamee9 ", "details list details  details  details list details list ");
+        Product product10 = new Product("pizzaname10 ", "details list details  details  details list details list");
 
         this.productRepository.saveAll(Set.of(
                 product1, product2, product3, product4, product5, product6, product7, product8, product9, product10

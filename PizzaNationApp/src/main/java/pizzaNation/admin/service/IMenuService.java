@@ -2,6 +2,8 @@ package pizzaNation.admin.service;
 
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pizzaNation.app.exception.MenuNotFoundException;
+import pizzaNation.app.model.entity.Menu;
 import pizzaNation.app.model.request.AddMenuRequestModel;
 import pizzaNation.app.model.request.EditMenuRequestModel;
 import pizzaNation.app.model.view.MenuViewModel;
@@ -19,7 +21,14 @@ public interface IMenuService {
 
     List<MenuViewModel> findAll();
 
-    <T> T findById(String id, Class<T> editMenuRequestModel);
+    boolean editMenu(EditMenuRequestModel addMenuRequestModel, RedirectAttributes attributes, BindingResult bindingResult, String name);
 
-    boolean editMenu(EditMenuRequestModel addMenuRequestModel, RedirectAttributes attributes, BindingResult bindingResult, String id);
+//    boolean deleteMenu(EditMenuRequestModel editMenuRequestModel, RedirectAttributes attributes, BindingResult bindingResult, String name);
+    boolean deleteMenu(String name);
+
+    EditMenuRequestModel findByName(String menuName);
+
+    Menu findMenuEntityByName(String menuName);
+
+    EditMenuRequestModel findById(String id);
 }

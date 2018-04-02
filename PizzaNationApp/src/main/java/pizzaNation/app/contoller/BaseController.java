@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import pizzaNation.app.util.StaticFilesContainer;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -26,10 +27,15 @@ public abstract class BaseController {
         StackTraceElement[] stackTraceElements = java.lang.Thread.currentThread().getStackTrace();
         StackTraceElement callee = stackTraceElements[3];
         String[] names = callee.getClassName().split("\\.");
-        String folder = names[names.length - 1].replace(CONTROLLER_STR, "").toLowerCase();
+        String folder = names[names.length - 1].replace(CONTROLLER_STR, "")/*.toLowerCase()*/;
         String file = callee.getMethodName();
 
-        return this.view(folder + SLASH_STR + file, viewModel);
+        //split po glavni bukvi
+        String[] r = folder.split(UPPERCASE_SPLIT_PATTERN);
+        StringBuilder sb = new StringBuilder();
+        Arrays.stream(r).forEach(cc -> sb.append(cc).append(SLASH_STR));
+
+        return this.view(sb.toString() /*+ SLASH_STR */ + file, viewModel);
     }
 
     protected ModelAndView view(Object viewModel, Map<String, Object> attributes) {
@@ -51,7 +57,7 @@ public abstract class BaseController {
     }
 
     private void addAttributes(String viewName, ModelAndView modelAndView) {
-        String viewSimpleName = viewName.split(SLASH_STR)[0];
+        String viewSimpleName = viewName.split(SLASH_STR)[0].toLowerCase();
 
         if (this.staticFilesContainer.containsCssFile(viewSimpleName))
             modelAndView.getModelMap().addAttribute(PAGE_STYLE_STR, List.of(CSS_PAGE_DIR + viewSimpleName + CSS_EXTENSION));

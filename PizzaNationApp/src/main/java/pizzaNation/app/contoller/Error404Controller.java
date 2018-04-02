@@ -25,4 +25,5 @@ public class Error404Controller extends BaseController implements ErrorControlle
     public String getErrorPath() {
         return ERROR_URL;
     }
-}*/
+}
+*/

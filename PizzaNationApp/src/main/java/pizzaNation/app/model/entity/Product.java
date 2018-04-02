@@ -3,6 +3,8 @@ package pizzaNation.app.model.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -21,28 +23,36 @@ public class Product {
 
     private String details;
 
-    @ManyToOne
-    @JoinColumn(name = "menu_id")
-    private Menu menu;
+    @ManyToMany(mappedBy = "products")
+    private Set<Menu> menus;
 
     @ManyToMany(mappedBy = "ingredients")
     private Set<Ingredient> ingredients;
 
+    @Column(nullable = false)
+    private Date date;
+
     public Product() {
+        this.menus = new HashSet<>();
+        this.date = new Date();
     }
 
-    public Product(String name, String details, Menu menu) {
+    public Product(String name, String details) {
+        this();
         this.name = name;
         this.details = details;
-        this.menu = menu;
+    }
+
+    public void addMenu(Menu menu) {
+        this.menus.add(menu);
     }
 
     public String getId() {
         return id;
     }
 
-    public Menu getMenu() {
-        return menu;
+    public Set<Menu> getMenus() {
+        return menus;
     }
 
     public String getName() {
@@ -57,6 +67,10 @@ public class Product {
         return ingredients;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -69,11 +83,15 @@ public class Product {
         this.details = details;
     }
 
-    public void setMenu(Menu menu) {
-        this.menu = menu;
+    public void setMenus(Set<Menu> menu) {
+        this.menus = menu;
     }
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

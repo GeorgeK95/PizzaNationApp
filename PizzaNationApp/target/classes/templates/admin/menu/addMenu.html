@@ -10,25 +10,25 @@
                          th:text="${add_menu_error}"></div>
 
                     <form name="form_login" method="post" th:action="@{/admin/menus/add}"
-                          th:object="${model}">
+                          th:object="${addMenuRequestModel}">
                         <div class="form">
 
-                            <label for="products">Menu Name*</label>
-                            <!--maxlength="20"-->
+                            <label for="productsIds">Menu Name*</label>
+
                             <input type="text" name="name" placeholder="Menu name" class="form_item"
-                                   th:field="*{name}"/>
+                                   th:field="*{name}" required="required" maxlength="20"/>
 
                             <div class="pad5"><!-- spacer --></div>
 
-                            <label for="products">Description*</label>
-                            <!--maxlength="100"-->
+                            <label for="productsIds">Description*</label>
+
                             <input type="text" name="description" placeholder="Description" class="form_item"
-                                th:field="*{description}"/>
+                                   th:field="*{description}" required="required" maxlength="100"/>
 
                             <div class="pad5"><!-- spacer --></div>
 
-                            <label for="products">Products Included</label>
-                            <select multiple="" class="form_item" id="products" th:field="*{productIds}">
+                            <label for="productsIds">Products Included</label>
+                            <select multiple="" class="form_item" id="productsIds" th:field="*{productsIds}">
                                 <option th:each="product : ${productsList}" th:value="${product.getId()}"
                                         th:text="${product.getName()}">1
                                 </option>
@@ -36,9 +36,10 @@
 
                             <div class="pad5"><!-- spacer --></div>
 
-                            <label for="products">Priority*</label>
-                            <!--min="1" max="100"-->
-                            <input type="number" th:field="*{priority}" class="form_item"/>
+                            <label for="productsIds">Priority*</label>
+
+                            <input type="number" th:field="*{priority}" class="form_item" required="required" min="1"
+                                   max="100"/>
 
                             <div class="pad10"><!-- spacer --></div>
 

@@ -12,7 +12,7 @@
             <li><a th:href="@{/contactUs}"><span>Contact</span></a></li>
             <li><a th:href="@{/terms#payment}"><span>Delivery &amp; Payment</span></a></li>
             <!--<li><a th:href="@{/#hold_header}"><span>Home</span></a></li>-->
-            <li sec:authorize="hasRole('ROLE_ADMIN')">
+            <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')">
                 <a th:href="@{/admin}"><span>Admin</span></a>
             </li>
         </ul>

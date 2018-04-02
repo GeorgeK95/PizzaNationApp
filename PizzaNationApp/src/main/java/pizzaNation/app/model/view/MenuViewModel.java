@@ -2,6 +2,8 @@ package pizzaNation.app.model.view;
 
 import javax.validation.constraints.NotBlank;
 
+import java.util.Date;
+
 import static pizzaNation.app.util.WebConstants.INVALID_DESCRIPTION_MESSAGE;
 import static pizzaNation.app.util.WebConstants.INVALID_PRIORITY_MESSAGE;
 
@@ -10,7 +12,7 @@ import static pizzaNation.app.util.WebConstants.INVALID_PRIORITY_MESSAGE;
  */
 public class MenuViewModel {
 
-    private String id;
+//    private String id;
 
     private String name;
 
@@ -19,6 +21,8 @@ public class MenuViewModel {
     private Integer priority;
 
     private String[] productIds;
+
+    private Date date;
 
     public String getName() {
         return name;
@@ -36,8 +40,12 @@ public class MenuViewModel {
         return productIds;
     }
 
-    public String getId() {
-        return id;
+//    public String getId() {
+//        return id;
+//    }
+
+    public Date getDate() {
+        return date;
     }
 
     public void setName(String name) {
@@ -56,7 +64,12 @@ public class MenuViewModel {
         this.productIds = productIds;
     }
 
-    public void setId(String id) {
-        this.id = id;
+//    public void setId(String id) {
+//        this.id = id;
+//    }
+
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

@@ -63,6 +63,7 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Set<Role> authorities;
 
+    @Column(nullable = false)
     private Date date;
 
     private String emailVerificationCode;

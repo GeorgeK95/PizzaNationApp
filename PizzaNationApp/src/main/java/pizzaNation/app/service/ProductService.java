@@ -4,14 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pizzaNation.app.model.entity.Product;
-import pizzaNation.app.model.response.ProductViewModel;
+import pizzaNation.app.model.response.ProductResponseModel;
+import pizzaNation.app.model.view.ProductViewModel;
 import pizzaNation.app.repository.ProductRepository;
 import pizzaNation.app.util.DTOConverter;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * Created by George-Lenovo on 01/04/2018.
@@ -29,11 +28,26 @@ public class ProductService implements IProductService {
 
     @Override
     public List<ProductViewModel> findAll() {
-        return DTOConverter.convert(this.productRepository.findAllOrderById(), ProductViewModel.class);
+        return DTOConverter.convert(this.productRepository.findAllOrderByDate(), ProductViewModel.class);
+    }
+
+    @Override
+    public List<ProductResponseModel> findAllByDate() {
+        return DTOConverter.convert(this.productRepository.findAllOrderByDate(), ProductResponseModel.class);
     }
 
     @Override
     public Set<Product> getAllByIds(String[] productIds) {
         return this.productRepository.findAllByIdIn(productIds);
+    }
+
+    @Override
+    public void saveAll(Set<Product> allByIds) {
+        this.productRepository.saveAll(allByIds);
+    }
+
+    @Override
+    public Set<Product> findAllByMenuName(String name) {
+        return this.productRepository.findAllByMenuNameOrderByDate(name);
     }
 }

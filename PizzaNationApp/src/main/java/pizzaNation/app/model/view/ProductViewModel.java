@@ -1,4 +1,4 @@
-package pizzaNation.app.model.response;
+package pizzaNation.app.model.view;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 import pizzaNation.app.util.DTOConverter;
@@ -13,7 +13,7 @@ public class ProductViewModel {
 
     private String name;
 
-    private String[] productIds;
+//    private String[] productIds;
 
 //    private Set<Ingredient> ingredients;
 
@@ -26,13 +26,13 @@ public class ProductViewModel {
         return name;
     }
 
-    public String[] getProductIds() {
-        return productIds;
-    }
+//    public String[] getProductsIds() {
+//        return productIds;
+//    }
 
-    public void setProductIds(String[] productIds) {
-        this.productIds = productIds;
-    }
+//    public void setProductsIds(String[] productIds) {
+//        this.productIds = productIds;
+//    }
 
     public void setId(String id) {
         this.id = id;

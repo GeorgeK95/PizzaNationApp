@@ -1,8 +1,10 @@
 package pizzaNation.app.model.request;
 
-import pizzaNation.app.model.response.ProductViewModel;
+import pizzaNation.app.model.view.ProductViewModel;
 
 import javax.validation.constraints.*;
+
+import java.util.Set;
 
 import static pizzaNation.app.util.WebConstants.INVALID_DESCRIPTION_MESSAGE;
 import static pizzaNation.app.util.WebConstants.INVALID_MENU_NAME_MESSAGE;
@@ -26,12 +28,12 @@ public class EditMenuRequestModel {
     @Max(100)
     private Integer priority;
 
-    private ProductViewModel[] productIds;
+    private Set<String> productsIds;
 
     private String imagePath;
 
-    public ProductViewModel[] getProductIds() {
-        return productIds;
+    public Set<String> getProductsIds() {
+        return productsIds;
     }
 
     public String getName() {
@@ -50,8 +52,8 @@ public class EditMenuRequestModel {
         return imagePath;
     }
 
-    public void setProductIds(ProductViewModel[] productIds) {
-        this.productIds = productIds;
+    public void setProductsIds(Set<String> productsIds) {
+        this.productsIds = productsIds;
     }
 
     public void setName(String name) {

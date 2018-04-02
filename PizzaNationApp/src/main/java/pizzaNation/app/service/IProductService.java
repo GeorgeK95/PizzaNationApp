@@ -1,9 +1,8 @@
 package pizzaNation.app.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import pizzaNation.app.model.entity.Product;
-import pizzaNation.app.model.response.ProductViewModel;
+import pizzaNation.app.model.response.ProductResponseModel;
+import pizzaNation.app.model.view.ProductViewModel;
 
 import java.util.List;
 import java.util.Set;
@@ -16,5 +15,12 @@ public interface IProductService {
 
     List<ProductViewModel> findAll();
 
+    List<ProductResponseModel> findAllByDate();
+
     Set<Product> getAllByIds(String[] productIds);
+
+    void saveAll(Set<Product> allByIds);
+
+    Set<Product> findAllByMenuName(String name);
+
 }

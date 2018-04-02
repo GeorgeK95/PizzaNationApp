@@ -22,12 +22,12 @@ public class AddMenuRequestModel {
     @Max(100)
     private Integer priority;
 
-    private String[] productIds;
+    private String[] productsIds;
 
     private String imagePath;
 
-    public String[] getProductIds() {
-        return productIds;
+    public String[] getProductsIds() {
+        return productsIds;
     }
 
     public String getName() {
@@ -46,8 +46,8 @@ public class AddMenuRequestModel {
         return imagePath;
     }
 
-    public void setProductIds(String[] productIds) {
-        this.productIds = productIds;
+    public void setProductsIds(String[] productsIds) {
+        this.productsIds = productsIds;
     }
 
     public void setName(String name) {

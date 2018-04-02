@@ -26,14 +26,17 @@ public final class WebConstants {
     public static final String BASE_LAYOUT_URL = "base-layout";
     public static final String ADD_STORES_URL = "/stores/add";
     public static final String ALL_MENUS_URL = "/menus/all";
+    public static final String ALL_PRODUCTS_URL = "/products/all";
+    public static final String ALL_INGREDIENTS_URL = "/ingredients/all";
     public static final String ADD_MENUS_URL = "/menus/add";
-    public static final String EDIT_MENUS_URL = "/menus/edit/{id}";
-    public static final String DELETE_MENUS_URL = "/menus/delete/{id}";
+    public static final String EDIT_MENUS_URL = "/menus/edit/{name}";
+    public static final String DELETE_MENUS_URL = "/menus/delete/{name}";
     public static final String ADMIN_ALL_MENUS_URL = "/admin/menus/all";
     public static final String ADMIN_ADD_MENUS_URL = "/admin/menus/add";
     public static final String ADMIN_EDIT_MENUS_URL = "/admin/menus/edit";
     public static final String ALL_USERS_URL = "/users/all";
     public static final String EMPTY_URL = "";
+    public static final String MENU_NAME_URL = "/menu/{name}";
 
     //Page Titles
     public static final String ABOUT_US_PAGE_TITLE = "About Us";
@@ -42,6 +45,7 @@ public final class WebConstants {
     public static final String CONTACT_US_PAGE_TITLE = "Contact us";
     public static final String PAGE_TITLE_STR = "pageTitle";
     public static final String NOT_FOUND_PAGE_TITLE = "Page Not Found";
+    public static final String MENU_NOT_FOUND_PAGE_TITLE = "Menu Not Found";
     public static final String OUR_STORES_PAGE_TITLE = "Our Stores";
     public static final String STORES_MAP_PAGE_TITLE = "stores/map";
     public static final String TERMS_AND_CONDITIONS_PAGE_TITLE = "Terms and Conditions";
@@ -89,6 +93,7 @@ public final class WebConstants {
     public static final String INVALID_MENU_NAME_MESSAGE = "Menu name cannot be empty and must less than 20 symbols long.";
     public static final String INVALID_DESCRIPTION_MESSAGE = "Description name cannot be empty.";
     public static final String INVALID_PRIORITY_MESSAGE = "Priority name cannot be empty and must be between 1 and 100.";
+    public static final String MENU_NAME_ALREADY_TAKEN_MESSAGE = "There is already a menu with the given name, please choose another.";
 
     //Admin Data
     public static final String ADMIN_EMAIL = "admin@admin.com";
@@ -120,6 +125,10 @@ public final class WebConstants {
 
     //Patterns
     public static final String PHONE_PATTERN = "\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}";
+    public static final String UPPERCASE_SPLIT_PATTERN = "(?<=.)(?=\\p{Lu})";
+
+    //Exceptions
+    public static final String MENU_EXCEPTION_MESSAGE = "Menu with given name was not found.";
 
     private WebConstants() {
     }

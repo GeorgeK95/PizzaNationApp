@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -42,6 +43,13 @@ public class Ingredient {
             inverseJoinColumns = @JoinColumn(name = "product_id"))
     private Set<Product> ingredients;
 
+    @Column(nullable = false)
+    private Date date;
+
+    public Ingredient() {
+        this.date = new Date();
+    }
+
     public String getId() {
         return id;
     }
@@ -66,6 +74,10 @@ public class Ingredient {
         return unit;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -88,5 +100,9 @@ public class Ingredient {
 
     public void setUnit(Unit unit) {
         this.unit = unit;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
