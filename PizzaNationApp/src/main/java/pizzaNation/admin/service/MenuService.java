@@ -70,16 +70,8 @@ public class MenuService extends BaseService implements IMenuService {
 
         this.menuRepository.saveAndFlush(menu);
 
-//        this.setMenuProducts(menu, addMenuRequestModel.getProductsIds());
-
         return true;
     }
-
-    /*private void setMenuProducts(Menu menu, String[] productsIds) {
-        Set<Product> allByIds = this.productService.getAllByIds(productsIds);
-        allByIds.forEach(p -> p.setMenues(menu));
-        this.productService.saveAll(allByIds);
-    }*/
 
     @Override
     public List<MenuViewModel> findAll() {

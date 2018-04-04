@@ -56,9 +56,7 @@ public class AdminMenuController extends BaseController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(ALL_MENUS_URL)
     public ModelAndView allMenus() {
-        List<MenuViewModel> menus = this.menuService.findAll();
-
-        return super.view(menus, Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
+        return super.view(this.menuService.findAll(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
@@ -100,9 +98,8 @@ public class AdminMenuController extends BaseController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(DELETE_MENUS_URL)
-    public ModelAndView deleteMenuProcess(@PathVariable String name/*, @ModelAttribute @Valid EditMenuRequestModel editMenuRequestModel,
-                                          BindingResult bindingResult, RedirectAttributes attributes*/) {
-        if (!this.menuService.deleteMenu(/*editMenuRequestModel, attributes, bindingResult,*/ name))
+    public ModelAndView deleteMenuProcess(@PathVariable String name) {
+        if (!this.menuService.deleteMenu(name))
             return super.redirect(ADMIN_EDIT_MENUS_URL);
         return super.redirect(ADMIN_ALL_MENUS_URL);
     }

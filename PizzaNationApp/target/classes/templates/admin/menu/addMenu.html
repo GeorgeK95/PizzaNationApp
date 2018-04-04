@@ -13,16 +13,17 @@
                           th:object="${addMenuRequestModel}">
                         <div class="form">
 
-                            <label for="productsIds">Menu Name*</label>
+                            <label for="name">Menu Name*</label>
 
-                            <input type="text" name="name" placeholder="Menu name" class="form_item"
+                            <input type="text" id="name" name="name" placeholder="Menu name" class="form_item"
                                    th:field="*{name}" required="required" maxlength="20"/>
 
                             <div class="pad5"><!-- spacer --></div>
 
-                            <label for="productsIds">Description*</label>
+                            <label for="description">Description*</label>
 
-                            <input type="text" name="description" placeholder="Description" class="form_item"
+                            <input type="text" id="description" name="description" placeholder="Description"
+                                   class="form_item"
                                    th:field="*{description}" required="required" maxlength="100"/>
 
                             <div class="pad5"><!-- spacer --></div>
@@ -36,14 +37,15 @@
 
                             <div class="pad5"><!-- spacer --></div>
 
-                            <label for="productsIds">Priority*</label>
+                            <label for="priority">Priority*</label>
 
-                            <input type="number" th:field="*{priority}" class="form_item" required="required" min="1"
+                            <input type="number" id="priority" th:field="*{priority}" class="form_item"
+                                   required="required" min="1"
                                    max="100"/>
 
                             <div class="pad10"><!-- spacer --></div>
 
-                            <input type="submit" name="addMenu_Btn" class="button_flat button_flat_green"
+                            <input type="submit" name="add-menu-btn" class="button_flat button_flat_green"
                                    value="Add Menu"/>
                         </div>
                     </form>

@@ -5,16 +5,20 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import pizzaNation.admin.repository.MenuRepository;
+import pizzaNation.app.model.entity.Ingredient;
 import pizzaNation.app.model.entity.Menu;
 import pizzaNation.app.model.entity.Product;
+import pizzaNation.app.model.enums.Unit;
+import pizzaNation.app.repository.IngredientRepository;
 import pizzaNation.app.repository.ProductRepository;
+import pizzaNation.app.service.IIngredientService;
 import pizzaNation.user.enumeration.Gender;
 import pizzaNation.user.model.entity.Role;
 import pizzaNation.user.model.entity.User;
 import pizzaNation.user.repository.UserRepository;
 
+import java.math.BigDecimal;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static pizzaNation.app.util.WebConstants.*;
 
@@ -27,18 +31,36 @@ public class DataLoader implements ApplicationRunner {
     private final UserRepository userRepository;
     private final ProductRepository productRepository;
     private final MenuRepository menuRepository;
+    private final IngredientRepository ingredientRepository;
 
     @Autowired
-    public DataLoader(UserRepository userRepository, ProductRepository productRepository, MenuRepository menuRepository) {
+    public DataLoader(UserRepository userRepository, ProductRepository productRepository, MenuRepository menuRepository, IngredientRepository ingredientRepository) {
         this.userRepository = userRepository;
         this.productRepository = productRepository;
         this.menuRepository = menuRepository;
+        this.ingredientRepository = ingredientRepository;
     }
 
     public void run(ApplicationArguments args) {
         this.addUsersWithRoles();
         this.addProducts();
         this.addMenus();
+        this.addIngredients();
+    }
+
+    private void addIngredients() {
+        Ingredient i = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip", "chervena technost");
+        Ingredient i1 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip12", "chervena technost");
+        Ingredient i2 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip2", "chervena technost");
+        Ingredient i3 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip3", "chervena technost");
+        Ingredient i4 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip4", "chervena technost");
+        Ingredient i5 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip5", "chervena technost");
+        Ingredient i6 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip6", "chervena technost");
+        Ingredient i7 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip7", "chervena technost");
+        Ingredient i8 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip9", "chervena technost");
+        Ingredient i9 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip8", "chervena technost");
+
+        this.ingredientRepository.saveAll(Set.of(i, i1, i2, i3, i4, i5, i6, i7, i8, i9));
     }
 
     private void addMenus() {

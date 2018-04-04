@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import pizzaNation.app.model.entity.Menu;
 import pizzaNation.app.model.entity.Product;
+import pizzaNation.app.model.request.EditProductRequestModel;
 
 import java.util.Set;
 
@@ -23,4 +24,8 @@ public interface ProductRepository extends JpaRepository<Product, String> {
     Set<Product> findAllOrderByDate();
 
     Set<Product> findAllByIdIn(String[] productIds);
+
+    boolean existsByName(String name);
+
+    Product findByName(String name);
 }

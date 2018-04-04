@@ -26,7 +26,10 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private Set<Menu> menus;
 
-    @ManyToMany(mappedBy = "ingredients")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "product_ingredient",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
     private Set<Ingredient> ingredients;
 
     @Column(nullable = false)
@@ -41,10 +44,6 @@ public class Product {
         this();
         this.name = name;
         this.details = details;
-    }
-
-    public void addMenu(Menu menu) {
-        this.menus.add(menu);
     }
 
     public String getId() {

@@ -6,8 +6,9 @@ import pizzaNation.app.model.enums.Unit;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -31,23 +32,34 @@ public class Ingredient {
 
     @Min(1)
     @Column(nullable = false)
-    private BigInteger price;
+    private BigDecimal price;
+
+    @NotNull
+    @Column(nullable = false, length = 50, unique = true)
+    private String name;
 
     @NotNull
     @Column(nullable = false)
     private String description;
 
-    @ManyToMany
-    @JoinTable(name = "ingredient_product",
-            joinColumns = @JoinColumn(name = "ingredient_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private Set<Product> ingredients;
+    @ManyToMany(mappedBy = "ingredients")
+    private Set<Product> products;
 
     @Column(nullable = false)
     private Date date;
 
     public Ingredient() {
+        this.products = new HashSet<>();
         this.date = new Date();
+    }
+
+    public Ingredient(Double quantity, Unit unit, BigDecimal price, String name, String description) {
+        this();
+        this.quantity = quantity;
+        this.unit = unit;
+        this.price = price;
+        this.name = name;
+        this.description = description;
     }
 
     public String getId() {
@@ -58,7 +70,7 @@ public class Ingredient {
         return quantity;
     }
 
-    public BigInteger getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
@@ -66,8 +78,8 @@ public class Ingredient {
         return description;
     }
 
-    public Set<Product> getIngredients() {
-        return ingredients;
+    public Set<Product> getProducts() {
+        return products;
     }
 
     public Unit getUnit() {
@@ -78,6 +90,10 @@ public class Ingredient {
         return date;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -86,7 +102,7 @@ public class Ingredient {
         this.quantity = kilograms;
     }
 
-    public void setPrice(BigInteger price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -94,8 +110,8 @@ public class Ingredient {
         this.description = description;
     }
 
-    public void setIngredients(Set<Product> ingredients) {
-        this.ingredients = ingredients;
+    public void setProducts(Set<Product> ingredients) {
+        this.products = ingredients;
     }
 
     public void setUnit(Unit unit) {
@@ -104,5 +120,9 @@ public class Ingredient {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

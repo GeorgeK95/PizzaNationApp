@@ -9,12 +9,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pizzaNation.app.model.view.UserViewModel;
 import pizzaNation.user.model.entity.User;
 import pizzaNation.user.model.request.UserRegisterRequestModel;
 import pizzaNation.user.repository.RoleRepository;
 import pizzaNation.user.repository.UserRepository;
 import pizzaNation.app.util.DTOConverter;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -72,6 +74,11 @@ public class UserService extends BaseService implements IUserService {
     @Override
     public User findUserByEmail(String email) {
         return this.userRepository.findByEmail(email);
+    }
+
+    @Override
+    public List<UserViewModel> findAll() {
+        return DTOConverter.convert(this.userRepository.findAll(), UserViewModel.class);
     }
 
     private boolean persistUser(UserRegisterRequestModel requestModel) {

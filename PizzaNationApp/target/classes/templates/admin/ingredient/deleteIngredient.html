@@ -1,0 +1,61 @@
+<main>
+    <div class="wrapper">
+        <div class="white_page content_on" id="tabpanel_1">
+            <div class="page_pad">
+                <div class="align_left">
+                    <h1>Delete Ingredient</h1>
+                    <div class="pad10"><!-- spacer --></div>
+
+                    <form name="form_login" method="post"
+                          th:action="@{/admin/ingredients/delete/{name}(name=${model.getName()})}"
+                          th:object="${model}">
+                        <div class="form">
+
+                            <label for="name">Ingredient Name*</label>
+
+                            <input type="text" id="name" name="name" placeholder="Ingredient name" class="form_item"
+                                   th:field="*{name}" required="required" maxlength="50" readonly="readonly"/>
+
+                            <div class="pad5"><!-- spacer --></div>
+
+                            <label for="description">Description*</label>
+                            <input type="text" id="description" name="description" placeholder="Description"
+                                   class="form_item" required="required" maxlength="100" th:field="*{description}"
+                                   readonly="readonly"/>
+
+                            <div class="pad5"><!-- spacer --></div>
+
+                            <label for="quantity">Quantity*</label>
+                            <input type="number" id="quantity" th:field="*{quantity}" class="form_item"
+                                   step="0.01" min="1" required="required" readonly="readonly"/>
+
+                            <div class="pad5"><!-- spacer --></div>
+
+                            <label for="price">Price*</label>
+                            <input type="number" id="price" th:field="*{price}" class="form_item" step="0.01"
+                                   min="1" required="required" readonly="readonly"/>
+
+                            <div class="pad5"><!-- spacer --></div>
+
+                            <label for="unit">Unit*</label>
+                            <select disabled="disabled" required="required" class="form_item" id="unit"
+                                    th:field="*{unit}">
+                                <option th:each="unit : ${unitsList}" th:value="${unit}"
+                                        th:text="${#strings.capitalize(#strings.toLowerCase(unit))}">1
+                                </option>
+                            </select>
+
+                            <div class="pad10"><!-- spacer --></div>
+
+                            <input type="submit" name="delete-ingr-btn" class="button_flat button_flat_green"
+                                   value="Delete Ingredient"/>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>

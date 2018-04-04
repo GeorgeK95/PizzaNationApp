@@ -1,6 +1,10 @@
 package pizzaNation.app.service;
 
+import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.app.model.entity.Product;
+import pizzaNation.app.model.request.AddProductRequestModel;
+import pizzaNation.app.model.request.EditProductRequestModel;
 import pizzaNation.app.model.response.ProductResponseModel;
 import pizzaNation.app.model.view.ProductViewModel;
 
@@ -23,4 +27,13 @@ public interface IProductService {
 
     Set<Product> findAllByMenuName(String name);
 
+    boolean addProduct(AddProductRequestModel addProductRequestModel, RedirectAttributes attributes, BindingResult bindingResult);
+
+    boolean persistProduct(AddProductRequestModel addProductRequestModel);
+
+    EditProductRequestModel findByName(String name);
+
+    boolean editProduct(EditProductRequestModel editProductRequestModel, RedirectAttributes attributes, BindingResult bindingResult, String name);
+
+    boolean deleteProduct(String name);
 }

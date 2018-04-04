@@ -6,9 +6,6 @@
                     <h1>Delete Menu</h1>
                     <div class="pad10"><!-- spacer --></div>
 
-                    <!-- <div class="errorbox align_center" th:if="${add_menu_error} != null"
-                          th:text="${add_menu_error}"></div>-->
-
                     <form name="form_login" method="post" th:object="${model}"
                           th:action="@{/admin/menus/delete/{name}(name=${model.getName()})}">
                         <div class="form">
