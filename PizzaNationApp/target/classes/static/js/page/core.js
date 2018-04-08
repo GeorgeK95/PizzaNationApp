@@ -19,7 +19,7 @@ function topFunction() {
 
 function activate_hamburger_menu() {
     // Top navigation
-    $('a#mobile_nav_button').bind('click', function () {
+    /*$('a#mobile_nav_button').bind('click', function () {
         if ($('div#mobnav').is(':visible')) {
             $('div#mobnav').slideUp(50);
         }
@@ -30,6 +30,14 @@ function activate_hamburger_menu() {
             }, 0);
             $('div#mobnav').slideDown(100);
         }
-        return false;
-    });
+        return false;activate_hamburger_menu();activate_hamburger_menu();
+    });*/
+
+    var a = $("div#mobnav").attr("style");
+    // console.log(a)
+    if (a === "display:block;") {
+        $("div#mobnav").attr("style", "display:none;");
+    } else {
+        $("div#mobnav").attr("style", "display:block;");
+    }
 }

@@ -11,6 +11,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.app.exception.AdminModifyException;
 import pizzaNation.app.exception.UserNotFoundException;
+import pizzaNation.app.model.request.EditDetailsRequestModel;
+import pizzaNation.app.model.request.EditSignInRequestModel;
 import pizzaNation.app.model.view.UserViewModel;
 import pizzaNation.user.model.entity.Role;
 import pizzaNation.user.model.entity.User;
@@ -20,6 +22,7 @@ import pizzaNation.user.repository.RoleRepository;
 import pizzaNation.user.repository.UserRepository;
 import pizzaNation.app.util.DTOConverter;
 
+import java.security.Principal;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -143,6 +146,30 @@ public class UserService extends BaseService implements IUserService {
         this.userRepository.delete(user);
 
         return true;
+    }
+
+    @Override
+    public EditSignInRequestModel constructEditEmailModel(Principal principal) {
+        return DTOConverter.convert(this.userRepository.findByEmail(principal.getName()), EditSignInRequestModel.class);
+    }
+
+    @Override
+    public EditDetailsRequestModel constructEditDetailsModel(Principal principal) {
+        return DTOConverter.convert(this.userRepository.findByEmail(principal.getName()), EditDetailsRequestModel.class);
+    }
+
+    @Override
+    public boolean editEmail(EditSignInRequestModel editSignInRequestModel, RedirectAttributes attributes, BindingResult result, Principal principal) {
+        String id = this.userRepository.findByEmail(principal.getName()).getId();
+        EditUserRequestModel reqMod = DTOConverter.convert(editSignInRequestModel, EditUserRequestModel.class);
+        return this.editUser(id, reqMod, result, attributes);
+    }
+
+    @Override
+    public boolean editUserDetails(String currentEmail, EditDetailsRequestModel requestModel, RedirectAttributes attributes, BindingResult result) {
+        String id = this.userRepository.findByEmail(currentEmail).getId();
+        EditUserRequestModel reqMod = DTOConverter.convert(requestModel, EditUserRequestModel.class);
+        return this.editUser(id, reqMod, result, attributes);
     }
 
     private void editAndSave(User user, EditUserRequestModel requestModel, BindingResult bindingResult, RedirectAttributes attributes) {

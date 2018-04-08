@@ -19,6 +19,8 @@ public final class WebConstants {
     public static final String ABOUT_URL = "/about";
     public static final String ACCOUNT_URL = "/account";
     public static final String ACCOUNT_SETTINGS_URL = "/account/settings";
+    public static final String ACCOUNT_SETTINGS_EMAIL_URL = "/account/settings/email";
+    public static final String ACCOUNT_SETTINGS_DETAILS_URL = "/account/settings/details";
     public static final String ADMIN_URL = "/admin";
     public static final String TERMS_URL = "/terms";
     public static final String CART_URL = "/cart";
@@ -29,8 +31,11 @@ public final class WebConstants {
     public static final String BASE_LAYOUT_URL = "base-layout";
     public static final String ADD_STORES_URL = "/stores/add";
     public static final String ALL_MENUS_URL = "/menus/all";
+    public static final String MENUS_URL = "/menus";
     public static final String ALL_PRODUCTS_URL = "/products/all";
+    public static final String PRODUCTS_URL = "/products";
     public static final String ALL_INGREDIENTS_URL = "/ingredients/all";
+    public static final String INGREDIENTS_URL = "/ingredients";
     public static final String ADD_MENUS_URL = "/menus/add";
     public static final String ADD_PRODUCTS_URL = "/products/add";
     public static final String ADD_INGREDIENTS_URL = "/ingredients/add";
@@ -53,6 +58,7 @@ public final class WebConstants {
     public static final String ADMIN_EDIT_PRODUCTS_URL = "/admin/products/edit";
     public static final String ADMIN_EDIT_INGREDIENTS_URL = "/admin/ingredients/edit";
     public static final String ADMIN_EDIT_USERS_URL = "/admin/users/edit/{id}";
+    public static final String USERS_URL = "/users";
     public static final String ALL_USERS_URL = "/users/all";
     public static final String EMPTY_URL = "";
     public static final String MENU_NAME_URL = "/menu/{name}";
@@ -95,6 +101,7 @@ public final class WebConstants {
     //Errors
     public static final String USER_REGISTER_ERROR = "user_register_error";
     public static final String CONTACT_FORM_ERROR = "contact_form_error";
+    public static final String CONTACT_FORM_SUCCESS = "contact_form_success";
     public static final String USER_EDIT_ERROR = "user_edit_error";
     public static final String ADD_MENU_ERROR = "add_menu_error";
     public static final String ADD_INGREDIENT_ERROR = "add_ingredient_error";
@@ -133,24 +140,34 @@ public final class WebConstants {
     public static final String PRODUCT_NAME_ALREADY_TAKEN_MESSAGE = "There is already a product with the given name, please choose another.";
     public static final String USER_REGISTER_SUCCESS_MESSAGE = "user_register_success";
     public static final String REGISTERED_SUCCESSFULLY_MESSAGE = "Registered successfully !";
+    public static final String SUCCESSFULLY_SENT_FEEDBACK_MESSAGE = "Your feedback was sent successfully.";
 
     //Admin Data
     public static final String ADMIN_EMAIL = "pizzanationapp@gmail.com";
     public static final String ADMIN_PASSWORD = "pizzanationapp";
-    public static final String ADMIN_LAST_NAME = "Admin";
+    public static final String ADMIN_LAST_NAME = "Adminov";
     public static final String ADMIN_FIRST_NAME = "Admin";
     public static final String ADMIN_CITY = "Plovdiv";
     public static final String ADMIN_PHONE = "1234567890";
-    public static final String ADMIN_ADDRESS = "bulevard Pobeda 65";
+    public static final String ADMIN_ADDRESS = "Boulevard Pobeda 65";
 
     //Moderator Data
-    public static final String MODERATOR_EMAIL = "moderator@moderator.com";
-    public static final String MODERATOR_ADDRESS = "bulevard Tzarigradsko Shose 80";
+    public static final String MODERATOR_EMAIL = "pizzanationappmoderator@gmail.com";
+    public static final String MODERATOR_ADDRESS = "Boulevard Tzarigradsko Shose 80";
     public static final String MODERATOR_PHONE = "(123)4567890";
     public static final String MODERATOR_CITY = "Sofia";
-    public static final String MODERATOR_PASSWORD = "moderator";
+    public static final String MODERATOR_PASSWORD = "pizzanationappmoderator";
     public static final String MODERATOR_FIRST_NAME = "Moderator";
-    public static final String MODERATOR_LAST_NAME = "Moderator";
+    public static final String MODERATOR_LAST_NAME = "Moderatorov";
+
+    //User Data
+    public static final String USER_EMAIL = "user@abv.bg";
+    public static final String USER_PASSWORD = "useruser";
+    public static final String USER_FIRST_NAME = "User";
+    public static final String USER_LAST_NAME = "Userov";
+    public static final String USER_ADDRESS = "Boulevard San Stefano 12";
+    public static final String USER_PHONE = "1234567890";
+    public static final String USER_CITY = "Burgas";
 
     //Roles
     public static final String ROLE_ADMIN = "ROLE_ADMIN";
@@ -177,6 +194,13 @@ public final class WebConstants {
     public static final String INGREDIENT_EXCEPTION_MESSAGE = "Ingredient with given name was not found.";
     public static final String ADMIN_EXCEPTION_MESSAGE = "Admin account cannot be modified.";
     public static final String PRODUCT_EXCEPTION_MESSAGE = "Product with given name was not found.";
+
+    //Names
+    public static final String GENDERS_LIST = "gendersList";
+    public static final String INGREDIENTS_LIST = "ingredientsList";
+    public static final String PRODUCTS_LIST = "productsList";
+    public static final String MENUS_LIST = "menusList";
+    public static final String UNITS_LIST = "unitsList";
 
     private WebConstants() {
     }

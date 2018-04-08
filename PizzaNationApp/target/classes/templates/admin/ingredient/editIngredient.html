@@ -2,6 +2,15 @@
     <div class="wrapper">
         <div class="white_page content_on" id="tabpanel_1">
             <div class="page_pad">
+                <div class="breadcrumbs" th:with="urlArr = ${#strings.arraySplit(#httpServletRequest.requestURI, '/')}">
+                    <a th:href="@{'/'+${urlArr[0]}}" th:text="${#strings.capitalize(urlArr[0])}"></a>
+                    <th:block th:each="index : ${#numbers.sequence(1, #lists.size(urlArr) - 3)}">
+                        <a th:href="@{'/'+${urlArr[0]} + '/'+${urlArr[index]}}"
+                           th:text="${#strings.capitalize(urlArr[index])}">Settings
+                        </a>
+                    </th:block>
+                </div>
+
                 <div class="align_left">
                     <h1>Edit Ingredient</h1>
                     <div class="pad10"><!-- spacer --></div>

@@ -100,8 +100,8 @@ public class DataLoader implements ApplicationRunner {
                 ADMIN_ADDRESS, Gender.MALE, ADMIN_PHONE, ADMIN_CITY);
         User moderator = new User(MODERATOR_EMAIL, MODERATOR_PASSWORD, MODERATOR_FIRST_NAME,
                 MODERATOR_LAST_NAME, MODERATOR_ADDRESS, Gender.FEMALE, MODERATOR_PHONE, MODERATOR_CITY);
-        User user = new User("a@a.bg", "aaaaaaaa", "aa",
-                "bb", "marsoluq=", Gender.FEMALE, "1234567890", "masms");
+        User user = new User(USER_EMAIL, USER_PASSWORD, USER_FIRST_NAME,
+                USER_LAST_NAME, USER_ADDRESS, Gender.FEMALE, USER_PHONE, USER_CITY);
 
         Role roleAdmin = new Role(ROLE_ADMIN);
         Role roleModerator = new Role(ROLE_MODERATOR);
@@ -114,8 +114,8 @@ public class DataLoader implements ApplicationRunner {
         moderator.addRole(roleModerator);
         moderator.addRole(roleUser);
 
-        moderator.addRole(roleUser);
+        user.addRole(roleUser);
 
-        this.userRepository.saveAll(Set.of(admin, moderator,user));
+        this.userRepository.saveAll(Set.of(admin, moderator, user));
     }
 }

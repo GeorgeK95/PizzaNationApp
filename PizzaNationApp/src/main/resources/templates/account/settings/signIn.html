@@ -1,0 +1,45 @@
+<main>
+    <div class="wrapper">
+        <div class="white_page">
+            <div class="page_pad_smalltop align_left">
+
+                <div class="breadcrumbs" th:with="urlArr = ${#strings.arraySplit(#httpServletRequest.requestURI, '/')}">
+                    <a th:href="@{'/'+${urlArr[0]}}" th:text="${#strings.capitalize(urlArr[0])}"></a>
+                    <th:block th:each="index : ${#numbers.sequence(1, #lists.size(urlArr) - 2)}">
+                        <a th:href="@{'/'+${urlArr[0]} + '/'+${urlArr[index]}}"
+                           th:text="${#strings.capitalize(urlArr[index])}">Settings
+                        </a>
+                    </th:block>
+                    Email
+                </div>
+
+                <h1>Update Sign In information</h1>
+
+                <div class="account_form">
+                    <form method="post" th:action="@{/account/settings/email}" th:object="${model}">
+
+                        <div class="sep_dash"><!-- dash --></div>
+                        <label for="email">Email</label>
+                        <input type="text" class="form_item" id="email" th:field="*{email}">
+
+                        <label for="password">Please enter your new password</label>
+                        <input type="password" class="form_item" id="password" th:field="*{password}">
+
+                        <label for="confirm">Please confirm your new password</label>
+                        <input type="password" class="form_item" id="confirm" th:field="*{confirm}">
+
+                        <div class="sep_dash"><!-- dash --></div>
+
+                        <label for="currentPassword">For security, please enter your current password</label>
+                        <input type="password" class="form_item" id="currentPassword" th:field="*{currentPassword}">
+
+                        <div class="pad10"><!-- --></div>
+
+                        <input type="submit" value="Save" class="button_flat button_flat_green">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>

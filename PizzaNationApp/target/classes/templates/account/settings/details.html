@@ -1,0 +1,65 @@
+<main>
+
+    <!--<div th:text="${#httpServletRequest.requestURI}"></div>-->
+
+    <div class="wrapper">
+        <div class="white_page">
+            <div class="page_pad_smalltop align_left">
+
+                <div class="breadcrumbs">
+                    <a href="/account">Account</a>
+                    <a href="/account/settings">Settings</a>
+                    Details
+                </div>
+
+                <h1>Update Details</h1>
+
+                <div class="account_form">
+                    <form method="post" th:action="@{/account/settings/details}" th:object="${model}">
+
+                        <div class="pad10"></div>
+
+                        <h4>Name</h4>
+                        <div class="sep_dash"><!-- dash --></div>
+                        <label for="first_name">First Name*</label>
+                        <input type="text" class="form_item" id="first_name" th:field="*{firstName}">
+                        <label for="last_name">Last Name*</label>
+                        <input type="text" class="form_item" id="last_name" th:field="*{lastName}">
+
+                        <div class="pad10"></div>
+
+                        <h4>Gender</h4>
+                        <div class="sep_dash"><!-- dash --></div>
+                        <select id="gender" class="form_item form_item_auto" th:field="*{gender}" required="required">
+                            <option th:each="gender : ${gendersList}" th:value="${gender}"
+                                    th:text="${#strings.capitalize(#strings.toLowerCase(gender))}">1
+                            </option>
+                        </select>
+
+                        <div class="pad10"></div>
+
+                        <h4>Phone number*</h4>
+                        <div class="sep_dash"><!-- dash --></div>
+                        <input type="text" class="form_item" id="phone">
+
+                        <div class="pad10"><!-- --></div>
+
+                        <h4>Email subscription</h4>
+                        <div class="sep_dash"><!-- dash --></div>
+
+                        <label>
+                            <input type="checkbox" th:field="*{emailNewsletters}">
+                            Send me great offers by email
+                        </label>
+
+                        <!--<input type="hidden" name="update" value="1">-->
+                        <div class="pad10"><!-- --></div>
+
+                        <input type="submit" name="save" id="save" value="Save" class="button_flat button_flat_green">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>

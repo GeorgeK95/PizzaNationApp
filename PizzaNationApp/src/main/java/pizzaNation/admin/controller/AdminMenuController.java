@@ -43,18 +43,19 @@ public class AdminMenuController extends BaseController {
         this.menuService = menuService;
     }
 
-    @ModelAttribute(name = "productsList")
+    @ModelAttribute(name = PRODUCTS_LIST)
     public List<ProductViewModel> getProducts() {
         return this.productService.findAll();
     }
 
-    @ModelAttribute(name = "menusList")
+    @ModelAttribute(name = MENUS_LIST)
     public List<MenuViewModel> getMenus() {
         return this.menuService.findAll();
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
-    @GetMapping(ALL_MENUS_URL)
+//    @GetMapping(ALL_MENUS_URL)
+    @RequestMapping(method = RequestMethod.GET, value = {ALL_MENUS_URL, MENUS_URL})
     public ModelAndView allMenus() {
         return super.view(this.menuService.findAll(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
     }

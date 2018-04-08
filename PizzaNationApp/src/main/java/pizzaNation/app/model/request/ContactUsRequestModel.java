@@ -26,9 +26,9 @@ public class ContactUsRequestModel {
     @NotBlank
     private String email;
 
-    @NotBlank
+    /*@NotBlank
     @Pattern(regexp = PHONE_PATTERN, message = INVALID_PHONE_FORMAT_MESSAGE)
-    private String phone;
+    private String phone;*/
 
     @NotBlank
     @Length(min = 20, message = INVALID_MESSAGE_LENGTH_MESSAGE)
@@ -42,9 +42,9 @@ public class ContactUsRequestModel {
         return email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
+//    public String getPhone() {
+//        return phone;
+//    }
 
     public String getMessage() {
         return message;
@@ -58,9 +58,9 @@ public class ContactUsRequestModel {
         this.email = email;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+//    public void setPhone(String phone) {
+//        this.phone = phone;
+//    }
 
     public void setMessage(String message) {
         this.message = message;

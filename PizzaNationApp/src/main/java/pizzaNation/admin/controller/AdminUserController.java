@@ -35,13 +35,14 @@ public class AdminUserController extends BaseController {
         this.userService = userService;
     }
 
-    @ModelAttribute(name = "gendersList")
+    @ModelAttribute(name = GENDERS_LIST)
     public List<String> getCreators() {
         return Arrays.stream(Gender.values()).map(Enum::toString).collect(Collectors.toList());
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping(ALL_USERS_URL)
+//    @GetMapping(ALL_USERS_URL)
+    @RequestMapping(method = RequestMethod.GET, value = {ALL_USERS_URL, USERS_URL})
     public ModelAndView allUsers() {
         return super.view(this.userService.findAll(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
     }

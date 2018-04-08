@@ -1,3 +1,22 @@
+div.account_form label {
+    display: block;
+    margin: 15px 0 7px 0 !important;
+}
+
+label {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#greeting {
+    font-weight: bold;
+}
+
+#fullGreeting {
+    font-size: 25px;
+    color: grey;
+}
+
 div.account_points {
 
     /*background: url('../../img/layout/logo_grad.png') top center no-repeat #ED1A23;*/
@@ -39,44 +58,8 @@ div.account_points a span.sub {
     font-weight: normal;
 }
 
-/* Breadcrumbs */
-.breadcrumbs {
-    font-size: 12px;
-    padding: 0 15px 0 30px;
-    margin: 10px 0 20px 0px;
-    border: 1px solid #ddd;
-    line-height: 20px;
-    text-align: left;
-}
-
-.breadcrumbs {
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 22px;
-    background: #f7f7f7 url('../../img/naviElements/navi_home.png') no-repeat 10px 9px;
-}
-
-.breadcrumbs {
-    -moz-box-shadow: 1px 1px 0 #f3f3f3;
-}
-
-.breadcrumbs a {
-    display: inline-block;
-    color: #000;
-    padding: 5px 20px 5px 0;
-}
-
-.breadcrumbs a {
-    background: url('../../img/naviElements/navi_separator.png') no-repeat right center;
-    margin-right: 10px;
-}
-
-.breadcrumbs a:hover {
-    text-decoration: none;
-}
-
-.breadcrumbs span {
-    color: #666;
+div.sep_dash {
+    margin: 0 0 10px 0;
 }
 
 /* Account Boxes */

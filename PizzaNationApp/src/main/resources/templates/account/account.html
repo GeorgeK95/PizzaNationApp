@@ -2,7 +2,11 @@
     <div class="wrapper">
         <div class="page_pad">
 
-            <!--<span th:text="${#authentication.getPrincipal().getUsername()}"></span>-->
+            <p id="fullGreeting">Hello, <span id="greeting" th:text="${#authentication.getPrincipal().getUsername()}"></span>.
+                Here you can edit your profile.
+            </p>
+
+            <div class="pad10"></div>
 
             <div class="account_box_wrap">
                 <div class="account_box curve_me_3 shadow_element scale_me_hover">

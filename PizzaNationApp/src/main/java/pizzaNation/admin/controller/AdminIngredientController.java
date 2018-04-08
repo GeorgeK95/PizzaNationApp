@@ -36,13 +36,14 @@ public class AdminIngredientController extends BaseController {
         this.ingredientService = ingredientService;
     }
 
-    @ModelAttribute(name = "unitsList")
+    @ModelAttribute(name = UNITS_LIST)
     public List<Unit> getProducts() {
         return Arrays.asList(Unit.values());
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
-    @GetMapping(ALL_INGREDIENTS_URL)
+//    @GetMapping(ALL_INGREDIENTS_URL)
+    @RequestMapping(method = RequestMethod.GET, value = {ALL_INGREDIENTS_URL, INGREDIENTS_URL})
     public ModelAndView allIngredients() {
         return super.view(this.ingredientService.findAllByDate(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
     }

@@ -36,7 +36,7 @@ public class UserController extends BaseController {
         this.userService = userService;
     }
 
-    @ModelAttribute(name = "gendersList")
+    @ModelAttribute(name = GENDERS_LIST)
     public List<String> getCreators() {
         return Arrays.stream(Gender.values()).map(Enum::toString).collect(Collectors.toList());
     }

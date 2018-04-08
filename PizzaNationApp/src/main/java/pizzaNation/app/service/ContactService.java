@@ -11,7 +11,6 @@ import pizzaNation.user.model.request.ContactUsRequestModel;
 import pizzaNation.user.service.BaseService;
 import pizzaNation.user.service.IUserService;
 
-import javax.validation.constraints.Null;
 import java.security.Principal;
 
 import static pizzaNation.app.util.WebConstants.*;
@@ -32,23 +31,26 @@ public class ContactService extends BaseService implements IContactService {
 
     @Override
     public boolean sendMessage(ContactUsRequestModel requestModel, BindingResult bindingResult, RedirectAttributes attributes) {
-        attributes.addFlashAttribute(CONTACT_REQUEST_MODEL, requestModel);
+        attributes.addFlashAttribute(MODEL_STR, requestModel);
 
         if (super.containErrors(bindingResult, attributes, CONTACT_FORM_ERROR)) return false;
 
-        this.sendEmail(requestModel); //asynch
+        this.sendEmail(requestModel); //asynchF
+
+        attributes.addFlashAttribute(CONTACT_FORM_SUCCESS, SUCCESSFULLY_SENT_FEEDBACK_MESSAGE);
 
         return true;
     }
 
     private void sendEmail(ContactUsRequestModel requestModel) {
-        //TODO
         System.out.println();
     }
 
     @Override
     public ContactUsRequestModel constructModel(Principal principal) {
-        if (principal == null) return new ContactUsRequestModel();
+        if (principal == null)
+            //guest
+            return new ContactUsRequestModel();
 
         User user = this.userService.findUserByEmail(principal.getName());
 

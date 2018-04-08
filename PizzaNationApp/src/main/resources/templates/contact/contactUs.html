@@ -21,6 +21,9 @@
                     <div class="errorbox align_center" th:if="${contact_form_error} != null"
                          th:text="${contact_form_error}"></div>
 
+                    <div class="successbox align_center" th:if="${contact_form_success} != null"
+                         th:text="${contact_form_success}"></div>
+
                     <div class="pad10"><!-- spacer --></div>
 
                     <div class="pad10"><!-- spacer --><h3>What is your Email regarding?</h3></div>
@@ -29,7 +32,7 @@
                     <div id="send_form" class="content_off" style="display: block;">
 
                         <form name="sendmessage" id="sendmessage" method="post"
-                              th:action="@{/contactUs}" th:object="${model}" onsubmit="">
+                              th:action="@{/contactUs}" th:object="${model}">
                             <table width="100%" cellspacing="0" cellpadding="0" class="padded_table">
                                 <tbody>
                                 <tr>
@@ -48,19 +51,18 @@
                                 </tr>
                                 <tr>
                                     <td width="15%">Name*</td>
-                                    <td width="85%"><input type="text" name="name" placeholder="Your name"
-                                                           class="form_item" th:field="*{firstName}"></td>
+                                    <td width="85%"><input type="text" class="form_item" th:field="*{firstName}"></td>
                                 </tr>
                                 <tr>
                                     <td>Email*</td>
                                     <td><input type="email" name="email" placeholder="Your Email" class="form_item"
                                                th:field="*{email}"></td>
                                 </tr>
-                                <tr>
+                                <!--<tr>
                                     <td>Phone</td>
                                     <td><input type="tel" name="phone" placeholder="Your phone number (optional)"
                                                class="form_item" th:field="*{phone}"></td>
-                                </tr>
+                                </tr>-->
 
                                 <tr>
                                     <td>Message*</td>

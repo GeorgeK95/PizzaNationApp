@@ -35,7 +35,7 @@ public class ContactController extends BaseController {
     }
 
     @GetMapping(CONTACT_US_URL)
-    public ModelAndView contactUs(Principal principal) {
+    public ModelAndView contactUs(Principal principal, ContactUsRequestModel requestModel) {
         return super.view(this.contactService.constructModel(principal), Map.ofEntries(entry(PAGE_TITLE_STR, CONTACT_US_PAGE_TITLE)));
     }
 

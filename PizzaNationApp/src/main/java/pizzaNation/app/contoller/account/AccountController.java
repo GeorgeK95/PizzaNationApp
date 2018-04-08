@@ -1,9 +1,10 @@
-package pizzaNation.app.contoller;
+package pizzaNation.app.contoller.account;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
+import pizzaNation.app.contoller.BaseController;
 
 import java.util.Map;
 
@@ -22,9 +23,4 @@ public class AccountController extends BaseController {
         return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, MY_PIZZA_NATION)));
     }
 
-    @PreAuthorize("isAuthenticated()")
-    @GetMapping(ACCOUNT_SETTINGS_URL)
-    public ModelAndView settings() {
-        return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, MY_ACCOUNT_PAGE_TITLE)));
-    }
 }
