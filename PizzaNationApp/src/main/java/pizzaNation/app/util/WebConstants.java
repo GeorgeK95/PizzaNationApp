@@ -15,7 +15,10 @@ public final class WebConstants {
 
     //URL-s
     public static final String ERROR_URL = "/error";
+    public static final String UNAUTHORIZED_URL = "/unauthorized";
     public static final String ABOUT_URL = "/about";
+    public static final String ACCOUNT_URL = "/account";
+    public static final String ACCOUNT_SETTINGS_URL = "/account/settings";
     public static final String ADMIN_URL = "/admin";
     public static final String TERMS_URL = "/terms";
     public static final String CART_URL = "/cart";
@@ -32,13 +35,16 @@ public final class WebConstants {
     public static final String ADD_PRODUCTS_URL = "/products/add";
     public static final String ADD_INGREDIENTS_URL = "/ingredients/add";
     public static final String EDIT_MENUS_URL = "/menus/edit/{name}";
+    public static final String EDIT_USERS_URL = "/users/edit/{id}";
     public static final String EDIT_PRODUCTS_URL = "/products/edit/{name}";
     public static final String EDIT_INGREDIENTS_URL = "/ingredients/edit/{name}";
     public static final String DELETE_MENUS_URL = "/menus/delete/{name}";
     public static final String DELETE_PRODUCTS_URL = "/products/delete/{name}";
+    public static final String DELETE_USERS_URL = "/users/delete/{id}";
     public static final String DELETE_INGREDIENTS_URL = "/ingredients/delete/{name}";
     public static final String ADMIN_ALL_MENUS_URL = "/admin/menus/all";
     public static final String ADMIN_ALL_PRODUCTS_URL = "/admin/products/all";
+    public static final String ADMIN_ALL_USERS_URL = "/admin/users/all";
     public static final String ADMIN_ALL_INGREDIENTS_URL = "/admin/ingredients/all";
     public static final String ADMIN_ADD_MENUS_URL = "/admin/menus/add";
     public static final String ADMIN_ADD_PRODUCTS_URL = "/admin/products/add";
@@ -46,17 +52,21 @@ public final class WebConstants {
     public static final String ADMIN_EDIT_MENUS_URL = "/admin/menus/edit";
     public static final String ADMIN_EDIT_PRODUCTS_URL = "/admin/products/edit";
     public static final String ADMIN_EDIT_INGREDIENTS_URL = "/admin/ingredients/edit";
+    public static final String ADMIN_EDIT_USERS_URL = "/admin/users/edit/{id}";
     public static final String ALL_USERS_URL = "/users/all";
     public static final String EMPTY_URL = "";
     public static final String MENU_NAME_URL = "/menu/{name}";
 
     //Page Titles
     public static final String ABOUT_US_PAGE_TITLE = "About Us";
+    public static final String MY_ACCOUNT_PAGE_TITLE = "My Account";
+    public static final String MY_PIZZA_NATION = "My Pizza Nation";
     public static final String ADMIN_PANEL_PAGE_TITLE = "Admin Panel";
     public static final String SHOPPING_CART_PAGE_TITLE = "Shopping Cart";
     public static final String CONTACT_US_PAGE_TITLE = "Contact us";
     public static final String PAGE_TITLE_STR = "pageTitle";
     public static final String NOT_FOUND_PAGE_TITLE = "Page Not Found";
+    public static final String UNAUTHORIZED_PAGE_TITLE = "Unauthorized";
     public static final String MENU_NOT_FOUND_PAGE_TITLE = "Menu Not Found";
     public static final String OUR_STORES_PAGE_TITLE = "Our Stores";
     public static final String STORES_MAP_PAGE_TITLE = "stores/map";
@@ -84,6 +94,8 @@ public final class WebConstants {
 
     //Errors
     public static final String USER_REGISTER_ERROR = "user_register_error";
+    public static final String CONTACT_FORM_ERROR = "contact_form_error";
+    public static final String USER_EDIT_ERROR = "user_edit_error";
     public static final String ADD_MENU_ERROR = "add_menu_error";
     public static final String ADD_INGREDIENT_ERROR = "add_ingredient_error";
     public static final String ADD_PRODUCT_ERROR = "add_product_error";
@@ -104,6 +116,7 @@ public final class WebConstants {
     public static final String INVALID_ADDRESS_MESSAGE = "Address cannot be empty and must less than 50 symbols long.";
     public static final String INVALID_CITY_MESSAGE = "City cannot be empty and must be less than 50 symbols long.";
     public static final String INVALID_PHONE_FORMAT_MESSAGE = "Invalid phone format.";
+    public static final String INVALID_MESSAGE_LENGTH_MESSAGE = "Message length must be at least 20 symbols long.";
     public static final String ACCEPT_TERMS_MESSAGE = "Please, accept our terms.";
     public static final String WRONG_LOGIN_DATA_MESSAGE = "Invalid email or password.";
     public static final String INVALID_MENU_NAME_MESSAGE = "Menu name cannot be empty and must less than 20 symbols long.";
@@ -118,10 +131,12 @@ public final class WebConstants {
     public static final String MENU_NAME_ALREADY_TAKEN_MESSAGE = "There is already a menu with the given name, please choose another.";
     public static final String INGREDIENT_NAME_ALREADY_TAKEN_MESSAGE = "There is already a ingredient with the given name, please choose another.";
     public static final String PRODUCT_NAME_ALREADY_TAKEN_MESSAGE = "There is already a product with the given name, please choose another.";
+    public static final String USER_REGISTER_SUCCESS_MESSAGE = "user_register_success";
+    public static final String REGISTERED_SUCCESSFULLY_MESSAGE = "Registered successfully !";
 
     //Admin Data
-    public static final String ADMIN_EMAIL = "admin@admin.com";
-    public static final String ADMIN_PASSWORD = "adminadmin";
+    public static final String ADMIN_EMAIL = "pizzanationapp@gmail.com";
+    public static final String ADMIN_PASSWORD = "pizzanationapp";
     public static final String ADMIN_LAST_NAME = "Admin";
     public static final String ADMIN_FIRST_NAME = "Admin";
     public static final String ADMIN_CITY = "Plovdiv";
@@ -144,6 +159,7 @@ public final class WebConstants {
 
     //Models
     public static final String USER_REGISTER_REQUEST_MODEL = "userRegisterRequestModel";
+    public static final String CONTACT_REQUEST_MODEL = "contactRequestModel";
     public static final String ADD_MENU_REQUEST_MODEL = "addMenuRequestModel";
     public static final String ADD_PRODUCT_REQUEST_MODEL = "addProductRequestModel";
     public static final String ADD_INGREDIENT_REQUEST_MODEL = "addIngredientRequestModel";
@@ -157,7 +173,9 @@ public final class WebConstants {
 
     //Exceptions
     public static final String MENU_EXCEPTION_MESSAGE = "Menu with given name was not found.";
+    public static final String USER_EXCEPTION_MESSAGE = "User with given id was not found.";
     public static final String INGREDIENT_EXCEPTION_MESSAGE = "Ingredient with given name was not found.";
+    public static final String ADMIN_EXCEPTION_MESSAGE = "Admin account cannot be modified.";
     public static final String PRODUCT_EXCEPTION_MESSAGE = "Product with given name was not found.";
 
     private WebConstants() {

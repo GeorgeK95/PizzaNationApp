@@ -25,10 +25,10 @@
                 Register
             </span>
         </a>
-        <a th:href="@{/logout}" sec:authorize="isAuthenticated()">
+        <a th:href="@{/account}" sec:authorize="isAuthenticated()">
             <span class="paddy">
-                <i class="icon ion-key"></i>
-                Logout
+                <i class="icon ion-person"></i>
+                Account
             </span>
         </a>
         <a th:href="@{/cart}" class="cart">
@@ -40,7 +40,7 @@
 
     </div>
     <div class="mobile_nav">
-        <a href="#" id="mobile_nav_button">
+        <a href="#" id="mobile_nav_button" onclick="activate_hamburger_menu();">
             <span class="paddy">
                 <i class="ion-navicon-round"></i>
             </span>

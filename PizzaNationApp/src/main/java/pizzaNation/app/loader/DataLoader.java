@@ -79,16 +79,16 @@ public class DataLoader implements ApplicationRunner {
     }
 
     private void addProducts() {
-        Product product1 = new Product("pizzanamee1 ", "details list details  details  details list details list ");
-        Product product2 = new Product("pizzanamee2 ", "details list details  details  details list details list ");
-        Product product3 = new Product("pizzanamee3 ", "details list details  details  details list details list ");
-        Product product4 = new Product("pizzanamee4 ", "details list details  details  details list details list ");
-        Product product5 = new Product("pizzanamee5 ", "details list details  details  details list details list ");
-        Product product6 = new Product("pizzanamee6 ", "details list details  details  details list details list ");
-        Product product7 = new Product("pizzanamee7 ", "details list details  details  details list details list ");
-        Product product8 = new Product("pizzanamee8 ", "details list details  details  details list details list ");
-        Product product9 = new Product("pizzanamee9 ", "details list details  details  details list details list ");
-        Product product10 = new Product("pizzaname10 ", "details list details  details  details list details list");
+        Product product1 = new Product("pizzanamee1 ", "details list details  details  details list details list ", 12, true);
+        Product product2 = new Product("pizzanamee2 ", "details list details  details  details list details list ", 12, true);
+        Product product3 = new Product("pizzanamee3 ", "details list details  details  details list details list ", 12, true);
+        Product product4 = new Product("pizzanamee4 ", "details list details  details  details list details list ", 12, false);
+        Product product5 = new Product("pizzanamee5 ", "details list details  details  details list details list ", 12, false);
+        Product product6 = new Product("pizzanamee6 ", "details list details  details  details list details list ", 12, false);
+        Product product7 = new Product("pizzanamee7 ", "details list details  details  details list details list ", 12, false);
+        Product product8 = new Product("pizzanamee8 ", "details list details  details  details list details list ", 12, false);
+        Product product9 = new Product("pizzanamee9 ", "details list details  details  details list details list ", 12, true);
+        Product product10 = new Product("pizzaname10 ", "details list details  details  details list details list", 12, true);
 
         this.productRepository.saveAll(Set.of(
                 product1, product2, product3, product4, product5, product6, product7, product8, product9, product10
@@ -100,6 +100,8 @@ public class DataLoader implements ApplicationRunner {
                 ADMIN_ADDRESS, Gender.MALE, ADMIN_PHONE, ADMIN_CITY);
         User moderator = new User(MODERATOR_EMAIL, MODERATOR_PASSWORD, MODERATOR_FIRST_NAME,
                 MODERATOR_LAST_NAME, MODERATOR_ADDRESS, Gender.FEMALE, MODERATOR_PHONE, MODERATOR_CITY);
+        User user = new User("a@a.bg", "aaaaaaaa", "aa",
+                "bb", "marsoluq=", Gender.FEMALE, "1234567890", "masms");
 
         Role roleAdmin = new Role(ROLE_ADMIN);
         Role roleModerator = new Role(ROLE_MODERATOR);
@@ -112,6 +114,8 @@ public class DataLoader implements ApplicationRunner {
         moderator.addRole(roleModerator);
         moderator.addRole(roleUser);
 
-        this.userRepository.saveAll(Set.of(admin, moderator));
+        moderator.addRole(roleUser);
+
+        this.userRepository.saveAll(Set.of(admin, moderator,user));
     }
 }

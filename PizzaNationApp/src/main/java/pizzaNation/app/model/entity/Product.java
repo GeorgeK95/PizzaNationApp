@@ -32,6 +32,13 @@ public class Product {
             inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
     private Set<Ingredient> ingredients;
 
+    private int totalSales;
+
+    private Boolean isPromotional;
+
+    @Column(nullable = true)//TODO:refactor
+    private String imagePath;
+
     @Column(nullable = false)
     private Date date;
 
@@ -40,10 +47,12 @@ public class Product {
         this.date = new Date();
     }
 
-    public Product(String name, String details) {
+    public Product(String name, String details, int totalSales, boolean isPromotional) {
         this();
         this.name = name;
         this.details = details;
+        this.totalSales = totalSales;
+        this.isPromotional = isPromotional;
     }
 
     public String getId() {
@@ -64,6 +73,18 @@ public class Product {
 
     public Set<Ingredient> getIngredients() {
         return ingredients;
+    }
+
+    public int getTotalSales() {
+        return totalSales;
+    }
+
+    public Boolean getPromotional() {
+        return isPromotional;
+    }
+
+    public String getImagePath() {
+        return imagePath;
     }
 
     public Date getDate() {
@@ -88,6 +109,18 @@ public class Product {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public void setTotalSales(int totalSales) {
+        this.totalSales = totalSales;
+    }
+
+    public void setPromotional(Boolean promotional) {
+        isPromotional = promotional;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public void setDate(Date date) {

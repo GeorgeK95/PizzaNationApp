@@ -1,4 +1,5 @@
-<div id="mobnav" class="mobile_navigation" style="display: none;" th:fragment="mobile_navigation">
+<div id="mobnav" class="mobile_navigation" th:fragment="mobile_navigation">
+    <!--style="display: none;"-->
     <ul id="mobile_navigation">
         <li>
             <a th:href="@{/menu}">
@@ -33,10 +34,10 @@
             </a>
         </li>
         <li sec:authorize="isAuthenticated()">
-            <a th:href="@{/logout}" class="cart">
+            <a th:href="@{/account}" class="cart">
                 <span class="paddy">
-                    <i class="icon ion-key"></i>
-                    Logout
+                    <i class="icon ion-person"></i>
+                    Account
                 </span>
             </a>
         </li>

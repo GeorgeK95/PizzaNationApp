@@ -9,6 +9,11 @@
                             <h1>Log in</h1>
                             <div class="pad10"><!-- spacer --></div>
 
+                            <div class="successbox align_center" th:if="${user_register_success} != null"
+                                 th:text="${user_register_success}"></div>
+
+                            <div class="pad10"><!-- spacer --></div>
+
                             <form name="form_login" method="post" th:action="@{/login}">
                                 <div class="form">
                                     <input type="email" name="email" placeholder="Email" class="form_item"

@@ -10,14 +10,14 @@
                           th:action="@{/admin/menus/delete/{name}(name=${model.getName()})}">
                         <div class="form">
 
-                            <label for="productsIds">Menu Name*</label>
+                            <label for="productsIds">Menu Name</label>
                             <!--maxlength="20"-->
                             <input type="text" name="name" placeholder="Menu name" class="form_item"
                                    th:field="*{name}" readonly="readonly"/>
 
                             <div class="pad5"><!-- spacer --></div>
 
-                            <label for="productsIds">Description*</label>
+                            <label for="productsIds">Description</label>
                             <!--maxlength="100"-->
                             <input type="text" name="description" placeholder="Description" class="form_item"
                                    th:field="*{description}" readonly="readonly"/>
@@ -35,7 +35,7 @@
 
                             <div class="pad5"><!-- spacer --></div>
 
-                            <label for="productsIds">Priority*</label>
+                            <label for="productsIds">Priority</label>
                             <input type="number" th:field="*{priority}" class="form_item"
                                    readonly="readonly"/>
 

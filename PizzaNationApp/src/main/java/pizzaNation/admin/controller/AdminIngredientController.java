@@ -86,8 +86,7 @@ public class AdminIngredientController extends BaseController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(DELETE_INGREDIENTS_URL)
     public ModelAndView deleteIngredientProcess(@PathVariable String name) {
-        if (!this.ingredientService.deleteIngredient(name))
-            return super.redirect(ADMIN_EDIT_INGREDIENTS_URL);
+        this.ingredientService.deleteIngredient(name);
         return super.redirect(ADMIN_ALL_INGREDIENTS_URL);
     }
 }

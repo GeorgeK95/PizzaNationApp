@@ -79,6 +79,7 @@ public class User implements UserDetails {
     public User() {
         this.authorities = new HashSet<>();
         this.emailVerificationCode = UUID.randomUUID().toString();
+        this.date = new Date();
     }
 
     public User(String email, String password) {

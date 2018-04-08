@@ -1,0 +1,269 @@
+div.account_points {
+
+    /*background: url('../../img/layout/logo_grad.png') top center no-repeat #ED1A23;*/
+    float: right;
+    margin: 0 0 10px 10px;
+    border: 1px solid #FFFFFF;
+}
+
+div.account_points a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 0px #111111;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+div.account_points:hover {
+    border: 1px solid #CC0000;
+}
+
+div.account_points a span.main {
+    display: block;
+    padding: 6px 20px;
+}
+
+div.account_points a span.sub {
+    margin: 0;
+    display: block;
+    text-align: right;
+    color: #CCCCCC;
+    font-size: 10px;
+    text-align: center;
+    text-shadow: 1px 1px 0px #111111;
+    font-weight: normal;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    font-size: 12px;
+    padding: 0 15px 0 30px;
+    margin: 10px 0 20px 0px;
+    border: 1px solid #ddd;
+    line-height: 20px;
+    text-align: left;
+}
+
+.breadcrumbs {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 22px;
+    background: #f7f7f7 url('../../img/naviElements/navi_home.png') no-repeat 10px 9px;
+}
+
+.breadcrumbs {
+    -moz-box-shadow: 1px 1px 0 #f3f3f3;
+}
+
+.breadcrumbs a {
+    display: inline-block;
+    color: #000;
+    padding: 5px 20px 5px 0;
+}
+
+.breadcrumbs a {
+    background: url('../../img/naviElements/navi_separator.png') no-repeat right center;
+    margin-right: 10px;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: none;
+}
+
+.breadcrumbs span {
+    color: #666;
+}
+
+/* Account Boxes */
+div.account_box_wrap {
+    width: 50%;
+    float: left;
+}
+
+div.account_box,
+div.account_box_nonlink {
+    background: #FFFFFF;
+    margin: 5px;
+    position: relative;
+    text-align: center;
+}
+
+div.account_box_nonlink a.red_button {
+    float: right;
+    margin: 0 0 10px 10px;
+}
+
+div.account_box i.account_icon {
+    position: absolute;
+    top: 35%;
+    left: 5%;
+    font-size: 40px;
+    color: #CCCCCC;
+    z-index: 200;
+}
+
+div.account_box a {
+    display: block;
+    position: relative;
+    z-index: 300;
+    text-decoration: none;
+    width: 100%;
+    padding: 40px 0 40px 0;
+}
+
+div.account_box a span.title,
+div.account_box_nonlink span.title {
+    display: block;
+    padding: 7px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #222222;
+}
+
+div.account_box a span.desc,
+div.account_box_nonlink span.desc {
+    display: block;
+    padding: 7px;
+    font-weight: normal;
+    font-size: 12px;
+    color: #444444;
+}
+
+div.account_box a:hover span.title {
+    color: #CC0000;
+}
+
+/*div.account_tick {
+    background: url('../../img/icons/32/tick.png') right center no-repeat;
+}*/
+
+div.account_box_active {
+    background: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+/* Account Circles */
+div.account_circle {
+    width: 140px;
+    height: 140px;
+    margin: 30px auto 30px auto;
+    -moz-border-radius: 80px;
+    -webkit-border-radius: 80px;
+    border-radius: 80px;
+}
+
+div.account_circle_red {
+    background: #E0131A;
+}
+
+div.account_circle_red:hover {
+    background: #FF2029;
+}
+
+div.account_circle_pad {
+    padding: 0;
+}
+
+div.account_circle a {
+    display: block;
+    width: 100%;
+    color: #FFFFFF;
+    font-size: 30px;
+    overflow: hidden;
+    /*font-size: 1vw;*/
+}
+
+div.account_circle a span.main {
+    display: block;
+    padding: 44px 0 44px 0;
+    font-size: 30px;
+}
+
+div.account_circle a span.sub {
+    display: block;
+    font-size: 16px;
+    margin: 4px 0 0 0;
+    color: #CCCCCC;
+}
+
+/* Responsive */
+@media only screen and (min-width: 980px) {
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+    /* Account */
+    div.div_padded_table div.tr div.td1 {
+        width: 90px;
+    }
+
+    div.div_padded_table div.tr div.td2 {
+        width: 160px;
+    }
+
+    div.div_padded_table div.tr div.td3 {
+        width: 80px;
+    }
+
+    div.div_padded_table div.tr div.td4 {
+        width: 80px;
+    }
+
+}
+
+@media only screen and (min-width: 475px) and (max-width: 767px) {
+
+    /* Account Boxes */
+    div.account_box_wrap {
+        width: 100%;
+        float: none;
+    }
+
+    div.account_circle {
+        width: 140px;
+        height: 140px;
+        margin: 30px auto 30px auto;
+        -moz-border-radius: 80px;
+        -webkit-border-radius: 80px;
+        border-radius: 80px;
+        display: inline-block;
+    }
+
+}
+
+@media only screen and (min-width: 0px) and (max-width: 474px) {
+
+    /* Account Boxes */
+    div.account_box_wrap {
+        width: 100%;
+        float: none;
+    }
+
+    div.account_circle {
+        width: 140px;
+        height: 140px;
+        margin: 30px auto 30px auto;
+        -moz-border-radius: 80px;
+        -webkit-border-radius: 80px;
+        border-radius: 80px;
+        display: inline-block;
+    }
+
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    /* Breadcrumbs */
+    .breadcrumbs {
+        font-size: 11px;
+        padding: 0 15px 0 30px;
+        margin: 0px 0 20px 0;
+        border: 1px solid #ddd;
+        line-height: 20px;
+        text-align: left;
+    }
+}

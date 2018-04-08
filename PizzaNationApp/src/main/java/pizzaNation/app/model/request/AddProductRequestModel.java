@@ -22,6 +22,8 @@ public class AddProductRequestModel {
 
     private String[] ingredientsIds;
 
+    private Boolean isPromotional;
+
     public String getName() {
         return name;
     }
@@ -34,6 +36,10 @@ public class AddProductRequestModel {
         return ingredientsIds;
     }
 
+    public Boolean getPromotional() {
+        return isPromotional;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -44,5 +50,9 @@ public class AddProductRequestModel {
 
     public void setIngredientsIds(String[] ingredientsIds) {
         this.ingredientsIds = ingredientsIds;
+    }
+
+    public void setPromotional(Boolean isPromotional) {
+        this.isPromotional = isPromotional;
     }
 }

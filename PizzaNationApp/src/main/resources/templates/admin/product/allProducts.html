@@ -1,30 +1,37 @@
 <main>
-    <table>
-        <a th:href="@{/admin/products/add}" class="button_flat button_flat_blue">Add</a>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Details</th>
-            <th>Date</th>
-            <th>Action</th>
-        </tr>
-
-        <th:block th:each="product,iter : ${model}">
+    <div class="divTable">
+        <table>
+            <a th:href="@{/admin/products/add}" class="button_flat button_flat_blue">Add</a>
             <tr>
-                <td th:text="${iter.index + 1}"></td>
-                <td th:text="${product.getName()}"></td>
-                <td th:text="${product.getDetails()}"></td>
-                <td th:text="${#dates.format(product.date, 'hh:mm / dd-MMM-yyyy')}"></td>
-                <td>
-                    <a th:href="@{/admin/products/edit/{id}(id=${product.getName()})}"
-                       class="button_flat button_flat_orange">Edit</a>
-                    <a id="confirm" th:href="@{/admin/products/delete/{id}(id=${product.getName()})}"
-                       class="button_flat button_flat_red">Delete</a>
-                    <a th:href="@{/product/{id}(id=${product.getName()})}"
-                       class="button_flat button_flat_grey">Details</a>
-                </td>
+                <th>#</th>
+                <th>Name</th>
+                <th>Details</th>
+                <th>Total Sales</th>
+                <th>Is Promotional</th>
+                <th>Date</th>
+                <th>Action</th>
             </tr>
-        </th:block>
 
-    </table>
+            <th:block th:each="product,iter : ${model}">
+                <tr>
+                    <td th:text="${iter.index + 1}"></td>
+                    <td th:text="${product.getName()}"></td>
+                    <td th:text="${product.getDetails()}"></td>
+                    <td th:text="${product.getTotalSales()}"></td>
+                    <td th:text="${product.getPromotional()}"></td>
+                    <td th:text="${#dates.format(product.date, 'hh:mm / dd-MMM-yyyy')}"></td>
+                    <td>
+                        <a th:href="@{/admin/products/edit/{id}(id=${product.getName()})}"
+                           class="button_flat button_flat_orange">Edit</a>
+                        <a id="confirm" th:href="@{/admin/products/delete/{id}(id=${product.getName()})}"
+                           class="button_flat button_flat_red">Delete</a>
+                        <a th:href="@{/product/{id}(id=${product.getName()})}"
+                           class="button_flat button_flat_grey">Details</a>
+                    </td>
+                </tr>
+            </th:block>
+
+        </table>
+
+    </div>
 </main>

@@ -1,33 +1,37 @@
 <main>
-    <table>
-        <a th:href="@{/admin/menus/add}" class="button_flat button_flat_blue">Add</a>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Priority</th>
-            <th>Date</th>
-            <th>Action</th>
-        </tr>
-
-        <th:block th:each="menu,iter : ${model}">
+    <div class="divTable">
+        <table>
+            <a th:href="@{/admin/menus/add}" class="button_flat button_flat_blue">Add</a>
             <tr>
-                <td th:text="${iter.index + 1}"></td>
-                <td th:text="${menu.getName()}"></td>MenuM
-                <td th:text="${menu.getDescription()}"></td>
-                <td th:text="${menu.getPriority()}"></td>
-                <td th:text="${#dates.format(menu.date, 'hh:mm / dd-MMM-yyyy')}"></td>
-                <td>
-                    <a th:href="@{/admin/menus/edit/{id}(id=${menu.getName()})}" class="button_flat button_flat_orange">
-                        Edit
-                    </a>
-                    <a id="confirm" th:href="@{/admin/menus/delete/{id}(id=${menu.getName()})}"
-                       class="button_flat button_flat_red">Delete
-                    </a>
-                    <a th:href="@{/menu/{id}(id=${menu.getName()})}" class="button_flat button_flat_grey">Details</a>
-                </td>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Priority</th>
+                <th>Date</th>
+                <th>Action</th>
             </tr>
-        </th:block>
 
-    </table>
+            <th:block th:each="menu,iter : ${model}">
+                <tr>
+                    <td th:text="${iter.index + 1}"></td>
+                    <td th:text="${menu.getName()}"></td>
+                    <td th:text="${menu.getDescription()}"></td>
+                    <td th:text="${menu.getPriority()}"></td>
+                    <td th:text="${#dates.format(menu.date, 'hh:mm / dd-MMM-yyyy')}"></td>
+                    <td>
+                        <a th:href="@{/admin/menus/edit/{id}(id=${menu.getName()})}"
+                           class="button_flat button_flat_orange">
+                            Edit
+                        </a>
+                        <a id="confirm" th:href="@{/admin/menus/delete/{id}(id=${menu.getName()})}"
+                           class="button_flat button_flat_red">Delete
+                        </a>
+                        <a th:href="@{/menu/{id}(id=${menu.getName()})}" class="button_flat button_flat_grey">Details
+                        </a>
+                    </td>
+                </tr>
+            </th:block>
+
+        </table>
+    </div>
 </main>

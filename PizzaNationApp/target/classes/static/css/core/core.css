@@ -37,6 +37,11 @@ h4 {
     margin: 0 0 15px 0;
 }
 
+h5 {
+    font-size: 20px;
+    margin: 0 0 15px 0;
+}
+
 p {
     font-size: 16px;
     line-height: 1.6em;
@@ -103,6 +108,18 @@ div.form p {
 }
 
 /* Boxes */
+.successbox {
+    color: #000000;
+    background-color: #57e213;
+    border: 1px solid;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.5em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
 .errorbox {
     color: #D8000C;
     background-color: #FFBABA;

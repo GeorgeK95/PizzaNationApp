@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.app.service.IContactService;
 import pizzaNation.user.model.request.ContactUsRequestModel;
 
@@ -34,17 +35,15 @@ public class ContactController extends BaseController {
     }
 
     @GetMapping(CONTACT_US_URL)
-    public ModelAndView contactUs(@ModelAttribute ContactUsRequestModel requestModel, Principal principal) {
-        ContactUsRequestModel model = this.contactService.constructModel(principal);
-
-        return super.view(model, Map.ofEntries(entry(PAGE_TITLE_STR, CONTACT_US_PAGE_TITLE)));
+    public ModelAndView contactUs(Principal principal) {
+        return super.view(this.contactService.constructModel(principal), Map.ofEntries(entry(PAGE_TITLE_STR, CONTACT_US_PAGE_TITLE)));
     }
 
     @PostMapping(CONTACT_US_URL)
     public ModelAndView contactUsProcess(@Valid @ModelAttribute ContactUsRequestModel requestModel,
-                                         BindingResult bindingResult) {
-        this.contactService.sendMessage(requestModel, bindingResult);
+                                         BindingResult bindingResult, RedirectAttributes attributes) {
+        this.contactService.sendMessage(requestModel, bindingResult, attributes);
 
-        return super.redirect("/");
+        return super.redirect(CONTACT_US_URL);
     }
 }

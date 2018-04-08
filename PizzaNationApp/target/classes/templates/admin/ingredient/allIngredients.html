@@ -1,36 +1,38 @@
 <main>
-    <table>
-        <a th:href="@{/admin/ingredients/add}" class="button_flat button_flat_blue">Add</a>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Unit</th>
-            <th>Date</th>
-            <th>Action</th>
-        </tr>
-
-        <th:block th:each="ingredient,iter : ${model}">
+    <div class="divTable">
+        <table>
+            <a th:href="@{/admin/ingredients/add}" class="button_flat button_flat_blue">Add</a>
             <tr>
-                <td th:text="${iter.index + 1}"></td>
-                <td th:text="${ingredient.getName()}"></td>
-                <td th:text="${ingredient.getDescription()}"></td>
-                <td th:text="${ingredient.getPrice()}"></td>
-                <td th:text="${ingredient.getQuantity()}"></td>
-                <td th:text="${ingredient.getUnit()}"></td>
-                <td th:text="${#dates.format(ingredient.date, 'hh:mm / dd-MMM-yyyy')}"></td>
-                <td>
-                    <a th:href="@{/admin/ingredients/edit/{id}(id=${ingredient.getName()})}"
-                       class="button_flat button_flat_orange">Edit</a>
-                    <a id="confirm" th:href="@{/admin/ingredients/delete/{id}(id=${ingredient.getName()})}"
-                       class="button_flat button_flat_red">Delete</a>
-                    <a th:href="@{/ingredients/{id}(id=${ingredient.getName()})}"
-                       class="button_flat button_flat_grey">Details</a>
-                </td>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Unit</th>
+                <th>Date</th>
+                <th>Action</th>
             </tr>
-        </th:block>
 
-    </table>
+            <th:block th:each="ingredient,iter : ${model}">
+                <tr>
+                    <td th:text="${iter.index + 1}"></td>
+                    <td th:text="${ingredient.getName()}"></td>
+                    <td th:text="${ingredient.getDescription()}"></td>
+                    <td th:text="${ingredient.getPrice()}"></td>
+                    <td th:text="${ingredient.getQuantity()}"></td>
+                    <td th:text="${ingredient.getUnit()}"></td>
+                    <td th:text="${#dates.format(ingredient.date, 'hh:mm / dd-MMM-yyyy')}"></td>
+                    <td>
+                        <a th:href="@{/admin/ingredients/edit/{id}(id=${ingredient.getName()})}"
+                           class="button_flat button_flat_orange">Edit</a>
+                        <a id="confirm" th:href="@{/admin/ingredients/delete/{id}(id=${ingredient.getName()})}"
+                           class="button_flat button_flat_red">Delete</a>
+                        <a th:href="@{/ingredients/{id}(id=${ingredient.getName()})}"
+                           class="button_flat button_flat_grey">Details</a>
+                    </td>
+                </tr>
+            </th:block>
+
+        </table>
+    </div>
 </main>

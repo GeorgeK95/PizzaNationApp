@@ -162,6 +162,9 @@ div.account_box_nonlink span.desc {
 }
 
 /*TABLE*/
+.divTable {
+    overflow-x:auto;
+}
 table {
     text-align: center;
     font-family: arial, sans-serif;

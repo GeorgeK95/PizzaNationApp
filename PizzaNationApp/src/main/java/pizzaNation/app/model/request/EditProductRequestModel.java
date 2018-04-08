@@ -22,6 +22,10 @@ public class EditProductRequestModel {
 
     private Set<String> ingredientsIds;
 
+    private Boolean isPromotional;
+
+    private Integer totalSales;
+
     public String getName() {
         return name;
     }
@@ -30,8 +34,16 @@ public class EditProductRequestModel {
         return details;
     }
 
+    public Boolean getPromotional() {
+        return isPromotional;
+    }
+
     public Set<String> getIngredientsIds() {
         return ingredientsIds;
+    }
+
+    public Integer getTotalSales() {
+        return totalSales;
     }
 
     public void setName(String name) {
@@ -44,5 +56,13 @@ public class EditProductRequestModel {
 
     public void setIngredientsIds(Set<String> ingredientsIds) {
         this.ingredientsIds = ingredientsIds;
+    }
+
+    public void setPromotional(Boolean promotional) {
+        isPromotional = promotional;
+    }
+
+    public void setTotalSales(Integer totalSales) {
+        this.totalSales = totalSales;
     }
 }

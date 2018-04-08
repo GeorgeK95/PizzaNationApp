@@ -18,7 +18,7 @@
                              th:text="${user_register_error}"></div>
 
                         <form name="reg_register" id="reg_register" method="post"
-                              th:action="@{/register}" onsubmit="" th:object="${userRegisterRequestModel}">
+                              th:action="@{/register}" th:object="${userRegisterRequestModel}">
                             <div class="form">
 
                                 <table width="100%" cellspacing="0" cellpadding="0" class="padded_table">
@@ -145,6 +145,5 @@
 
         <div class="clear"><!-- clear --></div>
         <div class="clear"><!-- clear --></div>
-    </div>
     </div>
 </main>

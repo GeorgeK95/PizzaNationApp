@@ -88,8 +88,7 @@ public class AdminProductController extends BaseController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(DELETE_PRODUCTS_URL)
     public ModelAndView deleteProductProcess(@PathVariable String name) {
-        if (!this.productService.deleteProduct(name))
-            return super.redirect(ADMIN_EDIT_PRODUCTS_URL);
+        this.productService.deleteProduct(name);
         return super.redirect(ADMIN_ALL_PRODUCTS_URL);
     }
 }

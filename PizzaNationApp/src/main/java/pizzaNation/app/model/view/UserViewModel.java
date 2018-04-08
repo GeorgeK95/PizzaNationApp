@@ -14,25 +14,31 @@ import java.util.Date;
  */
 public class UserViewModel {
 
+    private String id;
+
     private String email;
 
     private String firstName;
 
     private String lastName;
 
-    private String address;
+//    private String address;
 
-    private Gender gender;
+//    private Gender gender;
 
     private String phone;
 
-    private String city;
+//    private String city;
 
     private Boolean emailNewsletters;
 
     private Date date;
 
     private String emailVerificationCode;
+
+    public String getId() {
+        return id;
+    }
 
     public String getEmail() {
         return email;
@@ -46,7 +52,7 @@ public class UserViewModel {
         return lastName;
     }
 
-    public String getAddress() {
+    /*public String getAddress() {
         return address;
     }
 
@@ -54,12 +60,12 @@ public class UserViewModel {
         return gender;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
     public String getCity() {
         return city;
+    }*/
+
+    public String getPhone() {
+        return phone;
     }
 
     public Boolean getEmailNewsletters() {
@@ -74,6 +80,10 @@ public class UserViewModel {
         return emailVerificationCode;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -86,7 +96,7 @@ public class UserViewModel {
         this.lastName = lastName;
     }
 
-    public void setAddress(String address) {
+    /*public void setAddress(String address) {
         this.address = address;
     }
 
@@ -94,12 +104,12 @@ public class UserViewModel {
         this.gender = gender;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public void setCity(String city) {
         this.city = city;
+    }*/
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public void setEmailNewsletters(Boolean emailNewsletters) {

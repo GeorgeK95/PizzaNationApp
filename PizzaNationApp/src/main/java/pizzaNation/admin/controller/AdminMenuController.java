@@ -99,8 +99,7 @@ public class AdminMenuController extends BaseController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(DELETE_MENUS_URL)
     public ModelAndView deleteMenuProcess(@PathVariable String name) {
-        if (!this.menuService.deleteMenu(name))
-            return super.redirect(ADMIN_EDIT_MENUS_URL);
+        this.menuService.deleteMenu(name);
         return super.redirect(ADMIN_ALL_MENUS_URL);
     }
 }

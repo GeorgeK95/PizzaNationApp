@@ -1,0 +1,89 @@
+<main>
+    <div class="wrapper">
+        <div class="white_page content_on" id="tabpanel_1">
+            <div class="page_pad">
+                <div class="align_left">
+                    <h1>Delete User</h1>
+                    <div class="pad10"><!-- spacer --></div>
+
+                    <form name="reg_register" id="reg_register" method="post"
+                          th:action="@{/admin/users/delete/{id}(id=${model.getId()})}"
+                          th:object="${model}">
+
+                        <div class="form">
+
+                            <input type="hidden" th:field="*{email}">
+
+                            <h5>Billing address</h5>
+                            <label for="firstName">First Name</label>
+                            <input type="text" name="firstName" id="firstName"
+                                   placeholder="Your first name" th:field="*{firstName}"
+                                   class="form_item" disabled="disabled">
+
+                            <div class="pad5"><!--spaces--></div>
+
+                            <label for="lastName">Last Name</label><input type="text" name="lastName" id="lastName"
+                                                                          placeholder="Your last name"
+                                                                          class="form_item"
+                                                                          th:field="*{lastName}" disabled="disabled">
+
+                            <div class="pad5"><!--spaces--></div>
+
+                            <label for="address">Address</label><input type="text" name="address" id="address"
+                                                                       placeholder="Address" class="form_item"
+                                                                       th:field="*{address}"
+                                                                       disabled="disabled">
+
+                            <div class="pad5"><!--spaces--></div>
+
+                            <label for="city">City</label>
+                            <input type="text" name="city" id="city" placeholder="City"
+                                   th:field="*{city}"
+                                   class="form_item" disabled="disabled">
+
+                            <div class="pad5"><!--spaces--></div>
+
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender" class="form_item form_item_auto"
+                                    th:field="*{gender}" disabled="disabled">
+                                <option th:each="gender : ${gendersList}" th:value="${gender}"
+                                        th:text="${#strings.capitalize(#strings.toLowerCase(gender))}">1
+                                </option>
+                            </select>
+
+                            <div class="pad10"><!--spaces--></div>
+                            <div class="pad5"><!--spaces--></div>
+
+                            <h5>Contact details</h5>
+                            <label for="phone">Phone</label>
+                            <input type="text" name="phone" id="phone"
+                                   placeholder="1234567890, (123)5467890, (123)456-7890, (123)4567890"
+                                   value="" class="form_item" th:field="*{phone}"
+                                   disabled="disabled">
+
+                            <div class="pad10"><!--spaces--></div>
+
+                            <label><input type="checkbox" name="subscribe_email" id="subscribe_email"
+                                          value="1" checked="checked" th:field="*{emailNewsletters}"
+                                          disabled="disabled">
+                                Email Subscribe
+                            </label>
+
+                            <label><input type="checkbox" value="1" checked="checked" th:field="*{moderator}"
+                                          disabled="disabled">
+                                Moderator
+                            </label>
+
+                            <div class="pad10"><!--spaces--></div>
+
+                            <input type="submit" name="register" id="register"
+                                   class="button_flat button_flat_red" value="Delete">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>

@@ -11,6 +11,10 @@ public class ProductResponseModel {
 
     private String details;
 
+    private Integer totalSales;
+
+    private Boolean isPromotional;
+
     private Date date;
 
     public String getName() {
@@ -19,6 +23,14 @@ public class ProductResponseModel {
 
     public String getDetails() {
         return details;
+    }
+
+    public Integer getTotalSales() {
+        return totalSales;
+    }
+
+    public Boolean getPromotional() {
+        return isPromotional;
     }
 
     public Date getDate() {
@@ -33,7 +45,15 @@ public class ProductResponseModel {
         this.details = details;
     }
 
+    public void setTotalSales(Integer totalSales) {
+        this.totalSales = totalSales;
+    }
+
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public void setPromotional(Boolean promotional) {
+        isPromotional = promotional;
     }
 }

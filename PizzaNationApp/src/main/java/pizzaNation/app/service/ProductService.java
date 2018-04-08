@@ -120,6 +120,7 @@ public class ProductService extends BaseService implements IProductService {
 
         product.setName(editProductRequestModel.getName());
         product.setDetails(editProductRequestModel.getDetails());
+        product.setPromotional(editProductRequestModel.getPromotional());
         if (editProductRequestModel.getIngredientsIds() != null)
             product.setIngredients(this.ingredientService.findAllByIds(editProductRequestModel.getIngredientsIds().toArray(new String[0])));
 

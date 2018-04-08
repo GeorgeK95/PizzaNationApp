@@ -6,6 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pizzaNation.app.exception.IngredientNotFoundException;
 import pizzaNation.app.exception.MenuNotFoundException;
 import pizzaNation.app.exception.ProductNotFoundException;
+import pizzaNation.app.exception.UserNotFoundException;
 
 import java.util.Map;
 
@@ -31,5 +32,10 @@ public class ExceptionController extends BaseController {
     @ExceptionHandler(value = {ProductNotFoundException.class})
     public ModelAndView product() {
         return super.view(PRODUCT_EXCEPTION_MESSAGE, Map.ofEntries(entry(PAGE_TITLE_STR, NOT_FOUND_PAGE_TITLE)));
+    }
+
+    @ExceptionHandler(value = {UserNotFoundException.class})
+    public ModelAndView user() {
+        return super.view(USER_EXCEPTION_MESSAGE, Map.ofEntries(entry(PAGE_TITLE_STR, NOT_FOUND_PAGE_TITLE)));
     }
 }

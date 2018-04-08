@@ -17,6 +17,9 @@ public class ProductViewModel {
 
 //    private Set<Ingredient> ingredients;
 
+    private Integer totalSales;
+
+    private Boolean isPromotional;
 
     public String getId() {
         return id;
@@ -26,7 +29,14 @@ public class ProductViewModel {
         return name;
     }
 
-//    public String[] getProductsIds() {
+    public Integer getTotalSales() {
+        return totalSales;
+    }
+
+    public Boolean getIsPromotional() {
+        return isPromotional;
+    }
+    //    public String[] getProductsIds() {
 //        return productIds;
 //    }
 
@@ -40,5 +50,13 @@ public class ProductViewModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setTotalSales(Integer totalSales) {
+        this.totalSales = totalSales;
+    }
+
+    public void setIsPromotional(Boolean promotional) {
+        isPromotional = promotional;
     }
 }

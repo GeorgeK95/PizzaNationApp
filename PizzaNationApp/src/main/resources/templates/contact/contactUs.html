@@ -18,6 +18,11 @@
 
                     <div class="pad10"><!-- spacer --></div>
 
+                    <div class="errorbox align_center" th:if="${contact_form_error} != null"
+                         th:text="${contact_form_error}"></div>
+
+                    <div class="pad10"><!-- spacer --></div>
+
                     <div class="pad10"><!-- spacer --><h3>What is your Email regarding?</h3></div>
 
                     <a name="contactform"></a>

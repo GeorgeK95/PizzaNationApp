@@ -17,7 +17,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/", "/menu", "/map", "/cart", "/about", "/terms", "/contactUs").permitAll()
                 .antMatchers("/register", "/login").access("isAnonymous()")
-                .antMatchers("/logout").access("isAuthenticated()")
+                .antMatchers("/logout", "/account").access("isAuthenticated()")
                 .antMatchers("/admin/**").access("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
                 .antMatchers("/admin/users").access("hasAnyRole('ROLE_ADMIN')")
                 .and()
