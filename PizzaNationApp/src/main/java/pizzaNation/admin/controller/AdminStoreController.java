@@ -4,6 +4,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import pizzaNation.app.annotation.LoggerAction;
+import pizzaNation.app.enums.Action;
+import pizzaNation.app.enums.TableEnum;
 
 import java.util.Map;
 
@@ -20,9 +23,10 @@ public class AdminStoreController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = ADD_STORES_URL, method = RequestMethod.POST)
+    @LoggerAction(table = TableEnum.STORE, action = Action.ADD)
     public @ResponseBody
     String addStoresProcess(@RequestParam Double lat, @RequestParam Double lng) throws Exception {
 //        throw new Exception("Pderasdsad");
-        return "Saved.";
+        return "Saved but on full stretch.";
     }
 }

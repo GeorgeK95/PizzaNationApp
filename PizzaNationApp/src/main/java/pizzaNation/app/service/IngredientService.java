@@ -5,16 +5,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.app.exception.IngredientNotFoundException;
-import pizzaNation.app.exception.MenuNotFoundException;
 import pizzaNation.app.model.entity.Ingredient;
-import pizzaNation.app.model.entity.Menu;
-import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.model.request.AddIngredientRequestModel;
-import pizzaNation.app.model.request.AddMenuRequestModel;
 import pizzaNation.app.model.request.EditIngredientRequestModel;
-import pizzaNation.app.model.request.EditProductRequestModel;
 import pizzaNation.app.model.response.IngredientResponseModel;
 import pizzaNation.app.repository.IngredientRepository;
+import pizzaNation.app.service.contract.IIngredientService;
 import pizzaNation.app.util.DTOConverter;
 import pizzaNation.user.service.BaseService;
 

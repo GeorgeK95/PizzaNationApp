@@ -7,12 +7,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pizzaNation.app.annotation.LoggerAction;
 import pizzaNation.app.contoller.BaseController;
-import pizzaNation.app.model.enums.Unit;
+import pizzaNation.app.enums.Action;
+import pizzaNation.app.enums.TableEnum;
+import pizzaNation.app.enums.Unit;
 import pizzaNation.app.model.request.AddIngredientRequestModel;
 import pizzaNation.app.model.request.EditIngredientRequestModel;
-import pizzaNation.app.model.request.EditProductRequestModel;
-import pizzaNation.app.service.IIngredientService;
+import pizzaNation.app.service.contract.IIngredientService;
 
 import javax.validation.Valid;
 import java.util.Arrays;
@@ -42,7 +44,6 @@ public class AdminIngredientController extends BaseController {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
-//    @GetMapping(ALL_INGREDIENTS_URL)
     @RequestMapping(method = RequestMethod.GET, value = {ALL_INGREDIENTS_URL, INGREDIENTS_URL})
     public ModelAndView allIngredients() {
         return super.view(this.ingredientService.findAllByDate(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
@@ -56,6 +57,7 @@ public class AdminIngredientController extends BaseController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(ADD_INGREDIENTS_URL)
+    @LoggerAction(table = TableEnum.INGREDIENT, action = Action.ADD)
     public ModelAndView addIngredientProcess(@ModelAttribute @Valid AddIngredientRequestModel addIngredientRequestModel,
                                              BindingResult bindingResult, RedirectAttributes attributes) {
         if (!this.ingredientService.addIngredient(addIngredientRequestModel, attributes, bindingResult))
@@ -71,6 +73,7 @@ public class AdminIngredientController extends BaseController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(EDIT_INGREDIENTS_URL)
+    @LoggerAction(table = TableEnum.INGREDIENT, action = Action.EDIT)
     public ModelAndView editIngredientProcess(@ModelAttribute @Valid EditIngredientRequestModel editIngredientRequestModel,
                                               BindingResult bindingResult, @PathVariable String name, RedirectAttributes attributes) {
         if (!this.ingredientService.editIngredient(editIngredientRequestModel, attributes, bindingResult, name))
@@ -86,6 +89,7 @@ public class AdminIngredientController extends BaseController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(DELETE_INGREDIENTS_URL)
+    @LoggerAction(table = TableEnum.INGREDIENT, action = Action.DELETE)
     public ModelAndView deleteIngredientProcess(@PathVariable String name) {
         this.ingredientService.deleteIngredient(name);
         return super.redirect(ADMIN_ALL_INGREDIENTS_URL);

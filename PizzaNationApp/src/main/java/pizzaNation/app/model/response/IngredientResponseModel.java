@@ -1,6 +1,6 @@
 package pizzaNation.app.model.response;
 
-import pizzaNation.app.model.enums.Unit;
+import pizzaNation.app.enums.Unit;
 
 import java.math.BigDecimal;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package pizzaNation.app.model.enums;
+package pizzaNation.app.enums;
 
 /**
  * Created by George-Lenovo on 01/04/2018.

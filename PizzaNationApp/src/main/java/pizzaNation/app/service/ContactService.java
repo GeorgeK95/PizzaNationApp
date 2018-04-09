@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pizzaNation.app.service.contract.IContactService;
 import pizzaNation.app.util.DTOConverter;
 import pizzaNation.user.model.entity.User;
 import pizzaNation.user.model.request.ContactUsRequestModel;

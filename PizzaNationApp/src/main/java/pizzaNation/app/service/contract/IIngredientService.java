@@ -1,4 +1,4 @@
-package pizzaNation.app.service;
+package pizzaNation.app.service.contract;
 
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;

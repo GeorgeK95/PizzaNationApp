@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pizzaNation.app.annotation.LoggerAction;
 import pizzaNation.app.contoller.BaseController;
+import pizzaNation.app.enums.Action;
+import pizzaNation.app.enums.TableEnum;
 import pizzaNation.user.enumeration.Gender;
 import pizzaNation.user.model.request.UserRegisterRequestModel;
 import pizzaNation.user.service.IUserService;
@@ -49,6 +52,7 @@ public class UserController extends BaseController {
 
     @PreAuthorize("isAnonymous()")
     @PostMapping(REGISTER_URL)
+    @LoggerAction(table = TableEnum.USER, action = Action.ADD)
     public ModelAndView registerProcess(@ModelAttribute @Valid UserRegisterRequestModel requestModel, BindingResult bindingResult,
                                         RedirectAttributes attributes) {
         if (!this.userService.addUser(requestModel, bindingResult, attributes)) return super.redirect(REGISTER_URL);

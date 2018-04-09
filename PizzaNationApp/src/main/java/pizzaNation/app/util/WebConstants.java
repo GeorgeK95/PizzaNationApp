@@ -19,7 +19,7 @@ public final class WebConstants {
     public static final String ABOUT_URL = "/about";
     public static final String ACCOUNT_URL = "/account";
     public static final String ACCOUNT_SETTINGS_URL = "/account/settings";
-    public static final String ACCOUNT_SETTINGS_EMAIL_URL = "/account/settings/email";
+    public static final String ACCOUNT_SETTINGS_EMAIL_URL = "/account/settings/signin";
     public static final String ACCOUNT_SETTINGS_DETAILS_URL = "/account/settings/details";
     public static final String ADMIN_URL = "/admin";
     public static final String TERMS_URL = "/terms";
@@ -93,6 +93,9 @@ public final class WebConstants {
     public static final String VIEW_STR = "view";
     public static final String EMPTY_STR = "";
     public static final String REDIRECT_STR = "redirect:";
+    public static final String USER_STR = "user";
+    public static final String OPERATION_STR = "operation";
+    public static final String MODIFIED_TABLE_STR = "modifiedTable";
 
     //Extensions
     public static final String CSS_EXTENSION = ".css";
@@ -103,6 +106,7 @@ public final class WebConstants {
     public static final String CONTACT_FORM_ERROR = "contact_form_error";
     public static final String CONTACT_FORM_SUCCESS = "contact_form_success";
     public static final String USER_EDIT_ERROR = "user_edit_error";
+    public static final String USER_EDIT_SUCCESS = "user_edit_success";
     public static final String ADD_MENU_ERROR = "add_menu_error";
     public static final String ADD_INGREDIENT_ERROR = "add_ingredient_error";
     public static final String ADD_PRODUCT_ERROR = "add_product_error";
@@ -112,11 +116,14 @@ public final class WebConstants {
 
     //Messages
     public static final String PASSWORD_MISMATCH_MESSAGE = "Password mismatch.";
+    public static final String EMAIL_ALREADY_TAKEN_MESSAGE = "There is a user with the given email, please choose another.";
+    public static final String CHANGES_MADE_SUCCESSFULLY = "Changes were successfully made.";
     public static final String MUST_NOT_BE_BLANK_MESSAGE = "must not be blank";
     public static final String PRIORITY_VALIDATION_MESSAGE = "must be less than or equal to 100";
     public static final String MUST_NOT_BE_NULL_MESSAGE = "must not be null";
     public static final String COMPLETE_ALL_FIELDS_MESSAGE = "Please complete all required fields.";
     public static final String INVALID_PRIORITY_CONSTAINT_MESSAGE = "Invalid value for priority.";
+    public static final String INVALID_CURRENT_PASSWORD_MESSAGE = "Your current password is invalid.";
     public static final String INVALID_PASSWORD_MESSAGE = "Password cannot be empty and must be more than 8 and less than 50 symbols long.";
     public static final String INVALID_FIRST_NAME_MESSAGE = "First name cannot be empty and must be less than 50 symbols long.";
     public static final String INVALID_LAST_NAME_MESSAGE = "Last name cannot be empty and must be less than 50 symbols long.";

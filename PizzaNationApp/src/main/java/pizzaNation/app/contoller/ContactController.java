@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pizzaNation.app.service.IContactService;
+import pizzaNation.app.service.contract.IContactService;
 import pizzaNation.user.model.request.ContactUsRequestModel;
 
 import javax.validation.Valid;

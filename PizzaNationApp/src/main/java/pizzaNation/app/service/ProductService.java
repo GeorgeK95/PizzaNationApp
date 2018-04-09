@@ -5,16 +5,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pizzaNation.app.exception.MenuNotFoundException;
 import pizzaNation.app.exception.ProductNotFoundException;
 import pizzaNation.app.model.entity.Ingredient;
-import pizzaNation.app.model.entity.Menu;
 import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.model.request.AddProductRequestModel;
 import pizzaNation.app.model.request.EditProductRequestModel;
 import pizzaNation.app.model.response.ProductResponseModel;
 import pizzaNation.app.model.view.ProductViewModel;
 import pizzaNation.app.repository.ProductRepository;
+import pizzaNation.app.service.contract.IIngredientService;
+import pizzaNation.app.service.contract.IProductService;
 import pizzaNation.app.util.DTOConverter;
 import pizzaNation.user.service.BaseService;
 

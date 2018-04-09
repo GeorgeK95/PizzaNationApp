@@ -14,6 +14,8 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, String> {
     User findByEmail(String email);
 
+    boolean existsByEmail(String email);
+
     @Query("select u from User u where u.email not like 'pizzanationapp@gmail.com'")
     List<User> findAllExceptAdmin();
 }

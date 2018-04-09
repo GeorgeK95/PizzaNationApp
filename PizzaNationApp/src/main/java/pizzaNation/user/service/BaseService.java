@@ -4,6 +4,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.app.model.request.AddIngredientRequestModel;
+import pizzaNation.app.model.request.EditSignInRequestModel;
+import pizzaNation.user.model.request.UserRegisterRequestModel;
 
 import static pizzaNation.app.util.WebConstants.*;
 
@@ -25,6 +27,33 @@ public abstract class BaseService implements IBaseService {
         return false;
     }
 
+    protected boolean passwordsMismatch(Object requestModel, RedirectAttributes attributes) {
+        if (requestModel instanceof UserRegisterRequestModel) {
+            return this.passwordsMismatch((UserRegisterRequestModel) requestModel, attributes);
+        } else {
+//            if (requestModel instanceof EditSignInRequestModel)
+            return this.passwordsMismatch((EditSignInRequestModel) requestModel, attributes);
+        }
+    }
+
+    private boolean passwordsMismatch(EditSignInRequestModel requestModel, RedirectAttributes attributes) {
+        if (!requestModel.getPassword().equals(requestModel.getConfirm())) {
+            attributes.addFlashAttribute(USER_REGISTER_ERROR, PASSWORD_MISMATCH_MESSAGE);
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean passwordsMismatch(UserRegisterRequestModel requestModel, RedirectAttributes attributes) {
+        if (!requestModel.getPassword().equals(requestModel.getConfirmPassword())) {
+            attributes.addFlashAttribute(USER_REGISTER_ERROR, PASSWORD_MISMATCH_MESSAGE);
+            return true;
+        }
+
+        return false;
+    }
+
     private String getDefaultMessage(String message) {
         if (message.equals(MUST_NOT_BE_BLANK_MESSAGE) || message.equals(MUST_NOT_BE_NULL_MESSAGE)) {
             message = COMPLETE_ALL_FIELDS_MESSAGE;
@@ -35,4 +64,4 @@ public abstract class BaseService implements IBaseService {
         return message;
     }
 
-    }
+}

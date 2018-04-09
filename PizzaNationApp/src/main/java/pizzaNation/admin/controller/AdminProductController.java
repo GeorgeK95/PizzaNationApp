@@ -7,12 +7,15 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pizzaNation.app.annotation.LoggerAction;
 import pizzaNation.app.contoller.BaseController;
+import pizzaNation.app.enums.Action;
+import pizzaNation.app.enums.TableEnum;
 import pizzaNation.app.model.request.AddProductRequestModel;
 import pizzaNation.app.model.request.EditProductRequestModel;
 import pizzaNation.app.model.response.IngredientResponseModel;
-import pizzaNation.app.service.IIngredientService;
-import pizzaNation.app.service.IProductService;
+import pizzaNation.app.service.contract.IIngredientService;
+import pizzaNation.app.service.contract.IProductService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -43,7 +46,6 @@ public class AdminProductController extends BaseController {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
-//    @GetMapping(ALL_PRODUCTS_URL)
     @RequestMapping(method = RequestMethod.GET, value = {ALL_PRODUCTS_URL, PRODUCTS_URL})
     public ModelAndView allProducts() {
         return super.view(this.productService.findAllByDate(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
@@ -57,6 +59,7 @@ public class AdminProductController extends BaseController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(ADD_PRODUCTS_URL)
+    @LoggerAction(table = TableEnum.PRODUCT, action = Action.ADD)
     public ModelAndView addProductProcess(@ModelAttribute @Valid AddProductRequestModel addProductRequestModel,
                                           BindingResult bindingResult, RedirectAttributes attributes) {
         if (!this.productService.addProduct(addProductRequestModel, attributes, bindingResult))
@@ -73,6 +76,7 @@ public class AdminProductController extends BaseController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(EDIT_PRODUCTS_URL)
+    @LoggerAction(table = TableEnum.PRODUCT, action = Action.EDIT)
     public ModelAndView editProductProcess(@ModelAttribute @Valid EditProductRequestModel editProductRequestModel,
                                            BindingResult bindingResult, @PathVariable String name, RedirectAttributes attributes) {
         if (!this.productService.editProduct(editProductRequestModel, attributes, bindingResult, name))
@@ -88,6 +92,7 @@ public class AdminProductController extends BaseController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(DELETE_PRODUCTS_URL)
+    @LoggerAction(table = TableEnum.PRODUCT, action = Action.DELETE)
     public ModelAndView deleteProductProcess(@PathVariable String name) {
         this.productService.deleteProduct(name);
         return super.redirect(ADMIN_ALL_PRODUCTS_URL);

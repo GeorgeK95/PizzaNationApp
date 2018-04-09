@@ -13,7 +13,7 @@ import static pizzaNation.app.util.WebConstants.JS_PAGE_FILES;
  * Created by George-Lenovo on 25/03/2018.
  */
 @Configuration
-public class PizzaNationConfiguration {
+public class PizzaNationBeanConfiguration {
 
     @Bean
     public StaticFilesContainer getStaticFilesContainer() {

@@ -1,12 +1,9 @@
 package pizzaNation.app.model.request;
 
-import pizzaNation.app.model.enums.Unit;
+import pizzaNation.app.enums.Unit;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
-import java.util.Date;
 
 import static pizzaNation.app.util.WebConstants.*;
 

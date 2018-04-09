@@ -1,7 +1,4 @@
 <main>
-
-    <!--<div th:text="${#httpServletRequest.requestURI}"></div>-->
-
     <div class="wrapper">
         <div class="white_page">
             <div class="page_pad_smalltop align_left">
@@ -28,7 +25,7 @@
 
                         <div class="pad10"></div>
 
-                        <h4>Gender</h4>
+                        <h4>Gender*</h4>
                         <div class="sep_dash"><!-- dash --></div>
                         <select id="gender" class="form_item form_item_auto" th:field="*{gender}" required="required">
                             <option th:each="gender : ${gendersList}" th:value="${gender}"

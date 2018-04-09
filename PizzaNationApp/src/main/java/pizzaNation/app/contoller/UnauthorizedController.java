@@ -23,8 +23,15 @@ public class UnauthorizedController extends BaseController implements ErrorContr
         return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, UNAUTHORIZED_PAGE_TITLE)));
     }
 
+    /*@RequestMapping(value = ERROR_URL)
+    public ModelAndView notFound(Principal principal) {
+        if (principal != null) return super.redirect(ACCOUNT_URL);
+        return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, UNAUTHORIZED_PAGE_TITLE)));
+    }*/
+
     @Override
     public String getErrorPath() {
         return UNAUTHORIZED_URL;
     }
+
 }

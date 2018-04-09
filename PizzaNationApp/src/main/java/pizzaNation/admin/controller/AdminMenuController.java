@@ -2,22 +2,27 @@ package pizzaNation.admin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.admin.service.IMenuService;
+import pizzaNation.app.annotation.LoggerAction;
 import pizzaNation.app.contoller.BaseController;
-import pizzaNation.app.exception.MenuNotFoundException;
+import pizzaNation.app.enums.Action;
+import pizzaNation.app.enums.TableEnum;
 import pizzaNation.app.model.request.AddMenuRequestModel;
 import pizzaNation.app.model.request.EditMenuRequestModel;
 import pizzaNation.app.model.view.ProductViewModel;
 import pizzaNation.app.model.view.MenuViewModel;
-import pizzaNation.app.service.IProductService;
+import pizzaNation.app.service.contract.IProductService;
 
 import javax.validation.Valid;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
@@ -54,7 +59,6 @@ public class AdminMenuController extends BaseController {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
-//    @GetMapping(ALL_MENUS_URL)
     @RequestMapping(method = RequestMethod.GET, value = {ALL_MENUS_URL, MENUS_URL})
     public ModelAndView allMenus() {
         return super.view(this.menuService.findAll(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
@@ -68,6 +72,7 @@ public class AdminMenuController extends BaseController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(ADD_MENUS_URL)
+    @LoggerAction(table = TableEnum.MENU, action = Action.ADD)
     public ModelAndView addMenuProcess(@ModelAttribute @Valid AddMenuRequestModel addMenuRequestModel, BindingResult bindingResult,
                                        RedirectAttributes attributes) {
         if (!this.menuService.addMenu(addMenuRequestModel, attributes, bindingResult))
@@ -84,6 +89,7 @@ public class AdminMenuController extends BaseController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(EDIT_MENUS_URL)
+    @LoggerAction(table = TableEnum.MENU, action = Action.EDIT)
     public ModelAndView editMenuProcess(@ModelAttribute @Valid EditMenuRequestModel editMenuRequestModel, BindingResult bindingResult,
                                         @PathVariable String name, RedirectAttributes attributes) {
         if (!this.menuService.editMenu(editMenuRequestModel, attributes, bindingResult, name))
@@ -99,6 +105,7 @@ public class AdminMenuController extends BaseController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(DELETE_MENUS_URL)
+    @LoggerAction(table = TableEnum.MENU, action = Action.DELETE)
     public ModelAndView deleteMenuProcess(@PathVariable String name) {
         this.menuService.deleteMenu(name);
         return super.redirect(ADMIN_ALL_MENUS_URL);

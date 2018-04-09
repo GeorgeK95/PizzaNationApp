@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import pizzaNation.app.model.entity.Log;
 import pizzaNation.user.enumeration.Gender;
 
 import javax.persistence.*;
@@ -67,6 +68,9 @@ public class User implements UserDetails {
     private Date date;
 
     private String emailVerificationCode;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Log> logs;
 
     public String getId() {
         return id;
@@ -198,6 +202,10 @@ public class User implements UserDetails {
         return date;
     }
 
+    public Set<Log> getLogs() {
+        return logs;
+    }
+
     //SETTERS
 
     public void setEmail(String email) {
@@ -266,5 +274,9 @@ public class User implements UserDetails {
 
     public void setEmailVerificationCode(String emailVerificationCode) {
         this.emailVerificationCode = emailVerificationCode;
+    }
+
+    public void setLogs(Set<Log> logs) {
+        this.logs = logs;
     }
 }

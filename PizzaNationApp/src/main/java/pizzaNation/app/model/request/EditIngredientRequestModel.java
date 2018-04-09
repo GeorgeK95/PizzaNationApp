@@ -1,6 +1,6 @@
 package pizzaNation.app.model.request;
 
-import pizzaNation.app.model.enums.Unit;
+import pizzaNation.app.enums.Unit;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;

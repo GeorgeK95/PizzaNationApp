@@ -3,6 +3,7 @@
         <div class="white_page">
             <div class="page_pad_smalltop align_left">
 
+                <!--MINI NAV-->
                 <div class="breadcrumbs" th:with="urlArr = ${#strings.arraySplit(#httpServletRequest.requestURI, '/')}">
                     <a th:href="@{'/'+${urlArr[0]}}" th:text="${#strings.capitalize(urlArr[0])}"></a>
                     <th:block th:each="index : ${#numbers.sequence(1, #lists.size(urlArr) - 2)}">
@@ -13,25 +14,43 @@
                     Email
                 </div>
 
+                <div class="errorbox align_center" th:if="${user_edit_error} != null"
+                     th:text="${user_edit_error}">
+                </div>
+
+                <div class="pad5"></div>
+
                 <h1>Update Sign In information</h1>
 
                 <div class="account_form">
-                    <form method="post" th:action="@{/account/settings/email}" th:object="${model}">
+                    <form method="post" th:action="@{/account/settings/signin}" th:object="${model}">
 
                         <div class="sep_dash"><!-- dash --></div>
                         <label for="email">Email</label>
                         <input type="text" class="form_item" id="email" th:field="*{email}">
 
+                        <div class="pad5"></div>
+
                         <label for="password">Please enter your new password</label>
                         <input type="password" class="form_item" id="password" th:field="*{password}">
 
+                        <div class="pad5"></div>
+
                         <label for="confirm">Please confirm your new password</label>
                         <input type="password" class="form_item" id="confirm" th:field="*{confirm}">
+
+                        <div class="pad10"></div>
 
                         <div class="sep_dash"><!-- dash --></div>
 
                         <label for="currentPassword">For security, please enter your current password</label>
                         <input type="password" class="form_item" id="currentPassword" th:field="*{currentPassword}">
+
+                        <div class="pad10"><!-- --></div>
+
+                        <div class="infobox align_center"
+                             th:text="|Attention: You will be log out if changes are successful.|">
+                        </div>
 
                         <div class="pad10"><!-- --></div>
 

@@ -1,17 +1,30 @@
 package pizzaNation.app.model.request;
 
+import pizzaNation.user.annotation.Email;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import static pizzaNation.app.util.WebConstants.INVALID_PASSWORD_MESSAGE;
+
 /**
  * Created by George-Lenovo on 08/04/2018.
  */
 public class EditSignInRequestModel {
 
+    @Email
+    @NotBlank
     private String email;
 
+    @NotBlank
+    @Size(min = 8, max = 50, message = INVALID_PASSWORD_MESSAGE)
     private String password;
 
+    @NotBlank
+    @Size(min = 8, max = 50, message = INVALID_PASSWORD_MESSAGE)
     private String confirm;
 
-    private String currentEmail;
+//    private String currentEmail;
 
     private String currentPassword;
 
@@ -31,9 +44,9 @@ public class EditSignInRequestModel {
         return currentPassword;
     }
 
-    public String getCurrentEmail() {
-        return currentEmail;
-    }
+//    public String getCurrentEmail() {
+//        return currentEmail;
+//    }
 
     public void setEmail(String email) {
         this.email = email;
@@ -51,7 +64,7 @@ public class EditSignInRequestModel {
         this.currentPassword = currentPassword;
     }
 
-    public void setCurrentEmail(String currentEmail) {
-        this.currentEmail = currentEmail;
-    }
+//    public void setCurrentEmail(String currentEmail) {
+//        this.currentEmail = currentEmail;
+//    }
 }

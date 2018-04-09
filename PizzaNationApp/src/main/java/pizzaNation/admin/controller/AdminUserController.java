@@ -7,7 +7,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pizzaNation.app.annotation.LoggerAction;
 import pizzaNation.app.contoller.BaseController;
+import pizzaNation.app.enums.Action;
+import pizzaNation.app.enums.TableEnum;
 import pizzaNation.user.enumeration.Gender;
 import pizzaNation.user.model.request.EditUserRequestModel;
 import pizzaNation.user.service.IUserService;
@@ -41,7 +44,6 @@ public class AdminUserController extends BaseController {
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-//    @GetMapping(ALL_USERS_URL)
     @RequestMapping(method = RequestMethod.GET, value = {ALL_USERS_URL, USERS_URL})
     public ModelAndView allUsers() {
         return super.view(this.userService.findAll(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
@@ -55,6 +57,7 @@ public class AdminUserController extends BaseController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(EDIT_USERS_URL)
+    @LoggerAction(table = TableEnum.USER, action = Action.EDIT)
     public ModelAndView editUserProcess(@PathVariable String id, @ModelAttribute @Valid EditUserRequestModel requestModel,
                                         BindingResult bindingResult, RedirectAttributes attributes) {
         if (!this.userService.editUser(id, requestModel, bindingResult, attributes))
@@ -70,6 +73,7 @@ public class AdminUserController extends BaseController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(DELETE_USERS_URL)
+    @LoggerAction(table = TableEnum.USER, action = Action.DELETE)
     public ModelAndView deleteUserProcess(@PathVariable String id) {
         this.userService.deleteUser(id);
         return super.redirect(ADMIN_ALL_USERS_URL);

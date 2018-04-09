@@ -5,10 +5,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pizzaNation.app.config.PizzaNationSecurityConfiguration;
 import pizzaNation.app.exception.AdminModifyException;
 import pizzaNation.app.exception.UserNotFoundException;
 import pizzaNation.app.model.request.EditDetailsRequestModel;
@@ -42,10 +44,13 @@ public class UserService extends BaseService implements IUserService {
 
     private final RoleRepository roleRepository;
 
+    private final BCryptPasswordEncoder encoder;
+
     @Autowired
-    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder encoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.encoder = encoder;
     }
 
     @Override
@@ -82,7 +87,7 @@ public class UserService extends BaseService implements IUserService {
                                     UserRegisterRequestModel requestModel) {
         if (super.containErrors(bindingResult, attributes, USER_REGISTER_ERROR)) return false;
 
-        if (this.passwordsMismatch(requestModel, attributes)) return false;
+        if (super.passwordsMismatch(requestModel, attributes)) return false;
 
         attributes.addFlashAttribute(USER_REGISTER_SUCCESS_MESSAGE, REGISTERED_SUCCESSFULLY_MESSAGE);
 
@@ -113,7 +118,7 @@ public class UserService extends BaseService implements IUserService {
 
         this.editAndSave(user, requestModel, bindingResult, attributes);
 
-        return false;
+        return true;
     }
 
     @Override
@@ -155,18 +160,43 @@ public class UserService extends BaseService implements IUserService {
 
     @Override
     public EditDetailsRequestModel constructEditDetailsModel(Principal principal) {
-        return DTOConverter.convert(this.userRepository.findByEmail(principal.getName()), EditDetailsRequestModel.class);
+        String email = PizzaNationSecurityConfiguration.getCurrentlyLoggedInUserEmail();
+        return DTOConverter.convert(this.userRepository.findByEmail(email), EditDetailsRequestModel.class);
     }
 
     @Override
-    public boolean editEmail(EditSignInRequestModel editSignInRequestModel, RedirectAttributes attributes, BindingResult result, Principal principal) {
-        String id = this.userRepository.findByEmail(principal.getName()).getId();
-        EditUserRequestModel reqMod = DTOConverter.convert(editSignInRequestModel, EditUserRequestModel.class);
-        return this.editUser(id, reqMod, result, attributes);
+    public boolean editEmail(EditSignInRequestModel editSignInRequestModel, RedirectAttributes attributes, BindingResult result,
+                             Principal principal) {
+        if (super.passwordsMismatch(editSignInRequestModel, attributes)) return false;
+
+        if (this.userRepository.existsByEmail(editSignInRequestModel.getEmail())) {
+            attributes.addFlashAttribute(USER_EDIT_ERROR, EMAIL_ALREADY_TAKEN_MESSAGE);
+            return false;
+        }
+
+        User userToEdit = this.userRepository.findByEmail(principal.getName());
+
+        System.out.println(userToEdit.getPassword());
+        System.out.println(this.encoder.encode(editSignInRequestModel.getCurrentPassword()));
+
+        /*if (!userToEdit.getPassword().equals(this.encoder.encode(editSignInRequestModel.getCurrentPassword()))) {
+            attributes.addFlashAttribute(USER_EDIT_ERROR, INVALID_CURRENT_PASSWORD_MESSAGE);
+            return false;
+        }*/
+
+        userToEdit.setPassword(this.encoder.encode(editSignInRequestModel.getPassword()));
+        userToEdit.setEmail(editSignInRequestModel.getEmail());
+
+        this.userRepository.saveAndFlush(userToEdit);
+
+        attributes.addFlashAttribute(USER_EDIT_SUCCESS, CHANGES_MADE_SUCCESSFULLY);
+
+        return true;
     }
 
     @Override
-    public boolean editUserDetails(String currentEmail, EditDetailsRequestModel requestModel, RedirectAttributes attributes, BindingResult result) {
+    public boolean editUserDetails(String currentEmail, EditDetailsRequestModel requestModel, RedirectAttributes attributes,
+                                   BindingResult result) {
         String id = this.userRepository.findByEmail(currentEmail).getId();
         EditUserRequestModel reqMod = DTOConverter.convert(requestModel, EditUserRequestModel.class);
         return this.editUser(id, reqMod, result, attributes);
@@ -203,12 +233,4 @@ public class UserService extends BaseService implements IUserService {
         return true;
     }
 
-    private boolean passwordsMismatch(UserRegisterRequestModel requestModel, RedirectAttributes attributes) {
-        if (!requestModel.getPassword().equals(requestModel.getConfirmPassword())) {
-            attributes.addFlashAttribute(USER_REGISTER_ERROR, PASSWORD_MISMATCH_MESSAGE);
-            return true;
-        }
-
-        return false;
-    }
 }

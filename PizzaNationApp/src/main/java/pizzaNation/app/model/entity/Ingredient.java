@@ -1,7 +1,7 @@
 package pizzaNation.app.model.entity;
 
 import org.hibernate.annotations.GenericGenerator;
-import pizzaNation.app.model.enums.Unit;
+import pizzaNation.app.enums.Unit;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;

@@ -120,6 +120,18 @@ div.form p {
     border-radius: 3px;
 }
 
+.infobox {
+    color: #0c00d8;
+    background-color: #b4c9ff;
+    border: 1px solid;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.5em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
 .errorbox {
     color: #D8000C;
     background-color: #FFBABA;
