@@ -48,11 +48,4 @@ public class AdminStoreController {
         return "Deleted.";
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @RequestMapping(value = "/stores/reload", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody
-    String reloadStores() throws Exception {
-        Set<StoreResponseModel> stores = this.storeService.findAll();
-        return new Gson().toJson(stores);
-    }
 }

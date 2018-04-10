@@ -39,6 +39,7 @@
 </th:block>
 <th:block sec:authorize="hasRole('ROLE_ADMIN')">
     <script th:inline="javascript">
+
         function initMap() {
             let locations;
             /*<![CDATA[*/
@@ -111,6 +112,8 @@
                                 content: 'Successfully deleted store.'
                             });
 
+                            marker.setMap(null);
+
                             infowindow.open(map, marker);
                         })
                         .fail(function () {
@@ -123,10 +126,6 @@
 
                 }
             );
-
-            $.get("/admin/stores/reload", function (data, status) {
-                alert("Data: " + data + "\nStatus: " + status);
-            })
 
         }
 
