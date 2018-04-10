@@ -7,6 +7,7 @@ import pizzaNation.app.model.entity.Menu;
 import pizzaNation.app.model.request.AddMenuRequestModel;
 import pizzaNation.app.model.request.EditMenuRequestModel;
 import pizzaNation.app.model.view.MenuViewModel;
+import pizzaNation.app.test.UploadImageRequestModel;
 
 import java.util.List;
 
@@ -31,4 +32,6 @@ public interface IMenuService {
     Menu findMenuEntityByName(String menuName);
 
     EditMenuRequestModel findById(String id);
+
+    void uploadImage(UploadImageRequestModel requestModel);
 }

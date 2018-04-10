@@ -1,5 +1,6 @@
 package pizzaNation.admin.controller;
 
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -7,7 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import pizzaNation.app.annotation.LoggerAction;
 import pizzaNation.app.enums.Action;
 import pizzaNation.app.enums.TableEnum;
+import pizzaNation.app.model.response.StoreResponseModel;
 import pizzaNation.app.service.contract.IStoreService;
+
+import java.util.Set;
 
 import static pizzaNation.app.util.WebConstants.*;
 import static pizzaNation.app.util.WebConstants.ADD_STORES_URL;
@@ -45,10 +49,10 @@ public class AdminStoreController {
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @RequestMapping(value = "/reload", method = RequestMethod.GET)
-    @LoggerAction(table = TableEnum.STORE, action = Action.ADD)
+    @RequestMapping(value = "/stores/reload", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     String reloadStores() throws Exception {
-        return "Reloaded.";
+        Set<StoreResponseModel> stores = this.storeService.findAll();
+        return new Gson().toJson(stores);
     }
 }

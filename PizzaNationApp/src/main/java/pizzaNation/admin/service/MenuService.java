@@ -13,6 +13,7 @@ import pizzaNation.app.model.request.AddMenuRequestModel;
 import pizzaNation.app.model.request.EditMenuRequestModel;
 import pizzaNation.app.model.view.MenuViewModel;
 import pizzaNation.app.service.contract.IProductService;
+import pizzaNation.app.test.UploadImageRequestModel;
 import pizzaNation.app.util.DTOConverter;
 import pizzaNation.user.service.BaseService;
 
@@ -146,5 +147,10 @@ public class MenuService extends BaseService implements IMenuService {
         EditMenuRequestModel model = DTOConverter.convert(menu, EditMenuRequestModel.class);
         model.setProductsIds(new HashSet<>(menu.getProducts().stream().map(Product::getName).collect(Collectors.toSet())));
         return model;
+    }
+
+    @Override
+    public void uploadImage(UploadImageRequestModel requestModel) {
+        System.out.println();
     }
 }

@@ -167,6 +167,8 @@ public class UserService extends BaseService implements IUserService {
     @Override
     public boolean editSignInInfo(EditSignInRequestModel editSignInRequestModel, RedirectAttributes attributes, BindingResult result,
                                   Principal principal) {
+        if (super.containErrors(result, attributes, USER_EDIT_ERROR)) return false;
+
         if (super.passwordsMismatch(editSignInRequestModel, attributes)) return false;
 
         if (this.userRepository.existsByEmail(editSignInRequestModel.getEmail())) {
@@ -200,11 +202,24 @@ public class UserService extends BaseService implements IUserService {
 
         if (super.containErrors(result, attributes, USER_EDIT_ERROR)) return false;
 
-        User user = toEdit.get();
+        this.userRepository.saveAndFlush(this.editUser(requestModel, toEdit));
 
-        //sets
+        attributes.addFlashAttribute(USER_EDIT_SUCCESS, CHANGES_MADE_SUCCESSFULLY);
 
         return true;
+    }
+
+    private User editUser(EditDetailsRequestModel requestModel, Optional<User> toEdit) {
+        User user = toEdit.get();
+
+        user.setFirstName(requestModel.getFirstName());
+        user.setLastName(requestModel.getLastName());
+        user.setGender(requestModel.getGender());
+        user.setGender(requestModel.getGender());
+        user.setPhone(requestModel.getPhone());
+        user.setEmailNewsletters(requestModel.getEmailNewsletters());
+
+        return user;
     }
 
     private void editAndSave(User user, EditUserRequestModel requestModel, BindingResult bindingResult, RedirectAttributes attributes) {

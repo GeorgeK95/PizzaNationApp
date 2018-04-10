@@ -59,8 +59,8 @@ public class AccountSettingsController extends BaseController {
 
     @PreAuthorize("isAuthenticated()")
     @PostMapping(ACCOUNT_SETTINGS_EMAIL_URL)
-    public ModelAndView signInProcess(@Valid @ModelAttribute EditSignInRequestModel editSignInRequestModel, RedirectAttributes attributes,
-                                      BindingResult result, Principal principal) {
+    public ModelAndView signInProcess(@ModelAttribute @Valid EditSignInRequestModel editSignInRequestModel, BindingResult result,
+                                      RedirectAttributes attributes, Principal principal) {
         if (!this.userService.editSignInInfo(editSignInRequestModel, attributes, result, principal))
             return super.redirect(ACCOUNT_SETTINGS_EMAIL_URL);
         return super.redirect(LOGOUT_URL);
@@ -74,8 +74,8 @@ public class AccountSettingsController extends BaseController {
 
     @PreAuthorize("isAuthenticated()")
     @PostMapping(ACCOUNT_SETTINGS_DETAILS_URL)
-    public ModelAndView detailsProcess(@Valid @ModelAttribute EditDetailsRequestModel requestModel, RedirectAttributes attributes,
-                                       BindingResult result, Principal principal) {
+    public ModelAndView detailsProcess(@ModelAttribute @Valid EditDetailsRequestModel requestModel, BindingResult result,
+                                       RedirectAttributes attributes, Principal principal) {
         if (!this.userService.editUserDetails(principal.getName(), requestModel, attributes, result))
             return super.redirect(ACCOUNT_SETTINGS_DETAILS_URL);
         return super.redirect(ACCOUNT_URL);

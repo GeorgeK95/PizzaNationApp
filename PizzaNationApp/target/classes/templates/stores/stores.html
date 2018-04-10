@@ -121,9 +121,13 @@
                             infowindow.open(map, marker);
                         });
 
-                    $.get("/reload")
                 }
             );
+
+            $.get("/admin/stores/reload", function (data, status) {
+                alert("Data: " + data + "\nStatus: " + status);
+            })
+
         }
 
         function addClickListener(map) {

@@ -70,14 +70,4 @@ public class UserController extends BaseController {
     public ModelAndView login() {
         return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, LOG_IN_PAGE_TITLE)));
     }
-
-    @GetMapping(LOGOUT_URL)
-    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null) {
-            new SecurityContextLogoutHandler().logout(request, response, auth);
-        }
-//        attributes.addFlashAttribute(LOGGED_OUT_SUCCESSFULLY_MESSAGE, SUCCESSFULLY_LOGGED_OUT);
-        return LOGOUT_REDIRECT_STR;//You can redirect wherever you want, but generally it's a good practice to show login screen again.
-    }
 }

@@ -11,6 +11,12 @@
 
                 <h1>Update Details</h1>
 
+                <div class="pad5"></div>
+                <div class="errorbox align_center" th:if="${user_edit_error} != null"
+                     th:text="${user_edit_error}"></div>
+                <div class="pad5"></div>
+
+
                 <div class="account_form">
                     <form method="post" th:action="@{/account/settings/details}" th:object="${model}">
 
@@ -19,9 +25,10 @@
                         <h4>Name</h4>
                         <div class="sep_dash"><!-- dash --></div>
                         <label for="first_name">First Name*</label>
-                        <input type="text" class="form_item" id="first_name" th:field="*{firstName}">
+                        <input type="text" class="form_item" id="first_name" th:field="*{firstName}"
+                               required="required">
                         <label for="last_name">Last Name*</label>
-                        <input type="text" class="form_item" id="last_name" th:field="*{lastName}">
+                        <input type="text" class="form_item" id="last_name" th:field="*{lastName}" required="required">
 
                         <div class="pad10"></div>
 
@@ -37,7 +44,7 @@
 
                         <h4>Phone number*</h4>
                         <div class="sep_dash"><!-- dash --></div>
-                        <input type="text" class="form_item" th:field="*{phone}">
+                        <input type="text" class="form_item" th:field="*{phone}" required="required">
 
                         <div class="pad10"><!-- --></div>
 
