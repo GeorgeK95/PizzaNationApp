@@ -27,24 +27,26 @@
 
                         <div class="sep_dash"><!-- dash --></div>
                         <label for="email">Email</label>
-                        <input type="text" class="form_item" id="email" th:field="*{email}">
+                        <input type="email" class="form_item" id="email" th:field="*{email}" required="required">
 
                         <div class="pad5"></div>
 
                         <label for="password">Please enter your new password</label>
-                        <input type="password" class="form_item" id="password" th:field="*{password}">
+                        <input type="password" class="form_item" id="password" th:field="*{password}"
+                               required="required">
 
                         <div class="pad5"></div>
 
                         <label for="confirm">Please confirm your new password</label>
-                        <input type="password" class="form_item" id="confirm" th:field="*{confirm}">
+                        <input type="password" class="form_item" id="confirm" th:field="*{confirm}" required="required">
 
                         <div class="pad10"></div>
 
                         <div class="sep_dash"><!-- dash --></div>
 
                         <label for="currentPassword">For security, please enter your current password</label>
-                        <input type="password" class="form_item" id="currentPassword" th:field="*{currentPassword}">
+                        <input type="password" class="form_item" id="currentPassword" th:field="*{currentPassword}"
+                               required="required">
 
                         <div class="pad10"><!-- --></div>
 

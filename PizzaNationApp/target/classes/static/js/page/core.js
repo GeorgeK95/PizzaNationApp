@@ -19,21 +19,7 @@ function topFunction() {
 
 function activate_hamburger_menu() {
     // Top navigation
-    /*$('a#mobile_nav_button').bind('click', function () {
-        if ($('div#mobnav').is(':visible')) {
-            $('div#mobnav').slideUp(50);
-        }
-        else {
-            // Scroll to top
-            $('html, body').animate({
-                scrollTop: 0
-            }, 0);
-            $('div#mobnav').slideDown(100);
-        }
-        return false;activate_hamburger_menu();activate_hamburger_menu();
-    });*/
-
-    var a = $("div#mobnav").attr("style");
+    let a = $("div#mobnav").attr("style");
     // console.log(a)
     if (a === "display:block;") {
         $("div#mobnav").attr("style", "display:none;");

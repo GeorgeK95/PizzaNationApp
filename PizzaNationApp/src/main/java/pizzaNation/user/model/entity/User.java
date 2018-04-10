@@ -93,7 +93,7 @@ public class User implements UserDetails {
     }
 
     public User(String email, String password, String firstName, String lastName, String address, Gender gender,
-                String phone, String city) {
+                String phone, String city, Boolean emailNewsletters) {
         this(email, password);
         this.firstName = firstName;
         this.lastName = lastName;
@@ -101,6 +101,7 @@ public class User implements UserDetails {
         this.gender = gender;
         this.phone = phone;
         this.city = city;
+        this.emailNewsletters = emailNewsletters;
         this.date = new Date();
     }
 

@@ -5,27 +5,24 @@ package pizzaNation.app.model.response;
  */
 
 public class StoreResponseModel {
-    private Double x;
-    private Double y;
 
-    public StoreResponseModel(double x, double y) {
-        this.x = x;
-        this.y = y;
+    private Double lat;
+
+    private Double lng;
+
+    public Double getLat() {
+        return lat;
     }
 
-    public Double getX() {
-        return x;
+    public Double getLng() {
+        return lng;
     }
 
-    public void setX(Double x) {
-        this.x = x;
+    public void setLat(Double lat) {
+        this.lat = lat;
     }
 
-    public Double getY() {
-        return y;
-    }
-
-    public void setY(Double y) {
-        this.y = y;
+    public void setLng(Double lng) {
+        this.lng = lng;
     }
 }

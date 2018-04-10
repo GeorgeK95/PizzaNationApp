@@ -1,8 +1,9 @@
-package pizzaNation.app.contoller;
+package pizzaNation.app.contoller.error;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
+import pizzaNation.app.contoller.BaseController;
 import pizzaNation.app.exception.IngredientNotFoundException;
 import pizzaNation.app.exception.MenuNotFoundException;
 import pizzaNation.app.exception.ProductNotFoundException;

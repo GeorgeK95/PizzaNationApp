@@ -40,8 +40,10 @@ public class LoggerService implements ILoggerService {
         Action action = (Action) modelMap.get(OPERATION_STR);
         TableEnum modifiedTable = (TableEnum) modelMap.get(MODIFIED_TABLE_STR);
 
-        Log l = new Log(action, modifiedTable, this.userRepository.findByEmail(email));
+        Log log = new Log(action, modifiedTable, this.userRepository.findByEmail(email));
 
-        this.loggerRepository.saveAndFlush(l);
+        if (log.getUser() == null) log.setUser(this.userRepository.findLastRegistered().get(0));
+
+        this.loggerRepository.saveAndFlush(log);
     }
 }

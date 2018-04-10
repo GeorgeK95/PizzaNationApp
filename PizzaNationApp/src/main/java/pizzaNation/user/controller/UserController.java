@@ -2,6 +2,9 @@ package pizzaNation.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +20,8 @@ import pizzaNation.user.enumeration.Gender;
 import pizzaNation.user.model.request.UserRegisterRequestModel;
 import pizzaNation.user.service.IUserService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
@@ -32,6 +37,7 @@ import static pizzaNation.app.util.WebConstants.*;
 @Controller
 public class UserController extends BaseController {
 
+    public static final String LOGOUT_REDIRECT_STR = "redirect:/login?logout";
     private final IUserService userService;
 
     @Autowired
@@ -63,5 +69,15 @@ public class UserController extends BaseController {
     @GetMapping(LOGIN_URL)
     public ModelAndView login() {
         return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, LOG_IN_PAGE_TITLE)));
+    }
+
+    @GetMapping(LOGOUT_URL)
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+//        attributes.addFlashAttribute(LOGGED_OUT_SUCCESSFULLY_MESSAGE, SUCCESSFULLY_LOGGED_OUT);
+        return LOGOUT_REDIRECT_STR;//You can redirect wherever you want, but generally it's a good practice to show login screen again.
     }
 }

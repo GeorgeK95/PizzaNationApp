@@ -35,9 +35,9 @@ public interface IUserService extends UserDetailsService {
 
     EditSignInRequestModel constructEditEmailModel(Principal principal);
 
-    EditDetailsRequestModel constructEditDetailsModel(Principal principal);
+    EditDetailsRequestModel constructEditDetailsModel();
 
-    boolean editEmail(EditSignInRequestModel editSignInRequestModel, RedirectAttributes attributes, BindingResult result, Principal principal);
+    boolean editSignInInfo(EditSignInRequestModel editSignInRequestModel, RedirectAttributes attributes, BindingResult result, Principal principal);
 
     boolean editUserDetails(String currentEmail, EditDetailsRequestModel requestModel, RedirectAttributes attributes, BindingResult result);
 }

@@ -159,14 +159,14 @@ public class UserService extends BaseService implements IUserService {
     }
 
     @Override
-    public EditDetailsRequestModel constructEditDetailsModel(Principal principal) {
+    public EditDetailsRequestModel constructEditDetailsModel() {
         String email = PizzaNationSecurityConfiguration.getCurrentlyLoggedInUserEmail();
         return DTOConverter.convert(this.userRepository.findByEmail(email), EditDetailsRequestModel.class);
     }
 
     @Override
-    public boolean editEmail(EditSignInRequestModel editSignInRequestModel, RedirectAttributes attributes, BindingResult result,
-                             Principal principal) {
+    public boolean editSignInInfo(EditSignInRequestModel editSignInRequestModel, RedirectAttributes attributes, BindingResult result,
+                                  Principal principal) {
         if (super.passwordsMismatch(editSignInRequestModel, attributes)) return false;
 
         if (this.userRepository.existsByEmail(editSignInRequestModel.getEmail())) {
@@ -176,13 +176,10 @@ public class UserService extends BaseService implements IUserService {
 
         User userToEdit = this.userRepository.findByEmail(principal.getName());
 
-        System.out.println(userToEdit.getPassword());
-        System.out.println(this.encoder.encode(editSignInRequestModel.getCurrentPassword()));
-
-        /*if (!userToEdit.getPassword().equals(this.encoder.encode(editSignInRequestModel.getCurrentPassword()))) {
+        if (!this.encoder.matches(editSignInRequestModel.getCurrentPassword(), userToEdit.getPassword())) {
             attributes.addFlashAttribute(USER_EDIT_ERROR, INVALID_CURRENT_PASSWORD_MESSAGE);
             return false;
-        }*/
+        }
 
         userToEdit.setPassword(this.encoder.encode(editSignInRequestModel.getPassword()));
         userToEdit.setEmail(editSignInRequestModel.getEmail());
@@ -197,9 +194,17 @@ public class UserService extends BaseService implements IUserService {
     @Override
     public boolean editUserDetails(String currentEmail, EditDetailsRequestModel requestModel, RedirectAttributes attributes,
                                    BindingResult result) {
-        String id = this.userRepository.findByEmail(currentEmail).getId();
-        EditUserRequestModel reqMod = DTOConverter.convert(requestModel, EditUserRequestModel.class);
-        return this.editUser(id, reqMod, result, attributes);
+        Optional<User> toEdit = this.userRepository.findById(this.userRepository.findByEmail(currentEmail).getId());
+
+        if (!toEdit.isPresent()) throw new UserNotFoundException();
+
+        if (super.containErrors(result, attributes, USER_EDIT_ERROR)) return false;
+
+        User user = toEdit.get();
+
+        //sets
+
+        return true;
     }
 
     private void editAndSave(User user, EditUserRequestModel requestModel, BindingResult bindingResult, RedirectAttributes attributes) {

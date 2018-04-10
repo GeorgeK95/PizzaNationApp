@@ -38,7 +38,7 @@ public abstract class BaseService implements IBaseService {
 
     private boolean passwordsMismatch(EditSignInRequestModel requestModel, RedirectAttributes attributes) {
         if (!requestModel.getPassword().equals(requestModel.getConfirm())) {
-            attributes.addFlashAttribute(USER_REGISTER_ERROR, PASSWORD_MISMATCH_MESSAGE);
+            attributes.addFlashAttribute(USER_EDIT_ERROR, PASSWORD_MISMATCH_MESSAGE);
             return true;
         }
 

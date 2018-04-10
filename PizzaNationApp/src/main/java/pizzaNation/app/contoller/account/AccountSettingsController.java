@@ -61,23 +61,23 @@ public class AccountSettingsController extends BaseController {
     @PostMapping(ACCOUNT_SETTINGS_EMAIL_URL)
     public ModelAndView signInProcess(@Valid @ModelAttribute EditSignInRequestModel editSignInRequestModel, RedirectAttributes attributes,
                                       BindingResult result, Principal principal) {
-        if (!this.userService.editEmail(editSignInRequestModel, attributes, result, principal))
+        if (!this.userService.editSignInInfo(editSignInRequestModel, attributes, result, principal))
             return super.redirect(ACCOUNT_SETTINGS_EMAIL_URL);
-        return super.redirect(ACCOUNT_URL);
+        return super.redirect(LOGOUT_URL);
     }
 
     @PreAuthorize("isAuthenticated()")
     @GetMapping(ACCOUNT_SETTINGS_DETAILS_URL)
-    public ModelAndView details(Principal principal) {
-        return super.view(this.userService.constructEditDetailsModel(principal), Map.ofEntries(entry(PAGE_TITLE_STR, MY_PIZZA_NATION)));
+    public ModelAndView details() {
+        return super.view(this.userService.constructEditDetailsModel(), Map.ofEntries(entry(PAGE_TITLE_STR, MY_PIZZA_NATION)));
     }
 
     @PreAuthorize("isAuthenticated()")
     @PostMapping(ACCOUNT_SETTINGS_DETAILS_URL)
     public ModelAndView detailsProcess(@Valid @ModelAttribute EditDetailsRequestModel requestModel, RedirectAttributes attributes,
                                        BindingResult result, Principal principal) {
-        if (this.userService.editUserDetails(principal.getName(), requestModel, attributes, result))
-            return super.redirect(ACCOUNT_URL);
-        return super.redirect(ACCOUNT_SETTINGS_DETAILS_URL);
+        if (!this.userService.editUserDetails(principal.getName(), requestModel, attributes, result))
+            return super.redirect(ACCOUNT_SETTINGS_DETAILS_URL);
+        return super.redirect(ACCOUNT_URL);
     }
 }

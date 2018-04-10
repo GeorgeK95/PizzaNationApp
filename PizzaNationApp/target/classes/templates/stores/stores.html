@@ -5,44 +5,72 @@
 <th:block sec:authorize="isAnonymous() or hasAnyRole('ROLE_MODERATOR', 'ROLE_USER')">
     <script th:inline="javascript">
         function initMap() {
-            var destination;
+            let locations;
             /*<![CDATA[*/
-            destination = /*[[${model}]]*/ null;
+            locations = /*[[${model}]]*/ null;
             /*]]>*/
 
-            var myCenter = new google.maps.LatLng(destination.x, destination.y);
-            var mapCanvas = document.getElementById("map");
-            var mapOptions = {center: myCenter, zoom: 10};
-            var map = new google.maps.Map(mapCanvas, mapOptions);
-            var marker = new google.maps.Marker({position: myCenter});
-            marker.setMap(map);
+            let myCenter = new google.maps.LatLng(42.6672542, 23.3519015);//hardcoded the center - SoftUni coordinates
+            let mapCanvas = document.getElementById("map");
+            let mapOptions = {center: myCenter, zoom: 17};
+            let map = new google.maps.Map(mapCanvas, mapOptions);
+
+            let iconBase = 'http://docs.google.com/uc?id=1utgYCBhVncxD5PRTkJUX2i5YHgws5OdL';
+
+            for (let location of locations) {
+                let myLatlng = new google.maps.LatLng(location.lat, location.lng);
+                let marker = new google.maps.Marker({position: myLatlng, icon: iconBase});
+                marker.setMap(map);
+
+                addPopUpListener(marker, map);
+            }
+        }
+
+        function addPopUpListener(marker, map) {
+            google.maps.event.addListener(marker, 'click', function () {
+                let infowindow = new google.maps.InfoWindow({
+                    content: 'Pizza Nation Store, for more details please <a href="/contactUs">contact us via email or phone</a>.'
+                });
+
+                infowindow.open(map, marker);
+            })
         }
     </script>
 </th:block>
 <th:block sec:authorize="hasRole('ROLE_ADMIN')">
     <script th:inline="javascript">
         function initMap() {
-            var destination;
+            let locations;
             /*<![CDATA[*/
-            destination = /*[[${model}]]*/ null;
+            locations = /*[[${model}]]*/ null;
             /*]]>*/
 
-            var myCenter = new google.maps.LatLng(destination.x, destination.y);
-            var mapCanvas = document.getElementById("map");
-            var mapOptions = {center: myCenter, zoom: 10};
-            var map = new google.maps.Map(mapCanvas, mapOptions);
-            var marker = new google.maps.Marker({position: myCenter});
-            marker.setMap(map);
+            let myCenter = new google.maps.LatLng(42.6672542, 23.3519015);//hardcoded the center - SoftUni coordinates
+            let mapCanvas = document.getElementById("map");
+            let mapOptions = {center: myCenter, zoom: 17};
+            let map = new google.maps.Map(mapCanvas, mapOptions);
 
-            addPopUpListener(marker, map);
+            let iconBase = 'http://docs.google.com/uc?id=1utgYCBhVncxD5PRTkJUX2i5YHgws5OdL';
+
+            for (let location of locations) {
+                let myLatlng = new google.maps.LatLng(location.lat, location.lng);
+                let marker = new google.maps.Marker({position: myLatlng, icon: iconBase});
+                marker.setMap(map);
+
+                addPopUpListener(marker, map);
+                deletePopUpListener(marker, map);
+            }
 
             addClickListener(map);
         }
 
         function placeMarker(location, map) {
-            var userMarker = new google.maps.Marker({
+            let iconBase = 'http://docs.google.com/uc?id=1utgYCBhVncxD5PRTkJUX2i5YHgws5OdL';
+
+            let userMarker = new google.maps.Marker({
                 position: location,
-                map: map
+                map: map,
+                icon: iconBase
             });
 
             addPopUpListener(userMarker, map);
@@ -50,17 +78,50 @@
 
         function addPopUpListener(marker, map) {
             google.maps.event.addListener(marker, 'dblclick', function () {
-                    var coordinates = {"lat": marker.getPosition().lat(), "lng": marker.getPosition().lng()};
-                    console.log(coordinates);
-                    var infowindow = new google.maps.InfoWindow({
-                        content:
-                        //onclick="saveMarker(\'' + coordinates + '\');"
-                        '<button id="saveBtn"  onclick="saveMarker(\'' + coordinates + '\')">Add</button>' +
-                        '<button id="editBtn" onclick="editMarker(\'' + coordinates + '\')">Edit</button>' +
-                        '<button id="deleteBtn" onclick="deleteMarker(\'' + coordinates + '\')">Delete</button>'
-                    });
+                    let coordinates = {"lat": marker.getPosition().lat(), "lng": marker.getPosition().lng()};
+                    let infowindow;
 
-                    infowindow.open(map, marker);
+                    $.post("/admin/stores/add", coordinates)
+                        .done(function () {
+                            infowindow = new google.maps.InfoWindow({
+                                content: 'Successfully added store.'
+                            });
+
+                            infowindow.open(map, marker);
+                        })
+                        .fail(function () {
+                            infowindow = new google.maps.InfoWindow({
+                                content: 'Failed to add store.'
+                            });
+
+                            infowindow.open(map, marker);
+                        });
+                }
+            );
+        }
+
+        function deletePopUpListener(marker, map) {
+            google.maps.event.addListener(marker, 'rightclick', function () {
+                    let coordinates = {"lat": marker.getPosition().lat(), "lng": marker.getPosition().lng()};
+                    let infowindow;
+
+                    $.post("/admin/stores/delete", coordinates)
+                        .done(function () {
+                            infowindow = new google.maps.InfoWindow({
+                                content: 'Successfully deleted store.'
+                            });
+
+                            infowindow.open(map, marker);
+                        })
+                        .fail(function () {
+                            infowindow = new google.maps.InfoWindow({
+                                content: 'Failed to delete store.'
+                            });
+
+                            infowindow.open(map, marker);
+                        });
+
+                    $.get("/reload")
                 }
             );
         }
@@ -70,17 +131,6 @@
                 placeMarker(event.latLng, map);
             });
         }
-
-        /* function saveMarker(coordinates) {
-             console.log(coordinates);
-             $.post("/admin/stores/add", coordinates)
-                 .done(function () {
-                     alert("Stores added successfully.");
-                 })
-                 .fail(function () {
-                     alert("Something went wrong, adding stores failed!");
-                 });
-         }*/
 
     </script>
 </th:block>

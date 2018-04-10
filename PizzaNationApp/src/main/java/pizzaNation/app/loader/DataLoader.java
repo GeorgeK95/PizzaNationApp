@@ -9,8 +9,10 @@ import pizzaNation.app.model.entity.Ingredient;
 import pizzaNation.app.model.entity.Menu;
 import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.enums.Unit;
+import pizzaNation.app.model.entity.Store;
 import pizzaNation.app.repository.IngredientRepository;
 import pizzaNation.app.repository.ProductRepository;
+import pizzaNation.app.repository.StoreRepository;
 import pizzaNation.user.enumeration.Gender;
 import pizzaNation.user.model.entity.Role;
 import pizzaNation.user.model.entity.User;
@@ -31,13 +33,15 @@ public class DataLoader implements ApplicationRunner {
     private final ProductRepository productRepository;
     private final MenuRepository menuRepository;
     private final IngredientRepository ingredientRepository;
+    private final StoreRepository storeRepository;
 
     @Autowired
-    public DataLoader(UserRepository userRepository, ProductRepository productRepository, MenuRepository menuRepository, IngredientRepository ingredientRepository) {
+    public DataLoader(UserRepository userRepository, ProductRepository productRepository, MenuRepository menuRepository, IngredientRepository ingredientRepository, StoreRepository storeRepository) {
         this.userRepository = userRepository;
         this.productRepository = productRepository;
         this.menuRepository = menuRepository;
         this.ingredientRepository = ingredientRepository;
+        this.storeRepository = storeRepository;
     }
 
     public void run(ApplicationArguments args) {
@@ -45,6 +49,12 @@ public class DataLoader implements ApplicationRunner {
         this.addProducts();
         this.addMenus();
         this.addIngredients();
+        this.addStore();
+    }
+
+    private void addStore() {
+        Store softUniLocation = new Store(42.667246311064275, 23.352293102516114);
+        this.storeRepository.saveAndFlush(softUniLocation);
     }
 
     private void addIngredients() {
@@ -96,11 +106,11 @@ public class DataLoader implements ApplicationRunner {
 
     private void addUsersWithRoles() {
         User admin = new User(ADMIN_EMAIL, ADMIN_PASSWORD, ADMIN_FIRST_NAME, ADMIN_LAST_NAME,
-                ADMIN_ADDRESS, Gender.MALE, ADMIN_PHONE, ADMIN_CITY);
+                ADMIN_ADDRESS, Gender.MALE, ADMIN_PHONE, ADMIN_CITY, false);
         User moderator = new User(MODERATOR_EMAIL, MODERATOR_PASSWORD, MODERATOR_FIRST_NAME,
-                MODERATOR_LAST_NAME, MODERATOR_ADDRESS, Gender.FEMALE, MODERATOR_PHONE, MODERATOR_CITY);
+                MODERATOR_LAST_NAME, MODERATOR_ADDRESS, Gender.FEMALE, MODERATOR_PHONE, MODERATOR_CITY, false);
         User user = new User(USER_EMAIL, USER_PASSWORD, USER_FIRST_NAME,
-                USER_LAST_NAME, USER_ADDRESS, Gender.FEMALE, USER_PHONE, USER_CITY);
+                USER_LAST_NAME, USER_ADDRESS, Gender.FEMALE, USER_PHONE, USER_CITY, true);
 
         Role roleAdmin = new Role(ROLE_ADMIN);
         Role roleModerator = new Role(ROLE_MODERATOR);

@@ -26,10 +26,12 @@ public final class WebConstants {
     public static final String CART_URL = "/cart";
     public static final String REGISTER_URL = "/register";
     public static final String LOGIN_URL = "/login";
+    public static final String LOGOUT_URL = "/logout";
     public static final String CONTACT_US_URL = "/contactUs";
     public static final String STORES_URL = "/stores";
     public static final String BASE_LAYOUT_URL = "base-layout";
     public static final String ADD_STORES_URL = "/stores/add";
+    public static final String DELETE_STORES_URL = "/stores/delete";
     public static final String ALL_MENUS_URL = "/menus/all";
     public static final String MENUS_URL = "/menus";
     public static final String ALL_PRODUCTS_URL = "/products/all";
