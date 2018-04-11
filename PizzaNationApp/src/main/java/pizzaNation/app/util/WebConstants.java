@@ -64,6 +64,7 @@ public final class WebConstants {
     public static final String ALL_USERS_URL = "/users/all";
     public static final String EMPTY_URL = "";
     public static final String MENU_NAME_URL = "/menu/{name}";
+    public static final String LOCALHOST_CONFIRM_URL = "http://localhost:8008/confirm?id=";
 
     //Page Titles
     public static final String ABOUT_US_PAGE_TITLE = "About Us";
@@ -74,6 +75,7 @@ public final class WebConstants {
     public static final String CONTACT_US_PAGE_TITLE = "Contact us";
     public static final String PAGE_TITLE_STR = "pageTitle";
     public static final String NOT_FOUND_PAGE_TITLE = "Page Not Found";
+    public static final String FORBIDDEN_PAGE_TITLE = "Forbidden";
     public static final String UNAUTHORIZED_PAGE_TITLE = "Unauthorized";
     public static final String MENU_NOT_FOUND_PAGE_TITLE = "Menu Not Found";
     public static final String OUR_STORES_PAGE_TITLE = "Our Stores";
@@ -148,7 +150,7 @@ public final class WebConstants {
     public static final String INGREDIENT_NAME_ALREADY_TAKEN_MESSAGE = "There is already a ingredient with the given name, please choose another.";
     public static final String PRODUCT_NAME_ALREADY_TAKEN_MESSAGE = "There is already a product with the given name, please choose another.";
     public static final String USER_REGISTER_SUCCESS_MESSAGE = "user_register_success";
-    public static final String REGISTERED_SUCCESSFULLY_MESSAGE = "Registered successfully !";
+    public static final String REGISTERED_SUCCESSFULLY_MESSAGE = "Registered successfully, we send you email for confirmation.";
     public static final String SUCCESSFULLY_SENT_FEEDBACK_MESSAGE = "Your feedback was sent successfully.";
 
     //Admin Data
@@ -202,6 +204,7 @@ public final class WebConstants {
     public static final String USER_EXCEPTION_MESSAGE = "User with given id was not found.";
     public static final String INGREDIENT_EXCEPTION_MESSAGE = "Ingredient with given name was not found.";
     public static final String ADMIN_EXCEPTION_MESSAGE = "Admin account cannot be modified.";
+    public static final String USER_DISABLE_EXCEPTION_MESSAGE = "Account not confirmed by email.";
     public static final String PRODUCT_EXCEPTION_MESSAGE = "Product with given name was not found.";
 
     //Names
@@ -210,6 +213,13 @@ public final class WebConstants {
     public static final String PRODUCTS_LIST = "productsList";
     public static final String MENUS_LIST = "menusList";
     public static final String UNITS_LIST = "unitsList";
+
+    //jms
+    public static final String SEND_EMAIL_DESTINATION = "client_feedback";
+    public static final String USER_ARRIVED_DESTINATION = "user_arrived";
+
+    //Request Methods
+    public static final String POST = "POST";
 
     private WebConstants() {
     }

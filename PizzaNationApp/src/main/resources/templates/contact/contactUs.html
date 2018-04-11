@@ -39,13 +39,17 @@
                                     <td width="15%"></td>
                                     <td colspan="2" width="85%">
 
-                                        <select name="email_subject" id="email_subject" class="form_item">
-                                            <option value="0">Please select</option>
-                                            <option value="1">Customer feedback / support</option>
-                                            <option value="4">Products feedback / support</option>
-                                            <!--<option value="2">Franchise opportunities</option>
-                                            <option value="3">Marketing opportunities</option>-->
-                                        </select><br><br>
+                                        <select class="form_item" th:field="*{subject}">
+                                            <!--<option value="0">Please select</option>-->
+                                            <option th:value="|Customer feedback / support|">Customer feedback /
+                                                support
+                                            </option>
+                                            <option th:value="|Products feedback / support|">Products feedback /
+                                                support
+                                            </option>
+                                        </select>
+
+                                        <div class="pad10"><!--spacer--></div>
 
                                     </td>
                                 </tr>
@@ -58,12 +62,6 @@
                                     <td><input type="email" name="email" placeholder="Your Email" class="form_item"
                                                th:field="*{email}"></td>
                                 </tr>
-                                <!--<tr>
-                                    <td>Phone</td>
-                                    <td><input type="tel" name="phone" placeholder="Your phone number (optional)"
-                                               class="form_item" th:field="*{phone}"></td>
-                                </tr>-->
-
                                 <tr>
                                     <td>Message*</td>
                                     <td colspan="2"><textarea name="message" class="form_item" th:field="*{message}"

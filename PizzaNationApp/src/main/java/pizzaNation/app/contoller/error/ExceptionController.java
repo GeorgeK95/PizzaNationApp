@@ -4,10 +4,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 import pizzaNation.app.contoller.BaseController;
-import pizzaNation.app.exception.IngredientNotFoundException;
-import pizzaNation.app.exception.MenuNotFoundException;
-import pizzaNation.app.exception.ProductNotFoundException;
-import pizzaNation.app.exception.UserNotFoundException;
+import pizzaNation.app.exception.*;
 
 import java.util.Map;
 
@@ -39,4 +36,9 @@ public class ExceptionController extends BaseController {
     public ModelAndView user() {
         return super.view(USER_EXCEPTION_MESSAGE, Map.ofEntries(entry(PAGE_TITLE_STR, NOT_FOUND_PAGE_TITLE)));
     }
+
+    /*@ExceptionHandler(value = {UserNotConfirmedException.class})
+    public ModelAndView disable() {
+        return super.view(USER_DISABLE_EXCEPTION_MESSAGE, Map.ofEntries(entry(PAGE_TITLE_STR, FORBIDDEN_PAGE_TITLE)));
+    }*/
 }

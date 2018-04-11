@@ -1,6 +1,8 @@
 package pizzaNation.user.service;
 
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,9 +14,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.app.config.PizzaNationSecurityConfiguration;
 import pizzaNation.app.exception.AdminModifyException;
+import pizzaNation.app.exception.ProductNotFoundException;
+import pizzaNation.app.exception.UserNotConfirmedException;
 import pizzaNation.app.exception.UserNotFoundException;
 import pizzaNation.app.model.request.EditDetailsRequestModel;
 import pizzaNation.app.model.request.EditSignInRequestModel;
+import pizzaNation.app.model.transfer.EmailVerification;
 import pizzaNation.app.model.view.UserViewModel;
 import pizzaNation.user.model.entity.Role;
 import pizzaNation.user.model.entity.User;
@@ -46,11 +51,14 @@ public class UserService extends BaseService implements IUserService {
 
     private final BCryptPasswordEncoder encoder;
 
+    private final JmsTemplate jmsTemplate;
+
     @Autowired
-    public UserService(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder encoder) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder encoder, JmsTemplate jmsTemplate) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.encoder = encoder;
+        this.jmsTemplate = jmsTemplate;
     }
 
     @Override
@@ -59,6 +67,8 @@ public class UserService extends BaseService implements IUserService {
 
         if (user == null) {
             throw new UsernameNotFoundException(WRONG_LOGIN_DATA_MESSAGE);
+        } else if (!user.isEnabled()) {
+            throw new UserNotConfirmedException();
         } else {
             Set<GrantedAuthority> grantedAuthorities = user.getAuthorities()
                     .stream()
@@ -250,7 +260,15 @@ public class UserService extends BaseService implements IUserService {
 
         this.userRepository.saveAndFlush(user);
 
+        this.sendConfirmEmail(requestModel.getEmail(), user.getEmailVerificationCode());
+
         return true;
+    }
+
+    private void sendConfirmEmail(String email, String code) {
+        new Thread(() -> jmsTemplate.convertAndSend(USER_ARRIVED_DESTINATION,
+                new Gson().toJson(new EmailVerification(email, LOCALHOST_CONFIRM_URL.concat(code))))
+        ).start();
     }
 
 }

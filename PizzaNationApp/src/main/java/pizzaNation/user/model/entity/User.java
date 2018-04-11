@@ -50,10 +50,13 @@ public class User implements UserDetails {
 
     private Boolean emailNewsletters;
 
+    @Transient
     private Boolean isAccountNonExpired;
 
+    @Transient
     private Boolean isAccountNonLocked;
 
+    @Transient
     private Boolean isCredentialsNonExpired;
 
     private Boolean isEnabled;
@@ -84,6 +87,7 @@ public class User implements UserDetails {
         this.authorities = new HashSet<>();
         this.emailVerificationCode = UUID.randomUUID().toString();
         this.date = new Date();
+        this.isEnabled = false;
     }
 
     public User(String email, String password) {
@@ -280,4 +284,5 @@ public class User implements UserDetails {
     public void setLogs(Set<Log> logs) {
         this.logs = logs;
     }
+
 }
