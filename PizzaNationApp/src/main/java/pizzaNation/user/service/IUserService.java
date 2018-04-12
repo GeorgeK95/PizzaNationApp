@@ -19,7 +19,7 @@ import java.util.List;
  * Created by George-Lenovo on 27/03/2018.
  */
 public interface IUserService extends UserDetailsService {
-    UserDetails loadUserByUsername(String s) throws UsernameNotFoundException;
+    UserDetails loadUserByUsername(String s);
 
     boolean addUser(UserRegisterRequestModel requestModel, BindingResult bindingResult, RedirectAttributes attributes);
 
@@ -40,4 +40,6 @@ public interface IUserService extends UserDetailsService {
     boolean editSignInInfo(EditSignInRequestModel editSignInRequestModel, RedirectAttributes attributes, BindingResult result, Principal principal);
 
     boolean editUserDetails(String currentEmail, EditDetailsRequestModel requestModel, RedirectAttributes attributes, BindingResult result);
+
+    void confirmAccount(String token, RedirectAttributes attributes);
 }

@@ -21,14 +21,12 @@ public class UnfoundController extends BaseController implements ErrorController
 
     @RequestMapping(value = UNAUTHORIZED_URL)
     public ModelAndView unauthorized() {
-//        if (principal != null) return super.redirect(ACCOUNT_URL);
         return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, UNAUTHORIZED_PAGE_TITLE)));
     }
 
     @RequestMapping(value = ERROR_URL)
     public ModelAndView notFound() {
-//        if (principal != null) return suaper.redirect(ACCOUNT_URL);
-        return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, UNAUTHORIZED_PAGE_TITLE)));
+        return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, NOT_FOUND_PAGE_TITLE)));
     }
 
     @Override

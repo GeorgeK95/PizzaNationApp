@@ -1,4 +1,4 @@
-package pizzaNation.app.contoller.account;
+package pizzaNation.account.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

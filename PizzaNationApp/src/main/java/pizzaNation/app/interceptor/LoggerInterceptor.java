@@ -5,6 +5,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -13,6 +14,8 @@ import pizzaNation.app.service.contract.ILoggerService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import java.util.Arrays;
 
 import static pizzaNation.app.util.WebConstants.MODIFIED_TABLE_STR;
 import static pizzaNation.app.util.WebConstants.OPERATION_STR;
@@ -36,6 +39,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
                            Object handler, ModelAndView modelAndView) {
         try {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
+
             if (!handlerMethod.getMethod().isAnnotationPresent(LoggerAction.class)) {
                 return;
             }

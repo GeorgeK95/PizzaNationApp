@@ -9,7 +9,7 @@ import static pizzaNation.app.util.WebConstants.USER_EXCEPTION_MESSAGE;
 /**
  * Created by George-Lenovo on 02/04/2018.
  */
-@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "User with given id was not found.")
+@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = USER_EXCEPTION_MESSAGE)
 public class UserNotFoundException extends RuntimeException {
 
     public UserNotFoundException() {

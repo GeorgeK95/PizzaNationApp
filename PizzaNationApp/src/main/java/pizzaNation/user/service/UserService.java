@@ -13,10 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.app.config.PizzaNationSecurityConfiguration;
-import pizzaNation.app.exception.AdminModifyException;
-import pizzaNation.app.exception.ProductNotFoundException;
-import pizzaNation.app.exception.UserNotConfirmedException;
-import pizzaNation.app.exception.UserNotFoundException;
+import pizzaNation.app.exception.*;
 import pizzaNation.app.model.request.EditDetailsRequestModel;
 import pizzaNation.app.model.request.EditSignInRequestModel;
 import pizzaNation.app.model.transfer.EmailVerification;
@@ -62,13 +59,12 @@ public class UserService extends BaseService implements IUserService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) {
         User user = this.userRepository.findByEmail(email);
 
-        if (user == null) {
+        if (user == null || !user.isEnabled()) {
+//            throw new UserNotFoundException();
             throw new UsernameNotFoundException(WRONG_LOGIN_DATA_MESSAGE);
-        } else if (!user.isEnabled()) {
-            throw new UserNotConfirmedException();
         } else {
             Set<GrantedAuthority> grantedAuthorities = user.getAuthorities()
                     .stream()
@@ -90,7 +86,7 @@ public class UserService extends BaseService implements IUserService {
 
         if (!this.validateRequest(bindingResult, attributes, requestModel)) return false;
 
-        return this.persistUser(requestModel);
+        return this.tryPersistUser(requestModel, attributes);
     }
 
     private boolean validateRequest(BindingResult bindingResult, RedirectAttributes attributes,
@@ -219,6 +215,17 @@ public class UserService extends BaseService implements IUserService {
         return true;
     }
 
+    @Override
+    public void confirmAccount(String code, RedirectAttributes attributes) {
+        User accToConfirm = this.userRepository.findByEmailVerificationCode(code);
+
+        if (accToConfirm == null) throw new UserWithConfirmCodeNotFoundException();
+
+        accToConfirm.setEnabled(true);
+
+        attributes.addFlashAttribute(ACCOUNT_CONFIRMED_STR, ACCOUNT_CONFIRMED_SUCCESSFULLY_MESSAGE);
+    }
+
     private User editUser(EditDetailsRequestModel requestModel, Optional<User> toEdit) {
         User user = toEdit.get();
 
@@ -253,8 +260,13 @@ public class UserService extends BaseService implements IUserService {
         return roles;
     }
 
-    private boolean persistUser(UserRegisterRequestModel requestModel) {
+    private boolean tryPersistUser(UserRegisterRequestModel requestModel, RedirectAttributes attributes) {
         User user = DTOConverter.convert(requestModel, User.class);
+
+        if (this.userRepository.findByEmail(user.getEmail()) != null) {
+            attributes.addFlashAttribute(USER_REGISTER_ERROR, EMAIL_ALREADY_TAKEN_MESSAGE);
+            return false;
+        }
 
         user.addRole(this.roleRepository.findByAuthority(ROLE_USER));
 
@@ -267,7 +279,7 @@ public class UserService extends BaseService implements IUserService {
 
     private void sendConfirmEmail(String email, String code) {
         new Thread(() -> jmsTemplate.convertAndSend(USER_ARRIVED_DESTINATION,
-                new Gson().toJson(new EmailVerification(email, LOCALHOST_CONFIRM_URL.concat(code))))
+                new Gson().toJson(new EmailVerification(email, String.format(VERIFICATION_MESSAGE, code))))
         ).start();
     }
 

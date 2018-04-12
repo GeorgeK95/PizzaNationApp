@@ -13,6 +13,8 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
 
+    User findByEmailVerificationCode(String code);
+
     @Query("select u from User u order by u.date desc")
     List<User> findLastRegistered();
 

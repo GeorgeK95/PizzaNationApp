@@ -107,10 +107,13 @@ public class DataLoader implements ApplicationRunner {
     private void addUsersWithRoles() {
         User admin = new User(ADMIN_EMAIL, ADMIN_PASSWORD, ADMIN_FIRST_NAME, ADMIN_LAST_NAME,
                 ADMIN_ADDRESS, Gender.MALE, ADMIN_PHONE, ADMIN_CITY, false);
+        admin.setEnabled(true);
         User moderator = new User(MODERATOR_EMAIL, MODERATOR_PASSWORD, MODERATOR_FIRST_NAME,
                 MODERATOR_LAST_NAME, MODERATOR_ADDRESS, Gender.FEMALE, MODERATOR_PHONE, MODERATOR_CITY, false);
+        moderator.setEnabled(true);
         User user = new User(USER_EMAIL, USER_PASSWORD, USER_FIRST_NAME,
                 USER_LAST_NAME, USER_ADDRESS, Gender.FEMALE, USER_PHONE, USER_CITY, true);
+        user.setEnabled(true);
 
         Role roleAdmin = new Role(ROLE_ADMIN);
         Role roleModerator = new Role(ROLE_MODERATOR);

@@ -2,14 +2,9 @@ package pizzaNation.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.app.annotation.LoggerAction;
@@ -20,8 +15,6 @@ import pizzaNation.user.enumeration.Gender;
 import pizzaNation.user.model.request.UserRegisterRequestModel;
 import pizzaNation.user.service.IUserService;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
@@ -37,7 +30,6 @@ import static pizzaNation.app.util.WebConstants.*;
 @Controller
 public class UserController extends BaseController {
 
-    public static final String LOGOUT_REDIRECT_STR = "redirect:/login?logout";
     private final IUserService userService;
 
     @Autowired

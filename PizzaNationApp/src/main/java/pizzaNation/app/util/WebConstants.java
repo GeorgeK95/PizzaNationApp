@@ -26,6 +26,7 @@ public final class WebConstants {
     public static final String CART_URL = "/cart";
     public static final String REGISTER_URL = "/register";
     public static final String LOGIN_URL = "/login";
+    public static final String CONFIRM_URL = "/confirm";
     public static final String LOGOUT_URL = "/logout";
     public static final String CONTACT_US_URL = "/contactUs";
     public static final String STORES_URL = "/stores";
@@ -64,7 +65,7 @@ public final class WebConstants {
     public static final String ALL_USERS_URL = "/users/all";
     public static final String EMPTY_URL = "";
     public static final String MENU_NAME_URL = "/menu/{name}";
-    public static final String LOCALHOST_CONFIRM_URL = "http://localhost:8008/confirm?id=";
+    public static final String VERIFICATION_MESSAGE = "Activation code: %s.\r\nPlease enter the following code here: http://localhost:8008/confirm";
 
     //Page Titles
     public static final String ABOUT_US_PAGE_TITLE = "About Us";
@@ -83,6 +84,7 @@ public final class WebConstants {
     public static final String TERMS_AND_CONDITIONS_PAGE_TITLE = "Terms and Conditions";
     public static final String REGISTER_PAGE_TITLE = "Register";
     public static final String LOG_IN_PAGE_TITLE = "Log In";
+    public static final String CONFOIRM_PAGE_TITLE = "Confirm Account";
     public static final String PIZZA_NATION_PAGE_TITLE = "Pizza Nation";
     public static final String MENU_URL = "menu";
     public static final String MENU_PAGE_TITLE = "Menu";
@@ -100,6 +102,10 @@ public final class WebConstants {
     public static final String USER_STR = "user";
     public static final String OPERATION_STR = "operation";
     public static final String MODIFIED_TABLE_STR = "modifiedTable";
+    //    public static final String LOGOUT_REDIRECT_STR = "redirect:/login?logout";
+    public static final String ID_STR = "id";
+    public static final String ACCOUNT_CONFIRMED_STR = "account_confirmed";
+    public static final String TOKEN_STR = "token";
 
     //Extensions
     public static final String CSS_EXTENSION = ".css";
@@ -108,9 +114,7 @@ public final class WebConstants {
     //Errors
     public static final String USER_REGISTER_ERROR = "user_register_error";
     public static final String CONTACT_FORM_ERROR = "contact_form_error";
-    public static final String CONTACT_FORM_SUCCESS = "contact_form_success";
     public static final String USER_EDIT_ERROR = "user_edit_error";
-    public static final String USER_EDIT_SUCCESS = "user_edit_success";
     public static final String ADD_MENU_ERROR = "add_menu_error";
     public static final String ADD_INGREDIENT_ERROR = "add_ingredient_error";
     public static final String ADD_PRODUCT_ERROR = "add_product_error";
@@ -118,7 +122,13 @@ public final class WebConstants {
     public static final String EDIT_INGREDIENT_ERROR = "edit_ingredient_error";
     public static final String EDIT_PRODUCT_ERROR = "edit_product_error";
 
+    //Success
+    public static final String CONTACT_FORM_SUCCESS = "contact_form_success";
+    public static final String USER_EDIT_SUCCESS = "user_edit_success";
+    public static final String EMAIL_ALREADY_TAKEN = "email_already_taken";
+
     //Messages
+    public static final String ACCOUNT_CONFIRMED_SUCCESSFULLY_MESSAGE = "Account confirmed successfully.";
     public static final String PASSWORD_MISMATCH_MESSAGE = "Password mismatch.";
     public static final String EMAIL_ALREADY_TAKEN_MESSAGE = "There is a user with the given email, please choose another.";
     public static final String CHANGES_MADE_SUCCESSFULLY = "Changes were successfully made.";
@@ -206,6 +216,7 @@ public final class WebConstants {
     public static final String ADMIN_EXCEPTION_MESSAGE = "Admin account cannot be modified.";
     public static final String USER_DISABLE_EXCEPTION_MESSAGE = "Account not confirmed by email.";
     public static final String PRODUCT_EXCEPTION_MESSAGE = "Product with given name was not found.";
+    public static final String USER_WITH_GIVEN_CODE_EXCEPTION_MESSAGE = "Couldn't find user with the given verification code.";
 
     //Names
     public static final String GENDERS_LIST = "gendersList";

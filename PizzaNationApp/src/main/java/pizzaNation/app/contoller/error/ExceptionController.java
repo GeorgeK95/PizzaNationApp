@@ -1,11 +1,15 @@
 package pizzaNation.app.contoller.error;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 import pizzaNation.app.contoller.BaseController;
 import pizzaNation.app.exception.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 import static java.util.Map.entry;
@@ -41,4 +45,9 @@ public class ExceptionController extends BaseController {
     public ModelAndView disable() {
         return super.view(USER_DISABLE_EXCEPTION_MESSAGE, Map.ofEntries(entry(PAGE_TITLE_STR, FORBIDDEN_PAGE_TITLE)));
     }*/
+
+    @ExceptionHandler(value = {UserWithConfirmCodeNotFoundException.class})
+    public ModelAndView notConfirmed() {
+        return super.view(USER_WITH_GIVEN_CODE_EXCEPTION_MESSAGE, Map.ofEntries(entry(PAGE_TITLE_STR, FORBIDDEN_PAGE_TITLE)));
+    }
 }
