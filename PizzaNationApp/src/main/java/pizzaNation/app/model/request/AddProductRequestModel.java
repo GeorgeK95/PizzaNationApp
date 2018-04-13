@@ -1,6 +1,10 @@
 package pizzaNation.app.model.request;
 
+import org.springframework.web.multipart.MultipartFile;
+import pizzaNation.app.annotation.Image;
+
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import static pizzaNation.app.util.WebConstants.INVALID_DESCRIPTION_MESSAGE;
@@ -24,6 +28,10 @@ public class AddProductRequestModel {
 
     private Boolean isPromotional;
 
+    @NotNull
+    @Image
+    private MultipartFile image;
+
     public String getName() {
         return name;
     }
@@ -40,6 +48,10 @@ public class AddProductRequestModel {
         return isPromotional;
     }
 
+    public MultipartFile getImage() {
+        return image;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -54,5 +66,9 @@ public class AddProductRequestModel {
 
     public void setPromotional(Boolean isPromotional) {
         this.isPromotional = isPromotional;
+    }
+
+    public void setImage(MultipartFile image) {
+        this.image = image;
     }
 }

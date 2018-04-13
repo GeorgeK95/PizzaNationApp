@@ -1,12 +1,15 @@
-package pizzaNation.app.test;
+/*
+package pizzaNation.app.table;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
 
+*/
 /**
  * Created by George-Lenovo on 10/04/2018.
- */
+ *//*
+
 public class UploadImageRequestModel {
 
 //    @NotNull
@@ -24,3 +27,4 @@ public class UploadImageRequestModel {
     }
 }
 
+*/

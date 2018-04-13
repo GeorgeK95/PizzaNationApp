@@ -36,8 +36,9 @@ public class Product {
 
     private Boolean isPromotional;
 
-    @Column(nullable = true)//TODO:refactor
-    private String imagePath;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "image_id", nullable = false)
+    private Image image;
 
     @Column(nullable = false)
     private Date date;
@@ -47,12 +48,13 @@ public class Product {
         this.date = new Date();
     }
 
-    public Product(String name, String details, int totalSales, boolean isPromotional) {
+    public Product(String name, String details, int totalSales, boolean isPromotional, Image img) {
         this();
         this.name = name;
         this.details = details;
         this.totalSales = totalSales;
         this.isPromotional = isPromotional;
+        this.image = img;
     }
 
     public String getId() {
@@ -83,8 +85,8 @@ public class Product {
         return isPromotional;
     }
 
-    public String getImagePath() {
-        return imagePath;
+    public Image getImage() {
+        return image;
     }
 
     public Date getDate() {
@@ -119,8 +121,8 @@ public class Product {
         isPromotional = promotional;
     }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+    public void setImage(Image image) {
+        this.image = image;
     }
 
     public void setDate(Date date) {

@@ -13,6 +13,7 @@ import pizzaNation.app.model.request.EditProductRequestModel;
 import pizzaNation.app.model.response.ProductResponseModel;
 import pizzaNation.app.model.view.ProductViewModel;
 import pizzaNation.app.repository.ProductRepository;
+import pizzaNation.app.service.contract.IImageService;
 import pizzaNation.app.service.contract.IIngredientService;
 import pizzaNation.app.service.contract.IProductService;
 import pizzaNation.app.util.DTOConverter;
@@ -35,10 +36,13 @@ public class ProductService extends BaseService implements IProductService {
 
     private final IIngredientService ingredientService;
 
+    private final IImageService imageService;
+
     @Autowired
-    public ProductService(ProductRepository productService, IIngredientService ingredientService) {
+    public ProductService(ProductRepository productService, IIngredientService ingredientService, IImageService imageService) {
         this.productRepository = productService;
         this.ingredientService = ingredientService;
+        this.imageService = imageService;
     }
 
     @Override
@@ -92,6 +96,7 @@ public class ProductService extends BaseService implements IProductService {
         Product product = DTOConverter.convert(addProductRequestModel, Product.class);
 
         product.setIngredients(this.ingredientService.findAllByIds(addProductRequestModel.getIngredientsIds()));
+        product.setImage(this.imageService.uploadImage(addProductRequestModel.getImage()));
 
         this.productRepository.saveAndFlush(product);
 
@@ -121,6 +126,8 @@ public class ProductService extends BaseService implements IProductService {
         product.setName(editProductRequestModel.getName());
         product.setDetails(editProductRequestModel.getDetails());
         product.setPromotional(editProductRequestModel.getPromotional());
+        if (!editProductRequestModel.getImage().getOriginalFilename().isEmpty())
+            product.setImage(this.imageService.uploadImage(editProductRequestModel.getImage()));
         if (editProductRequestModel.getIngredientsIds() != null)
             product.setIngredients(this.ingredientService.findAllByIds(editProductRequestModel.getIngredientsIds().toArray(new String[0])));
 

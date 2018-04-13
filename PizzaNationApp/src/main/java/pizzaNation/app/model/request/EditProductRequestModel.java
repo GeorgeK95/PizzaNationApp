@@ -1,5 +1,7 @@
 package pizzaNation.app.model.request;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -26,6 +28,8 @@ public class EditProductRequestModel {
 
     private Integer totalSales;
 
+    private MultipartFile image;
+
     public String getName() {
         return name;
     }
@@ -46,6 +50,10 @@ public class EditProductRequestModel {
         return totalSales;
     }
 
+    public MultipartFile getImage() {
+        return image;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -64,5 +72,9 @@ public class EditProductRequestModel {
 
     public void setTotalSales(Integer totalSales) {
         this.totalSales = totalSales;
+    }
+
+    public void setImage(MultipartFile image) {
+        this.image = image;
     }
 }

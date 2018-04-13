@@ -18,7 +18,8 @@
                     <div class="errorbox align_center" th:if="${edit_menu_error} != null"
                          th:text="${edit_menu_error}"></div>
 
-                    <form name="form_login" method="post" th:action="@{/admin/menus/edit/{name}(name=${model.getName()})}"
+                    <form name="form_login" method="post" enctype="multipart/form-data"
+                          th:action="@{/admin/menus/edit/{name}(name=${model.getName()})}"
                           th:object="${model}">
                         <div class="form">
 
@@ -36,6 +37,11 @@
 
                             <div class="pad5"><!-- spacer --></div>
 
+                            <label for="image">Menu Image /note: left empty will keep the old image/</label>
+                            <input class="form_item" id="image" type="file" th:field="*{image}" accept="image/*"/>
+
+                            <div class="pad5"><!-- spacer --></div>
+
                             <label for="productsIds">Products Included</label>
                             <select multiple="" class="form_item" id="productsIds" th:field="*{productsIds}">
                                 <option th:each="product : ${productsList}" th:value="${product.getId()}"
@@ -48,7 +54,8 @@
 
                             <label for="productsIds">Priority*</label>
                             <!--min="1" max="100"-->
-                            <input type="number" th:field="*{priority}" min="1" max="100" class="form_item" required="required"/>
+                            <input type="number" th:field="*{priority}" min="1" max="100" class="form_item"
+                                   required="required"/>
 
                             <div class="pad10"><!-- spacer --></div>
 

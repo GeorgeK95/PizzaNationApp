@@ -36,8 +36,9 @@ public class Menu {
 
     private Integer priority;
 
-    @Column(nullable = true)//TODO:refactor
-    private String imagePath;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "image_id", nullable = false)
+    private Image image;
 
     @Column(nullable = false)
     private Date date;
@@ -47,12 +48,12 @@ public class Menu {
         this.products = new HashSet<>();
     }
 
-    public Menu(String name, String description, Integer priority, String imagePath) {
+    public Menu(String name, String description, Integer priority, Image img) {
         this();
         this.name = name;
         this.description = description;
         this.priority = priority;
-        this.imagePath = imagePath;
+        this.image = img;
     }
 
     public void addProducts(Set<Product> products) {
@@ -79,12 +80,12 @@ public class Menu {
         return priority;
     }
 
-    public String getImagePath() {
-        return imagePath;
-    }
-
     public Date getDate() {
         return date;
+    }
+
+    public Image getImage() {
+        return image;
     }
 
     public void setId(String id) {
@@ -107,11 +108,11 @@ public class Menu {
         this.priority = priority;
     }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
-
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 }

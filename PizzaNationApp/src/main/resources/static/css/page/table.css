@@ -100,3 +100,29 @@ h1 {
     font-size: 21px;
     width: 110px;
 }
+
+
+/*
+
+!*TABLE*!
+.divTable {
+    overflow-x: auto;
+}
+
+table {
+    text-align: center;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 100px 50px 70px 50px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}*/

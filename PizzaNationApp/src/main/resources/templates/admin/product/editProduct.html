@@ -18,7 +18,7 @@
                     <div class="errorbox align_center" th:if="${edit_product_error} != null"
                          th:text="${edit_product_error}"></div>
 
-                    <form name="form_login" method="post"
+                    <form name="form_login" method="post" enctype="multipart/form-data"
                           th:action="@{/admin/products/edit/{name}(name=${model.getName()})}"
                           th:object="${model}">
                         <div class="form">
@@ -36,6 +36,11 @@
                             <!--required="required" maxlength="100"-->
                             <input type="text" id="details" name="details" placeholder="Details" class="form_item"
                                    th:field="*{details}"/>
+
+                            <div class="pad5"><!--spaces--></div>
+
+                            <label for="image">Product Image /note: left empty will keep the old image/</label>
+                            <input class="form_item" id="image" type="file" th:field="*{image}" accept="image/*"/>
 
                             <div class="pad5"><!--spaces--></div>
 

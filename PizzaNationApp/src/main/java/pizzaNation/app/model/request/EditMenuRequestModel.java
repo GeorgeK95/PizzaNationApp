@@ -1,5 +1,7 @@
 package pizzaNation.app.model.request;
 
+import org.springframework.web.multipart.MultipartFile;
+import pizzaNation.app.annotation.Image;
 import pizzaNation.app.model.view.ProductViewModel;
 
 import javax.validation.constraints.*;
@@ -30,7 +32,7 @@ public class EditMenuRequestModel {
 
     private Set<String> productsIds;
 
-    private String imagePath;
+    private MultipartFile image;
 
     public Set<String> getProductsIds() {
         return productsIds;
@@ -48,8 +50,8 @@ public class EditMenuRequestModel {
         return priority;
     }
 
-    public String getImagePath() {
-        return imagePath;
+    public MultipartFile getImage() {
+        return image;
     }
 
     public void setProductsIds(Set<String> productsIds) {
@@ -68,8 +70,7 @@ public class EditMenuRequestModel {
         this.priority = priority;
     }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+    public void setImage(MultipartFile image) {
+        this.image = image;
     }
-
 }

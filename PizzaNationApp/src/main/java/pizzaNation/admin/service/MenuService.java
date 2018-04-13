@@ -12,8 +12,8 @@ import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.model.request.AddMenuRequestModel;
 import pizzaNation.app.model.request.EditMenuRequestModel;
 import pizzaNation.app.model.view.MenuViewModel;
+import pizzaNation.app.service.contract.IImageService;
 import pizzaNation.app.service.contract.IProductService;
-import pizzaNation.app.test.UploadImageRequestModel;
 import pizzaNation.app.util.DTOConverter;
 import pizzaNation.user.service.BaseService;
 
@@ -35,10 +35,13 @@ public class MenuService extends BaseService implements IMenuService {
 
     private final IProductService productService;
 
+    private final IImageService imageService;
+
     @Autowired
-    public MenuService(MenuRepository menuRepository, IProductService productService) {
+    public MenuService(MenuRepository menuRepository, IProductService productService, IImageService imageService) {
         this.menuRepository = menuRepository;
         this.productService = productService;
+        this.imageService = imageService;
     }
 
 
@@ -67,6 +70,7 @@ public class MenuService extends BaseService implements IMenuService {
         Menu menu = DTOConverter.convert(addMenuRequestModel, Menu.class);
 
         menu.setProducts(this.productService.getAllByIds(addMenuRequestModel.getProductsIds()));
+        menu.setImage(this.imageService.uploadImage(addMenuRequestModel.getImage()));
 
         this.menuRepository.saveAndFlush(menu);
 
@@ -88,7 +92,8 @@ public class MenuService extends BaseService implements IMenuService {
         if (this.hasErrors(menu, editMenuRequestModel, bindingResult, attributes)) return false;
 
         menu.setDescription(editMenuRequestModel.getDescription());
-        menu.setImagePath(editMenuRequestModel.getImagePath());
+        if (!editMenuRequestModel.getImage().getOriginalFilename().isEmpty())
+            menu.setImage(this.imageService.uploadImage(editMenuRequestModel.getImage()));
         menu.setName(editMenuRequestModel.getName());
         menu.setPriority(editMenuRequestModel.getPriority());
         menu.setProducts(DTOConverter.convertToSet(this.productService.getAllByIds(
@@ -147,10 +152,5 @@ public class MenuService extends BaseService implements IMenuService {
         EditMenuRequestModel model = DTOConverter.convert(menu, EditMenuRequestModel.class);
         model.setProductsIds(new HashSet<>(menu.getProducts().stream().map(Product::getName).collect(Collectors.toSet())));
         return model;
-    }
-
-    @Override
-    public void uploadImage(UploadImageRequestModel requestModel) {
-        System.out.println();
     }
 }
