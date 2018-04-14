@@ -1,7 +1,7 @@
 <main>
     <div class="divTable">
         <table>
-            <a th:href="@{/admin/ingredients/add}" class="button_flat button_flat_blue">Add</a>
+            <!--<a th:href="@{/admin/ingredients/add}" class="button_flat button_flat_blue">Add</a>-->
             <tr>
                 <th>#</th>
                 <th>Name</th>
@@ -27,8 +27,8 @@
                            class="button_flat button_flat_orange">Edit</a>
                         <a id="confirm" th:href="@{/admin/ingredients/delete/{id}(id=${ingredient.getName()})}"
                            class="button_flat button_flat_red">Delete</a>
-                        <a th:href="@{/ingredients/{id}(id=${ingredient.getName()})}"
-                           class="button_flat button_flat_grey">Details</a>
+                        <!--<a th:href="@{/ingredients/{id}(id=${ingredient.getName()})}"
+                           class="button_flat button_flat_grey">Details</a>-->
                     </td>
                 </tr>
             </th:block>

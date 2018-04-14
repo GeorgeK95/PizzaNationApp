@@ -7,13 +7,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pizzaNation.app.annotation.LoggerAction;
 import pizzaNation.app.contoller.BaseController;
-import pizzaNation.app.enums.Action;
-import pizzaNation.app.enums.TableEnum;
 import pizzaNation.app.enums.Unit;
-import pizzaNation.app.model.request.AddIngredientRequestModel;
-import pizzaNation.app.model.request.EditIngredientRequestModel;
+import pizzaNation.app.model.request.IngredientsRequestModelWrapper;
 import pizzaNation.app.service.contract.IIngredientService;
 
 import javax.validation.Valid;
@@ -46,10 +42,50 @@ public class AdminIngredientController extends BaseController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @RequestMapping(method = RequestMethod.GET, value = {ALL_INGREDIENTS_URL, INGREDIENTS_URL})
     public ModelAndView allIngredients() {
-        return super.view(this.ingredientService.findAllByDate(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
+        return super.view(this.ingredientService.findAllByDateDesc(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
+    @GetMapping(ADD_PRODUCT_INGREDIENTS_URL)
+    public ModelAndView addIngredients(@PathVariable String productName) {
+        return super.view(this.ingredientService.getRequestModels(), Map.ofEntries(
+                entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE),
+                entry(PRODUCT_NAME_STR, productName)
+        ));
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
+    @PostMapping(ADD_PRODUCT_INGREDIENTS_URL)
+    public ModelAndView addIngredientsProcess(@PathVariable String productName,
+                                              @ModelAttribute @Valid IngredientsRequestModelWrapper model,
+                                              BindingResult bindingResult,
+                                              RedirectAttributes attributes) {
+        if (this.ingredientService.addIngredientsAndSetThemToProduct(productName, model, bindingResult, attributes))
+            return super.redirect(ADMIN_SET_PRODUCT_INGREDIENTS_URL);
+        return super.redirect(ADMIN_ALL_PRODUCTS_URL);
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
+    @GetMapping(DELETE_PRODUCT_INGREDIENTS_URL)
+    public ModelAndView deleteIngredients(@PathVariable String productName) {
+        return super.view(this.ingredientService.getRequestModels(), Map.ofEntries(
+                entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE),
+                entry(PRODUCT_NAME_STR, productName)
+        ));
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
+    @PostMapping(DELETE_PRODUCT_INGREDIENTS_URL)
+    public ModelAndView deleteIngredientsProcess(@PathVariable String productName,
+                                              @ModelAttribute @Valid IngredientsRequestModelWrapper model,
+                                              BindingResult bindingResult,
+                                              RedirectAttributes attributes) {
+        if (this.ingredientService.addIngredientsAndSetThemToProduct(productName, model, bindingResult, attributes))
+            return super.redirect(ADMIN_SET_PRODUCT_INGREDIENTS_URL);
+        return super.redirect(ADMIN_ALL_PRODUCTS_URL);
+    }
+
+    /*@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(ADD_INGREDIENTS_URL)
     public ModelAndView addIngredient(AddIngredientRequestModel addIngredientRequestModel) {
         return super.view(addIngredientRequestModel, Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
@@ -93,5 +129,5 @@ public class AdminIngredientController extends BaseController {
     public ModelAndView deleteIngredientProcess(@PathVariable String name) {
         this.ingredientService.deleteIngredient(name);
         return super.redirect(ADMIN_ALL_INGREDIENTS_URL);
-    }
+    }*/
 }

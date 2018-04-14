@@ -34,7 +34,7 @@
                                         <td width="20%"><p><label for="email">Email*</label></p></td>
                                         <td width="80%">
                                             <input type="email" name="email" id="email" placeholder="Email"
-                                                   class="form_item" th:field="*{email}" required="required">
+                                                   class="form_item" th:field="*{email}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -42,7 +42,7 @@
                                         <td>
                                             <input type="password" name="password" id="password" placeholder="Password"
                                                    th:field="*{password}"
-                                                   class="form_item" required="required">
+                                                   class="form_item">
                                         </td>
                                     </tr>
                                     <tr>
@@ -50,7 +50,7 @@
                                         <td><input type="password" name="confirmPassword" id="confirmPassword"
                                                    placeholder="Password"
                                                    th:field="*{confirmPassword}"
-                                                   class="form_item" required="required"></td>
+                                                   class="form_item"></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">
@@ -64,31 +64,31 @@
                                         <td><p><label for="firstName">First Name*</label></p></td>
                                         <td><input type="text" name="firstName" id="firstName"
                                                    placeholder="Your first name" th:field="*{firstName}"
-                                                   class="form_item" required="required"></td>
+                                                   class="form_item"></td>
                                     </tr>
                                     <tr>
                                         <td><p><label for="lastName">Last Name*</label></p></td>
                                         <td><input type="text" name="lastName" id="lastName"
                                                    placeholder="Your last name" th:field="*{lastName}"
-                                                   class="form_item" required="required"></td>
+                                                   class="form_item"></td>
                                     </tr>
                                     <tr>
                                         <td><p><label for="address">Address*</label></p></td>
                                         <td><input type="text" name="address" id="address"
                                                    placeholder="Address" class="form_item"
-                                                   th:field="*{address}" required="required"></td>
+                                                   th:field="*{address}"></td>
                                     </tr>
                                     <tr>
                                         <td><p><label for="city">City*</label></p></td>
                                         <td><input type="text" name="city" id="city" placeholder="City"
                                                    th:field="*{city}"
-                                                   class="form_item" required="required"></td>
+                                                   class="form_item"></td>
                                     </tr>
                                     <tr>
                                         <td><p><label for="gender">Gender</label></p></td>
                                         <td>
                                             <select id="gender" name="gender" class="form_item form_item_auto"
-                                                    th:field="*{gender}" required="required">
+                                                    th:field="*{gender}">
                                                 <option th:each="gender : ${gendersList}" th:value="${gender}"
                                                         th:text="${#strings.capitalize(#strings.toLowerCase(gender))}">1
                                                 </option>
@@ -107,7 +107,7 @@
                                         <td><p><label for="phone">Phone*</label></p></td>
                                         <td><input type="text" name="phone" id="phone"
                                                    placeholder="1234567890, (123)5467890, (123)456-7890, (123)4567890"
-                                                   value="" class="form_item" th:field="*{phone}" required="required">
+                                                   value="" class="form_item" th:field="*{phone}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -121,7 +121,7 @@
                                     <tr>
                                         <td><p><label>Terms*</label></p></td>
                                         <td><label><input type="checkbox" name="agree" id="agree" value="1"
-                                                          checked="checked" th:field="*{terms}" required="required"> I
+                                                          checked="checked" th:field="*{terms}"> I
                                             agree to the
                                             Pizza Nation <a th:href="@{/terms}" target="_blank"
                                                             id="show_terms">Terms</a></label></td>

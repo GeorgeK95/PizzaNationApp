@@ -20,7 +20,7 @@ public interface ProductRepository extends JpaRepository<Product, String> {
     @Query("select m.products from Menu m where m.name like :name")
     Set<Product> findAllByMenuNameOrderByDate(@Param("name") String menuName);
 
-    @Query("select p from Product p order by p.date")
+    @Query("select p from Product p order by p.date desc")
     Set<Product> findAllOrderByDate();
 
     Set<Product> findAllByIdIn(String[] productIds);

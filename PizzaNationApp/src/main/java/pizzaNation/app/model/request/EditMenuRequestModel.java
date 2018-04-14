@@ -2,6 +2,7 @@ package pizzaNation.app.model.request;
 
 import org.springframework.web.multipart.MultipartFile;
 import pizzaNation.app.annotation.Image;
+import pizzaNation.app.model.request.contract.MenuRequestModel;
 import pizzaNation.app.model.view.ProductViewModel;
 
 import javax.validation.constraints.*;
@@ -15,7 +16,9 @@ import static pizzaNation.app.util.WebConstants.INVALID_PRIORITY_MESSAGE;
 /**
  * Created by George-Lenovo on 02/04/2018.
  */
-public class EditMenuRequestModel {
+public class EditMenuRequestModel implements MenuRequestModel {
+
+    private String id;
 
     @NotBlank
     @Size(max = 20, message = INVALID_MENU_NAME_MESSAGE)
@@ -38,18 +41,27 @@ public class EditMenuRequestModel {
         return productsIds;
     }
 
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public String getDescription() {
         return description;
     }
 
+    @Override
     public Integer getPriority() {
         return priority;
     }
 
+    @Override
     public MultipartFile getImage() {
         return image;
     }
@@ -72,5 +84,9 @@ public class EditMenuRequestModel {
 
     public void setImage(MultipartFile image) {
         this.image = image;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

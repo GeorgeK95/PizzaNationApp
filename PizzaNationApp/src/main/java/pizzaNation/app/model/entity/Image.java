@@ -19,14 +19,11 @@ public class Image {
     @Column(nullable = false)
     private String url;
 
-   /* @OneToOne(mappedBy = "image")
-    private Menu menu;*/
 
     public Image() {
     }
 
-    public Image(/*String id,*/ String name, String url) {
-//        this.setId(id);
+    public Image( String name, String url) {
         this.setName(name);
         this.setUrl(url);
     }
@@ -43,10 +40,6 @@ public class Image {
         return name;
     }
 
-//    public Menu getMenu() {
-//        return menu;
-//    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -59,7 +52,4 @@ public class Image {
         this.url = url;
     }
 
-//    public void setMenu(Menu menu) {
-//        this.menu = menu;
-//    }
 }

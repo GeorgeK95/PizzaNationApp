@@ -11,6 +11,7 @@ import pizzaNation.app.annotation.LoggerAction;
 import pizzaNation.app.contoller.BaseController;
 import pizzaNation.app.enums.Action;
 import pizzaNation.app.enums.TableEnum;
+import pizzaNation.app.enums.Unit;
 import pizzaNation.app.model.request.AddProductRequestModel;
 import pizzaNation.app.model.request.EditProductRequestModel;
 import pizzaNation.app.model.response.IngredientResponseModel;
@@ -18,6 +19,7 @@ import pizzaNation.app.service.contract.IIngredientService;
 import pizzaNation.app.service.contract.IProductService;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -42,7 +44,12 @@ public class AdminProductController extends BaseController {
 
     @ModelAttribute(name = INGREDIENTS_LIST)
     public List<IngredientResponseModel> getProducts() {
-        return this.ingredientService.findAllByDate();
+        return this.ingredientService.findAllByDateDesc();
+    }
+
+    @ModelAttribute(name = UNITS_LIST)
+    public List<Unit> getUnits() {
+        return Arrays.asList(Unit.values());
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
@@ -97,4 +104,5 @@ public class AdminProductController extends BaseController {
         this.productService.deleteProduct(name);
         return super.redirect(ADMIN_ALL_PRODUCTS_URL);
     }
+
 }

@@ -2,6 +2,7 @@ package pizzaNation.app.model.request;
 
 import org.springframework.web.multipart.MultipartFile;
 import pizzaNation.app.annotation.Image;
+import pizzaNation.app.model.request.contract.MenuRequestModel;
 
 import javax.validation.constraints.*;
 
@@ -10,7 +11,7 @@ import static pizzaNation.app.util.WebConstants.*;
 /**
  * Created by George-Lenovo on 01/04/2018.
  */
-public class AddMenuRequestModel {
+public class AddMenuRequestModel implements MenuRequestModel {
 
     @NotBlank
     @Size(max = 20, message = INVALID_MENU_NAME_MESSAGE)
@@ -36,23 +37,27 @@ public class AddMenuRequestModel {
         return productsIds;
     }
 
+    @Override
+    public String getId() {
+        return null;
+    }
+
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public String getDescription() {
         return description;
     }
 
+    @Override
     public Integer getPriority() {
         return priority;
     }
 
-//    public String getImagePath() {
-//        return imagePath;
-//    }
-
-
+    @Override
     public MultipartFile getImage() {
         return image;
     }
@@ -72,10 +77,6 @@ public class AddMenuRequestModel {
     public void setPriority(Integer priority) {
         this.priority = priority;
     }
-
-//    public void setImagePath(String imagePath) {
-//        this.imagePath = imagePath;
-//    }
 
     public void setImage(MultipartFile image) {
         this.image = image;

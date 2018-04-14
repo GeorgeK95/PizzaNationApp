@@ -1,3 +1,4 @@
+<!--
 <main>
     <div class="wrapper">
         <div class="white_page content_on" id="tabpanel_1">
@@ -14,10 +15,12 @@
 
                 <div class="align_left">
                     <h1>Add Ingredient</h1>
-                    <div class="pad10"><!-- spacer --></div>
+                    <div class="pad10">&lt;!&ndash; spacer &ndash;&gt;</div>
 
                     <div class="errorbox align_center" th:if="${add_ingredient_error} != null"
                          th:text="${add_ingredient_error}"></div>
+
+                    <div class="pad10">&lt;!&ndash; spacer &ndash;&gt;</div>
 
                     <form name="form_login" method="post" th:action="@{/admin/ingredients/add}"
                           th:object="${addIngredientRequestModel}">
@@ -26,36 +29,36 @@
                             <label for="name">Ingredient Name*</label>
 
                             <input type="text" id="name" name="name" placeholder="Ingredient name" class="form_item"
-                                   th:field="*{name}" required="required" maxlength="50"/>
+                                   th:field="*{name}" maxlength="50"/>
 
-                            <div class="pad5"><!-- spacer --></div>
+                            <div class="pad5">&lt;!&ndash; spacer &ndash;&gt;</div>
 
                             <label for="description">Description*</label>
                             <input type="text" id="description" name="description" placeholder="Description"
-                                   class="form_item" required="required" maxlength="100" th:field="*{description}"/>
+                                   class="form_item" maxlength="100" th:field="*{description}"/>
 
-                            <div class="pad5"><!-- spacer --></div>
+                            <div class="pad5">&lt;!&ndash; spacer &ndash;&gt;</div>
 
                             <label for="quantity">Quantity*</label>
                             <input type="number" id="quantity" th:field="*{quantity}" class="form_item"
-                                   step="0.01" min="1" required="required"/>
+                                   step="0.01" min="1"/>
 
-                            <div class="pad5"><!-- spacer --></div>
+                            <div class="pad5">&lt;!&ndash; spacer &ndash;&gt;</div>
 
-                            <label for="price">Price*</label>
+&lt;!&ndash;                            <label for="price">Price*</label>
                             <input type="number" id="price" th:field="*{price}" class="form_item" step="0.01"
-                                   min="1" required="required"/>
+                                   min="1"/>&ndash;&gt;
 
-                            <div class="pad5"><!-- spacer --></div>
+                            <div class="pad5">&lt;!&ndash; spacer &ndash;&gt;</div>
 
                             <label for="unit">Unit*</label>
-                            <select required="required" class="form_item" id="unit" th:field="*{unit}">
+                            <select class="form_item" id="unit" th:field="*{unit}">
                                 <option th:each="unit : ${unitsList}" th:value="${unit}"
                                         th:text="${#strings.capitalize(#strings.toLowerCase(unit))}">1
                                 </option>
                             </select>
 
-                            <div class="pad10"><!-- spacer --></div>
+                            <div class="pad10">&lt;!&ndash; spacer &ndash;&gt;</div>
 
                             <input type="submit" name="add-ingr-btn" class="button_flat button_flat_green"
                                    value="Add Ingredient"/>
@@ -68,4 +71,4 @@
         </div>
     </div>
 
-</main>
+</main>-->

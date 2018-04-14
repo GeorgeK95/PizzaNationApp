@@ -10,23 +10,35 @@
                 <th>Is Promotional</th>
                 <th>Date</th>
                 <th>Action</th>
+                <th>Ingredients</th>
             </tr>
 
             <th:block th:each="product,iter : ${model}">
                 <tr>
                     <td th:text="${iter.index + 1}"></td>
                     <td th:text="${product.getName()}"></td>
-                    <td th:text="${product.getDetails()}"></td>
+                    <th:block th:if="${#strings.length(product.getDetails())} > 31">
+                        <td th:text="|${#strings.substring(product.getDetails(),0,30)}...|"></td>
+                    </th:block>
+                    <th:block th:unless="${#strings.length(product.getDetails())} > 31">
+                        <td th:text="${product.getDetails()}"></td>
+                    </th:block>
                     <td th:text="${product.getTotalSales()}"></td>
                     <td th:text="${product.getPromotional()}"></td>
                     <td th:text="${#dates.format(product.date, 'hh:mm / dd-MMM-yyyy')}"></td>
                     <td>
                         <a th:href="@{/admin/products/edit/{id}(id=${product.getName()})}"
                            class="button_flat button_flat_orange">Edit</a>
+                        <div class="pad5"></div>
                         <a id="confirm" th:href="@{/admin/products/delete/{id}(id=${product.getName()})}"
                            class="button_flat button_flat_red">Delete</a>
-                        <a th:href="@{/product/{id}(id=${product.getName()})}"
-                           class="button_flat button_flat_grey">Details</a>
+                    </td>
+                    <td>
+                        <a th:href="@{/admin/product/{name}/addIngredients(name=${product.getName()})}"
+                           class="button_flat button_flat_grey">Add Ingredients</a>
+                        <div class="pad5"></div>
+                        <a th:href="@{/admin/product/{name}/removeIngredients(name=${product.getName()})}"
+                           class="button_flat button_flat_grey">Delete Ingredients</a>
                     </td>
                 </tr>
             </th:block>

@@ -1,8 +1,0 @@
-<main>
-    <form th:object="${model}" method="post" th:action="@{/upload}" enctype="multipart/form-data">
-        <label for="image">*Album Profile Image</label>
-        <input class="form_item" type="file" th:field="*{picture}" id="image" accept="image/*"/>
-
-        <input type="submit" class="button">
-    </form>
-</main>

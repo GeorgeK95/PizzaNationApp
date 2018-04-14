@@ -16,8 +16,8 @@ import java.util.Set;
 @Repository
 @Transactional
 public interface IngredientRepository extends JpaRepository<Ingredient, String> {
-    @Query("select i from Ingredient i order by i.date")
-    Set<Ingredient> findAllOrderByDate();
+    @Query("select i from Ingredient i order by i.date desc ")
+    Set<Ingredient> findAllOrderByDateDesc();
 
     boolean existsByName(String name);
 

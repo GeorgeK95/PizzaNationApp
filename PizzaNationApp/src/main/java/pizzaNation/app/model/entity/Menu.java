@@ -3,6 +3,8 @@ package pizzaNation.app.model.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.HashSet;
@@ -25,7 +27,7 @@ public class Menu {
     private String name;
 
     @NotNull
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "text")
     private String description;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -34,6 +36,9 @@ public class Menu {
             inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
     private Set<Product> products;
 
+    @Min(1)
+    @Max(50)
+    @Column(unique = true)
     private Integer priority;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

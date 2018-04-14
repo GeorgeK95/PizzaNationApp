@@ -21,15 +21,13 @@ public class Product {
     @Column(unique = true, nullable = false, length = 50)
     private String name;
 
+    @Column(columnDefinition = "text")
     private String details;
 
     @ManyToMany(mappedBy = "products")
     private Set<Menu> menus;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "product_ingredient",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Ingredient> ingredients;
 
     private int totalSales;
@@ -73,8 +71,8 @@ public class Product {
         return details;
     }
 
-    public Set<Ingredient> getIngredients() {
-        return ingredients;
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 
     public int getTotalSales() {
@@ -109,8 +107,8 @@ public class Product {
         this.menus = menu;
     }
 
-    public void setIngredients(Set<Ingredient> ingredients) {
-        this.ingredients = ingredients;
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
     }
 
     public void setTotalSales(int totalSales) {

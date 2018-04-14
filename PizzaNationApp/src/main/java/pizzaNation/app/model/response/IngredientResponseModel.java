@@ -14,27 +14,27 @@ public class IngredientResponseModel {
 
     private String name;
 
-    private String description;
+//    private String description;
 
     private Date date;
 
-    private BigDecimal price;
+//    private BigDecimal price;
 
     private Double quantity;
 
     private Unit unit;
 
-    public String getDescription() {
-        return description;
-    }
+//    public String getDescription() {
+//        return description;
+//    }
 
     public Date getDate() {
         return date;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
+//    public BigDecimal getPrice() {
+//        return price;
+//    }
 
     public Double getQuantity() {
         return quantity;
@@ -52,17 +52,17 @@ public class IngredientResponseModel {
         return id;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+//    public void setDescription(String description) {
+//        this.description = description;
+//    }
 
     public void setDate(Date date) {
         this.date = date;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
+//    public void setPrice(BigDecimal price) {
+//        this.price = price;
+//    }
 
     public void setQuantity(Double quantity) {
         this.quantity = quantity;

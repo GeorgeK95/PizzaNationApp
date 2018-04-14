@@ -11,6 +11,7 @@ import pizzaNation.app.model.entity.Menu;
 import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.model.request.AddMenuRequestModel;
 import pizzaNation.app.model.request.EditMenuRequestModel;
+import pizzaNation.app.model.request.contract.MenuRequestModel;
 import pizzaNation.app.model.view.MenuViewModel;
 import pizzaNation.app.service.contract.IImageService;
 import pizzaNation.app.service.contract.IProductService;
@@ -51,15 +52,42 @@ public class MenuService extends BaseService implements IMenuService {
 
         if (super.containErrors(bindingResult, attributes, ADD_MENU_ERROR)) return false;
 
-        if (this.checkForDuplicateName(requestModel.getName(), ADD_MENU_ERROR, attributes)) return false;
+        if (this.checkForDuplicateProperties(requestModel, ADD_MENU_ERROR, attributes)) return false;
 
         return this.persistMenu(requestModel);
     }
 
-    private boolean checkForDuplicateName(String name, String addMenuError, RedirectAttributes attributes) {
-        if (this.menuRepository.existsByName(name)) {
-            attributes.addFlashAttribute(addMenuError, MENU_NAME_ALREADY_TAKEN_MESSAGE);
-            return true;
+    private boolean checkForDuplicateProperties(MenuRequestModel requestModel, String error, RedirectAttributes attributes) {
+        boolean result = this.checkForDuplicatePriority(requestModel, error, attributes);
+        boolean result1 = this.checkForDuplicateName(requestModel, error, attributes);
+
+        return result || result1;
+    }
+
+    private boolean checkForDuplicateName(MenuRequestModel requestModel, String error, RedirectAttributes attributes) {
+        Menu byName = this.menuRepository.getByName(requestModel.getName());
+
+        return this.checkForDuplicateObject(byName, requestModel, error, MENU_NAME_ALREADY_TAKEN_MESSAGE, attributes);
+    }
+
+    private boolean checkForDuplicatePriority(MenuRequestModel requestModel, String error, RedirectAttributes attributes) {
+        Menu byPriority = this.menuRepository.getByPriority(requestModel.getPriority());
+
+        return this.checkForDuplicateObject(byPriority, requestModel, error, MENU_PRIORITY_ALREADY_TAKEN_MESSAGE, attributes);
+    }
+
+    private boolean checkForDuplicateObject(Menu byName, MenuRequestModel requestModel, String error, String message,
+                                            RedirectAttributes attributes) {
+        if (byName != null) {
+            if (requestModel.getId() == null) {
+                attributes.addFlashAttribute(error, message);
+                return true;
+            }
+
+            if (!requestModel.getId().equals(byName.getId())) {
+                attributes.addFlashAttribute(error, message);
+                return true;
+            }
         }
 
         return false;
@@ -109,8 +137,12 @@ public class MenuService extends BaseService implements IMenuService {
                               RedirectAttributes attributes) {
         if (menu == null) throw new MenuNotFoundException();
 
-        if (this.checkForDuplicateName(editMenuRequestModel.getName(), EDIT_MENU_ERROR, attributes) &&
-                !menu.getName().equals(editMenuRequestModel.getName())) return true;
+        /*if (menu.getName().equals(editMenuRequestModel.getName())) {
+            attributes.addFlashAttribute(EDIT_MENU_ERROR, MENU_NAME_ALREADY_TAKEN_MESSAGE);
+            return true;
+        }*/
+
+        if (this.checkForDuplicateProperties(editMenuRequestModel, EDIT_MENU_ERROR, attributes)) return true;
 
         return super.containErrors(bindingResult, attributes, EDIT_MENU_ERROR);
     }
@@ -152,5 +184,10 @@ public class MenuService extends BaseService implements IMenuService {
         EditMenuRequestModel model = DTOConverter.convert(menu, EditMenuRequestModel.class);
         model.setProductsIds(new HashSet<>(menu.getProducts().stream().map(Product::getName).collect(Collectors.toSet())));
         return model;
+    }
+
+    @Override
+    public List<MenuViewModel> findAllByDateDesc() {
+        return DTOConverter.convert(this.menuRepository.findAllByDateDesc(), MenuViewModel.class);
     }
 }

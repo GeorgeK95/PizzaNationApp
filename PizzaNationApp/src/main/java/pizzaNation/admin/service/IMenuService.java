@@ -29,4 +29,6 @@ public interface IMenuService {
     Menu findMenuEntityByName(String menuName);
 
     EditMenuRequestModel findById(String id);
+
+    List<MenuViewModel> findAllByDateDesc();
 }

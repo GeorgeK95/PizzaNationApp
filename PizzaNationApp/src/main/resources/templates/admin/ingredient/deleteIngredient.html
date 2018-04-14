@@ -11,7 +11,6 @@
                     </th:block>
                 </div>
 
-
                 <div class="align_left">
                     <h1>Delete Ingredient</h1>
                     <div class="pad10"><!-- spacer --></div>
@@ -24,31 +23,31 @@
                             <label for="name">Ingredient Name</label>
 
                             <input type="text" id="name" name="name" placeholder="Ingredient name" class="form_item"
-                                   th:field="*{name}" required="required" maxlength="50" readonly="readonly"/>
+                                   th:field="*{name}"  maxlength="50" readonly="readonly"/>
 
                             <div class="pad5"><!-- spacer --></div>
 
-                            <label for="description">Description</label>
+                          <!--  <label for="description">Description</label>
                             <input type="text" id="description" name="description" placeholder="Description"
-                                   class="form_item" required="required" maxlength="100" th:field="*{description}"
-                                   readonly="readonly"/>
+                                   class="form_item"  maxlength="100" th:field="*{description}"
+                                   readonly="readonly"/>-->
 
                             <div class="pad5"><!-- spacer --></div>
 
                             <label for="quantity">Quantity</label>
                             <input type="number" id="quantity" th:field="*{quantity}" class="form_item"
-                                   step="0.01" min="1" required="required" readonly="readonly"/>
+                                   step="0.01" min="1"  readonly="readonly"/>
 
                             <div class="pad5"><!-- spacer --></div>
 
-                            <label for="price">Price</label>
+                          <!--  <label for="price">Price</label>
                             <input type="number" id="price" th:field="*{price}" class="form_item" step="0.01"
-                                   min="1" required="required" readonly="readonly"/>
+                                   min="1"  readonly="readonly"/>-->
 
                             <div class="pad5"><!-- spacer --></div>
 
                             <label for="unit">Unit</label>
-                            <select disabled="disabled" required="required" class="form_item" id="unit"
+                            <select disabled="disabled"  class="form_item" id="unit"
                                     th:field="*{unit}">
                                 <option th:each="unit : ${unitsList}" th:value="${unit}"
                                         th:text="${#strings.capitalize(#strings.toLowerCase(unit))}">1
@@ -57,7 +56,7 @@
 
                             <div class="pad10"><!-- spacer --></div>
 
-                            <input type="submit" name="delete-ingr-btn" class="button_flat button_flat_green"
+                            <input type="submit" name="delete-ingr-btn" class="button_flat button_flat_red"
                                    value="Delete Ingredient"/>
 
                         </div>

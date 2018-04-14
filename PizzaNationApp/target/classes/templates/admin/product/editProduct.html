@@ -18,6 +18,8 @@
                     <div class="errorbox align_center" th:if="${edit_product_error} != null"
                          th:text="${edit_product_error}"></div>
 
+                    <div class="pad10"><!-- spacer --></div>
+
                     <form name="form_login" method="post" enctype="multipart/form-data"
                           th:action="@{/admin/products/edit/{name}(name=${model.getName()})}"
                           th:object="${model}">
@@ -25,7 +27,7 @@
 
                             <label for="name">Product Name*</label>
 
-                            <!--required="required" maxlength="50"-->
+                            <!-- maxlength="50"-->
                             <input type="text" id="name" name="name" placeholder="Product name" class="form_item"
                                    th:field="*{name}"/>
 
@@ -33,7 +35,7 @@
 
                             <label for="details">Details*</label>
 
-                            <!--required="required" maxlength="100"-->
+                            <!-- maxlength="100"-->
                             <input type="text" id="details" name="details" placeholder="Details" class="form_item"
                                    th:field="*{details}"/>
 
@@ -46,7 +48,7 @@
 
                             <label for="ingredientsIds">Ingredients Included</label>
                             <select multiple="" class="form_item" id="ingredientsIds" th:field="*{ingredientsIds}">
-                                <option th:each="ingredient : ${ingredientsList}" th:value="${ingredient.getId()}"
+                                <option th:each="ingredient : ${modelList}" th:value="${ingredient.getId()}"
                                         th:text="${ingredient.getName()}">1
                                 </option>
                             </select>

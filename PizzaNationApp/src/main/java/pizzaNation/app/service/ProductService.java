@@ -5,11 +5,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pizzaNation.app.exception.MenuNotFoundException;
 import pizzaNation.app.exception.ProductNotFoundException;
 import pizzaNation.app.model.entity.Ingredient;
 import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.model.request.AddProductRequestModel;
 import pizzaNation.app.model.request.EditProductRequestModel;
+import pizzaNation.app.model.request.contract.MenuRequestModel;
 import pizzaNation.app.model.response.ProductResponseModel;
 import pizzaNation.app.model.view.ProductViewModel;
 import pizzaNation.app.repository.ProductRepository;
@@ -143,6 +145,7 @@ public class ProductService extends BaseService implements IProductService {
         if (product == null) throw new ProductNotFoundException();
 
         product.setIngredients(null); //release products so they wont be deleted
+        product.setImage(null);
 //        product.setMenus(null); //release products so they wont be deleted
 
         this.productRepository.delete(product);

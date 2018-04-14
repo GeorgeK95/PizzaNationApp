@@ -16,28 +16,28 @@ public class AddIngredientRequestModel {
     @Size(max = 50, message = INVALID_INGREDIENT_NAME_MESSAGE)
     private String name;
 
-    @NotBlank
+  /*  @NotBlank
     @Size(message = INVALID_DESCRIPTION_MESSAGE)
-    private String description;
+    private String description;*/
 
     @Min(1)
     @NotNull(message = INVALID_QUANTITY_MESSAGE)
     private Double quantity;
 
-    @NotNull(message = INVALID_PRICE_MESSAGE)
+    @NotNull
     private Unit unit;
 
-    @Min(1)
+    /*@Min(1)
     @NotNull(message = INVALID_PRICE_MESSAGE)
-    private BigDecimal price;
+    private BigDecimal price;*/
 
     public String getName() {
         return name;
     }
 
-    public String getDescription() {
-        return description;
-    }
+//    public String getDescription() {
+//        return description;
+//    }
 
     public Double getQuantity() {
         return quantity;
@@ -47,17 +47,17 @@ public class AddIngredientRequestModel {
         return unit;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
+//    public BigDecimal getPrice() {
+//        return price;
+//    }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+//    public void setDescription(String description) {
+//        this.description = description;
+//    }
 
     public void setQuantity(Double quantity) {
         this.quantity = quantity;
@@ -67,8 +67,8 @@ public class AddIngredientRequestModel {
         this.unit = unit;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
+//    public void setPrice(BigDecimal price) {
+//        this.price = price;
+//    }
 
 }

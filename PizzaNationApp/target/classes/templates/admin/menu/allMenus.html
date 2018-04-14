@@ -15,7 +15,13 @@
                 <tr>
                     <td th:text="${iter.index + 1}"></td>
                     <td th:text="${menu.getName()}"></td>
-                    <td th:text="${menu.getDescription()}"></td>
+                    <th:block th:if="${#strings.length(menu.getDescription())} > 31">
+                        <td th:text="|${#strings.substring(menu.getDescription(),0,30)}...|"></td>
+                    </th:block>
+                    <th:block th:unless="${#strings.length(menu.getDescription())} > 31">
+                        <td th:text="${menu.getDescription()}"></td>
+                    </th:block>
+
                     <td th:text="${menu.getPriority()}"></td>
                     <td th:text="${#dates.format(menu.date, 'hh:mm / dd-MMM-yyyy')}"></td>
                     <td>
@@ -26,8 +32,8 @@
                         <a id="confirm" th:href="@{/admin/menus/delete/{id}(id=${menu.getName()})}"
                            class="button_flat button_flat_red">Delete
                         </a>
-                        <a th:href="@{/menu/{id}(id=${menu.getName()})}" class="button_flat button_flat_grey">Details
-                        </a>
+                        <!--<a th:href="@{/menu/{id}(id=${menu.getName()})}" class="button_flat button_flat_grey">Details
+                        </a>-->
                     </td>
                 </tr>
             </th:block>

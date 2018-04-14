@@ -61,7 +61,7 @@ public class AdminMenuController extends BaseController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @RequestMapping(method = RequestMethod.GET, value = {ALL_MENUS_URL, MENUS_URL})
     public ModelAndView allMenus() {
-        return super.view(this.menuService.findAll(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
+        return super.view(this.menuService.findAllByDateDesc(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")

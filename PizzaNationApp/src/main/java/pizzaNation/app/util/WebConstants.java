@@ -66,6 +66,9 @@ public final class WebConstants {
     public static final String EMPTY_URL = "";
     public static final String MENU_NAME_URL = "/menu/{name}";
     public static final String VERIFICATION_MESSAGE = "Activation code: %s.\r\nPlease enter the following code here: http://localhost:8008/confirm";
+    public static final String ADD_PRODUCT_INGREDIENTS_URL = "/product/{productName}/addIngredients";
+    public static final String DELETE_PRODUCT_INGREDIENTS_URL = "/product/{productName}/removeIngredients";
+    public static final String ADMIN_SET_PRODUCT_INGREDIENTS_URL = "/admin/product/{productName}/addIngredients";
 
     //Page Titles
     public static final String ABOUT_US_PAGE_TITLE = "About Us";
@@ -103,9 +106,10 @@ public final class WebConstants {
     public static final String OPERATION_STR = "operation";
     public static final String MODIFIED_TABLE_STR = "modifiedTable";
     //    public static final String LOGOUT_REDIRECT_STR = "redirect:/login?logout";
-    public static final String ID_STR = "id";
+//    public static final String ID_STR = "id";
     public static final String ACCOUNT_CONFIRMED_STR = "account_confirmed";
-    public static final String TOKEN_STR = "token";
+//    public static final String TOKEN_STR = "token";
+    public static final String PRODUCT_NAME_STR = "productName";
 
     //Extensions
     public static final String CSS_EXTENSION = ".css";
@@ -136,7 +140,7 @@ public final class WebConstants {
     public static final String PRIORITY_VALIDATION_MESSAGE = "must be less than or equal to 100";
     public static final String MUST_NOT_BE_NULL_MESSAGE = "must not be null";
     public static final String COMPLETE_ALL_FIELDS_MESSAGE = "Please complete all required fields.";
-    public static final String INVALID_PRIORITY_CONSTAINT_MESSAGE = "Invalid value for priority.";
+    public static final String INVALID_PRIORITY_CONSTAINT_MESSAGE = "Invalid value for priority, must be greater than 0 and lower than 50.";
     public static final String INVALID_CURRENT_PASSWORD_MESSAGE = "Your current password is invalid.";
     public static final String INVALID_PASSWORD_MESSAGE = "Password cannot be empty and must be more than 8 and less than 50 symbols long.";
     public static final String INVALID_FIRST_NAME_MESSAGE = "First name cannot be empty and must be less than 50 symbols long.";
@@ -152,11 +156,12 @@ public final class WebConstants {
     public static final String INVALID_PRODUCT_NAME_MESSAGE = "Product name cannot be empty and must less than 50 symbols long.";
     public static final String INVALID_DESCRIPTION_MESSAGE = "Description name cannot be empty.";
     public static final String INVALID_PRODUCT_MESSAGE = "Product description cannot be empty and must be less than 50 symbols long.";
-    public static final String INVALID_PRIORITY_MESSAGE = "Priority name cannot be empty and must be between 1 and 100.";
+    public static final String INVALID_PRIORITY_MESSAGE = "Priority name cannot be empty and must be between 1 and 50.";
     public static final String INVALID_QUANTITY_MESSAGE = "Quantity value cannot be empty and must be min 1.";
     public static final String INVALID_PRICE_MESSAGE = "Price value cannot be empty and must be min 1.";
     public static final String INVALID_NULL_MESSAGE = "Unit field cannot be empty.";
     public static final String MENU_NAME_ALREADY_TAKEN_MESSAGE = "There is already a menu with the given name, please choose another.";
+    public static final String MENU_PRIORITY_ALREADY_TAKEN_MESSAGE = "There is already a menu with the given priority, please choose another.";
     public static final String INGREDIENT_NAME_ALREADY_TAKEN_MESSAGE = "There is already a ingredient with the given name, please choose another.";
     public static final String PRODUCT_NAME_ALREADY_TAKEN_MESSAGE = "There is already a product with the given name, please choose another.";
     public static final String USER_REGISTER_SUCCESS_MESSAGE = "user_register_success";

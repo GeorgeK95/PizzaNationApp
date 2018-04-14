@@ -46,7 +46,7 @@ public class DataLoader implements ApplicationRunner {
         this.addUsersWithRoles();
         this.addProducts();
         this.addMenus();
-        this.addIngredients();
+//        this.addIngredients();
         this.addStore();
     }
 
@@ -56,16 +56,16 @@ public class DataLoader implements ApplicationRunner {
     }
 
     private void addIngredients() {
-        Ingredient i = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip", "chervena technost");
-        Ingredient i1 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip12", "chervena technost");
-        Ingredient i2 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip2", "chervena technost");
-        Ingredient i3 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip3", "chervena technost");
-        Ingredient i4 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip4", "chervena technost");
-        Ingredient i5 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip5", "chervena technost");
-        Ingredient i6 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip6", "chervena technost");
-        Ingredient i7 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip7", "chervena technost");
-        Ingredient i8 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip9", "chervena technost");
-        Ingredient i9 = new Ingredient(2.2, Unit.KILOGRAM, new BigDecimal(123123), "ketcuhip8", "chervena technost");
+        Ingredient i = new Ingredient(2.2, Unit.KILOGRAM,  /*new BigDecimal(123123),*/ "ketcuhip" /*,   "chervena technost"*/);
+        Ingredient i1 = new Ingredient(2.2, Unit.KILOGRAM, /*new BigDecimal(123123),*/"ketcuhip12"/*, "chervena technost" */);
+        Ingredient i2 = new Ingredient(2.2, Unit.KILOGRAM, /*new BigDecimal(123123),*/ "ketcuhip2"/*,  "chervena technost"*/);
+        Ingredient i3 = new Ingredient(2.2, Unit.KILOGRAM, /*new BigDecimal(123123),*/ "ketcuhip3"/*,  "chervena technost"*/);
+        Ingredient i4 = new Ingredient(2.2, Unit.KILOGRAM, /*new BigDecimal(123123),*/ "ketcuhip4"/*,  "chervena technost"*/);
+        Ingredient i5 = new Ingredient(2.2, Unit.KILOGRAM, /*new BigDecimal(123123),*/ "ketcuhip5"/*,  "chervena technost"*/);
+        Ingredient i6 = new Ingredient(2.2, Unit.KILOGRAM, /*new BigDecimal(123123),*/ "ketcuhip6"/*,  "chervena technost"*/);
+        Ingredient i7 = new Ingredient(2.2, Unit.KILOGRAM, /*new BigDecimal(123123),*/ "ketcuhip7"/*,  "chervena technost"*/);
+        Ingredient i8 = new Ingredient(2.2, Unit.KILOGRAM, /*new BigDecimal(123123),*/ "ketcuhip9"/*,  "chervena technost"*/);
+        Ingredient i9 = new Ingredient(2.2, Unit.KILOGRAM, /*new BigDecimal(123123),*/ "ketcuhip8"/*,  "chervena technost"*/);
 
         this.ingredientRepository.saveAll(Set.of(i, i1, i2, i3, i4, i5, i6, i7, i8, i9));
     }
@@ -74,14 +74,14 @@ public class DataLoader implements ApplicationRunner {
         Image img = new Image("cane.jpg", "https://p-sf1.pcloud.com/DLZ9KNvHJZGcC5YJZekRUZZfhxkU7ZNVZZdy5ZXZgOXZcZZZBuH4S9cj6QVFqFG8LerO4SYQ6mlX/th-6149060342-225x225.jpg");
 
         Menu m1 = new Menu("name1", "description1"
-                , 2, img);
+                , 1, img);
         Menu m2 = new Menu("name2", "description1da"
                 , 2, img);
         Menu m3 = new Menu("name3", "descriptiondas1"
                 , 3, img);
         Menu m4 = new Menu("name4", "descriptiondsadsa1"
                 , 4, img);
-        Menu m5 = new Menu("name5", "description1dasadsadsadsdas"
+        Menu m5 = new Menu("name5", "description1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdasdescription1dasadsadsadsdas"
                 , 5, img);
 
         this.menuRepository.saveAll(Set.of(m1, m2, m3, m4, m5));

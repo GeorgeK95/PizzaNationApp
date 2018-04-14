@@ -23,43 +23,33 @@ public class Ingredient {
     @Column(name = "id", updatable = false, nullable = false)
     private String id;
 
+    @NotNull
+    @Column(nullable = false, length = 50)
+    private String name;
+
     @Min(0)
     @Column(nullable = false)
     private Double quantity;
 
     @Enumerated(value = EnumType.STRING)
+    @Column(nullable = false)
     private Unit unit;
 
-    @Min(1)
-    @Column(nullable = false)
-    private BigDecimal price;
-
-    @NotNull
-    @Column(nullable = false, length = 50, unique = true)
-    private String name;
-
-    @NotNull
-    @Column(nullable = false)
-    private String description;
-
-    @ManyToMany(mappedBy = "ingredients")
-    private Set<Product> products;
+    @ManyToOne
+    private Product product;
 
     @Column(nullable = false)
     private Date date;
 
     public Ingredient() {
-        this.products = new HashSet<>();
         this.date = new Date();
     }
 
-    public Ingredient(Double quantity, Unit unit, BigDecimal price, String name, String description) {
+    public Ingredient(Double quantity, Unit unit, String name) {
         this();
         this.quantity = quantity;
         this.unit = unit;
-        this.price = price;
         this.name = name;
-        this.description = description;
     }
 
     public String getId() {
@@ -68,18 +58,6 @@ public class Ingredient {
 
     public Double getQuantity() {
         return quantity;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Set<Product> getProducts() {
-        return products;
     }
 
     public Unit getUnit() {
@@ -94,6 +72,10 @@ public class Ingredient {
         return name;
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -102,16 +84,8 @@ public class Ingredient {
         this.quantity = kilograms;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setProducts(Set<Product> ingredients) {
-        this.products = ingredients;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public void setUnit(Unit unit) {

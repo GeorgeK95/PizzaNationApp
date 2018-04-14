@@ -18,6 +18,7 @@
 
                     <div class="errorbox align_center" th:if="${user_edit_error} != null"
                          th:text="${user_edit_error}"></div>
+                    <div class="pad10"><!-- spacer --></div>
 
                     <form name="reg_register" id="reg_register" method="post"
                           th:action="@{/admin/users/edit/{id}(id=${model.getId()})}"
@@ -32,31 +33,31 @@
                             <label for="firstName">First Name*</label>
                             <input type="text" name="firstName" id="firstName"
                                    placeholder="Your first name" th:field="*{firstName}"
-                                   class="form_item" required="required">
+                                   class="form_item" >
 
                             <div class="pad5"><!--spaces--></div>
 
                             <label for="lastName">Last Name*</label>
                             <input type="text" name="lastName" id="lastName" placeholder="Your last name"
-                                   class="form_item" th:field="*{lastName}" required="required">
+                                   class="form_item" th:field="*{lastName}" >
 
                             <div class="pad5"><!--spaces--></div>
 
                             <label for="address">Address*</label>
                             <input type="text" name="address" id="address" placeholder="Address" class="form_item"
-                                   th:field="*{address}" required="required">
+                                   th:field="*{address}" >
 
                             <div class="pad5"><!--spaces--></div>
 
                             <label for="city">City*</label>
                             <input type="text" name="city" id="city" placeholder="City" th:field="*{city}"
-                                   class="form_item" required="required">
+                                   class="form_item" >
 
                             <div class="pad5"><!--spaces--></div>
 
                             <label for="gender">Gender</label>
                             <select id="gender" name="gender" class="form_item form_item_auto"
-                                    th:field="*{gender}" required="required">
+                                    th:field="*{gender}" >
                                 <option th:each="gender : ${gendersList}" th:value="${gender}"
                                         th:text="${#strings.capitalize(#strings.toLowerCase(gender))}">1
                                 </option>
@@ -69,7 +70,7 @@
                             <label for="phone">Phone*</label>
                             <input type="text" name="phone" id="phone"
                                    placeholder="1234567890, (123)5467890, (123)456-7890, (123)4567890"
-                                   class="form_item" th:field="*{phone}" required="required">
+                                   class="form_item" th:field="*{phone}" >
 
                             <div class="pad10"><!--spaces--></div>
 

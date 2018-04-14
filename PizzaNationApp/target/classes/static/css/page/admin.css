@@ -180,3 +180,31 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+.ingredientGreeting {
+    text-align: left;
+    padding: 50px;
+}
+
+/*TABLE INGREDIENTS*/
+.ingredientsTable {
+    overflow-x: auto;
+}
+
+.ingredientsTable table {
+    text-align: center;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0px 50px 70px 50px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

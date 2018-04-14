@@ -2,6 +2,7 @@
     <div class="wrapper">
         <div class="white_page content_on" id="tabpanel_1">
             <div class="page_pad">
+
                 <div class="breadcrumbs" th:with="urlArr = ${#strings.arraySplit(#httpServletRequest.requestURI, '/')}">
                     <a th:href="@{'/'+${urlArr[0]}}" th:text="${#strings.capitalize(urlArr[0])}"></a>
                     <th:block th:each="index : ${#numbers.sequence(1, #lists.size(urlArr) - 3)}">
@@ -17,23 +18,26 @@
 
                     <div class="errorbox align_center" th:if="${edit_menu_error} != null"
                          th:text="${edit_menu_error}"></div>
+                    <div class="pad10"><!-- spacer --></div>
 
                     <form name="form_login" method="post" enctype="multipart/form-data"
                           th:action="@{/admin/menus/edit/{name}(name=${model.getName()})}"
                           th:object="${model}">
                         <div class="form">
 
+                            <input type="hidden" th:field="*{id}"/>
+
                             <label for="productsIds">Menu Name*</label>
                             <!--maxlength="20"-->
                             <input type="text" name="name" placeholder="Menu name" class="form_item"
-                                   th:field="*{name}" required="required"/>
+                                   th:field="*{name}"/>
 
                             <div class="pad5"><!-- spacer --></div>
 
                             <label for="productsIds">Description*</label>
                             <!--maxlength="100"-->
                             <input type="text" name="description" placeholder="Description" class="form_item"
-                                   th:field="*{description}" required="required"/>
+                                   th:field="*{description}"/>
 
                             <div class="pad5"><!-- spacer --></div>
 
@@ -54,8 +58,7 @@
 
                             <label for="productsIds">Priority*</label>
                             <!--min="1" max="100"-->
-                            <input type="number" th:field="*{priority}" min="1" max="100" class="form_item"
-                                   required="required"/>
+                            <input type="number" th:field="*{priority}" min="1" max="100" class="form_item"/>
 
                             <div class="pad10"><!-- spacer --></div>
 
