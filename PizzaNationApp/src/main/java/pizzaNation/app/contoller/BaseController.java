@@ -44,6 +44,13 @@ public abstract class BaseController {
         return modelAndView;
     }
 
+    protected ModelAndView view(Object viewModel, Map<String, Object> attributes, int statusCode) {
+        ModelAndView modelAndView = this.view(viewModel);
+        attributes.forEach((key, value) -> modelAndView.getModelMap().addAttribute(key, value));
+        modelAndView.addObject(STATUS_CODE_STR, statusCode);
+        return modelAndView;
+    }
+
     private ModelAndView view(String viewName, Object viewModel) {
         ModelAndView modelAndView = new ModelAndView(BASE_LAYOUT_URL);
         this.addAttributes(viewName, modelAndView);
@@ -54,6 +61,12 @@ public abstract class BaseController {
 
     protected ModelAndView redirect(String redirectUrl) {
         return new ModelAndView(REDIRECT_STR.concat(redirectUrl));
+    }
+
+    protected ModelAndView redirectAndLog(String redirectUrl) {
+        ModelAndView modelAndViewWithLogAttribute = new ModelAndView(REDIRECT_STR.concat(redirectUrl));
+        modelAndViewWithLogAttribute.addObject(LOGGER, true);
+        return modelAndViewWithLogAttribute;
     }
 
     private void addAttributes(String viewName, ModelAndView modelAndView) {

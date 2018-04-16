@@ -1,6 +1,14 @@
+<!--
 <main xmlns:th="http://www.w3.org/1999/xhtml">
     <div id="page-wrap">
         <div class="divTable">
+
+            <div class="pad5"></div>
+
+            <div class="breadcrumbs">
+                <a href="/admin/">Admin</a>
+                <a href="/admin/products/all">Products</a>
+            </div>
 
             <form method="post" th:action="@{/admin/product/{name}/ingredients(name=${productName})}"
                   th:object="${model}">
@@ -32,11 +40,11 @@
                     </th:block>
                 </table>
 
-                <input type="submit" class="button_flat button_flat_green" value="Set Ingredients">
+                <input type="submit" class="button_flat button_flat_green" value="Delete Ingredients">
                 <div class="pad10"></div>
             </form>
 
         </div>
         <div class="pad10"></div>
     </div>
-</main>
+</main>-->

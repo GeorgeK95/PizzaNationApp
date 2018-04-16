@@ -35,7 +35,7 @@ public class LoggerService implements ILoggerService {
     }
 
     @Override
-    public void addLog(ModelMap modelMap) {
+    public boolean addLog(ModelMap modelMap) {
         String email = (String) modelMap.get(USER_STR);
         Action action = (Action) modelMap.get(OPERATION_STR);
         TableEnum modifiedTable = (TableEnum) modelMap.get(MODIFIED_TABLE_STR);
@@ -45,5 +45,7 @@ public class LoggerService implements ILoggerService {
         if (log.getUser() == null) log.setUser(this.userRepository.findLastRegistered().get(0));
 
         this.loggerRepository.saveAndFlush(log);
+
+        return true;
     }
 }

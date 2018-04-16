@@ -1,6 +1,7 @@
 package pizzaNation.app.model.response;
 
 import pizzaNation.app.enums.Unit;
+import pizzaNation.app.model.view.ProductViewModel;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -14,27 +15,17 @@ public class IngredientResponseModel {
 
     private String name;
 
-//    private String description;
-
     private Date date;
-
-//    private BigDecimal price;
 
     private Double quantity;
 
     private Unit unit;
 
-//    public String getDescription() {
-//        return description;
-//    }
+    private ProductViewModel product;
 
     public Date getDate() {
         return date;
     }
-
-//    public BigDecimal getPrice() {
-//        return price;
-//    }
 
     public Double getQuantity() {
         return quantity;
@@ -52,17 +43,13 @@ public class IngredientResponseModel {
         return id;
     }
 
-//    public void setDescription(String description) {
-//        this.description = description;
-//    }
+    public ProductViewModel getProduct() {
+        return product;
+    }
 
     public void setDate(Date date) {
         this.date = date;
     }
-
-//    public void setPrice(BigDecimal price) {
-//        this.price = price;
-//    }
 
     public void setQuantity(Double quantity) {
         this.quantity = quantity;
@@ -78,5 +65,9 @@ public class IngredientResponseModel {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setProduct(ProductViewModel product) {
+        this.product = product;
     }
 }

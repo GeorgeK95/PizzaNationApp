@@ -9,9 +9,9 @@ import static pizzaNation.app.util.WebConstants.USER_WITH_GIVEN_CODE_EXCEPTION_M
  * Created by George-Lenovo on 12/04/2018.
  */
 @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = USER_WITH_GIVEN_CODE_EXCEPTION_MESSAGE)
-public class UserWithConfirmCodeNotFoundException extends RuntimeException {
+public class ConfirmCodeNotFoundException extends RuntimeException {
 
-    public UserWithConfirmCodeNotFoundException() {
+    public ConfirmCodeNotFoundException() {
         super(USER_WITH_GIVEN_CODE_EXCEPTION_MESSAGE);
     }
 }

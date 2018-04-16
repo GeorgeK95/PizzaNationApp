@@ -4,7 +4,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pizzaNation.app.exception.IngredientNotFoundException;
 import pizzaNation.app.model.entity.Ingredient;
+import pizzaNation.app.model.request.EditIngredientRequestModel;
 import pizzaNation.app.model.request.IngredientsRequestModel;
 import pizzaNation.app.model.request.IngredientsRequestModelWrapper;
 import pizzaNation.app.model.response.IngredientResponseModel;
@@ -14,12 +16,10 @@ import pizzaNation.app.service.contract.IIngredientService;
 import pizzaNation.app.util.DTOConverter;
 import pizzaNation.user.service.BaseService;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
-import static pizzaNation.app.util.WebConstants.ADD_INGREDIENT_ERROR;
+import static pizzaNation.app.util.WebConstants.*;
 
 /**
  * Created by George-Lenovo on 03/04/2018.
@@ -65,7 +65,10 @@ public class IngredientService extends BaseService implements IIngredientService
     @Override
     public boolean addIngredientsAndSetThemToProduct(String productName, IngredientsRequestModelWrapper model,
                                                      BindingResult bindingResult, RedirectAttributes attributes) {
-        if (super.containErrors(bindingResult, attributes, ADD_INGREDIENT_ERROR)) return false;
+        if (!this.isIngredientValid(model.getIngredients())) {
+            attributes.addFlashAttribute(ADD_INGREDIENT_ERROR, INVALID_INGREDIENT_MESSAGE);
+            return false;
+        }
 
         Set<Ingredient> ingredients = new HashSet();
         Arrays.stream(model.getIngredients()).forEach((i) -> {
@@ -77,8 +80,87 @@ public class IngredientService extends BaseService implements IIngredientService
 
         this.ingredientRepository.saveAll(ingredients);
 
+        attributes.addFlashAttribute(ADD_INGREDIENT_SUCCESS, SUCCESSFULLY_ADDED_INGREDIENT_MESSAGE);
+
         return true;
     }
+
+    @Override
+    public IngredientResponseModel findOne(String id) {
+        Optional<Ingredient> byId = this.ingredientRepository.findById(id);
+
+        if (!byId.isPresent()) throw new IngredientNotFoundException();
+
+        return DTOConverter.convert(byId.get(), IngredientResponseModel.class);
+    }
+
+    @Override
+    public boolean editIngredient(EditIngredientRequestModel editIngredientRequestModel, RedirectAttributes attributes, BindingResult bindingResult, String id) {
+        attributes.addFlashAttribute(EDIT_INGREDIENT_REQUEST_MODEL, editIngredientRequestModel);
+
+        if (super.containErrors(bindingResult, attributes, EDIT_INGREDIENT_ERROR)) return false;
+
+        Optional<Ingredient> byId = this.ingredientRepository.findById(id);
+
+        if (!byId.isPresent()) throw new IngredientNotFoundException();
+
+        Ingredient ingredient = byId.get();
+
+        ingredient.setName(editIngredientRequestModel.getName());
+        ingredient.setQuantity(editIngredientRequestModel.getQuantity());
+        ingredient.setUnit(editIngredientRequestModel.getUnit());
+
+        this.ingredientRepository.saveAndFlush(ingredient);
+
+        return true;
+    }
+
+    @Override
+    public IngredientResponseModel findById(String id) {
+        Optional<Ingredient> byId = this.ingredientRepository.findById(id);
+
+        if (!byId.isPresent()) throw new IngredientNotFoundException();
+
+        return DTOConverter.convert(byId.get(), IngredientResponseModel.class);
+    }
+
+    @Override
+    public boolean deleteIngredient(String id, RedirectAttributes attributes) {
+        Optional<Ingredient> byId = this.ingredientRepository.findById(id);
+
+        if (!byId.isPresent()) throw new IngredientNotFoundException();
+
+        this.ingredientRepository.delete(byId.get());
+
+        attributes.addFlashAttribute(DELETE_INGREDIENT_SUCCESS, INGREDIENT_DELETED_SUCCESSFULLY_MESSAGE);
+
+        return true;
+    }
+
+    /*@Override
+    public List<IngredientResponseModel> findProductIngredients(String productName) {
+        List<IngredientResponseModel> asd = DTOConverter.convert(this.productRepository.findByName(productName).getIngredients(),
+                IngredientResponseModel.class);
+        return asd;
+    }*/
+
+    private boolean isIngredientValid(IngredientsRequestModel[] ingredients) {
+        Set<IngredientsRequestModel> valid = Arrays.stream(ingredients)
+                .filter(i -> !i.getName().isEmpty() && i.getQuantity() != null)
+                .collect(Collectors.toSet());
+
+        if (valid.size() == 0) return false;
+
+        for (IngredientsRequestModel current : valid) {
+            if (current.getName().length() > 50 || current.getQuantity() < 0 ||
+                    current.getQuantity() > INGREDIENT_QUANTITY_LIMIT) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 
     /*@Override
     public boolean addIngredient(AddIngredientRequestModel addIngredientRequestModel, RedirectAttributes attributes, BindingResult bindingResult) {

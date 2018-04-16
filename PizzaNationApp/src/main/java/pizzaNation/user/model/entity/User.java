@@ -75,14 +75,6 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private Set<Log> logs;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public User() {
         this.authorities = new HashSet<>();
         this.emailVerificationCode = UUID.randomUUID().toString();
@@ -211,6 +203,10 @@ public class User implements UserDetails {
         return logs;
     }
 
+    public String getId() {
+        return id;
+    }
+
     //SETTERS
 
     public void setEmail(String email) {
@@ -283,6 +279,10 @@ public class User implements UserDetails {
 
     public void setLogs(Set<Log> logs) {
         this.logs = logs;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 }

@@ -1,4 +1,8 @@
 <main>
+
+    <div class="successbox align_center" th:if="${successfully_added_ingredient} != null"
+         th:text="${successfully_added_ingredient}"></div>
+
     <div class="divTable">
         <table>
             <a th:href="@{/admin/products/add}" class="button_flat button_flat_blue">Add</a>
@@ -10,7 +14,7 @@
                 <th>Is Promotional</th>
                 <th>Date</th>
                 <th>Action</th>
-                <th>Ingredients</th>
+                <!--<th>Ingredients</th>-->
             </tr>
 
             <th:block th:each="product,iter : ${model}">
@@ -29,16 +33,11 @@
                     <td>
                         <a th:href="@{/admin/products/edit/{id}(id=${product.getName()})}"
                            class="button_flat button_flat_orange">Edit</a>
-                        <div class="pad5"></div>
+                        <!--<div class="pad5"></div>-->
                         <a id="confirm" th:href="@{/admin/products/delete/{id}(id=${product.getName()})}"
                            class="button_flat button_flat_red">Delete</a>
-                    </td>
-                    <td>
                         <a th:href="@{/admin/product/{name}/addIngredients(name=${product.getName()})}"
-                           class="button_flat button_flat_grey">Add Ingredients</a>
-                        <div class="pad5"></div>
-                        <a th:href="@{/admin/product/{name}/removeIngredients(name=${product.getName()})}"
-                           class="button_flat button_flat_grey">Delete Ingredients</a>
+                           class="button_flat button_flat_grey">Ingredients</a>
                     </td>
                 </tr>
             </th:block>

@@ -17,11 +17,12 @@ import static pizzaNation.app.util.WebConstants.*;
 @Controller
 @RequestMapping(ADMIN_URL)
 public class AdminController extends BaseController {
+    static final Map<String, Object> ADMIN_PAGE_TITLE_MAP_ENTRY = Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE));
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(EMPTY_URL)
     public ModelAndView admin() {
-        return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
+        return super.view(null, ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
 

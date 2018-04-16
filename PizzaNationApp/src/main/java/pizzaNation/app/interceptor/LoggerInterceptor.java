@@ -17,9 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.util.Arrays;
 
-import static pizzaNation.app.util.WebConstants.MODIFIED_TABLE_STR;
-import static pizzaNation.app.util.WebConstants.OPERATION_STR;
-import static pizzaNation.app.util.WebConstants.USER_STR;
+import static pizzaNation.app.util.WebConstants.*;
 
 /**
  * Created by George-Lenovo on 09/04/2018.
@@ -38,16 +36,31 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
     public void postHandle(HttpServletRequest request, HttpServletResponse response,
                            Object handler, ModelAndView modelAndView) {
         try {
+            if (modelAndView != null)
+                this.tryEditResponseStatusCode(modelAndView, response);
+
             HandlerMethod handlerMethod = (HandlerMethod) handler;
 
-            if (!handlerMethod.getMethod().isAnnotationPresent(LoggerAction.class)) {
+            if (!handlerMethod.getMethod().isAnnotationPresent(LoggerAction.class) ||
+                    modelAndView == null || modelAndView.getModel().get(LOGGER) == null) {
                 return;
             }
 
             ModelMap modelMap = this.constructModelMapWithData(handlerMethod);
 
             this.loggerService.addLog(modelMap);
-        } catch (ClassCastException cce) {
+
+        } catch (ClassCastException ignored) {
+        }
+    }
+
+    private void tryEditResponseStatusCode(ModelAndView modelAndView, HttpServletResponse response) {
+        if (modelAndView.getModel().containsKey(STATUS_CODE_STR)) {
+            Object statusCode = modelAndView.getModel().get(STATUS_CODE_STR);
+
+            if (statusCode != null) {
+                response.setStatus((Integer) statusCode);
+            }
         }
     }
 

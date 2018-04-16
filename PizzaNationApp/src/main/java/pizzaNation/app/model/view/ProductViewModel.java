@@ -7,15 +7,10 @@ import pizzaNation.app.util.DTOConverter;
  * Created by George-Lenovo on 01/04/2018.
  */
 public class ProductViewModel {
-    //TOOD:dali ne se preizpolzva drugade ?
 
     private String id;
 
     private String name;
-
-//    private String[] productIds;
-
-//    private Set<Ingredient> ingredients;
 
     private Integer totalSales;
 
@@ -33,16 +28,9 @@ public class ProductViewModel {
         return totalSales;
     }
 
-    public Boolean getIsPromotional() {
+    public Boolean getPromotional() {
         return isPromotional;
     }
-    //    public String[] getProductsIds() {
-//        return productIds;
-//    }
-
-//    public void setProductsIds(String[] productIds) {
-//        this.productIds = productIds;
-//    }
 
     public void setId(String id) {
         this.id = id;
@@ -56,7 +44,7 @@ public class ProductViewModel {
         this.totalSales = totalSales;
     }
 
-    public void setIsPromotional(Boolean promotional) {
+    public void setPromotional(Boolean promotional) {
         isPromotional = promotional;
     }
 }

@@ -21,9 +21,8 @@ import pizzaNation.app.service.contract.IProductService;
 import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
-import static java.util.Map.entry;
+import static pizzaNation.admin.controller.AdminController.ADMIN_PAGE_TITLE_MAP_ENTRY;
 import static pizzaNation.app.util.WebConstants.*;
 
 /**
@@ -55,13 +54,13 @@ public class AdminProductController extends BaseController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @RequestMapping(method = RequestMethod.GET, value = {ALL_PRODUCTS_URL, PRODUCTS_URL})
     public ModelAndView allProducts() {
-        return super.view(this.productService.findAllByDate(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
+        return super.view(this.productService.findAllByDate(), ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(ADD_PRODUCTS_URL)
     public ModelAndView addProduct(AddProductRequestModel addProductRequestModel) {
-        return super.view(addProductRequestModel, Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
+        return super.view(addProductRequestModel, ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
@@ -71,14 +70,14 @@ public class AdminProductController extends BaseController {
                                           BindingResult bindingResult, RedirectAttributes attributes) {
         if (!this.productService.addProduct(addProductRequestModel, attributes, bindingResult))
             return super.redirect(ADMIN_ADD_PRODUCTS_URL);
-        return super.redirect(ADMIN_ALL_PRODUCTS_URL);
+        return super.redirectAndLog(ADMIN_ALL_PRODUCTS_URL);
     }
 
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(EDIT_PRODUCTS_URL)
     public ModelAndView editProduct(@PathVariable String name) {
-        return super.view(this.productService.findByName(name), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
+        return super.view(this.productService.findByName(name), ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
@@ -88,21 +87,22 @@ public class AdminProductController extends BaseController {
                                            BindingResult bindingResult, @PathVariable String name, RedirectAttributes attributes) {
         if (!this.productService.editProduct(editProductRequestModel, attributes, bindingResult, name))
             return super.redirect(ADMIN_EDIT_PRODUCTS_URL.concat(SLASH_STR + name));
-        return super.redirect(ADMIN_ALL_PRODUCTS_URL);
+        return super.redirectAndLog(ADMIN_ALL_PRODUCTS_URL);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(DELETE_PRODUCTS_URL)
     public ModelAndView deleteProduct(@PathVariable String name) {
-        return super.view(this.productService.findByName(name), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
+        return super.view(this.productService.findByName(name), ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(DELETE_PRODUCTS_URL)
     @LoggerAction(table = TableEnum.PRODUCT, action = Action.DELETE)
     public ModelAndView deleteProductProcess(@PathVariable String name) {
-        this.productService.deleteProduct(name);
-        return super.redirect(ADMIN_ALL_PRODUCTS_URL);
+        if (this.productService.deleteProduct(name))
+            return super.redirectAndLog(DELETE_PRODUCTS_URL.concat(name));
+        return super.redirectAndLog(ADMIN_ALL_PRODUCTS_URL);
     }
 
 }

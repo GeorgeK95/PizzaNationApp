@@ -6,6 +6,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pizzaNation.app.annotation.LoggerAction;
+import pizzaNation.app.contoller.BaseController;
 import pizzaNation.app.enums.Action;
 import pizzaNation.app.enums.TableEnum;
 import pizzaNation.app.model.response.StoreResponseModel;
@@ -21,7 +22,7 @@ import static pizzaNation.app.util.WebConstants.ADD_STORES_URL;
  */
 @Controller
 @RequestMapping(ADMIN_URL)
-public class AdminStoreController {
+public class AdminStoreController extends BaseController {
 
     private final IStoreService storeService;
 
@@ -34,18 +35,19 @@ public class AdminStoreController {
     @RequestMapping(value = ADD_STORES_URL, method = RequestMethod.POST)
     @LoggerAction(table = TableEnum.STORE, action = Action.ADD)
     public @ResponseBody
-    String addStoresProcess(@RequestParam Double lat, @RequestParam Double lng) throws Exception {
-        this.storeService.persist(lat, lng);
-        return "Saved.";
+    String addStoresProcess(@RequestParam Double lat, @RequestParam Double lng) {
+        if (this.storeService.persist(lat, lng)) return SAVED_STR;
+        return FAILED_STR;
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = DELETE_STORES_URL, method = RequestMethod.POST)
     @LoggerAction(table = TableEnum.STORE, action = Action.DELETE)
     public @ResponseBody
-    String deleteStoresProcess(@RequestParam Double lat, @RequestParam Double lng) throws Exception {
-        this.storeService.delete(lat, lng);
-        return "Deleted.";
+    String deleteStoresProcess(@RequestParam Double lat, @RequestParam Double lng) {
+        if (this.storeService.delete(lat, lng))
+            return DELETED_STR;
+        return FAILED_STR;
     }
 
 }

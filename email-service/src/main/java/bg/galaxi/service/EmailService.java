@@ -23,7 +23,8 @@ public class EmailService {
     }
 
     public void sendSimpleMessage(EmailVerification mail) {
-        this.sendSimpleMessage(ADMIN_EMAIL, mail.getEmail(), CONFIRM_MESSAGE, mail.getVerification());
+        this.sendSimpleMessage(ADMIN_EMAIL, mail.getEmail(), CONFIRM_MESSAGE,
+                mail.getVerification());
     }
 
     private void sendSimpleMessage(String from, String to, String subject, String text) {

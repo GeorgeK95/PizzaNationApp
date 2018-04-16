@@ -54,7 +54,7 @@ public class UserController extends BaseController {
     public ModelAndView registerProcess(@ModelAttribute @Valid UserRegisterRequestModel requestModel, BindingResult bindingResult,
                                         RedirectAttributes attributes) {
         if (!this.userService.addUser(requestModel, bindingResult, attributes)) return super.redirect(REGISTER_URL);
-        return super.redirect(LOGIN_URL);
+        return super.redirectAndLog(LOGIN_URL);
     }
 
     @PreAuthorize("isAnonymous()")

@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 import static java.util.Map.entry;
+import static pizzaNation.admin.controller.AdminController.ADMIN_PAGE_TITLE_MAP_ENTRY;
 import static pizzaNation.app.util.WebConstants.*;
 import static pizzaNation.app.util.WebConstants.ADMIN_ALL_MENUS_URL;
 import static pizzaNation.app.util.WebConstants.ADMIN_EDIT_MENUS_URL;
@@ -61,13 +62,13 @@ public class AdminMenuController extends BaseController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @RequestMapping(method = RequestMethod.GET, value = {ALL_MENUS_URL, MENUS_URL})
     public ModelAndView allMenus() {
-        return super.view(this.menuService.findAllByDateDesc(), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
+        return super.view(this.menuService.findAllByDateDesc(), ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(ADD_MENUS_URL)
     public ModelAndView addMenu(AddMenuRequestModel addMenuRequestModel) {
-        return super.view(addMenuRequestModel, Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
+        return super.view(addMenuRequestModel, ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
@@ -77,14 +78,14 @@ public class AdminMenuController extends BaseController {
                                        RedirectAttributes attributes) {
         if (!this.menuService.addMenu(addMenuRequestModel, attributes, bindingResult))
             return super.redirect(ADMIN_ADD_MENUS_URL);
-        return super.redirect(ADMIN_ALL_MENUS_URL);
+        return super.redirectAndLog(ADMIN_ALL_MENUS_URL);
     }
 
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(EDIT_MENUS_URL)
     public ModelAndView editMenu(@PathVariable String name) {
-        return super.view(this.menuService.findByName(name), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
+        return super.view(this.menuService.findByName(name), ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
@@ -94,13 +95,13 @@ public class AdminMenuController extends BaseController {
                                         @PathVariable String name, RedirectAttributes attributes) {
         if (!this.menuService.editMenu(editMenuRequestModel, attributes, bindingResult, name))
             return super.redirect(ADMIN_EDIT_MENUS_URL.concat(SLASH_STR + name));
-        return super.redirect(ADMIN_ALL_MENUS_URL);
+        return super.redirectAndLog(ADMIN_ALL_MENUS_URL);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(DELETE_MENUS_URL)
     public ModelAndView deleteMenu(@PathVariable String name) {
-        return super.view(this.menuService.findByName(name), Map.ofEntries(entry(PAGE_TITLE_STR, ADMIN_PANEL_PAGE_TITLE)));
+        return super.view(this.menuService.findByName(name), ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
@@ -108,6 +109,6 @@ public class AdminMenuController extends BaseController {
     @LoggerAction(table = TableEnum.MENU, action = Action.DELETE)
     public ModelAndView deleteMenuProcess(@PathVariable String name) {
         this.menuService.deleteMenu(name);
-        return super.redirect(ADMIN_ALL_MENUS_URL);
+        return super.redirectAndLog(ADMIN_ALL_MENUS_URL);
     }
 }

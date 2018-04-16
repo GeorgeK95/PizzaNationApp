@@ -62,10 +62,10 @@ public class ProductService extends BaseService implements IProductService {
         return this.productRepository.findAllByIdIn(productIds);
     }
 
-    @Override
+  /*  @Override
     public void saveAll(Set<Product> allByIds) {
         this.productRepository.saveAll(allByIds);
-    }
+    }*/
 
     @Override
     public Set<Product> findAllByMenuName(String name) {

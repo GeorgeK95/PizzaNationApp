@@ -9,9 +9,9 @@ import java.util.Set;
  */
 public interface IStoreService {
 
-    void persist(Double lat, Double lng);
+    boolean persist(Double lat, Double lng);
 
-    void delete(Double lat, Double lng);
+    boolean delete(Double lat, Double lng);
 
     Set<StoreResponseModel> findAll();
 }

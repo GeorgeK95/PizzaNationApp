@@ -23,7 +23,7 @@ public interface IProductService {
 
     Set<Product> getAllByIds(String[] productIds);
 
-    void saveAll(Set<Product> allByIds);
+//    void saveAll(Set<Product> allByIds);
 
     Set<Product> findAllByMenuName(String name);
 

@@ -18,6 +18,7 @@ import pizzaNation.app.model.request.EditDetailsRequestModel;
 import pizzaNation.app.model.request.EditSignInRequestModel;
 import pizzaNation.app.model.transfer.EmailVerification;
 import pizzaNation.app.model.view.UserViewModel;
+import pizzaNation.app.repository.LoggerRepository;
 import pizzaNation.user.model.entity.Role;
 import pizzaNation.user.model.entity.User;
 import pizzaNation.user.model.request.EditUserRequestModel;
@@ -46,14 +47,17 @@ public class UserService extends BaseService implements IUserService {
 
     private final RoleRepository roleRepository;
 
+    private final LoggerRepository loggerRepository;
+
     private final BCryptPasswordEncoder encoder;
 
     private final JmsTemplate jmsTemplate;
 
     @Autowired
-    public UserService(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder encoder, JmsTemplate jmsTemplate) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository, LoggerRepository loggerRepository, BCryptPasswordEncoder encoder, JmsTemplate jmsTemplate) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.loggerRepository = loggerRepository;
         this.encoder = encoder;
         this.jmsTemplate = jmsTemplate;
     }
@@ -63,7 +67,6 @@ public class UserService extends BaseService implements IUserService {
         User user = this.userRepository.findByEmail(email);
 
         if (user == null || !user.isEnabled()) {
-//            throw new UserNotFoundException();
             throw new UsernameNotFoundException(WRONG_LOGIN_DATA_MESSAGE);
         } else {
             Set<GrantedAuthority> grantedAuthorities = user.getAuthorities()
@@ -147,14 +150,18 @@ public class UserService extends BaseService implements IUserService {
     }
 
     @Override
-    public boolean deleteUser(String id) {
-        User user = DTOConverter.convert(this.findById(id), User.class);
+    public boolean disableUser(String id) {
+        Optional<User> byId = this.userRepository.findById(id);
 
-        if (user == null) throw new UserNotFoundException();
+        if (!byId.isPresent()) throw new UserNotFoundException();
+
+        User user = byId.get();
 
         if (user.getEmail().equals(ADMIN_EMAIL)) throw new AdminModifyException();
 
-        this.userRepository.delete(user);
+        user.setEnabled(false);
+
+        this.userRepository.saveAndFlush(user);
 
         return true;
     }
@@ -216,14 +223,16 @@ public class UserService extends BaseService implements IUserService {
     }
 
     @Override
-    public void confirmAccount(String code, RedirectAttributes attributes) {
+    public boolean confirmAccount(String code, RedirectAttributes attributes) {
         User accToConfirm = this.userRepository.findByEmailVerificationCode(code);
 
-        if (accToConfirm == null) throw new UserWithConfirmCodeNotFoundException();
+        if (accToConfirm == null) throw new ConfirmCodeNotFoundException();
 
         accToConfirm.setEnabled(true);
 
         attributes.addFlashAttribute(ACCOUNT_CONFIRMED_STR, ACCOUNT_CONFIRMED_SUCCESSFULLY_MESSAGE);
+
+        return true;
     }
 
     private User editUser(EditDetailsRequestModel requestModel, Optional<User> toEdit) {

@@ -30,6 +30,15 @@
                 </a>
             </div>
         </div>
+        <div class="account_box_wrap" sec:authorize="hasRole('ROLE_ADMIN')">
+            <div class="account_box curve_me_3 shadow_element scale_me_hover">
+                <a href="/admin/logs/all">
+                    <i class="account_icon ion-key"></i>
+                    <span class="title">Logs</span>
+                    <span class="desc">View app logs</span>
+                </a>
+            </div>
+        </div>
         <div class="account_box_wrap">
             <div class="account_box curve_me_3 shadow_element scale_me_hover">
                 <a href="/admin/products/all">

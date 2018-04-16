@@ -28,15 +28,17 @@ public class StoreService implements IStoreService {
     }
 
     @Override
-    public void persist(Double lat, Double lng) {
+    public boolean persist(Double lat, Double lng) {
         if (!this.storeRepository.existsByLatAndLng(lat, lng))
             this.storeRepository.saveAndFlush(new Store(lat, lng));
+        return true;
     }
 
     @Override
-    public void delete(Double lat, Double lng) {
-        Store store = this.storeRepository.findByLatAndLng(lat,lng);
+    public boolean delete(Double lat, Double lng) {
+        Store store = this.storeRepository.findByLatAndLng(lat, lng);
         this.storeRepository.delete(store);
+        return true;
     }
 
     @Override

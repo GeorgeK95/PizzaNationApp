@@ -4,12 +4,15 @@ import org.hibernate.annotations.GenericGenerator;
 import pizzaNation.app.enums.Unit;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+import static pizzaNation.app.util.WebConstants.INGREDIENT_QUANTITY_LIMIT;
 
 /**
  * Created by George-Lenovo on 01/04/2018.
@@ -28,6 +31,7 @@ public class Ingredient {
     private String name;
 
     @Min(0)
+    @Max(INGREDIENT_QUANTITY_LIMIT)
     @Column(nullable = false)
     private Double quantity;
 

@@ -1,14 +1,16 @@
 <main>
+
+    <div class="successbox align_center" th:if="${delete_ingredient_success} != null"
+         th:text="${delete_ingredient_success}"></div>
+
     <div class="divTable">
         <table>
-            <!--<a th:href="@{/admin/ingredients/add}" class="button_flat button_flat_blue">Add</a>-->
             <tr>
                 <th>#</th>
                 <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
                 <th>Quantity</th>
                 <th>Unit</th>
+                <th>Product</th>
                 <th>Date</th>
                 <th>Action</th>
             </tr>
@@ -17,18 +19,15 @@
                 <tr>
                     <td th:text="${iter.index + 1}"></td>
                     <td th:text="${ingredient.getName()}"></td>
-                    <td th:text="${ingredient.getDescription()}"></td>
-                    <td th:text="${ingredient.getPrice()}"></td>
                     <td th:text="${ingredient.getQuantity()}"></td>
                     <td th:text="${ingredient.getUnit()}"></td>
+                    <td th:text="${ingredient.getProduct().getName()}"></td>
                     <td th:text="${#dates.format(ingredient.date, 'hh:mm / dd-MMM-yyyy')}"></td>
                     <td>
-                        <a th:href="@{/admin/ingredients/edit/{id}(id=${ingredient.getName()})}"
+                        <a th:href="@{/admin/ingredients/edit/{id}(id=${ingredient.getId()})}"
                            class="button_flat button_flat_orange">Edit</a>
-                        <a id="confirm" th:href="@{/admin/ingredients/delete/{id}(id=${ingredient.getName()})}"
+                        <a id="confirm" th:href="@{/admin/ingredients/delete/{id}(id=${ingredient.getId()})}"
                            class="button_flat button_flat_red">Delete</a>
-                        <!--<a th:href="@{/ingredients/{id}(id=${ingredient.getName()})}"
-                           class="button_flat button_flat_grey">Details</a>-->
                     </td>
                 </tr>
             </th:block>

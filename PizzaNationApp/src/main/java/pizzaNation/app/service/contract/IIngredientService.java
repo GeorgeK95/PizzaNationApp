@@ -31,4 +31,11 @@ public interface IIngredientService {
 
     boolean addIngredientsAndSetThemToProduct(String productName, IngredientsRequestModelWrapper model, BindingResult bindingResult, RedirectAttributes attributes);
 
+    IngredientResponseModel findOne(String id);
+
+    boolean editIngredient(EditIngredientRequestModel editIngredientRequestModel, RedirectAttributes attributes, BindingResult bindingResult, String name);
+
+    IngredientResponseModel findById(String id);
+
+    boolean deleteIngredient(String id,RedirectAttributes attributes);
 }

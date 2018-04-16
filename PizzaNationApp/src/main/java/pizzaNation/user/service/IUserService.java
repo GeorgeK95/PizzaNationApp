@@ -31,7 +31,7 @@ public interface IUserService extends UserDetailsService {
 
     EditUserRequestModel findById(String id);
 
-    boolean deleteUser(String id);
+    boolean disableUser(String id);
 
     EditSignInRequestModel constructEditEmailModel(Principal principal);
 
@@ -41,5 +41,5 @@ public interface IUserService extends UserDetailsService {
 
     boolean editUserDetails(String currentEmail, EditDetailsRequestModel requestModel, RedirectAttributes attributes, BindingResult result);
 
-    void confirmAccount(String token, RedirectAttributes attributes);
+    boolean confirmAccount(String token, RedirectAttributes attributes);
 }

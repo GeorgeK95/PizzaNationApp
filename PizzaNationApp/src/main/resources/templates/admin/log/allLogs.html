@@ -1,0 +1,23 @@
+<main>
+    <div class="divTable">
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Action</th>
+                <th>Affected Table</th>
+                <th>Affected By</th>
+                <th>Date</th>
+            </tr>
+
+            <th:block th:each="log,iter : ${model}">
+                <tr>
+                    <td th:text="${iter.index + 1}"></td>
+                    <td th:text="${log.getAction()}"></td>
+                    <td th:text="${log.getAffectedTable()}"></td>
+                    <td th:text="${log.getAction()}"></td>
+                    <td th:text="${#dates.format(menu.date, 'hh:mm / dd-MMM-yyyy')}"></td>
+                </tr>
+            </th:block>
+        </table>
+    </div>
+</main>
