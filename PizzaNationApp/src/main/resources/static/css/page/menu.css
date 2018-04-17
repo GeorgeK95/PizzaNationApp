@@ -1,10 +1,15 @@
 /*Menu Style*/
-.menu_item_primary {
+/*.menu_item_primary {
     background-image: url('../../img/menu/primary.jpg');
 }
 
 .menu_item_secondary {
     background-image: url('../../img/menu/secondary.jpg');
+}*/
+
+.description {
+    color: #f9ffeb;
+    font-family: cursive;
 }
 
 div#menu_page {
@@ -129,29 +134,32 @@ div.menu_title h3 {
 
 /*Responsive*/
 @media only screen and (min-width: 1200px) and (max-width: 1500px) {
-    .description {
+    /*.description {
         display: none;
-        color: #FFFFFF;
-        background: #EE1B23;
+        color: #f5f5f5;
+        font-size: 25px;
+        font-family: cursive;
+        !*background: #EE1B23;*!
         position: absolute;
         border: 0px solid #000;
         width: 526px;
         height: 250px;
-    }
+    }*/
 }
 
 /* Desktops */
 @media only screen and (min-width: 980px) and (max-width: 1199px) {
-    .description {
+    /*.description {
         display: none;
-        color: #FFFFFF;
-        background: #EE1B23;
+        color: #f5f5f5;
+        font-size: 25px;
+        font-family: cursive;
+        !*background: #EE1B23;*!
         position: absolute;
         border: 0px solid #000;
         width: 461px;
         height: 250px;
-    }
-
+    }*/
     div#main_nav_button ul#main_nav {
         margin: 0 0 0 120px;
     }
@@ -197,16 +205,17 @@ div.menu_title h3 {
 }
 
 /* iPad (or small monitor) Styles */
-@media only screen and (min-width: 768px) and (max-width: 979px) {
-    .description {
-        display: none;
-        color: #FFFFFF;
-        background: #EE1B23;
-        position: absolute;
-        width: 351px;
-        height: 250px;
-    }
-
+@media only screen and (min-width: 615px) and (max-width: 979px) {
+    /* .description {
+         display: none;
+         color: #f5f5f5;
+         font-size: 25px;
+         font-family: cursive;
+         position: absolute;
+         border: 0px solid #000;
+         width: 331px;
+         height: 250px;
+     }*/
     div#main_nav_button ul#main_nav {
         margin: 0 0 0 120px;
     }
@@ -231,16 +240,17 @@ div.menu_title h3 {
 }
 
 /* Mobile Styles */
-@media only screen and (min-width: 0px) and (max-width: 767px) {
-    .description {
+@media only screen and (min-width: 0px) and (max-width: 615px) {
+    /*.description {
         display: none;
-        color: #FFFFFF;
-        background: #EE1B23;
+        color: #f5f5f5;
+        font-size: 25px;
+        font-family: cursive;
         position: absolute;
+        border: 0px solid #000;
         width: 100%;
         height: 200px;
-    }
-
+    }*/
     div.menu_item {
         margin: 0 0 30px 0;
     }

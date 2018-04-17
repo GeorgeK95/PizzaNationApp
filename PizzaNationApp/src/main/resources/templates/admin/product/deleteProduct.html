@@ -30,7 +30,7 @@
                             <input type="text" id="details" name="details" placeholder="Details" class="form_item"
                                    th:field="*{details}" readonly="readonly"/>
 
-                            <div class="pad5"><!--spaces--></div>
+                           <!-- <div class="pad5">&lt;!&ndash;spaces&ndash;&gt;</div>
 
                             <label for="ingredientsIds">Ingredients Included</label>
                             <select disabled="disabled" multiple="" class="form_item" id="ingredientsIds"
@@ -38,7 +38,7 @@
                                 <option th:each="ingredient : ${ingredientsList}" th:value="${ingredient.getId()}"
                                         th:text="${ingredient.getName()}">1
                                 </option>
-                            </select>
+                            </select>-->
 
                             <div class="pad10"><!-- spacer --></div>
 

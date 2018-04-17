@@ -22,13 +22,7 @@ public class UserViewModel {
 
     private String lastName;
 
-//    private String address;
-
-//    private Gender gender;
-
     private String phone;
-
-//    private String city;
 
     private Boolean emailNewsletters;
 
@@ -51,18 +45,6 @@ public class UserViewModel {
     public String getLastName() {
         return lastName;
     }
-
-    /*public String getAddress() {
-        return address;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public String getCity() {
-        return city;
-    }*/
 
     public String getPhone() {
         return phone;
@@ -95,18 +77,6 @@ public class UserViewModel {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    /*public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }*/
 
     public void setPhone(String phone) {
         this.phone = phone;

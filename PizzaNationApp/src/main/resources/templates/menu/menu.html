@@ -3,14 +3,15 @@
         <div class="wrapper">
             <div id="menu_page">
 
-                <th:block th:each="i: ${#numbers.sequence(0, 1)}">
+                <th:block th:each="iter : ${#numbers.sequence(0, 1)}">
                     <div class="menu_item menu_item_half">
                         <div class="menu_item_pad">
-                            <div class="menu_inner menu_hover shadow_element menu_item_primary tiptext">
-                                <div class="description">Here is the big fat description box</div>
+                            <div class="menu_inner menu_hover shadow_element menu_item_primary "
+                                 th:style="'background:url(' + ${model[iter].getImage().getUrl()} + ');'">
+                                <div class="description" th:text="${model[iter].getDescription()}"></div>
                                 <div class="menu_title">
                                     <div class="menu_title_pad">
-                                        <h3>Meals</h3>
+                                        <h3 th:text="${model[iter].getName()}"></h3>
                                     </div>
                                 </div>
                             </div>
@@ -18,13 +19,16 @@
                     </div>
                 </th:block>
 
-                <th:block th:each="i: ${#numbers.sequence(0, 2)}">
+                <!--${#lists.size(${model})}) - 2-->
+                <th:block th:each="iter: ${#numbers.sequence(2, #lists.size(model) - 1)}">
                     <div class="menu_item menu_item_third">
                         <div class="menu_item_pad">
-                            <div class="menu_inner menu_hover shadow_element menu_item_secondary">
+                            <div class="menu_inner menu_hover shadow_element menu_item_secondary "
+                                 th:style="'background:url(' + ${model[iter].getImage().getUrl()} + ');'">
+                                <div class="description" th:text="${model[iter].getDescription()}"></div>
                                 <div class="menu_title">
                                     <div class="menu_title_pad">
-                                        <h3>Desserts</h3>
+                                        <h3 th:text="${model[iter].getName()}"></h3>
                                     </div>
                                 </div>
                             </div>

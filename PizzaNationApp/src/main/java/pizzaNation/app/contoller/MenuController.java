@@ -31,11 +31,11 @@ public class MenuController extends BaseController {
 
     @GetMapping(MENU_URL)
     public ModelAndView menu() {
-        return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, MENU_PAGE_TITLE)));
+        return super.view(this.menuService.findAllByPriority(), Map.ofEntries(entry(PAGE_TITLE_STR, MENU_PAGE_TITLE)));
     }
 
     @GetMapping(MENU_NAME_URL)
-    public ModelAndView menuDetails(@PathVariable String name) {
-        return super.view(this.productService.findAllByMenuName(name), Map.ofEntries(entry(PAGE_TITLE_STR, MENU_PAGE_TITLE)));
+    public ModelAndView menuDetails(@PathVariable String menuName) {
+        return super.view(this.productService.getMenuProducts(menuName), Map.ofEntries(entry(PAGE_TITLE_STR, MENU_PAGE_TITLE)));
     }
 }

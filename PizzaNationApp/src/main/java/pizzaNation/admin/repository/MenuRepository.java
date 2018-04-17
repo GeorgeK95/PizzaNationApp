@@ -22,4 +22,7 @@ public interface MenuRepository extends JpaRepository<Menu, String> {
 
     @Query("select m from Menu m order by m.date desc")
     List<Menu> findAllByDateDesc();
+
+    @Query("select m from Menu m order by m.priority asc")
+    List<Menu> findAllOrderedByPriorityAsc();
 }

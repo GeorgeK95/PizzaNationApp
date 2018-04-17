@@ -44,7 +44,7 @@
                             <label for="image">Product Image /note: left empty will keep the old image/</label>
                             <input class="form_item" id="image" type="file" th:field="*{image}" accept="image/*"/>
 
-                            <div class="pad5"><!--spaces--></div>
+                           <!-- <div class="pad5">&lt;!&ndash;spaces&ndash;&gt;</div>
 
                             <label for="ingredientsIds">Ingredients Included</label>
                             <select multiple="" class="form_item" id="ingredientsIds" th:field="*{ingredientsIds}">
@@ -52,7 +52,7 @@
                                         th:text="${ingredient.getName()}">1
                                 </option>
                             </select>
-
+-->
                             <div class="pad10"><!-- spacer --></div>
 
                             <label><input type="checkbox" th:field="*{promotional}"> Is Promotional ?</label>

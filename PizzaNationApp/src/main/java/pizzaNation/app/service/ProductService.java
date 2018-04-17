@@ -13,6 +13,7 @@ import pizzaNation.app.model.request.AddProductRequestModel;
 import pizzaNation.app.model.request.EditProductRequestModel;
 import pizzaNation.app.model.request.contract.MenuRequestModel;
 import pizzaNation.app.model.response.ProductResponseModel;
+import pizzaNation.app.model.view.HomeViewModel;
 import pizzaNation.app.model.view.ProductViewModel;
 import pizzaNation.app.repository.ProductRepository;
 import pizzaNation.app.service.contract.IImageService;
@@ -21,7 +22,9 @@ import pizzaNation.app.service.contract.IProductService;
 import pizzaNation.app.util.DTOConverter;
 import pizzaNation.user.service.BaseService;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -47,6 +50,26 @@ public class ProductService extends BaseService implements IProductService {
         this.imageService = imageService;
     }
 
+    /*@Override
+    public ProductViewModel getLast() {
+        return DTOConverter.convert(this.productRepository.findAllOrderByDate().stream().findFirst().get(), ProductViewModel.class);
+    }
+
+    @Override
+    public ProductViewModel getBestSeller() {
+        return DTOConverter.convert(this.productRepository.getBestSeller().stream().findFirst().get(), ProductViewModel.class);
+    }*/
+
+    @Override
+    public HomeViewModel constructHomeModel() {
+        ProductViewModel bestSeller = DTOConverter.convert(this.productRepository.getBestSeller().stream().findFirst().get(),
+                ProductViewModel.class);
+        ProductViewModel newest = DTOConverter.convert(this.productRepository.findAllOrderByDate().stream().findFirst().get(),
+                ProductViewModel.class);
+
+        return new HomeViewModel(bestSeller, newest);
+    }
+
     @Override
     public List<ProductViewModel> findAll() {
         return DTOConverter.convert(this.productRepository.findAllOrderByDate(), ProductViewModel.class);
@@ -67,10 +90,10 @@ public class ProductService extends BaseService implements IProductService {
         this.productRepository.saveAll(allByIds);
     }*/
 
-    @Override
+    /*@Override
     public Set<Product> findAllByMenuName(String name) {
         return this.productRepository.findAllByMenuNameOrderByDate(name);
-    }
+    }*/
 
     @Override
     public boolean addProduct(AddProductRequestModel addProductRequestModel, RedirectAttributes attributes,
@@ -97,7 +120,7 @@ public class ProductService extends BaseService implements IProductService {
     public boolean persistProduct(AddProductRequestModel addProductRequestModel) {
         Product product = DTOConverter.convert(addProductRequestModel, Product.class);
 
-        product.setIngredients(this.ingredientService.findAllByIds(addProductRequestModel.getIngredientsIds()));
+//        product.setIngredients(this.ingredientService.findAllByIds(addProductRequestModel.getIngredientsIds()));
         product.setImage(this.imageService.uploadImage(addProductRequestModel.getImage()));
 
         this.productRepository.saveAndFlush(product);
@@ -112,7 +135,7 @@ public class ProductService extends BaseService implements IProductService {
         if (product == null) throw new ProductNotFoundException();
 
         EditProductRequestModel model = DTOConverter.convert(product, EditProductRequestModel.class);
-        model.setIngredientsIds(product.getIngredients().stream().map(Ingredient::getId).collect(Collectors.toSet()));
+//        model.setIngredientsIds(product.getIngredients().stream().map(Ingredient::getId).collect(Collectors.toSet()));
 
         return model;
     }
@@ -130,8 +153,8 @@ public class ProductService extends BaseService implements IProductService {
         product.setPromotional(editProductRequestModel.getPromotional());
         if (!editProductRequestModel.getImage().getOriginalFilename().isEmpty())
             product.setImage(this.imageService.uploadImage(editProductRequestModel.getImage()));
-        if (editProductRequestModel.getIngredientsIds() != null)
-            product.setIngredients(this.ingredientService.findAllByIds(editProductRequestModel.getIngredientsIds().toArray(new String[0])));
+        /*if (editProductRequestModel.getIngredientsIds() != null)
+            product.setIngredients(this.ingredientService.findAllByIds(editProductRequestModel.getIngredientsIds().toArray(new String[0])));*/
 
         this.productRepository.saveAndFlush(product);
 
@@ -146,11 +169,21 @@ public class ProductService extends BaseService implements IProductService {
 
         product.setIngredients(null); //release products so they wont be deleted
         product.setImage(null);
-//        product.setMenus(null); //release products so they wont be deleted
+        product.setMenus(null); //release products so they wont be deleted
 
         this.productRepository.delete(product);
 
         return true;
+    }
+
+    @Override
+    public List<ProductViewModel> getMenuProducts(String menuName) {
+        return null;
+    }
+
+    @Override
+    public Set<String> getNewProductsNames() {
+        return this.productRepository.getNewProducts(new Date());
     }
 
     private boolean hasErrors(Product product, EditProductRequestModel editMenuRequestModel, BindingResult bindingResult,

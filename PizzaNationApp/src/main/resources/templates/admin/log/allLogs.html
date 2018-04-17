@@ -5,7 +5,7 @@
                 <th>#</th>
                 <th>Action</th>
                 <th>Affected Table</th>
-                <th>Affected By</th>
+                <th>Action Made By</th>
                 <th>Date</th>
             </tr>
 
@@ -14,8 +14,8 @@
                     <td th:text="${iter.index + 1}"></td>
                     <td th:text="${log.getAction()}"></td>
                     <td th:text="${log.getAffectedTable()}"></td>
-                    <td th:text="${log.getAction()}"></td>
-                    <td th:text="${#dates.format(menu.date, 'hh:mm / dd-MMM-yyyy')}"></td>
+                    <td th:text="${log.getUser().getEmail()}"></td>
+                    <td th:text="${#dates.format(log.date, 'hh:mm / dd-MMM-yyyy')}"></td>
                 </tr>
             </th:block>
         </table>

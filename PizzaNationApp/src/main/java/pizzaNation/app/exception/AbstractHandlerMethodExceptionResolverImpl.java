@@ -7,6 +7,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver;
 import pizzaNation.app.contoller.error.ExceptionController;
+import pizzaNation.app.contoller.error.UnfoundController;
 import pizzaNation.app.interceptor.LoggerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,10 +23,13 @@ public class AbstractHandlerMethodExceptionResolverImpl extends AbstractHandlerM
 
     private final ExceptionController controller;
 
+    private final UnfoundController unfoundController;
+
     @Autowired
-    public AbstractHandlerMethodExceptionResolverImpl(ExceptionController controller, LoggerInterceptor interceptor) {
+    public AbstractHandlerMethodExceptionResolverImpl(ExceptionController controller, LoggerInterceptor interceptor, UnfoundController unfoundController) {
         this.controller = controller;
         this.interceptor = interceptor;
+        this.unfoundController = unfoundController;
     }
 
     @Override
@@ -53,8 +57,10 @@ public class AbstractHandlerMethodExceptionResolverImpl extends AbstractHandlerM
             modelAndView = this.controller.user();
         } else if (e instanceof IngredientNotFoundException) {
             modelAndView = this.controller.ingredient();
-        } else /*if (e instanceof ConfirmCodeNotFoundException)*/ {
+        } else if (e instanceof ConfirmCodeNotFoundException) {
             modelAndView = this.controller.notConfirmed();
+        } else {
+            modelAndView = this.unfoundController.notFound();
         }
 
         return modelAndView;

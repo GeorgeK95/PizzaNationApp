@@ -111,6 +111,11 @@ public class MenuService extends BaseService implements IMenuService {
     }
 
     @Override
+    public List<MenuViewModel> findAllByPriority() {
+        return new ArrayList<>(DTOConverter.convert(this.menuRepository.findAllOrderedByPriorityAsc(), MenuViewModel.class));
+    }
+
+    @Override
     public boolean editMenu(EditMenuRequestModel editMenuRequestModel, RedirectAttributes attributes, BindingResult bindingResult,
                             String name) {
         attributes.addFlashAttribute(EDIT_MENU_REQUEST_MODEL, editMenuRequestModel);

@@ -100,7 +100,7 @@ public class AdminProductController extends BaseController {
     @PostMapping(DELETE_PRODUCTS_URL)
     @LoggerAction(table = TableEnum.PRODUCT, action = Action.DELETE)
     public ModelAndView deleteProductProcess(@PathVariable String name) {
-        if (this.productService.deleteProduct(name))
+        if (!this.productService.deleteProduct(name))
             return super.redirectAndLog(DELETE_PRODUCTS_URL.concat(name));
         return super.redirectAndLog(ADMIN_ALL_PRODUCTS_URL);
     }

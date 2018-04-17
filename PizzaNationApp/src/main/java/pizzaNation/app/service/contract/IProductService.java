@@ -6,6 +6,7 @@ import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.model.request.AddProductRequestModel;
 import pizzaNation.app.model.request.EditProductRequestModel;
 import pizzaNation.app.model.response.ProductResponseModel;
+import pizzaNation.app.model.view.HomeViewModel;
 import pizzaNation.app.model.view.ProductViewModel;
 
 import java.util.List;
@@ -17,15 +18,19 @@ import java.util.Set;
 
 public interface IProductService {
 
+    /*ProductViewModel getLast();
+
+    ProductViewModel getBestSeller();*/
+
+    HomeViewModel constructHomeModel();
+
     List<ProductViewModel> findAll();
 
     List<ProductResponseModel> findAllByDate();
 
     Set<Product> getAllByIds(String[] productIds);
 
-//    void saveAll(Set<Product> allByIds);
-
-    Set<Product> findAllByMenuName(String name);
+//    Set<Product> findAllByMenuName(String name);
 
     boolean addProduct(AddProductRequestModel addProductRequestModel, RedirectAttributes attributes, BindingResult bindingResult);
 
@@ -36,4 +41,8 @@ public interface IProductService {
     boolean editProduct(EditProductRequestModel editProductRequestModel, RedirectAttributes attributes, BindingResult bindingResult, String name);
 
     boolean deleteProduct(String name);
+
+    List<ProductViewModel> getMenuProducts(String menuName);
+
+    Set<String> getNewProductsNames();
 }

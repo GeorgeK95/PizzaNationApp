@@ -12,8 +12,6 @@ import static pizzaNation.app.util.WebConstants.INVALID_PRIORITY_MESSAGE;
  */
 public class MenuViewModel {
 
-//    private String id;
-
     private String name;
 
     private String description;
@@ -21,6 +19,8 @@ public class MenuViewModel {
     private Integer priority;
 
     private String[] productIds;
+
+    private ImageViewModel image;
 
     private Date date;
 
@@ -40,9 +40,9 @@ public class MenuViewModel {
         return productIds;
     }
 
-//    public String getId() {
-//        return id;
-//    }
+    public ImageViewModel getImage() {
+        return image;
+    }
 
     public Date getDate() {
         return date;
@@ -64,10 +64,9 @@ public class MenuViewModel {
         this.productIds = productIds;
     }
 
-//    public void setId(String id) {
-//        this.id = id;
-//    }
-
+    public void setImage(ImageViewModel image) {
+        this.image = image;
+    }
 
     public void setDate(Date date) {
         this.date = date;

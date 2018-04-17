@@ -16,6 +16,8 @@ public class ProductViewModel {
 
     private Boolean isPromotional;
 
+    private ImageViewModel image;
+
     public String getId() {
         return id;
     }
@@ -32,6 +34,10 @@ public class ProductViewModel {
         return isPromotional;
     }
 
+    public ImageViewModel getImage() {
+        return image;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -46,5 +52,9 @@ public class ProductViewModel {
 
     public void setPromotional(Boolean promotional) {
         isPromotional = promotional;
+    }
+
+    public void setImage(ImageViewModel image) {
+        this.image = image;
     }
 }

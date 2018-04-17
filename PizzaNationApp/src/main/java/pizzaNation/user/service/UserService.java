@@ -235,6 +235,11 @@ public class UserService extends BaseService implements IUserService {
         return true;
     }
 
+    @Override
+    public List<UserViewModel> findAllSubscribed() {
+        return DTOConverter.convert(this.userRepository.findAllSubscribed(), UserViewModel.class);
+    }
+
     private User editUser(EditDetailsRequestModel requestModel, Optional<User> toEdit) {
         User user = toEdit.get();
 

@@ -245,6 +245,7 @@ public final class WebConstants {
 
     //jms
     public static final String SEND_EMAIL_DESTINATION = "client_feedback";
+    public static final String NEW_PRODUCTS_DESTINATION = "new_products";
     public static final String USER_ARRIVED_DESTINATION = "user_arrived";
 
     //Request Methods
@@ -252,6 +253,7 @@ public final class WebConstants {
 
     //Constants
     public static final long INGREDIENT_QUANTITY_LIMIT = 1_000_000L;
+    public static final int SCHEDULER_FIXED_RATE = 10_000;
 
     private WebConstants() {
     }

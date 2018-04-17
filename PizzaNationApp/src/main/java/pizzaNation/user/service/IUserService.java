@@ -42,4 +42,6 @@ public interface IUserService extends UserDetailsService {
     boolean editUserDetails(String currentEmail, EditDetailsRequestModel requestModel, RedirectAttributes attributes, BindingResult result);
 
     boolean confirmAccount(String token, RedirectAttributes attributes);
+
+    List<UserViewModel> findAllSubscribed();
 }

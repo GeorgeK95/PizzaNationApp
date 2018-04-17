@@ -20,6 +20,8 @@ public interface IMenuService {
 
     List<MenuViewModel> findAll();
 
+    List<MenuViewModel> findAllByPriority();
+
     boolean editMenu(EditMenuRequestModel addMenuRequestModel, RedirectAttributes attributes, BindingResult bindingResult, String name);
 
     boolean deleteMenu(String name);

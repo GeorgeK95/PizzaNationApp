@@ -8,6 +8,7 @@ import pizzaNation.app.model.entity.Menu;
 import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.model.request.EditProductRequestModel;
 
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -28,4 +29,10 @@ public interface ProductRepository extends JpaRepository<Product, String> {
     boolean existsByName(String name);
 
     Product findByName(String name);
+
+    @Query("select p from Product p order by p.totalSales desc")
+    Set<Product> getBestSeller();
+
+    @Query("select p.name from Product p where p.date > :date")//TODO
+    Set<String> getNewProducts(@Param("date") Date date);
 }
