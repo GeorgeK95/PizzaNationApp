@@ -24,4 +24,8 @@ public interface IngredientRepository extends JpaRepository<Ingredient, String> 
     Ingredient findByName(String name);
 
     Set<Ingredient> findAllByIdIn(String[] ids);
+
+    @Query("select i from Ingredient i where i.product is null")
+    Set<Ingredient> findAllStandalone();
+
 }

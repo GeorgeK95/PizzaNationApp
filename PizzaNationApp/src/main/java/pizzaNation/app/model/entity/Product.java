@@ -3,6 +3,7 @@ package pizzaNation.app.model.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -34,8 +35,11 @@ public class Product {
 
     private Boolean isPromotional;
 
+    @Column(nullable = false)
+    private BigDecimal price;
+
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "image_id", nullable = false)
+    @JoinColumn(name = "image_id", nullable = false, unique = true)
     private Image image;
 
     @Column(nullable = false)
@@ -46,13 +50,14 @@ public class Product {
         this.date = new Date();
     }
 
-    public Product(String name, String details, int totalSales, boolean isPromotional, Image img) {
+    public Product(String name, String details, int totalSales, boolean isPromotional, Image img, BigDecimal price) {
         this();
         this.name = name;
         this.details = details;
         this.totalSales = totalSales;
         this.isPromotional = isPromotional;
         this.image = img;
+        this.price=price;
     }
 
     public String getId() {
@@ -85,6 +90,10 @@ public class Product {
 
     public Image getImage() {
         return image;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
     }
 
     public Date getDate() {
@@ -125,5 +134,9 @@ public class Product {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }

@@ -16,10 +16,10 @@ import java.util.Set;
  */
 @Repository
 public interface ProductRepository extends JpaRepository<Product, String> {
-    //vs producti za tova menu
-//    @Query("select p from Product p inner join Menu m on m.id = p.menues where m.name like :name order by m.date")
+
+    //    @Query("select p from Product p inner join Menu m on m.id = p.menues where m.name like :name order by m.date")
     @Query("select m.products from Menu m where m.name like :name")
-    Set<Product> findAllByMenuNameOrderByDate(@Param("name") String menuName);
+    Set<Product> getMenuProducts(@Param("name") String menuName);
 
     @Query("select p from Product p order by p.date desc")
     Set<Product> findAllOrderByDate();
@@ -33,6 +33,6 @@ public interface ProductRepository extends JpaRepository<Product, String> {
     @Query("select p from Product p order by p.totalSales desc")
     Set<Product> getBestSeller();
 
-    @Query("select p.name from Product p where p.date > :date")//TODO
-    Set<String> getNewProducts(@Param("date") Date date);
+    @Query("select p from Product p where p.isPromotional = TRUE order by p.date desc")
+    Set<Product> getPromotionalProducts();
 }

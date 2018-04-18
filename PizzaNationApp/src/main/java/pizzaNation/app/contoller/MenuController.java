@@ -35,7 +35,7 @@ public class MenuController extends BaseController {
     }
 
     @GetMapping(MENU_NAME_URL)
-    public ModelAndView menuDetails(@PathVariable String menuName) {
+    public ModelAndView listProducts(@PathVariable String menuName) {
         return super.view(this.productService.getMenuProducts(menuName), Map.ofEntries(entry(PAGE_TITLE_STR, MENU_PAGE_TITLE)));
     }
 }

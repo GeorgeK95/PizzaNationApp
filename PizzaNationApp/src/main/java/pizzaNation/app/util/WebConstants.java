@@ -65,7 +65,7 @@ public final class WebConstants {
     public static final String USERS_URL = "/users";
     public static final String ALL_USERS_URL = "/users/all";
     public static final String EMPTY_URL = "";
-    public static final String MENU_NAME_URL = "/menu/{name}";
+    public static final String MENU_NAME_URL = "/menu/{menuName}";
     public static final String VERIFICATION_MESSAGE = "Registration code: %s.\r\nEnter the given code here to confirm your account: http://localhost:8008/confirm";
     public static final String ADD_PRODUCT_INGREDIENTS_URL = "/product/{productName}/addIngredients";
     //    public static final String DELETE_PRODUCT_INGREDIENTS_URL = "/product/{productName}/removeIngredients";
@@ -253,7 +253,7 @@ public final class WebConstants {
 
     //Constants
     public static final long INGREDIENT_QUANTITY_LIMIT = 1_000_000L;
-    public static final int SCHEDULER_FIXED_RATE = 10_000;
+    public static final int SCHEDULER_FIXED_RATE = 120_000;
 
     private WebConstants() {
     }

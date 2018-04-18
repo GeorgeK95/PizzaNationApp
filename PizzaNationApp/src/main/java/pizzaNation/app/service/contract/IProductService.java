@@ -44,5 +44,5 @@ public interface IProductService {
 
     List<ProductViewModel> getMenuProducts(String menuName);
 
-    Set<String> getNewProductsNames();
+//    Set<String> getNewProductsNames();
 }

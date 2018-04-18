@@ -37,5 +37,9 @@ public interface IIngredientService {
 
     IngredientResponseModel findById(String id);
 
-    boolean deleteIngredient(String id,RedirectAttributes attributes);
+    boolean deleteIngredient(String id, RedirectAttributes attributes);
+
+    Set<Ingredient> findAllStandalone();
+
+    boolean deleteAll(Set<Ingredient> allStandalone);
 }

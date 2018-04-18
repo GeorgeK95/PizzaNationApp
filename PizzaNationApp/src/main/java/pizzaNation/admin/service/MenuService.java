@@ -21,6 +21,7 @@ import pizzaNation.user.service.BaseService;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static pizzaNation.app.util.WebConstants.*;
@@ -178,7 +179,7 @@ public class MenuService extends BaseService implements IMenuService {
         return editMenuRequestModel;
     }
 
-    @Override
+   /* @Override
     public Menu findMenuEntityByName(String menuName) {
         return this.menuRepository.findByName(menuName);
     }
@@ -189,10 +190,17 @@ public class MenuService extends BaseService implements IMenuService {
         EditMenuRequestModel model = DTOConverter.convert(menu, EditMenuRequestModel.class);
         model.setProductsIds(new HashSet<>(menu.getProducts().stream().map(Product::getName).collect(Collectors.toSet())));
         return model;
-    }
+    }*/
 
     @Override
     public List<MenuViewModel> findAllByDateDesc() {
         return DTOConverter.convert(this.menuRepository.findAllByDateDesc(), MenuViewModel.class);
     }
+
+ /*   @Override
+    public boolean saveAndFlush(Set<Menu> menus) {
+        this.menuRepository.saveAll(menus);
+
+        return true;
+    }*/
 }

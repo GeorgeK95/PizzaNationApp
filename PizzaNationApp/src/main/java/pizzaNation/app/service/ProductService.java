@@ -5,13 +5,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pizzaNation.app.exception.MenuNotFoundException;
+import pizzaNation.admin.repository.MenuRepository;
 import pizzaNation.app.exception.ProductNotFoundException;
-import pizzaNation.app.model.entity.Ingredient;
+import pizzaNation.app.model.entity.Menu;
 import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.model.request.AddProductRequestModel;
 import pizzaNation.app.model.request.EditProductRequestModel;
-import pizzaNation.app.model.request.contract.MenuRequestModel;
 import pizzaNation.app.model.response.ProductResponseModel;
 import pizzaNation.app.model.view.HomeViewModel;
 import pizzaNation.app.model.view.ProductViewModel;
@@ -22,11 +21,9 @@ import pizzaNation.app.service.contract.IProductService;
 import pizzaNation.app.util.DTOConverter;
 import pizzaNation.user.service.BaseService;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static pizzaNation.app.util.WebConstants.*;
 
@@ -39,15 +36,19 @@ public class ProductService extends BaseService implements IProductService {
 
     private final ProductRepository productRepository;
 
+    private final MenuRepository menuRepository;
+
     private final IIngredientService ingredientService;
 
     private final IImageService imageService;
 
+
     @Autowired
-    public ProductService(ProductRepository productService, IIngredientService ingredientService, IImageService imageService) {
+    public ProductService(ProductRepository productService, IIngredientService ingredientService, IImageService imageService, MenuRepository menuRepository) {
         this.productRepository = productService;
         this.ingredientService = ingredientService;
         this.imageService = imageService;
+        this.menuRepository = menuRepository;
     }
 
     /*@Override
@@ -62,12 +63,11 @@ public class ProductService extends BaseService implements IProductService {
 
     @Override
     public HomeViewModel constructHomeModel() {
-        ProductViewModel bestSeller = DTOConverter.convert(this.productRepository.getBestSeller().stream().findFirst().get(),
-                ProductViewModel.class);
-        ProductViewModel newest = DTOConverter.convert(this.productRepository.findAllOrderByDate().stream().findFirst().get(),
-                ProductViewModel.class);
+        ProductViewModel bestSeller = this.tryGetBestSeller();
+        ProductViewModel newest = this.tryGetNewest();
+        ProductViewModel promotional = this.tryGetPromotional();
 
-        return new HomeViewModel(bestSeller, newest);
+        return new HomeViewModel(bestSeller, newest, promotional);
     }
 
     @Override
@@ -167,9 +167,9 @@ public class ProductService extends BaseService implements IProductService {
 
         if (product == null) throw new ProductNotFoundException();
 
-        product.setIngredients(null); //release products so they wont be deleted
-        product.setImage(null);
-        product.setMenus(null); //release products so they wont be deleted
+        product.setIngredients(null); //release ingredients so they wont be deleted
+        product.setImage(null);  //release image so they wont be deleted
+        this.deleteProductFromMenus(product);
 
         this.productRepository.delete(product);
 
@@ -178,12 +178,9 @@ public class ProductService extends BaseService implements IProductService {
 
     @Override
     public List<ProductViewModel> getMenuProducts(String menuName) {
-        return null;
-    }
-
-    @Override
-    public Set<String> getNewProductsNames() {
-        return this.productRepository.getNewProducts(new Date());
+        Set<Product> menuProducts = this.productRepository.getMenuProducts(menuName);
+        List<ProductViewModel> convert = DTOConverter.convert(menuProducts, ProductViewModel.class);
+        return convert;
     }
 
     private boolean hasErrors(Product product, EditProductRequestModel editMenuRequestModel, BindingResult bindingResult,
@@ -194,6 +191,27 @@ public class ProductService extends BaseService implements IProductService {
                 !product.getName().equals(editMenuRequestModel.getName())) return true;
 
         return super.containErrors(bindingResult, attributes, EDIT_PRODUCT_ERROR);
+    }
+
+    private void deleteProductFromMenus(Product product) {
+        Set<Menu> menus = product.getMenus();
+        menus.forEach(m -> m.removeProduct(product));
+        this.menuRepository.saveAll(menus);
+    }
+
+    private ProductViewModel tryGetPromotional() {
+        Optional<Product> sellerOptional = this.productRepository.getPromotionalProducts().stream().findFirst();
+        return sellerOptional.map(product -> DTOConverter.convert(product, ProductViewModel.class)).orElse(null);
+    }
+
+    private ProductViewModel tryGetNewest() {
+        Optional<Product> sellerOptional = this.productRepository.findAllOrderByDate().stream().findFirst();
+        return sellerOptional.map(product -> DTOConverter.convert(product, ProductViewModel.class)).orElse(null);
+    }
+
+    private ProductViewModel tryGetBestSeller() {
+        Optional<Product> sellerOptional = this.productRepository.getBestSeller().stream().findFirst();
+        return sellerOptional.map(product -> DTOConverter.convert(product, ProductViewModel.class)).orElse(null);
     }
 
 }

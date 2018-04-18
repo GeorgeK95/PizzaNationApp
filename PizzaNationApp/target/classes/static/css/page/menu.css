@@ -1,10 +1,10 @@
 /*Menu Style*/
-/*.menu_item_primary {
-    background-image: url('../../img/menu/primary.jpg');
+/*div.menu_inner.menu_item_primary {
+    background-image: url("https://p-sf1.pcloud.com/DLZRjwk4JZam9ThJZekRUZZjdMVU7ZNVZZdy5ZXZ9qWZnkZZZAKxmESbM6U8h0clqv5tHpJSHlVL7/th-6197159206-600x300.jpg");
 }
 
-.menu_item_secondary {
-    background-image: url('../../img/menu/secondary.jpg');
+div.menu_inner.menu_item_secondary {
+    background-image: url("https://p-sf1.pcloud.com/DLZRjwk4JZam9ThJZekRUZZjdMVU7ZNVZZdy5ZXZ9qWZnkZZZAKxmESbM6U8h0clqv5tHpJSHlVL7/th-6197159206-600x300.jpg");
 }*/
 
 .description {
@@ -20,9 +20,9 @@ div.menu_item {
     float: left;
 }
 
-div.menu_item_full {
+/*div.menu_item_full {
     width: 100%;
-}
+}*/
 
 div.menu_item_half {
     width: 50%;
@@ -32,9 +32,9 @@ div.menu_item_third {
     width: 33.3%;
 }
 
-div.menu_item_quarter {
+/*div.menu_item_quarter {
     width: 25%;
-}
+}*/
 
 div.menu_item_pad {
     padding: 8px;

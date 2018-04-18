@@ -42,7 +42,7 @@ public class Menu {
     private Integer priority;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "image_id", nullable = false)
+    @JoinColumn(name = "image_id", nullable = false, unique = true)
     private Image image;
 
     @Column(nullable = false)
@@ -119,5 +119,14 @@ public class Menu {
 
     public void setImage(Image image) {
         this.image = image;
+    }
+
+    public boolean removeProduct(Product product) {
+        for (Product currProd : this.products) {
+            if (currProd.getName().equals(product.getName())) {
+                this.products.remove(currProd);
+            }
+        }
+        return true;
     }
 }

@@ -43,5 +43,5 @@ public interface IUserService extends UserDetailsService {
 
     boolean confirmAccount(String token, RedirectAttributes attributes);
 
-    List<UserViewModel> findAllSubscribed();
+//    List<UserViewModel> findAllSubscribed();
 }

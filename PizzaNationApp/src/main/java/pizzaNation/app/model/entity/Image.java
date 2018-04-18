@@ -19,11 +19,13 @@ public class Image {
     @Column(nullable = false)
     private String url;
 
+    @OneToOne(mappedBy = "image")
+    private Product product;
 
     public Image() {
     }
 
-    public Image( String name, String url) {
+    public Image(String name, String url) {
         this.setName(name);
         this.setUrl(url);
     }
@@ -52,4 +54,11 @@ public class Image {
         this.url = url;
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 }

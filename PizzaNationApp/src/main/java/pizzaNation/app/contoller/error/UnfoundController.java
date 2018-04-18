@@ -1,3 +1,4 @@
+/*
 package pizzaNation.app.contoller.error;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
@@ -35,3 +36,4 @@ public class UnfoundController extends BaseController implements ErrorController
     }
 
 }
+*/

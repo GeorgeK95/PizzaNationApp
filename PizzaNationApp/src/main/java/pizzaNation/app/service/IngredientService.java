@@ -137,6 +137,18 @@ public class IngredientService extends BaseService implements IIngredientService
         return true;
     }
 
+    @Override
+    public Set<Ingredient> findAllStandalone() {
+        return this.ingredientRepository.findAllStandalone();
+    }
+
+    @Override
+    public boolean deleteAll(Set<Ingredient> allStandalone) {
+        this.ingredientRepository.deleteAll(allStandalone);
+
+        return true;
+    }
+
     /*@Override
     public List<IngredientResponseModel> findProductIngredients(String productName) {
         List<IngredientResponseModel> asd = DTOConverter.convert(this.productRepository.findByName(productName).getIngredients(),

@@ -3,9 +3,12 @@ package pizzaNation.app.model.request;
 import org.springframework.web.multipart.MultipartFile;
 import pizzaNation.app.annotation.Image;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import java.math.BigDecimal;
 
 import static pizzaNation.app.util.WebConstants.INVALID_DESCRIPTION_MESSAGE;
 import static pizzaNation.app.util.WebConstants.INVALID_MENU_NAME_MESSAGE;
@@ -28,6 +31,10 @@ public class AddProductRequestModel {
 
     private Boolean isPromotional;
 
+    @NotBlank
+    @Min(1)
+    private BigDecimal price;
+
     @NotNull
     @Image
     private MultipartFile image;
@@ -46,6 +53,10 @@ public class AddProductRequestModel {
 
     public Boolean getPromotional() {
         return isPromotional;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
     }
 
     public MultipartFile getImage() {
@@ -70,5 +81,9 @@ public class AddProductRequestModel {
 
     public void setImage(MultipartFile image) {
         this.image = image;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }

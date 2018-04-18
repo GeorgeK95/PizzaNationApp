@@ -326,6 +326,12 @@ div.eb_text p {
         font-size: 18px;
     }
 
+    div.entry_block_1 div.eb_left img,
+    div.entry_block_1 div.eb_right img,
+    div.entry_block_2 div.eb_left img,
+    div.entry_block_2 div.eb_right img {
+        width: 100%;
+    }
 }
 
 /* iPad (or small monitor) Styles */
@@ -403,6 +409,12 @@ div.eb_text p {
         font-size: 18px;
     }
 
+    div.entry_block_1 div.eb_left img,
+    div.entry_block_1 div.eb_right img,
+    div.entry_block_2 div.eb_left img,
+    div.entry_block_2 div.eb_right img {
+        width: 100%;
+    }
 }
 
 /* Mobile Styles */

@@ -8,6 +8,7 @@ import pizzaNation.app.model.request.EditMenuRequestModel;
 import pizzaNation.app.model.view.MenuViewModel;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by George-Lenovo on 01/04/2018.
@@ -28,9 +29,10 @@ public interface IMenuService {
 
     EditMenuRequestModel findByName(String menuName);
 
-    Menu findMenuEntityByName(String menuName);
+//    Menu findMenuEntityByName(String menuName);
 
-    EditMenuRequestModel findById(String id);
+//    EditMenuRequestModel findById(String id);
 
     List<MenuViewModel> findAllByDateDesc();
+
 }

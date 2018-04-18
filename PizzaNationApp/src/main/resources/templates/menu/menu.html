@@ -4,9 +4,9 @@
             <div id="menu_page">
 
                 <th:block th:each="iter : ${#numbers.sequence(0, 1)}">
-                    <div class="menu_item menu_item_half">
-                        <div class="menu_item_pad">
-                            <div class="menu_inner menu_hover shadow_element menu_item_primary "
+                    <a th:href="@{/menu/{productName}(productName=${#strings.toLowerCase(model[iter].getName())})}">
+                        <div class="menu_item menu_item_half">
+                            <div class="menu_inner menu_hover shadow_element menu_item_primary"
                                  th:style="'background:url(' + ${model[iter].getImage().getUrl()} + ');'">
                                 <div class="description" th:text="${model[iter].getDescription()}"></div>
                                 <div class="menu_title">
@@ -15,25 +15,28 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="menu_item_pad">
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </th:block>
 
-                <!--${#lists.size(${model})}) - 2-->
                 <th:block th:each="iter: ${#numbers.sequence(2, #lists.size(model) - 1)}">
-                    <div class="menu_item menu_item_third">
-                        <div class="menu_item_pad">
-                            <div class="menu_inner menu_hover shadow_element menu_item_secondary "
-                                 th:style="'background:url(' + ${model[iter].getImage().getUrl()} + ');'">
-                                <div class="description" th:text="${model[iter].getDescription()}"></div>
-                                <div class="menu_title">
-                                    <div class="menu_title_pad">
-                                        <h3 th:text="${model[iter].getName()}"></h3>
+                    <a th:href="@{/menu/{productName}(productName=${#strings.toLowerCase(model[iter].getName())})}">
+                        <div class="menu_item menu_item_third">
+                            <div class="menu_item_pad">
+                                <div class="menu_inner menu_hover shadow_element menu_item_secondary"
+                                     th:style="'background:url(' + ${model[iter].getImage().getUrl()} + ');'">
+                                    <div class="description" th:text="${model[iter].getDescription()}"></div>
+                                    <div class="menu_title">
+                                        <div class="menu_title_pad">
+                                            <h3 th:text="${model[iter].getName()}"></h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </th:block>
 
                 <div class="clear"><!-- clear --></div>
