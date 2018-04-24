@@ -7,6 +7,7 @@ import pizzaNation.app.model.request.AddProductRequestModel;
 import pizzaNation.app.model.request.EditProductRequestModel;
 import pizzaNation.app.model.response.ProductResponseModel;
 import pizzaNation.app.model.view.HomeViewModel;
+import pizzaNation.app.model.view.MenuProductsViewModel;
 import pizzaNation.app.model.view.ProductViewModel;
 
 import java.util.List;
@@ -42,7 +43,7 @@ public interface IProductService {
 
     boolean deleteProduct(String name);
 
-    List<ProductViewModel> getMenuProducts(String menuName);
+    List<MenuProductsViewModel> getMenuProducts(String menuName);
 
 //    Set<String> getNewProductsNames();
 }

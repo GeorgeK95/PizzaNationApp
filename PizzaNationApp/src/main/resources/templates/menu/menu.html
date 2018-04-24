@@ -1,47 +1,50 @@
 <main>
     <div class="page_bckgrnd_img">
         <div class="wrapper">
-            <div id="menu_page">
 
-                <th:block th:each="iter : ${#numbers.sequence(0, 1)}">
-                    <a th:href="@{/menu/{productName}(productName=${#strings.toLowerCase(model[iter].getName())})}">
-                        <div class="menu_item menu_item_half">
-                            <div class="menu_inner menu_hover shadow_element menu_item_primary"
-                                 th:style="'background:url(' + ${model[iter].getImage().getUrl()} + ');'">
-                                <div class="description" th:text="${model[iter].getDescription()}"></div>
+            <th:block th:each="iter : ${#numbers.sequence(0, 1)}">
+                <a th:href="@{/menu/{productName}(productName=${#strings.toLowerCase(model[iter].getName())})}">
+                    <div class="menu_item menu_item_half">
+                        <div class="menu_inner menu_hover">
+                            <!--th:style="'background:url(' + ${model[iter].getImage().getUrl()} + ');'"-->
+                            <!--<div class="description" th:text="${model[iter].getDescription()}"></div>-->
+                            <img height="250px" width="550px" class="menu_img"
+                                 th:src="${model[iter].getImage().getUrl()}">
+
+                            <div class="menu_title">
+                                <div class="menu_title_pad">
+                                    <h3 th:text="${model[iter].getName()}"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu_item_pad">
+                        </div>
+                    </div>
+                </a>
+            </th:block>
+
+            <th:block th:each="iter: ${#numbers.sequence(2, #lists.size(model) - 1)}">
+                <a th:href="@{/menu/{productName}(productName=${#strings.toLowerCase(model[iter].getName())})}">
+                    <div class="menu_item menu_item_third">
+                        <div class="menu_item_pad">
+                            <div class="menu_inner menu_hover">
+                                <img height="200px" width="342px" class="menu_img"
+                                     th:src="${model[iter].getImage().getUrl()}">
+                                <!--th:style="'background:url(' + ${model[iter].getImage().getUrl()} + ');'"-->
+                                <!--<div class="description" th:text="${model[iter].getDescription()}"></div>-->
                                 <div class="menu_title">
                                     <div class="menu_title_pad">
                                         <h3 th:text="${model[iter].getName()}"></h3>
                                     </div>
                                 </div>
                             </div>
-                            <div class="menu_item_pad">
-                            </div>
                         </div>
-                    </a>
-                </th:block>
+                    </div>
+                </a>
+            </th:block>
 
-                <th:block th:each="iter: ${#numbers.sequence(2, #lists.size(model) - 1)}">
-                    <a th:href="@{/menu/{productName}(productName=${#strings.toLowerCase(model[iter].getName())})}">
-                        <div class="menu_item menu_item_third">
-                            <div class="menu_item_pad">
-                                <div class="menu_inner menu_hover shadow_element menu_item_secondary"
-                                     th:style="'background:url(' + ${model[iter].getImage().getUrl()} + ');'">
-                                    <div class="description" th:text="${model[iter].getDescription()}"></div>
-                                    <div class="menu_title">
-                                        <div class="menu_title_pad">
-                                            <h3 th:text="${model[iter].getName()}"></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </th:block>
+            <div class="clear"><!-- clear --></div>
 
-                <div class="clear"><!-- clear --></div>
-
-            </div>
         </div>
     </div>
 </main>

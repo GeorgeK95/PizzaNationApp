@@ -27,7 +27,7 @@ public class AddProductRequestModel {
     @Size(message = INVALID_PRODUCT_MESSAGE)
     private String details;
 
-    private String[] ingredientsIds;
+//    private String[] ingredientsIds;
 
     private Boolean isPromotional;
 
@@ -36,7 +36,7 @@ public class AddProductRequestModel {
     private BigDecimal price;
 
     @NotNull
-    @Image
+//    @Image
     private MultipartFile image;
 
     public String getName() {
@@ -47,9 +47,9 @@ public class AddProductRequestModel {
         return details;
     }
 
-    public String[] getIngredientsIds() {
-        return ingredientsIds;
-    }
+//    public String[] getIngredientsIds() {
+//        return ingredientsIds;
+//    }
 
     public Boolean getPromotional() {
         return isPromotional;
@@ -71,9 +71,9 @@ public class AddProductRequestModel {
         this.details = details;
     }
 
-    public void setIngredientsIds(String[] ingredientsIds) {
-        this.ingredientsIds = ingredientsIds;
-    }
+//    public void setIngredientsIds(String[] ingredientsIds) {
+//        this.ingredientsIds = ingredientsIds;
+//    }
 
     public void setPromotional(Boolean isPromotional) {
         this.isPromotional = isPromotional;

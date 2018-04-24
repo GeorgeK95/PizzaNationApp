@@ -535,8 +535,7 @@ a.social_icon_instagram {
 
 /*Mobile Styles*/
 @media only screen and (min-width: 0px) and (max-width: 767px) {
-    div.wrapper,
-    div.mini_wrapper {
+    div.wrapper {
         width: 100%;
     }
 
@@ -787,6 +786,18 @@ div.pad40 {
     padding: 40px;
 }
 
+div.pad200 {
+    padding: 200px;
+}
+
+div.pad240 {
+    padding: 240px;
+}
+
+div.pad470 {
+    padding: 470px;
+}
+
 /****************FORMS******************/
 /*App Forms styles*/
 
@@ -825,7 +836,6 @@ input[type='submit'] {
     -o-user-select: none;
     user-select: none;
 }
-
 
 /* Breadcrumbs */
 .breadcrumbs {

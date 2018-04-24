@@ -1,7 +1,6 @@
 package pizzaNation.app.annotation;
 
 import pizzaNation.app.validator.ImageValidator;
-import pizzaNation.user.validation.EmailValidation;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

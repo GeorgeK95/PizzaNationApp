@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.admin.repository.MenuRepository;
 import pizzaNation.app.exception.ProductNotFoundException;
@@ -13,6 +14,7 @@ import pizzaNation.app.model.request.AddProductRequestModel;
 import pizzaNation.app.model.request.EditProductRequestModel;
 import pizzaNation.app.model.response.ProductResponseModel;
 import pizzaNation.app.model.view.HomeViewModel;
+import pizzaNation.app.model.view.MenuProductsViewModel;
 import pizzaNation.app.model.view.ProductViewModel;
 import pizzaNation.app.repository.ProductRepository;
 import pizzaNation.app.service.contract.IImageService;
@@ -120,8 +122,8 @@ public class ProductService extends BaseService implements IProductService {
     public boolean persistProduct(AddProductRequestModel addProductRequestModel) {
         Product product = DTOConverter.convert(addProductRequestModel, Product.class);
 
-//        product.setIngredients(this.ingredientService.findAllByIds(addProductRequestModel.getIngredientsIds()));
-        product.setImage(this.imageService.uploadImage(addProductRequestModel.getImage()));
+        MultipartFile productImage = addProductRequestModel.getImage();
+        if (!productImage.getName().isEmpty()) product.setImage(this.imageService.uploadImage(productImage));
 
         this.productRepository.saveAndFlush(product);
 
@@ -177,9 +179,9 @@ public class ProductService extends BaseService implements IProductService {
     }
 
     @Override
-    public List<ProductViewModel> getMenuProducts(String menuName) {
+    public List<MenuProductsViewModel> getMenuProducts(String menuName) {
         Set<Product> menuProducts = this.productRepository.getMenuProducts(menuName);
-        List<ProductViewModel> convert = DTOConverter.convert(menuProducts, ProductViewModel.class);
+        List<MenuProductsViewModel> convert = DTOConverter.convert(menuProducts, MenuProductsViewModel.class);
         return convert;
     }
 
@@ -195,7 +197,10 @@ public class ProductService extends BaseService implements IProductService {
 
     private void deleteProductFromMenus(Product product) {
         Set<Menu> menus = product.getMenus();
-        menus.forEach(m -> m.removeProduct(product));
+        for (Menu menu : menus) {
+            menu.removeProduct(product);
+        }
+//        menus.forEach(m -> m.removeProduct(product));
         this.menuRepository.saveAll(menus);
     }
 

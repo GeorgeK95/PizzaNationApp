@@ -64,7 +64,7 @@ public class AdminProductController extends BaseController {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
-    @PostMapping(ADD_PRODUCTS_URL)
+    @PostMapping("/products/dobavi")
     @LoggerAction(table = TableEnum.PRODUCT, action = Action.ADD)
     public ModelAndView addProductProcess(@ModelAttribute @Valid AddProductRequestModel addProductRequestModel,
                                           BindingResult bindingResult, RedirectAttributes attributes) {

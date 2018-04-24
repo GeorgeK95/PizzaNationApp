@@ -19,17 +19,15 @@
                     <div class="errorbox align_center" th:if="${add_product_error} != null"
                          th:text="${add_product_error}"></div>
 
-                    <form name="form_login" method="post" th:action="@{/admin/products/add}"
-                          enctype="multipart/form-data"
-                          th:object="${addProductRequestModel}">
+                    <form method="post" th:action="@{/admin/products/dobavi}"
+                          th:object="${addProductRequestModel}" enctype="multipart/form-data">
                         <div class="form">
-
                             <label for="name">Product Name*</label>
 
                             <input type="text" id="name" name="name" placeholder="Product name" class="form_item"
                                    th:field="*{name}" maxlength="50"/>
 
-                            <div class="pad5"><!-- spacer --></div>
+                            <div class="pad5"><!--spacer--></div>
 
                             <label for="details">Details*</label>
 
@@ -46,21 +44,20 @@
                             <label for="image">Product Image*</label>
                             <input class="form_item" id="image" type="file" th:field="*{image}" accept="image/*"/>
 
-                            <!--<div class="pad5">&lt;!&ndash;spaces&ndash;&gt;</div>
-
+                            <!--<div class="pad5"></div>
                             <label for="ingredientsIds">Ingredients Included</label>
                             <select multiple="" class="form_item" id="ingredientsIds" th:field="*{ingredientsIds}">
                                 <option th:each="ingredient : ${ingredientsList}" th:value="${ingredient.getId()}"
                                         th:text="${ingredient.getName()}">1
                                 </option>
-                            </select>
--->
+                            </select>-->
+
                             <div class="pad10"><!--spaces--></div>
 
                             <label><input type="checkbox" th:field="*{promotional}">
                                 Is Promotional ?</label>
 
-                            <div class="pad10"><!-- spacer --></div>
+                            <div class="pad10"><!--spacer--></div>
 
                             <input type="submit" name="add-prod-btn" class="button_flat button_flat_green"
                                    value="Add Product"/>
