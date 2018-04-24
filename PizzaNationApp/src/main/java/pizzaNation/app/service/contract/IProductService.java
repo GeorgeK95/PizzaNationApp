@@ -37,7 +37,7 @@ public interface IProductService {
 
     boolean persistProduct(AddProductRequestModel addProductRequestModel);
 
-    EditProductRequestModel findByName(String name);
+    <T> T findByName(String name, Class<T> clazz);
 
     boolean editProduct(EditProductRequestModel editProductRequestModel, RedirectAttributes attributes, BindingResult bindingResult, String name);
 

@@ -121,12 +121,20 @@ public class Menu {
         this.image = image;
     }
 
-    public boolean removeProduct(Product product) {
+    public boolean removeProduct(String name) {
+        for (Product product : this.products) {
+            if (product.getName().equals(name))
+                products.remove(product);
+        }
+        return true;
+    }
+
+    /*public boolean removeProduct(Product product) {
         for (Product currProd : this.products) {
             if (currProd.getName().equals(product.getName())) {
                 this.products.remove(currProd);
             }
         }
         return true;
-    }
+    }*/
 }

@@ -1,9 +1,10 @@
+/*
 function initMap() {
 
-    /*<![CDATA[*/
-    var lat = /*[[${lat}]]*/ 36.114757;
-    var long = /*[[${long}]]*/ -115.172937;
-    /*]]>*/
+    /!*<![CDATA[*!/
+    var lat = /!*[[${lat}]]*!/ 36.114757;
+    var long = /!*[[${long}]]*!/ -115.172937;
+    /!*]]>*!/
 
     var myCenter = new google.maps.LatLng(42.161177, 24.737454);
     var mapCanvas = document.getElementById("map");
@@ -17,4 +18,4 @@ function initMap() {
         });
         infowindow.open(map, marker);
     });
-}
+}*/

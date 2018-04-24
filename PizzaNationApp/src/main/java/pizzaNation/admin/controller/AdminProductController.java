@@ -64,7 +64,7 @@ public class AdminProductController extends BaseController {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
-    @PostMapping("/products/dobavi")
+    @PostMapping(ADD_PRODUCTS_URL)
     @LoggerAction(table = TableEnum.PRODUCT, action = Action.ADD)
     public ModelAndView addProductProcess(@ModelAttribute @Valid AddProductRequestModel addProductRequestModel,
                                           BindingResult bindingResult, RedirectAttributes attributes) {
@@ -77,7 +77,7 @@ public class AdminProductController extends BaseController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(EDIT_PRODUCTS_URL)
     public ModelAndView editProduct(@PathVariable String name) {
-        return super.view(this.productService.findByName(name), ADMIN_PAGE_TITLE_MAP_ENTRY);
+        return super.view(this.productService.findByName(name,EditProductRequestModel.class), ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
@@ -93,7 +93,7 @@ public class AdminProductController extends BaseController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(DELETE_PRODUCTS_URL)
     public ModelAndView deleteProduct(@PathVariable String name) {
-        return super.view(this.productService.findByName(name), ADMIN_PAGE_TITLE_MAP_ENTRY);
+        return super.view(this.productService.findByName(name,EditProductRequestModel.class), ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")

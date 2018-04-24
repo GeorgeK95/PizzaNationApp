@@ -1,5 +1,7 @@
 package pizzaNation.app.util;
 
+import java.util.Set;
+
 /**
  * Created by George-Lenovo on 23/03/2018.
  */
@@ -42,7 +44,7 @@ public final class WebConstants {
     public static final String INGREDIENTS_URL = "/ingredients";
     public static final String ADD_MENUS_URL = "/menus/add";
     public static final String ADD_PRODUCTS_URL = "/products/add";
-//    public static final String ADD_INGREDIENTS_URL = "/ingredients/add";
+    //    public static final String ADD_INGREDIENTS_URL = "/ingredients/add";
     public static final String EDIT_MENUS_URL = "/menus/edit/{name}";
     public static final String EDIT_USERS_URL = "/users/edit/{id}";
     public static final String EDIT_PRODUCTS_URL = "/products/edit/{name}";
@@ -57,7 +59,7 @@ public final class WebConstants {
     public static final String ADMIN_ALL_INGREDIENTS_URL = "/admin/ingredients/all";
     public static final String ADMIN_ADD_MENUS_URL = "/admin/menus/add";
     public static final String ADMIN_ADD_PRODUCTS_URL = "/admin/products/add";
-//    public static final String ADMIN_ADD_INGREDIENTS_URL = "/admin/ingredients/add";
+    //    public static final String ADMIN_ADD_INGREDIENTS_URL = "/admin/ingredients/add";
     public static final String ADMIN_EDIT_MENUS_URL = "/admin/menus/edit";
     public static final String ADMIN_EDIT_PRODUCTS_URL = "/admin/products/edit";
     public static final String ADMIN_EDIT_INGREDIENTS_URL = "/admin/ingredients/edit";
@@ -71,6 +73,7 @@ public final class WebConstants {
     //    public static final String DELETE_PRODUCT_INGREDIENTS_URL = "/product/{productName}/removeIngredients";
     public static final String ADMIN_SET_PRODUCT_INGREDIENTS_URL = "/admin/product/{productName}/addIngredients";
     public static final String ADMIN_LOGS_ALL_URL = "/admin/logs/all";
+    public static final String LOGIN_LOGOUT_URL = "/login?logout";
 
     //Page Titles
     public static final String ABOUT_US_PAGE_TITLE = "About Us";
@@ -81,9 +84,9 @@ public final class WebConstants {
     public static final String CONTACT_US_PAGE_TITLE = "Contact us";
     public static final String PAGE_TITLE_STR = "pageTitle";
     public static final String NOT_FOUND_PAGE_TITLE = "Page Not Found";
-//    public static final String FORBIDDEN_PAGE_TITLE = "Forbidden";
+    //    public static final String FORBIDDEN_PAGE_TITLE = "Forbidden";
     public static final String UNAUTHORIZED_PAGE_TITLE = "Unauthorized";
-//    public static final String MENU_NOT_FOUND_PAGE_TITLE = "Menu Not Found";
+    //    public static final String MENU_NOT_FOUND_PAGE_TITLE = "Menu Not Found";
     public static final String OUR_STORES_PAGE_TITLE = "Our Stores";
     public static final String STORES_MAP_PAGE_TITLE = "stores/map";
     public static final String TERMS_AND_CONDITIONS_PAGE_TITLE = "Terms and Conditions";
@@ -103,6 +106,7 @@ public final class WebConstants {
     public static final String PAGE_SCRIPT_STR = "pageScript";
     public static final String VIEW_STR = "view";
     public static final String EMPTY_STR = "";
+    public static final String SPACE_STR = " ";
     public static final String REDIRECT_STR = "redirect:";
     public static final String USER_STR = "user";
     public static final String OPERATION_STR = "operation";
@@ -112,11 +116,13 @@ public final class WebConstants {
     public static final String ACCOUNT_CONFIRMED_STR = "account_confirmed";
     //    public static final String TOKEN_STR = "token";
     public static final String PRODUCT_NAME_STR = "productName";
-//    public static final String VERIFICATION_TOKEN_STR = "verificationToken=";
+    //    public static final String VERIFICATION_TOKEN_STR = "verificationToken=";
     public static final String SAVED_STR = "Saved.";
     public static final String FAILED_STR = "Failed!";
     public static final String DELETED_STR = "Deleted.";
     public static final String STATUS_CODE_STR = "StatusCode";
+    public static final String EMAIL_STR = "email";
+    public static final String PASSWORD_STR = "password";
 
     //Extensions
     public static final String CSS_EXTENSION = ".css";
@@ -137,7 +143,7 @@ public final class WebConstants {
     //Success
     public static final String CONTACT_FORM_SUCCESS = "contact_form_success";
     public static final String USER_EDIT_SUCCESS = "user_edit_success";
-//    public static final String EMAIL_ALREADY_TAKEN = "email_already_taken";
+    //    public static final String EMAIL_ALREADY_TAKEN = "email_already_taken";
     public static final String DELETE_INGREDIENT_SUCCESS = "delete_ingredient_success";
     public static final String INGREDIENT_DELETED_SUCCESSFULLY_MESSAGE = "Ingredient was deleted successfully.";
 
@@ -164,16 +170,16 @@ public final class WebConstants {
     public static final String INVALID_MENU_NAME_MESSAGE = "Menu name cannot be empty and must less than 20 symbols long.";
     public static final String INVALID_INGREDIENT_NAME_MESSAGE = "Ingredient name cannot be empty and must less than 50 symbols long.";
     public static final String INVALID_INGREDIENT_MESSAGE = "Ingredient name cannot be empty and must less than 50 symbols long and quantity must be between 0 and 1 000 000.";
-//    public static final String INVALID_PRODUCT_NAME_MESSAGE = "Product name cannot be empty and must less than 50 symbols long.";
+    //    public static final String INVALID_PRODUCT_NAME_MESSAGE = "Product name cannot be empty and must less than 50 symbols long.";
     public static final String INVALID_DESCRIPTION_MESSAGE = "Description name cannot be empty.";
     public static final String INVALID_PRODUCT_MESSAGE = "Product description cannot be empty and must be less than 50 symbols long.";
     public static final String INVALID_PRIORITY_MESSAGE = "Priority name cannot be empty and must be between 1 and 50.";
     public static final String INVALID_QUANTITY_MESSAGE = "Quantity value cannot be empty, must be greather or equal than 1 and must me less than 1 000 000.";
     public static final String INVALID_PRICE_MESSAGE = "Price value cannot be empty and must be min 1.";
-//    public static final String INVALID_NULL_MESSAGE = "Unit field cannot be empty.";
+    //    public static final String INVALID_NULL_MESSAGE = "Unit field cannot be empty.";
     public static final String MENU_NAME_ALREADY_TAKEN_MESSAGE = "There is already a menu with the given name, please choose another.";
     public static final String MENU_PRIORITY_ALREADY_TAKEN_MESSAGE = "There is already a menu with the given priority, please choose another.";
-//    public static final String INGREDIENT_NAME_ALREADY_TAKEN_MESSAGE = "There is already a ingredient with the given name, please choose another.";
+    //    public static final String INGREDIENT_NAME_ALREADY_TAKEN_MESSAGE = "There is already a ingredient with the given name, please choose another.";
     public static final String PRODUCT_NAME_ALREADY_TAKEN_MESSAGE = "There is already a product with the given name, please choose another.";
     public static final String USER_REGISTER_SUCCESS_MESSAGE = "user_register_success";
     public static final String REGISTERED_SUCCESSFULLY_MESSAGE = "Registered successfully, we send you email for confirmation.";
@@ -215,10 +221,10 @@ public final class WebConstants {
 
     //Models
     public static final String USER_REGISTER_REQUEST_MODEL = "userRegisterRequestModel";
-//    public static final String CONTACT_REQUEST_MODEL = "contactRequestModel";
+    //    public static final String CONTACT_REQUEST_MODEL = "contactRequestModel";
     public static final String ADD_MENU_REQUEST_MODEL = "addMenuRequestModel";
     public static final String ADD_PRODUCT_REQUEST_MODEL = "addProductRequestModel";
-//    public static final String ADD_INGREDIENT_REQUEST_MODEL = "addIngredientRequestModel";
+    //    public static final String ADD_INGREDIENT_REQUEST_MODEL = "addIngredientRequestModel";
     public static final String EDIT_MENU_REQUEST_MODEL = "editMenuRequestModel";
     public static final String EDIT_PRODUCT_REQUEST_MODEL = "editProductRequestModel";
     public static final String EDIT_INGREDIENT_REQUEST_MODEL = "editIngredientRequestModel";
@@ -232,7 +238,7 @@ public final class WebConstants {
     public static final String USER_EXCEPTION_MESSAGE = "User with given id was not found.";
     public static final String INGREDIENT_EXCEPTION_MESSAGE = "Ingredient with given name was not found.";
     public static final String ADMIN_EXCEPTION_MESSAGE = "Admin account cannot be modified.";
-//    public static final String USER_DISABLE_EXCEPTION_MESSAGE = "Account not confirmed by email.";
+    //    public static final String USER_DISABLE_EXCEPTION_MESSAGE = "Account not confirmed by email.";
     public static final String PRODUCT_EXCEPTION_MESSAGE = "Product with given name was not found.";
     public static final String USER_WITH_GIVEN_CODE_EXCEPTION_MESSAGE = "Couldn't find user with the given verification code.";
 
@@ -254,6 +260,9 @@ public final class WebConstants {
     //Constants
     public static final long INGREDIENT_QUANTITY_LIMIT = 1_000_000L;
     public static final int SCHEDULER_FIXED_RATE = 120_000;
+
+    //HTML symbols set
+    public static final Set<String> HTML_SYMBOLS_TO_ESCAPE = Set.of("%20");
 
     private WebConstants() {
     }

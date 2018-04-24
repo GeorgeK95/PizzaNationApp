@@ -23,6 +23,7 @@ import pizzaNation.app.service.contract.IProductService;
 import pizzaNation.app.util.DTOConverter;
 import pizzaNation.user.service.BaseService;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -131,12 +132,12 @@ public class ProductService extends BaseService implements IProductService {
     }
 
     @Override
-    public EditProductRequestModel findByName(String name) {
+    public <T> T findByName(String name, Class<T> clazz) {
         Product product = this.productRepository.findByName(name);
 
         if (product == null) throw new ProductNotFoundException();
 
-        EditProductRequestModel model = DTOConverter.convert(product, EditProductRequestModel.class);
+        T model = DTOConverter.convert(product, clazz);
 //        model.setIngredientsIds(product.getIngredients().stream().map(Ingredient::getId).collect(Collectors.toSet()));
 
         return model;
@@ -170,12 +171,27 @@ public class ProductService extends BaseService implements IProductService {
         if (product == null) throw new ProductNotFoundException();
 
         product.setIngredients(null); //release ingredients so they wont be deleted
-        product.setImage(null);  //release image so they wont be deleted
-        this.deleteProductFromMenus(product);
+
+        this.clearProductFromItsMenus(product);
 
         this.productRepository.delete(product);
 
         return true;
+    }
+
+    private void clearProductFromItsMenus(Product product) {
+        Set<Product> newSet = new HashSet<>();
+
+        for (Menu menu : product.getMenus()) {
+            for (Product curr : menu.getProducts()) {
+                if (!curr.getName().equals(product.getName()))
+                    newSet.add(curr);
+            }
+
+            menu.setProducts(newSet);
+            this.menuRepository.saveAndFlush(menu);
+            newSet = new HashSet<>();
+        }
     }
 
     @Override
@@ -193,15 +209,6 @@ public class ProductService extends BaseService implements IProductService {
                 !product.getName().equals(editMenuRequestModel.getName())) return true;
 
         return super.containErrors(bindingResult, attributes, EDIT_PRODUCT_ERROR);
-    }
-
-    private void deleteProductFromMenus(Product product) {
-        Set<Menu> menus = product.getMenus();
-        for (Menu menu : menus) {
-            menu.removeProduct(product);
-        }
-//        menus.forEach(m -> m.removeProduct(product));
-        this.menuRepository.saveAll(menus);
     }
 
     private ProductViewModel tryGetPromotional() {

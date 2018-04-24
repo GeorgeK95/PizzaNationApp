@@ -19,8 +19,8 @@
                     <div class="errorbox align_center" th:if="${add_product_error} != null"
                          th:text="${add_product_error}"></div>
 
-                    <form method="post" th:action="@{/admin/products/dobavi}"
-                          th:object="${addProductRequestModel}" enctype="multipart/form-data">
+                    <form method="post" th:action="@{/admin/products/add}" th:object="${addProductRequestModel}"
+                          enctype="multipart/form-data">
                         <div class="form">
                             <label for="name">Product Name*</label>
 
@@ -43,14 +43,6 @@
 
                             <label for="image">Product Image*</label>
                             <input class="form_item" id="image" type="file" th:field="*{image}" accept="image/*"/>
-
-                            <!--<div class="pad5"></div>
-                            <label for="ingredientsIds">Ingredients Included</label>
-                            <select multiple="" class="form_item" id="ingredientsIds" th:field="*{ingredientsIds}">
-                                <option th:each="ingredient : ${ingredientsList}" th:value="${ingredient.getId()}"
-                                        th:text="${ingredient.getName()}">1
-                                </option>
-                            </select>-->
 
                             <div class="pad10"><!--spaces--></div>
 

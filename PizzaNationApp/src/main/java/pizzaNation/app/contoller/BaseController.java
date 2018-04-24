@@ -79,4 +79,11 @@ public abstract class BaseController {
 
         modelAndView.getModelMap().addAttribute(VIEW_STR, viewName);
     }
+
+    protected String escapeHTMLEncoding(String queryString) {
+        for (String current : HTML_SYMBOLS_TO_ESCAPE) {
+            queryString = queryString.replace(current, SPACE_STR);
+        }
+        return queryString;
+    }
 }

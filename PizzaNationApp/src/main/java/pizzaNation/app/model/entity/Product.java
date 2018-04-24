@@ -57,7 +57,7 @@ public class Product {
         this.totalSales = totalSales;
         this.isPromotional = isPromotional;
         this.image = img;
-        this.price=price;
+        this.price = price;
     }
 
     public String getId() {
@@ -136,7 +136,7 @@ public class Product {
         this.date = date;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public void setPrice(Double price) {
+        this.price = new BigDecimal(price);
     }
 }
