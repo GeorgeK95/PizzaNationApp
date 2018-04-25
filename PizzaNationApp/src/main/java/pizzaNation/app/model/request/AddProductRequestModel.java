@@ -3,10 +3,7 @@ package pizzaNation.app.model.request;
 import org.springframework.web.multipart.MultipartFile;
 import pizzaNation.app.annotation.Image;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 import java.math.BigDecimal;
 
@@ -28,8 +25,8 @@ public class AddProductRequestModel {
     private String details;
 
     @NotBlank
-    @Min(1)
-    private Double price;
+    @Digits(integer = 18, fraction = 1)
+    private BigDecimal price;
 
     private Boolean isPromotional;
 
@@ -45,7 +42,7 @@ public class AddProductRequestModel {
         return details;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
@@ -66,7 +63,7 @@ public class AddProductRequestModel {
         this.details = details;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

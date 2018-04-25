@@ -22,19 +22,15 @@ public class AbstractHandlerMethodExceptionResolverImpl extends AbstractHandlerM
 
     private final ExceptionController controller;
 
-//    private final UnfoundController unfoundController;
-
     @Autowired
-    public AbstractHandlerMethodExceptionResolverImpl(ExceptionController controller, LoggerInterceptor interceptor
-            /*,UnfoundController unfoundController*/) {
+    public AbstractHandlerMethodExceptionResolverImpl(ExceptionController controller, LoggerInterceptor interceptor) {
         this.controller = controller;
         this.interceptor = interceptor;
-//        this.unfoundController = unfoundController;
     }
 
     @Override
     @ExceptionHandler(value = {ProductNotFoundException.class, MenuNotFoundException.class, IngredientNotFoundException.class,
-            UserNotFoundException.class, ConfirmCodeNotFoundException.class})
+            UserNotFoundException.class, ConfirmCodeNotFoundException.class, NoEmailVerificationCodeInGetRequestException.class})
     protected ModelAndView doResolveHandlerMethodException(HttpServletRequest httpServletRequest,
                                                            HttpServletResponse httpServletResponse,
                                                            HandlerMethod handlerMethod,
@@ -59,6 +55,8 @@ public class AbstractHandlerMethodExceptionResolverImpl extends AbstractHandlerM
             modelAndView = this.controller.ingredient();
         } else if (e instanceof ConfirmCodeNotFoundException) {
             modelAndView = this.controller.notConfirmed();
+        } else if (e instanceof NoEmailVerificationCodeInGetRequestException) {
+            modelAndView = this.controller.invalidVerificationCodeRequest();
         } else {
             modelAndView = this.controller.notFound();
         }

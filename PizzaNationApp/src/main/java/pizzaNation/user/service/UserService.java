@@ -28,10 +28,7 @@ import pizzaNation.user.repository.UserRepository;
 import pizzaNation.app.util.DTOConverter;
 
 import java.security.Principal;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static pizzaNation.app.util.WebConstants.*;
@@ -229,6 +226,8 @@ public class UserService extends BaseService implements IUserService {
         if (accToConfirm == null) throw new ConfirmCodeNotFoundException();
 
         accToConfirm.setEnabled(true);
+
+        accToConfirm.setEmailVerificationCode(UUID.randomUUID().toString());
 
         attributes.addFlashAttribute(ACCOUNT_CONFIRMED_STR, ACCOUNT_CONFIRMED_SUCCESSFULLY_MESSAGE);
 

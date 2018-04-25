@@ -8,7 +8,7 @@ import static pizzaNation.app.util.WebConstants.PRODUCT_EXCEPTION_MESSAGE;
 /**
  * Created by George-Lenovo on 03/04/2018.
  */
-@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Product with given name was not found.")
+@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = PRODUCT_EXCEPTION_MESSAGE)
 public class ProductNotFoundException extends RuntimeException {
 
     public ProductNotFoundException() {

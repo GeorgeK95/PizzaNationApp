@@ -8,7 +8,7 @@ import static pizzaNation.app.util.WebConstants.MENU_EXCEPTION_MESSAGE;
 /**
  * Created by George-Lenovo on 02/04/2018.
  */
-@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Menu with given name was not found.")
+@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = MENU_EXCEPTION_MESSAGE)
 public class MenuNotFoundException extends RuntimeException {
 
     public MenuNotFoundException() {

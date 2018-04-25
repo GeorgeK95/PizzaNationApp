@@ -19,6 +19,7 @@ import static pizzaNation.app.util.WebConstants.*;
 public class ExceptionController extends BaseController implements ErrorController {
 
     private static final Map<String, Object> NOT_FOUND_PAGE_TITLE_MAP = Map.ofEntries(entry(PAGE_TITLE_STR, NOT_FOUND_PAGE_TITLE));
+    private static final Map<String, Object> BAD_REQUEST_PAGE_TITLE_MAP = Map.ofEntries(entry(PAGE_TITLE_STR, BAD_REQUEST_PAGE_TITLE));
 
     private static final int NOT_FOUND_CODE = 404;
 
@@ -42,6 +43,10 @@ public class ExceptionController extends BaseController implements ErrorControll
 
     public ModelAndView notConfirmed() {
         return super.view(USER_WITH_GIVEN_CODE_EXCEPTION_MESSAGE, NOT_FOUND_PAGE_TITLE_MAP, BAD_REQUEST_CODE);
+    }
+
+    public ModelAndView invalidVerificationCodeRequest() {
+        return super.view(INVALID_EMAIL_CONFIRM_REQUEST_MESSAGE, BAD_REQUEST_PAGE_TITLE_MAP, BAD_REQUEST_CODE);
     }
 
     @RequestMapping(value = UNAUTHORIZED_URL)

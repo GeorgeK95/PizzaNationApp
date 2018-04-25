@@ -123,8 +123,8 @@ public class ProductService extends BaseService implements IProductService {
     public boolean persistProduct(AddProductRequestModel addProductRequestModel) {
         Product product = DTOConverter.convert(addProductRequestModel, Product.class);
 
-        MultipartFile productImage = addProductRequestModel.getImage();
-        if (!productImage.getName().isEmpty()) product.setImage(this.imageService.uploadImage(productImage));
+        /*MultipartFile productImage = addProductRequestModel.getImage();
+        if (!productImage.getName().isEmpty()) product.setImage(this.imageService.uploadImage(productImage));*/
 
         this.productRepository.saveAndFlush(product);
 

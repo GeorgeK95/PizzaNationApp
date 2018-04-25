@@ -68,7 +68,9 @@ public final class WebConstants {
     public static final String ALL_USERS_URL = "/users/all";
     public static final String EMPTY_URL = "";
     public static final String MENU_NAME_URL = "/menu/{menuName}";
-    public static final String VERIFICATION_MESSAGE = "Registration code: %s.\r\nEnter the given code here to confirm your account: http://localhost:8008/confirm";
+    public static final String VERIFICATION_MESSAGE = "Please, confirm your account from the following link:\r\n" +
+            "http://localhost:8008/confirm?verificationCode=%s";
+    //    public static final String VERIFICATION_MESSAGE = "Registration code: %s.\r\nEnter the given code here to confirm your account: http://localhost:8008/confirm";
     public static final String ADD_PRODUCT_INGREDIENTS_URL = "/product/{productName}/addIngredients";
     //    public static final String DELETE_PRODUCT_INGREDIENTS_URL = "/product/{productName}/removeIngredients";
     public static final String ADMIN_SET_PRODUCT_INGREDIENTS_URL = "/admin/product/{productName}/addIngredients";
@@ -84,6 +86,7 @@ public final class WebConstants {
     public static final String CONTACT_US_PAGE_TITLE = "Contact us";
     public static final String PAGE_TITLE_STR = "pageTitle";
     public static final String NOT_FOUND_PAGE_TITLE = "Page Not Found";
+    public static final String BAD_REQUEST_PAGE_TITLE = "Bad Request";
     //    public static final String FORBIDDEN_PAGE_TITLE = "Forbidden";
     public static final String UNAUTHORIZED_PAGE_TITLE = "Unauthorized";
     //    public static final String MENU_NOT_FOUND_PAGE_TITLE = "Menu Not Found";
@@ -123,6 +126,9 @@ public final class WebConstants {
     public static final String STATUS_CODE_STR = "StatusCode";
     public static final String EMAIL_STR = "email";
     public static final String PASSWORD_STR = "password";
+    public static final String EQUALS_STR = "=";
+    public static final String QUESTION_MARK_STR = "\\?";
+    public static final String VERIFICATION_CODE_STR = "verificationCode";
 
     //Extensions
     public static final String CSS_EXTENSION = ".css";
@@ -241,6 +247,7 @@ public final class WebConstants {
     //    public static final String USER_DISABLE_EXCEPTION_MESSAGE = "Account not confirmed by email.";
     public static final String PRODUCT_EXCEPTION_MESSAGE = "Product with given name was not found.";
     public static final String USER_WITH_GIVEN_CODE_EXCEPTION_MESSAGE = "Couldn't find user with the given verification code.";
+    public static final String INVALID_EMAIL_CONFIRM_REQUEST_MESSAGE = "No or invalid verification code found in the request.";
 
     //Names
     public static final String GENDERS_LIST = "gendersList";

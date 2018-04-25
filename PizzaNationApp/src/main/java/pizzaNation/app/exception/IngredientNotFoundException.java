@@ -9,7 +9,7 @@ import static pizzaNation.app.util.WebConstants.MENU_EXCEPTION_MESSAGE;
 /**
  * Created by George-Lenovo on 04/04/2018.
  */
-@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Ingredient with given name was not found.")
+@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = INGREDIENT_EXCEPTION_MESSAGE)
 public class IngredientNotFoundException extends RuntimeException {
 
     public IngredientNotFoundException() {
