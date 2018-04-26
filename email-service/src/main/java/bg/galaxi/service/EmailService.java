@@ -22,6 +22,11 @@ public class EmailService {
         this.sendSimpleMessage(mail.getEmail(), ADMIN_EMAIL, mail.getSubject(), this.constructMessage(mail));
     }
 
+    public void newProductMessage(EmailVerification mail) {
+        this.sendSimpleMessage(ADMIN_EMAIL, mail.getEmail(), CONFIRM_MESSAGE,
+                mail.getVerification());
+    }
+
     public void sendSimpleMessage(EmailVerification mail) {
         this.sendSimpleMessage(ADMIN_EMAIL, mail.getEmail(), CONFIRM_MESSAGE,
                 mail.getVerification());

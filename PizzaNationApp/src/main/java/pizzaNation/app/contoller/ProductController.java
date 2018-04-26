@@ -6,11 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import pizzaNation.app.model.request.EditProductRequestModel;
 import pizzaNation.app.model.view.ProductDetailsViewModel;
 import pizzaNation.app.service.contract.IProductService;
 
 import javax.servlet.http.HttpServletRequest;
+
+import static pizzaNation.app.util.WebConstants.APPLICATION_JSON_MIME;
+import static pizzaNation.app.util.WebConstants.PRODUCT_DETAILS_URL;
 
 /**
  * Created by George-Lenovo on 01/04/2018.
@@ -25,7 +27,7 @@ public class ProductController extends BaseController {
         this.productService = productService;
     }
 
-    @RequestMapping(value = "/productDetails", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = PRODUCT_DETAILS_URL, method = RequestMethod.GET, produces = APPLICATION_JSON_MIME)
     public @ResponseBody
     String addStoresProcess(HttpServletRequest request) {
         String productName = super.escapeHTMLEncoding(request.getQueryString());

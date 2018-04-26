@@ -3,115 +3,93 @@
         <div class="wrapper">
             <div class="white_page">
                 <div class="page_pad">
-                    <div id="hold_cart">
-                        <div id="the_cart">
-                            <form name="cartform" id="cartform" method="post" action="checkout/cart">
-                                <div class="div_padded_table" id="points_table">
-                                    <div class="tr table_header">
-                                        <div id="cartform_table_title">Menu items</div>
-                                    </div>
-                                    <div class="cart_section">
-                                        <div class="tr odd_even">
-                                            <div class="cart1"><input type="text" maxlength="2" name="quantity[0]"
-                                                                      value="1" style="width: 20px;"
-                                                                      class="quantity_input"></div>
-                                            <div class="cart2">
-                                                <b>Special</b> £18.99<br>
-                                                <b>Size:</b> Super (10 slices)<br><b>Base:</b> Standard<br>
-                                                <div class="mobile_show" style="text-align: left;"><br>
-                                                    <span><b>£18.99</b></span>
-
-                                                </div>
-                                            </div>
-                                            <div class="cart3">
-                                                <b>£18.99</b>
-                                            </div>
-                                            <div class="cart_remove_div"><a href="#"
-                                                                  class="button_flat button_flat_red cart_remove"
-                                                                  id="item_0" title="Remove from cart">X</a></div>
-                                            <div class="clear"><!-- clear --></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="cart_section">
-                                        <div class="tr odd_even">
-                                            <div class="cart1"><input type="text" maxlength="2" name="quantity[1]"
-                                                                      value="1" style="width: 20px;"
-                                                                      class="quantity_input"></div>
-                                            <div class="cart2">
-                                                <b>Double Pepperoni</b> £17.99<br>
-                                                <b>Size:</b> Super (10 slices)<br><b>Base:</b> Standard<br>
-                                                <div class="mobile_show" style="text-align: left;"><br>
-                                                    <span><b>£17.99</b></span>
-
-                                                </div>
-                                            </div>
-                                            <div class="cart3">
-                                                <b>£17.99</b>
-                                            </div>
-                                            <div class="cart_remove_div"><a href="#"
-                                                                  class="button_flat button_flat_red cart_remove"
-                                                                  id="item_1" title="Remove from cart">X</a></div>
-                                            <div class="clear"><!-- clear --></div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="tr dark_line"><!-- --></div>
-
-                                    <div class="tr odd">
-                                        <div class="cart1">&nbsp;</div>
-                                        <div class="cart2"><b>Subtotal</b></div>
-                                        <div class="cart3">£36.98</div>
-                                        <div class="cart4">
-                                            <div class="mobile_show" style="text-align: left;">£36.98</div>
-                                        </div>
-                                        <div class="clear"><!-- clear --></div>
-                                    </div>
-
-                                    <div class="tr even">
-                                        <div class="cart1">&nbsp;</div>
-                                        <div class="cart2"><b>Delivery to your door</b></div>
-                                        <div class="cart3">£0</div>
-                                        <div class="cart4">
-                                            <div class="mobile_show" style="text-align: left;">£0</div>
-                                        </div>
-                                        <div class="clear"><!-- clear --></div>
-                                    </div>
-                                    <div class="tr odd">
-                                        <div class="cart1">&nbsp;</div>
-                                        <div class="cart2"><span style="font-size: 20px;"><b>Total</b></span></div>
-                                        <div class="cart3"><span style="font-size: 20px;"><b>£36.98</b> </span></div>
-                                        <div class="cart4">
-                                            <div class="mobile_show" style="text-align: left; font-size: 20px;"><b>£36.98</b>
-                                            </div>
-                                        </div>
-                                        <div class="clear"><!-- clear --></div>
-                                    </div>
-
-                                    <div class="content_off" id="quantity_update_button">
-                                        <div class="pad10"><!-- --></div>
-                                        <input type="hidden" name="update1" id="update1" value="1">
-                                        <input type="submit" value="Update quantities"
-                                               class="button_flat button_flat_white" id="quantity_update">
-                                    </div>
-
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="pad25"><!-- pad --></div>
-
-                        <div style="text-align: center;">
-
-                            <div class="mobile_show">
-                                <div class="pad10"><!-- spacer --></div>
+                    <form name="cartform" id="cartform" method="post" action="checkout/cart">
+                        <div class="div_padded_table" id="points_table">
+                            <div class="tr table_header">
+                                <div id="cartform_table_title">Menu items</div>
                             </div>
-                            <a href="#" class="button_flat button_flat_green">Proceed
-                                »</a>
+
+                            <th:block>
+                                <div class="cart_section">
+                                    <div class="tr odd_even">
+                                        <div class="cart1"><input type="text" maxlength="2" name="quantity[0]"
+                                                                  value="1" style="width: 20px;"
+                                                                  class="quantity_input"></div>
+                                        <div class="cart2">
+                                            <p>Special</p>
+                                            <p>Total Sales: 12</p>
+                                            <p>Promotional !</p>
+                                            <div class="mobile_show" style="text-align: left;">
+                                                <span><p>£18.99</p></span>
+
+                                            </div>
+                                        </div>
+                                        <div class="cart3">
+                                            <b>£18.99</b>
+                                        </div>
+                                        <div class="cart_remove_div"><a href="#"
+                                                                        class="button_flat button_flat_red cart_remove"
+                                                                        id="item_0" title="Remove from cart">X</a>
+                                        </div>
+                                        <div class="clear"><!-- clear --></div>
+                                    </div>
+                                </div>
+                            </th:block>
+
+                            <div class="tr dark_line"><!-- --></div>
+
+                            <div class="tr odd">
+                                <div class="cart1">&nbsp;</div>
+                                <div class="cart2"><b>Subtotal</b></div>
+                                <div class="cart3">£36.98</div>
+                                <div class="cart4">
+                                    <div class="mobile_show" style="text-align: left;">£36.98</div>
+                                </div>
+                                <div class="clear"><!-- clear --></div>
+                            </div>
+
+                            <div class="tr even">
+                                <div class="cart1">&nbsp;</div>
+                                <div class="cart2"><b>Delivery to your door</b></div>
+                                <div class="cart3">£0</div>
+                                <div class="cart4">
+                                    <div class="mobile_show" style="text-align: left;">£0</div>
+                                </div>
+                                <div class="clear"><!-- clear --></div>
+                            </div>
+                            <div class="tr odd">
+                                <div class="cart1">&nbsp;</div>
+                                <div class="cart2"><span style="font-size: 20px;"><b>Total</b></span></div>
+                                <div class="cart3"><span style="font-size: 20px;"><b>£36.98</b> </span></div>
+                                <div class="cart4">
+                                    <div class="mobile_show" style="text-align: left; font-size: 20px;"><b>£36.98</b>
+                                    </div>
+                                </div>
+                                <div class="clear"><!-- clear --></div>
+                            </div>
+
+                            <div class="content_off" id="quantity_update_button">
+                                <div class="pad10"><!-- --></div>
+                                <input type="hidden" name="update1" id="update1" value="1">
+                                <input type="submit" value="Update quantities"
+                                       class="button_flat button_flat_white" id="quantity_update">
+                            </div>
+
                         </div>
-                    </div>
+                    </form>
                 </div>
+
+                <div class="pad25"><!-- pad --></div>
+
+                <div style="text-align: center;">
+
+                    <div class="mobile_show">
+                        <div class="pad10"><!-- spacer --></div>
+                    </div>
+                    <a href="#" class="button_flat button_flat_green">Proceed »</a>
+                </div>
+
+                <div class="pad10"></div>
             </div>
         </div>
     </div>

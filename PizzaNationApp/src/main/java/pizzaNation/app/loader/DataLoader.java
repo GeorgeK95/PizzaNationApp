@@ -127,9 +127,9 @@ public class DataLoader implements ApplicationRunner {
     }
 
     private void addIngredients() {
-        Ingredient i = new Ingredient(2.2, Unit.KILOGRAM, KETCHUP);
-        Ingredient i1 = new Ingredient(2.2, Unit.KILOGRAM, MAYONNAISE);
-        Ingredient i2 = new Ingredient(2.2, Unit.KILOGRAM, MUSTARD);
+        Ingredient i = new Ingredient(2.2, Unit.KILOGRAMS, KETCHUP);
+        Ingredient i1 = new Ingredient(2.2, Unit.KILOGRAMS, MAYONNAISE);
+        Ingredient i2 = new Ingredient(2.2, Unit.KILOGRAMS, MUSTARD);
 
         this.ingredientRepository.saveAll(Set.of(i, i1, i2/*, i3, i4, i5, i6, i7, i8, i9*/));
     }

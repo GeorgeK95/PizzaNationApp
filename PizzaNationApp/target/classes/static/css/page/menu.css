@@ -524,8 +524,8 @@ div.menu_title h3 {
 
 #product-ingredients {
     text-align: left;
-    font-style: revert;
-    font-size: 15px;
+    font-style: inherit;
+    font-size: 11px;
 }
 
 /* Modal Content */
@@ -555,4 +555,14 @@ div.menu_title h3 {
 
 .prod_popup_img {
     text-align: right;
+}
+
+.scrollable_120 {
+    max-height: 120px;
+    overflow-y: scroll;
+}
+
+.scrollable_80 {
+    max-height: 60px;
+    overflow-y: scroll;
 }

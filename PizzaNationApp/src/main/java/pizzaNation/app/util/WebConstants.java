@@ -76,6 +76,7 @@ public final class WebConstants {
     public static final String ADMIN_SET_PRODUCT_INGREDIENTS_URL = "/admin/product/{productName}/addIngredients";
     public static final String ADMIN_LOGS_ALL_URL = "/admin/logs/all";
     public static final String LOGIN_LOGOUT_URL = "/login?logout";
+    public static final String PRODUCT_DETAILS_URL = "/productDetails";
 
     //Page Titles
     public static final String ABOUT_US_PAGE_TITLE = "About Us";
@@ -129,6 +130,8 @@ public final class WebConstants {
     public static final String EQUALS_STR = "=";
     public static final String QUESTION_MARK_STR = "\\?";
     public static final String VERIFICATION_CODE_STR = "verificationCode";
+    public static final String CART_ADD_PRODUCT_URL = "/cart/addProduct";
+    public static final String CART_ID_STR = "cart_id";
 
     //Extensions
     public static final String CSS_EXTENSION = ".css";
@@ -180,7 +183,7 @@ public final class WebConstants {
     public static final String INVALID_DESCRIPTION_MESSAGE = "Description name cannot be empty.";
     public static final String INVALID_PRODUCT_MESSAGE = "Product description cannot be empty and must be less than 50 symbols long.";
     public static final String INVALID_PRIORITY_MESSAGE = "Priority name cannot be empty and must be between 1 and 50.";
-    public static final String INVALID_QUANTITY_MESSAGE = "Quantity value cannot be empty, must be greather or equal than 1 and must me less than 1 000 000.";
+    public static final String INVALID_QUANTITY_MESSAGE = "Quantity value cannot be empty, must be greater or equal than 1 and must me less than 1 000 000.";
     public static final String INVALID_PRICE_MESSAGE = "Price value cannot be empty and must be min 1.";
     //    public static final String INVALID_NULL_MESSAGE = "Unit field cannot be empty.";
     public static final String MENU_NAME_ALREADY_TAKEN_MESSAGE = "There is already a menu with the given name, please choose another.";
@@ -191,7 +194,12 @@ public final class WebConstants {
     public static final String REGISTERED_SUCCESSFULLY_MESSAGE = "Registered successfully, we send you email for confirmation.";
     public static final String SUCCESSFULLY_SENT_FEEDBACK_MESSAGE = "Your feedback was sent successfully.";
     public static final String SUCCESSFULLY_ADDED_INGREDIENT_MESSAGE = "Ingredients were added successfully.";
-    public static final String LOGGER = "Logger";
+    public static final String LOGGER_MESSAGE = "Logger";
+    public static final String PRODUCT_ADDED_SUCCESSFULLY_MESSAGE = "Product added successfully.";
+    public static final String PROMOTIONAL_PRODUCTS_ARRIVED_MESSAGE = "New promotional products were just released on pizza nation, check them out !";
+
+    //MIME-s
+    public static final String APPLICATION_JSON_MIME = "application/json";
 
     //Admin Data
     public static final String ADMIN_EMAIL = "pizzanationapp@gmail.com";
@@ -258,8 +266,8 @@ public final class WebConstants {
 
     //jms
     public static final String SEND_EMAIL_DESTINATION = "client_feedback";
-    public static final String NEW_PRODUCTS_DESTINATION = "new_products";
     public static final String USER_ARRIVED_DESTINATION = "user_arrived";
+    public static final String PROMOTIONAL_PRODUCT_DESTINATION = "new_promotional_product_arrived";
 
     //Request Methods
 //    public static final String POST = "POST";

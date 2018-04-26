@@ -12,7 +12,9 @@
                             <div class="eb_text">
                                 <h3>Newest Product</h3>
                                 <p th:text="|Try out our newest masterpiece - ${model.getNewest().getName()}|"></p>
-                                <a href="#" class="button_flat button_flat_red">Add To Card</a>
+                                <a th:id="${model.getNewest().getName()}"
+                                   class="button_flat button_flat_red add_to_cart_btn">Add To
+                                    Cart</a>
                             </div>
                         </div>
                         <div class="eb_left">
@@ -32,7 +34,9 @@
                             <div class="eb_text">
                                 <h3>Best seller</h3>
                                 <p th:text="|This is the best selling product for now - ${model.getBestSeller().getName()}|"></p>
-                                <a href="#" class="button_flat button_flat_red">Add To Card</a>
+                                <a th:id="${model.getBestSeller().getName()}"
+                                   class="button_flat button_flat_red add_to_cart_btn">Add To
+                                    Cart</a>
                             </div>
                         </div>
                         <div class="eb_left">
@@ -52,7 +56,9 @@
                             <div class="eb_text">
                                 <h3>On Sale</h3>
                                 <p th:text="|One of our promotional products right now - ${model.getPromotional().getName()}|"></p>
-                                <a href="#" class="button_flat button_flat_red">Add To Card</a>
+                                <a th:id="${model.getPromotional().getName()}"
+                                   class="button_flat button_flat_red add_to_cart_btn">Add To
+                                    Cart</a>
                             </div>
                         </div>
                         <div class="eb_left">
@@ -72,12 +78,12 @@
                             <h2>Mobile App</h2>
                             <p>Pizza Nation mobile app is going to be released when i complete the SoftUni Android
                                 course.</p>
-                            <a href="#" class="button_flat button_flat_red">Find out more</a>
+                            <a class="button_flat button_flat_red">Find out more</a>
                         </div>
                     </div>
                     <div class="eb_right">
-                        <a href="#"><img th:src="@{/img/info/phone.jpg}" width="700" height="350"
-                                         alt="Pizza Nation fresh dough, though" title="" border="0"></a>
+                        <img th:src="@{/img/info/phone.jpg}" width="700" height="350"
+                             alt="Pizza Nation fresh dough, though" title="" border="0">
                     </div>
                     <div class="clear"><!-- clear --></div>
                 </div>

@@ -1,5 +1,10 @@
 /* Shopping cart Style */
 
+p {
+    font-weight: bold;
+    font-size: 12px;
+}
+
 #cartform_table_title {
     font-size: 18px;
 }

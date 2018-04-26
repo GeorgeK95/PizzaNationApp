@@ -30,15 +30,11 @@
                             <input type="text" id="details" name="details" placeholder="Details" class="form_item"
                                    th:field="*{details}" readonly="readonly"/>
 
-                           <!-- <div class="pad5">&lt;!&ndash;spaces&ndash;&gt;</div>
+                            <div class="pad5"><!--spaces--></div>
 
-                            <label for="ingredientsIds">Ingredients Included</label>
-                            <select disabled="disabled" multiple="" class="form_item" id="ingredientsIds"
-                                    th:field="*{ingredientsIds}">
-                                <option th:each="ingredient : ${ingredientsList}" th:value="${ingredient.getId()}"
-                                        th:text="${ingredient.getName()}">1
-                                </option>
-                            </select>-->
+                            <label for="price">Product Price*</label>
+                            <input class="form_item" type="number" step="0.01" id="price" th:field="*{price}"
+                                   readonly="readonly"/>
 
                             <div class="pad10"><!-- spacer --></div>
 

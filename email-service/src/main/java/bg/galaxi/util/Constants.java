@@ -18,8 +18,10 @@ public final class Constants {
 
     public static final String SEND_EMAIL_DESTINATION = "client_feedback";
     public static final String USER_ARRIVED_DESTINATION = "user_arrived";
+    public static final String PROMOTIONAL_PRODUCT_DESTINATION = "new_promotional_product_arrived";
 
     public static final String CONFIRM_MESSAGE = "Please confirm your account.";
+    public static final String NEW_PRODUCT = "New Promotional product in pizza nation !";
 
     private Constants() {
     }

@@ -2,6 +2,7 @@ package pizzaNation.app.model.request;
 
 import org.springframework.web.multipart.MultipartFile;
 import pizzaNation.app.annotation.Image;
+import pizzaNation.app.annotation.Price;
 
 import javax.validation.constraints.*;
 
@@ -24,8 +25,7 @@ public class AddProductRequestModel {
     @Size(message = INVALID_PRODUCT_MESSAGE)
     private String details;
 
-    @NotBlank
-    @Digits(integer = 18, fraction = 1)
+    @Price
     private BigDecimal price;
 
     private Boolean isPromotional;

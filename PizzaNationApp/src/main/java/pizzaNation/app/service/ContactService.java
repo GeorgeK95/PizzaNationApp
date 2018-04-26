@@ -41,7 +41,7 @@ public class ContactService extends BaseService implements IContactService {
 
         if (super.containErrors(bindingResult, attributes, CONTACT_FORM_ERROR)) return false;
 
-        this.sendEmail(requestModel);
+        new Thread(() -> this.sendEmail(requestModel)).start();
 
         attributes.addFlashAttribute(CONTACT_FORM_SUCCESS, SUCCESSFULLY_SENT_FEEDBACK_MESSAGE);
 
@@ -49,7 +49,7 @@ public class ContactService extends BaseService implements IContactService {
     }
 
     private void sendEmail(ContactUsRequestModel requestModel) {
-        new Thread(() -> jmsTemplate.convertAndSend(SEND_EMAIL_DESTINATION, new Gson().toJson(requestModel))).start();
+        jmsTemplate.convertAndSend(SEND_EMAIL_DESTINATION, new Gson().toJson(requestModel));
     }
 
     @Override

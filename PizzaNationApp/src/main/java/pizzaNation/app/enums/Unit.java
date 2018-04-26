@@ -4,16 +4,16 @@ package pizzaNation.app.enums;
  * Created by George-Lenovo on 01/04/2018.
  */
 public enum Unit {
-    KILOGRAM,
+    KILOGRAMS,
 //    CARATS,
-    CENTIGRAM,
-    DECIGRAM,
-    DEKAGRAM,
+    CENTIGRAMS,
+    DECIGRAMS,
+    DEKAGRAMS,
 //    GRAINS,
-    GRAM,
+    GRAMS,
 //    KILOGRAMS,
 //    MICROGRAMS,
-    MILLIGRAM,
+    MILLIGRAMS,
 //    NEWTONS,
 //    OUNCES_AVOIR,
 //    OUNCES_TROY,

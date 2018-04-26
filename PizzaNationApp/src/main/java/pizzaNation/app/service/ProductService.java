@@ -1,6 +1,8 @@
 package pizzaNation.app.service;
 
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
@@ -13,6 +15,7 @@ import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.model.request.AddProductRequestModel;
 import pizzaNation.app.model.request.EditProductRequestModel;
 import pizzaNation.app.model.response.ProductResponseModel;
+import pizzaNation.app.model.transfer.EmailVerification;
 import pizzaNation.app.model.view.HomeViewModel;
 import pizzaNation.app.model.view.MenuProductsViewModel;
 import pizzaNation.app.model.view.ProductViewModel;
@@ -22,6 +25,7 @@ import pizzaNation.app.service.contract.IIngredientService;
 import pizzaNation.app.service.contract.IProductService;
 import pizzaNation.app.util.DTOConverter;
 import pizzaNation.user.service.BaseService;
+import pizzaNation.user.service.IUserService;
 
 import java.util.HashSet;
 import java.util.List;
@@ -45,13 +49,19 @@ public class ProductService extends BaseService implements IProductService {
 
     private final IImageService imageService;
 
+    private final JmsTemplate jmsTemplate;
+
+    private final IUserService userService;
+
 
     @Autowired
-    public ProductService(ProductRepository productService, IIngredientService ingredientService, IImageService imageService, MenuRepository menuRepository) {
+    public ProductService(ProductRepository productService, IIngredientService ingredientService, IImageService imageService, MenuRepository menuRepository, JmsTemplate jmsTemplate, IUserService userService) {
         this.productRepository = productService;
         this.ingredientService = ingredientService;
         this.imageService = imageService;
         this.menuRepository = menuRepository;
+        this.jmsTemplate = jmsTemplate;
+        this.userService = userService;
     }
 
     /*@Override
@@ -107,7 +117,20 @@ public class ProductService extends BaseService implements IProductService {
 
         if (this.checkForDuplicateName(addProductRequestModel.getName(), ADD_PRODUCT_ERROR, attributes)) return false;
 
-        return this.persistProduct(addProductRequestModel);
+        this.persistProduct(addProductRequestModel);
+
+        new Thread(this::sendEmailToSubscribers).start();
+
+        return true;
+    }
+
+    private void sendEmailToSubscribers() {
+        Set<String> subscribersEmails = this.userService.getSubscribersEmails();
+
+        for (String email : subscribersEmails) {
+            this.jmsTemplate.convertAndSend(PROMOTIONAL_PRODUCT_DESTINATION,
+                    new Gson().toJson(new EmailVerification(email, PROMOTIONAL_PRODUCTS_ARRIVED_MESSAGE)));
+        }
     }
 
     private boolean checkForDuplicateName(String name, String error, RedirectAttributes attributes) {
@@ -123,8 +146,8 @@ public class ProductService extends BaseService implements IProductService {
     public boolean persistProduct(AddProductRequestModel addProductRequestModel) {
         Product product = DTOConverter.convert(addProductRequestModel, Product.class);
 
-        /*MultipartFile productImage = addProductRequestModel.getImage();
-        if (!productImage.getName().isEmpty()) product.setImage(this.imageService.uploadImage(productImage));*/
+        MultipartFile productImage = addProductRequestModel.getImage();
+        if (!productImage.getName().isEmpty()) product.setImage(this.imageService.uploadImage(productImage));
 
         this.productRepository.saveAndFlush(product);
 
@@ -154,6 +177,7 @@ public class ProductService extends BaseService implements IProductService {
         product.setName(editProductRequestModel.getName());
         product.setDetails(editProductRequestModel.getDetails());
         product.setPromotional(editProductRequestModel.getPromotional());
+        product.setPrice(editProductRequestModel.getPrice());
         if (!editProductRequestModel.getImage().getOriginalFilename().isEmpty())
             product.setImage(this.imageService.uploadImage(editProductRequestModel.getImage()));
         /*if (editProductRequestModel.getIngredientsIds() != null)

@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pizzaNation.app.model.entity.Log;
+import pizzaNation.app.model.entity.Order;
 import pizzaNation.user.enumeration.Gender;
 
 import javax.persistence.*;
@@ -74,6 +75,9 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "user")
     private Set<Log> logs;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Order> orders;
 
     public User() {
         this.authorities = new HashSet<>();
@@ -207,6 +211,10 @@ public class User implements UserDetails {
         return id;
     }
 
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
     //SETTERS
 
     public void setEmail(String email) {
@@ -285,4 +293,7 @@ public class User implements UserDetails {
         this.id = id;
     }
 
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
 }

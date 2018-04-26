@@ -234,6 +234,11 @@ public class UserService extends BaseService implements IUserService {
         return true;
     }
 
+    @Override
+    public Set<String> getSubscribersEmails() {
+        return this.userRepository.findAllSubscribed().stream().map(User::getEmail).collect(Collectors.toSet());
+    }
+
     /*@Override
     public List<UserViewModel> findAllSubscribed() {
         return DTOConverter.convert(this.userRepository.findAllSubscribed(), UserViewModel.class);
@@ -285,15 +290,13 @@ public class UserService extends BaseService implements IUserService {
 
         this.userRepository.saveAndFlush(user);
 
-        this.sendConfirmEmail(requestModel.getEmail(), user.getEmailVerificationCode());
+        new Thread(() -> this.sendConfirmEmail(requestModel.getEmail(), user.getEmailVerificationCode())).start();
 
         return true;
     }
 
     private void sendConfirmEmail(String email, String code) {
-        new Thread(() -> jmsTemplate.convertAndSend(USER_ARRIVED_DESTINATION,
-                new Gson().toJson(new EmailVerification(email, String.format(VERIFICATION_MESSAGE, code))))
-        ).start();
+        jmsTemplate.convertAndSend(USER_ARRIVED_DESTINATION, new Gson().toJson(new EmailVerification(email, String.format(VERIFICATION_MESSAGE, code))));
     }
 
 }

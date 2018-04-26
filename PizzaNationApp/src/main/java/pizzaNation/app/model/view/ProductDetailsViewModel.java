@@ -16,7 +16,7 @@ public class ProductDetailsViewModel {
 
     private Set<IngredientViewModel> ingredients;
 
-    private Image image;
+    private ImageViewModel image;
 
     public String getName() {
         return name;
@@ -30,7 +30,7 @@ public class ProductDetailsViewModel {
         return ingredients;
     }
 
-    public Image getImage() {
+    public ImageViewModel getImage() {
         return image;
     }
 
@@ -46,7 +46,7 @@ public class ProductDetailsViewModel {
         this.ingredients = ingredients;
     }
 
-    public void setImage(Image image) {
+    public void setImage(ImageViewModel image) {
         this.image = image;
     }
 }

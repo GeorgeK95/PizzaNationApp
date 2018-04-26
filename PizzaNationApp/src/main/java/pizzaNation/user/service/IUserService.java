@@ -14,6 +14,7 @@ import pizzaNation.user.model.request.UserRegisterRequestModel;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by George-Lenovo on 27/03/2018.
@@ -42,6 +43,8 @@ public interface IUserService extends UserDetailsService {
     boolean editUserDetails(String currentEmail, EditDetailsRequestModel requestModel, RedirectAttributes attributes, BindingResult result);
 
     boolean confirmAccount(String token, RedirectAttributes attributes);
+
+    Set<String> getSubscribersEmails();
 
 //    List<UserViewModel> findAllSubscribed();
 }

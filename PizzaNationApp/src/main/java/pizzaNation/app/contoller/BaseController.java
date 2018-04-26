@@ -65,7 +65,7 @@ public abstract class BaseController {
 
     protected ModelAndView redirectAndLog(String redirectUrl) {
         ModelAndView modelAndViewWithLogAttribute = new ModelAndView(REDIRECT_STR.concat(redirectUrl));
-        modelAndViewWithLogAttribute.addObject(LOGGER, true);
+        modelAndViewWithLogAttribute.addObject(LOGGER_MESSAGE, true);
         return modelAndViewWithLogAttribute;
     }
 

@@ -3,7 +3,9 @@ package pizzaNation.app.model.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,14 +30,16 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private Set<Menu> menus;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private Set<Ingredient> ingredients;
 
     private int totalSales;
 
     private Boolean isPromotional;
 
-    @Column(nullable = false)
+    @Column(nullable = false, precision = 7, scale = 2)
+//    @Price(digitsAfterDecPlate = 2)
+//    @Digits(integer = 18, fraction = 1)
     private BigDecimal price;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -136,7 +140,7 @@ public class Product {
         this.date = date;
     }
 
-    public void setPrice(Double price) {
-        this.price = new BigDecimal(price);
+    public void setPrice(BigDecimal price) {
+        this.price = price.setScale(2, RoundingMode.CEILING);
     }
 }
