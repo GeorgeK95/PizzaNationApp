@@ -44,23 +44,6 @@ public class AccountController extends BaseController {
         this.accountService.tryConfirmAccount(request.getQueryString(), attributes);
 
         return super.redirect(LOGIN_URL);
-//        return super.view(model, Map.ofEntries(entry(PAGE_TITLE_STR, CONFIRM_PAGE_TITLE)));
     }
-
-    /*@PreAuthorize("isAnonymous()")
-    @PostMapping(CONFIRM_URL)
-    public ModelAndView confirmProcess(ConfirmAccountRequestModel model, RedirectAttributes attributes) {
-        if (!this.userService.confirmAccount(model.getToken(), attributes))
-            return super.redirect(CONFIRM_URL);
-        return super.redirect(LOGIN_URL);
-    }*/
-
-    /*@PreAuthorize("isAnonymous()")
-    @GetMapping("/test")
-    public ModelAndView confirm(HttpServletRequest request, RedirectAttributes attributes) {
-        this.accountService.tryConfirmAccount(request.getQueryString(), attributes);
-
-        return super.redirect(LOGIN_URL);
-    }*/
 
 }

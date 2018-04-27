@@ -27,6 +27,7 @@ public final class WebConstants {
     public static final String ADMIN_URL = "/admin";
     public static final String TERMS_URL = "/terms";
     public static final String CART_URL = "/cart";
+    public static final String CART_CHECKOUT_URL = "/cart/checkout";
     public static final String REGISTER_URL = "/register";
     public static final String LOGIN_URL = "/login";
     public static final String CONFIRM_URL = "/confirm";
@@ -131,7 +132,10 @@ public final class WebConstants {
     public static final String QUESTION_MARK_STR = "\\?";
     public static final String VERIFICATION_CODE_STR = "verificationCode";
     public static final String CART_ADD_PRODUCT_URL = "/cart/addProduct";
+    public static final String CART_PRODUCTS_SIZE_URL = "/cart/cartSize";
+    public static final String CART_REMOVE_PRODUCT_URL = "/cart/removeProduct";
     public static final String CART_ID_STR = "cart_id";
+    public static final String CART_PRODUCTS_COUNT_STR = "cart_products_count";
 
     //Extensions
     public static final String CSS_EXTENSION = ".css";
@@ -196,6 +200,11 @@ public final class WebConstants {
     public static final String SUCCESSFULLY_ADDED_INGREDIENT_MESSAGE = "Ingredients were added successfully.";
     public static final String LOGGER_MESSAGE = "Logger";
     public static final String PRODUCT_ADDED_SUCCESSFULLY_MESSAGE = "Product added successfully.";
+    public static final String PRODUCT_REMOVED_SUCCESSFULLY_MESSAGE = "Product removed successfully.";
+    public static final String PRODUCT_ADD_FAILED_MESSAGE = "Error ! Product was not added successfully.";
+    public static final String GET_PRODUCTS_SIZE_SUCCESS_MESSAGE = "Successfully got cart products size.";
+    public static final String GET_PRODUCTS_SIZE_FAIL_MESSAGE = "Error ! Couldn't get cart products size.";
+    public static final String PRODUCT_REMOVE_FAILED_MESSAGE = "Error ! Product was not removed successfully.";
     public static final String PROMOTIONAL_PRODUCTS_ARRIVED_MESSAGE = "New promotional products were just released on pizza nation, check them out !";
 
     //MIME-s

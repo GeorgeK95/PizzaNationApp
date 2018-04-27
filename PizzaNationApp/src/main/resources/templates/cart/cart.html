@@ -3,80 +3,90 @@
         <div class="wrapper">
             <div class="white_page">
                 <div class="page_pad">
-                    <form name="cartform" id="cartform" method="post" action="checkout/cart">
-                        <div class="div_padded_table" id="points_table">
-                            <div class="tr table_header">
-                                <div id="cartform_table_title">Menu items</div>
+
+                    <!--<form method="post" th:action="@{/cart/checkout}">-->
+                    <div class="div_padded_table">
+                        <div class="tr table_header">
+                            <div id="cartform_table_title">Menu items</div>
+                        </div>
+
+                        <th:block th:if="${model} == null or ${#lists.size(model.getProducts())} == 0">
+                            <div class="pad30"><!-- pad --></div>
+
+                            <div class="align_center bold">Your shopping cart is empty, you can add products
+                                from <a href="/menu">here</a>.
                             </div>
+                        </th:block>
 
-                            <th:block>
-                                <div class="cart_section">
-                                    <div class="tr odd_even">
-                                        <div class="cart1"><input type="text" maxlength="2" name="quantity[0]"
-                                                                  value="1" style="width: 20px;"
-                                                                  class="quantity_input"></div>
-                                        <div class="cart2">
-                                            <p>Special</p>
-                                            <p>Total Sales: 12</p>
-                                            <p>Promotional !</p>
-                                            <div class="mobile_show" style="text-align: left;">
-                                                <span><p>£18.99</p></span>
-
-                                            </div>
+                        <th:block th:if="${model} != null">
+                            <th:block th:each="product,iter : ${model.getProducts()}"
+                                      th:object="${product}">
+                                <div th:id="${product.getName()}" class="tr odd" th:fragment="cartDetails">
+                                    <div class="cart2">
+                                        <p class="product_info_name" th:text="*{name}"></p>
+                                        <p class="product_info" th:text="|Sold : *{totalSales} time/s|"></p>
+                                        <th:block th:if="*{promotional}">
+                                            <p class="product_info promotionalProduct">On Promotion !</p>
+                                        </th:block>
+                                        <div class="mobile_show" style="text-align: left;">
+                                            <span><p class="product_info" th:text="*{price}"></p></span>
                                         </div>
-                                        <div class="cart3">
-                                            <b>£18.99</b>
-                                        </div>
-                                        <div class="cart_remove_div"><a href="#"
-                                                                        class="button_flat button_flat_red cart_remove"
-                                                                        id="item_0" title="Remove from cart">X</a>
-                                        </div>
-                                        <div class="clear"><!-- clear --></div>
                                     </div>
+                                    <div class="cart3">
+                                        <b th:text="|£*{price}|"></b>
+                                    </div>
+                                    <div class="cart_remove_div">
+                                        <a th:id="*{name}"
+                                           class="button_flat button_flat_red cart_remove remove_product_btn"
+                                           title="Remove from cart">X</a>
+                                    </div>
+                                    <div class="clear"><!-- clear --></div>
                                 </div>
                             </th:block>
+                        </th:block>
 
-                            <div class="tr dark_line"><!-- --></div>
+                        <div class="tr"><!-- --></div>
 
+                        <th:block th:if="${model} != null and ${#lists.size(model.getProducts())} > 0">
                             <div class="tr odd">
-                                <div class="cart1">&nbsp;</div>
+                                <!--<div class="cart1">&nbsp;</div>-->
                                 <div class="cart2"><b>Subtotal</b></div>
-                                <div class="cart3">£36.98</div>
-                                <div class="cart4">
-                                    <div class="mobile_show" style="text-align: left;">£36.98</div>
+                                <div class="cart3 subtotal_price_holder"
+                                     th:text="|£${model.calculateTotalPrice()}|"></div>
+                                <div class="cart4 subtotal_price_holder">
+                                    <div class="mobile_show" th:text="|£${model.calculateTotalPrice()}|"
+                                         style="text-align: left;">
+                                    </div>
                                 </div>
                                 <div class="clear"><!-- clear --></div>
                             </div>
 
                             <div class="tr even">
-                                <div class="cart1">&nbsp;</div>
+                                <!--<div class="cart1">&nbsp;</div>-->
                                 <div class="cart2"><b>Delivery to your door</b></div>
-                                <div class="cart3">£0</div>
+                                <div class="cart3">£10</div>
                                 <div class="cart4">
-                                    <div class="mobile_show" style="text-align: left;">£0</div>
+                                    <div class="mobile_show" style="text-align: left;">£10</div>
                                 </div>
                                 <div class="clear"><!-- clear --></div>
                             </div>
                             <div class="tr odd">
-                                <div class="cart1">&nbsp;</div>
+                                <!--<div class="cart1">&nbsp;</div>-->
                                 <div class="cart2"><span style="font-size: 20px;"><b>Total</b></span></div>
-                                <div class="cart3"><span style="font-size: 20px;"><b>£36.98</b> </span></div>
+                                <div  class="cart3"><span class="total_price_holder" th:text="|£${model.calculateTotalPriceWithDelivery()}|"
+                                                               style="font-size: 20px; font-weight: bold"><b></b> </span>
+                                </div>
                                 <div class="cart4">
-                                    <div class="mobile_show" style="text-align: left; font-size: 20px;"><b>£36.98</b>
+                                    <div class="mobile_show" style="text-align: left; font-size: 20px;"><b
+                                            th:text="|£${model.calculateTotalPriceWithDelivery()}|"
+                                            class="total_price_holder"></b>
                                     </div>
                                 </div>
                                 <div class="clear"><!-- clear --></div>
                             </div>
-
-                            <div class="content_off" id="quantity_update_button">
-                                <div class="pad10"><!-- --></div>
-                                <input type="hidden" name="update1" id="update1" value="1">
-                                <input type="submit" value="Update quantities"
-                                       class="button_flat button_flat_white" id="quantity_update">
-                            </div>
-
-                        </div>
-                    </form>
+                        </th:block>
+                    </div>
+                    <!--</form>-->
                 </div>
 
                 <div class="pad25"><!-- pad --></div>
@@ -86,7 +96,7 @@
                     <div class="mobile_show">
                         <div class="pad10"><!-- spacer --></div>
                     </div>
-                    <a href="#" class="button_flat button_flat_green">Proceed »</a>
+                    <a th:href="@{/cart/checkout}" class="button_flat button_flat_green">Proceed »</a>
                 </div>
 
                 <div class="pad10"></div>

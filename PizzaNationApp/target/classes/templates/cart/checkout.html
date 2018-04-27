@@ -1,0 +1,31 @@
+<main>
+    <div class="page_bckgrnd_img">
+        <div class="wrapper white_page">
+            <div class="page_pad align_left">
+
+                <div class="align_center">
+                    <h3>Please confirm your order.</h3>
+                </div>
+
+                <div th:text="${model}"></div>
+
+                <ul class="non_standard">
+                    <li><i class="icon_green ion-checkmark-circled"></i> address</li>
+                    <li><i class="icon_green ion-checkmark-circled"></i> phone</li>
+                    <li><i class="icon_green ion-checkmark-circled"></i> orderid</li>
+                    <li><i class="icon_green ion-checkmark-circled"></i> totalprice</li>
+                </ul>
+
+                <div class="sep_dash"><!-- dash --></div>
+
+                <div style="text-align: center;">
+                    <div class="mobile_show">
+                        <div class="pad10"><!-- spacer --></div>
+                    </div>
+                    <a th:href="@{/cart/checkout}" class="button_flat button_flat_green">Give me Pizza !</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>

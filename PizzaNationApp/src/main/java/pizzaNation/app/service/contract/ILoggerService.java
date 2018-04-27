@@ -12,18 +12,5 @@ import static pizzaNation.app.util.WebConstants.USER_STR;
  */
 public interface ILoggerService {
 
-   /* static ModelAndView constructModelAndView(String redirectTo,
-                                              String username,
-                                              String operation,
-                                              String table) {
-        ModelAndView modelAndView = new ModelAndView(redirectTo);
-
-        modelAndView.addObject(USER_STR, username);
-        modelAndView.addObject(OPERATION_STR, operation);
-        modelAndView.addObject(MODIFIED_TABLE_STR, table);
-
-        return modelAndView;
-    }*/
-
     boolean addLog(ModelMap modelMap);
 }

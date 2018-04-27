@@ -22,7 +22,7 @@ public class PizzaNationSecurityConfiguration extends WebSecurityConfigurerAdapt
             "/register", "/login"
     };
     private static final String[] PERMITTED_FOR_LOGGED_ROUTES = new String[]{
-            "/logout", "/account"
+            "/logout", "/account", "/cart/checkout"
     };
     private static final String[] PERMITTED_FOR_ADMIN_AND_MODERATORS_ROUTES = new String[]{
             "/admin/**"

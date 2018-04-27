@@ -11,22 +11,3 @@
     $(target).html(markup);
     return false;
 }*/
-
-$(document).ready(function () {
-    $(document).on('click', 'a.add_to_cart_btn', function () {
-        addProductAjax($(this).attr('id'));
-    })
-})
-
-function addProductAjax(productName) {
-    let name = {"productName": productName.trim()};
-
-    $.post("/cart/addProduct", name)
-        .done(function (message) {
-            console.log(message);
-        })
-        .fail(function () {
-            console.log('Failed.');
-        });
-
-}

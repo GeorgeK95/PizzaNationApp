@@ -26,6 +26,8 @@ public interface ProductRepository extends JpaRepository<Product, String> {
 
     Set<Product> findAllByIdIn(String[] productIds);
 
+    Set<Product> findAllByNameIn(Set<String> names);
+
     boolean existsByName(String name);
 
     Product findByName(String name);

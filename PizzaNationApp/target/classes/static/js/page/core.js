@@ -27,3 +27,67 @@ function activate_hamburger_menu() {
         $("div#mobnav").attr("style", "display:block;");
     }
 }
+
+
+$(document).ready(function () {
+    $.get("/cart/cartSize", function (cartSize) {
+        updateProductsCount(cartSize);
+    })
+
+    $(document)
+        .on('click', 'a.select_btn', function () {
+            addProductAjax($(this).attr('id'));
+        })
+        .on('click', 'a.add_to_cart_btn', function () {
+            addProductAjax($(this).attr('id'));
+        })
+})
+
+function addProductAjax(productName) {
+    let name = {"productName": productName.trim()};
+
+    $.post("/cart/addProduct", name)
+        .done(function (message) {
+            // console.log(message.cartSize);
+            updateProductsCount(message.cartSize);
+        })
+        .fail(function () {
+            console.log('Failed.');
+        });
+
+}
+
+function updateProductsCount(productsCount) {
+    $.get("/cart/cartSize", function () {
+        let cartSizeElements = document.getElementsByClassName('cart_item_count');
+        setCartSizeElementsInnerHtml(cartSizeElements, productsCount);
+    })
+        .fail(function () {
+            console.log('Failed.');
+        });
+}
+
+function setCartSizeElementsInnerHtml(cartSizeElements, productsCount) {
+    for (let current of cartSizeElements) {
+        current.innerHTML = productsCount;
+    }
+}
+
+/*
+$(document).ready(function () {
+    $.get("/cart/cartSize", function (productsCount) {
+        // console.log(productsCount);
+        let cartSizeElements = document.getElementsByClassName('cart_item_count');
+        setCartSizeElementsInnerHtml(cartSizeElements, productsCount);
+    })
+        .fail(function () {
+            console.log('Failed.');
+        });
+})
+
+function setCartSizeElementsInnerHtml(cartSizeElements, productsCount) {
+    for (let i = 0; i < cartSizeElements.length; i++) {
+        let current = cartSizeElements[i];
+        current.innerHTML = productsCount;
+    }
+}*/

@@ -5,6 +5,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pizzaNation.app.util.StaticFilesContainer;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,10 +19,6 @@ public abstract class BaseController {
 
     @Autowired
     private StaticFilesContainer staticFilesContainer;
-
-    protected ModelAndView view() {
-        return this.view(null);
-    }
 
     protected ModelAndView view(Object viewModel) {
         StackTraceElement[] stackTraceElements = java.lang.Thread.currentThread().getStackTrace();
@@ -55,7 +52,6 @@ public abstract class BaseController {
         ModelAndView modelAndView = new ModelAndView(BASE_LAYOUT_URL);
         this.addAttributes(viewName, modelAndView);
         if (viewModel != null) modelAndView.getModelMap().addAttribute(MODEL_STR, viewModel);
-
         return modelAndView;
     }
 

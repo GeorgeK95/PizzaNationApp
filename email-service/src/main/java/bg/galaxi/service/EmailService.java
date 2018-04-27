@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import static bg.galaxi.util.Constants.ADMIN_EMAIL;
 import static bg.galaxi.util.Constants.CONFIRM_MESSAGE;
+import static bg.galaxi.util.Constants.NEW_PRODUCT;
 
 @Service
 public class EmailService {
@@ -23,7 +24,7 @@ public class EmailService {
     }
 
     public void newProductMessage(EmailVerification mail) {
-        this.sendSimpleMessage(ADMIN_EMAIL, mail.getEmail(), CONFIRM_MESSAGE,
+        this.sendSimpleMessage(ADMIN_EMAIL, mail.getEmail(), NEW_PRODUCT,
                 mail.getVerification());
     }
 
