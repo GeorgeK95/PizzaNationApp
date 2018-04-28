@@ -37,24 +37,9 @@ function updateCartPagePrices(subTotal, total) {
     }
 }
 
-/*
-
-function updateProductsCount() {
-    $.get("/cart/cartSize")
-        .done(function (productsCount) {
-            // console.log(productsCount);
-            let cartSizeElements = document.getElementsByClassName('cart_item_count');
-            // console.log(cartSizeElements);
-            setCartSizeElementsInnerHtml(cartSizeElements, productsCount);
-        })
-        .fail(function () {
-            console.log('Failed.');
-        });
+function removePaddedTable() {
+    let paddedTable = document.getElementsByClassName('div_padded_table');
+    paddedTable[0].innerHTML = '                            <div class="pad30"><!-- pad --></div>\n<div class="align_center bold">Your shopping cart is empty, you can add products\n' +
+        '                                from <a href="/menu">here</a>.\n' +
+        '                            </div>';
 }
-
-function setCartSizeElementsInnerHtml(cartSizeElements, productsCount) {
-    for (let i = 0; i < cartSizeElements.length; i++) {
-        let current = cartSizeElements[i];
-        current.innerHTML = productsCount;
-    }
-}*/

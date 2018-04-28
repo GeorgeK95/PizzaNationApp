@@ -7,22 +7,29 @@
                     <h3>Please confirm your order.</h3>
                 </div>
 
-                <div th:text="${model}"></div>
+                <div class="pad5"></div>
+                <div class="sep_dash">&lt;!&ndash; dash &ndash;&gt;</div>
 
-                <ul class="non_standard">
-                    <li><i class="icon_green ion-checkmark-circled"></i> address</li>
-                    <li><i class="icon_green ion-checkmark-circled"></i> phone</li>
-                    <li><i class="icon_green ion-checkmark-circled"></i> orderid</li>
-                    <li><i class="icon_green ion-checkmark-circled"></i> totalprice</li>
+                <ul class="non_standard" th:object="${model}">
+                    <li><i class="icon_green ion-checkmark-circled" th:text="| Delivery address: *{address}|"></i></li>
+                    <li><i class="icon_green ion-checkmark-circled" th:text="| Your phone: *{phone}|"></i></li>
+                    <!--<li><i class="icon_green ion-checkmark-circled"></i> | orderid</li>-->
+                    <li><i class="icon_green ion-checkmark-circled" th:text="| Checkout: *{totalPrice}|"></i></li>
                 </ul>
 
-                <div class="sep_dash"><!-- dash --></div>
+                <div class="sep_dash">&lt;!&ndash; dash &ndash;&gt;</div>
+                <div class="pad5"></div>
+
+                <div class="pad5"></div>
 
                 <div style="text-align: center;">
                     <div class="mobile_show">
-                        <div class="pad10"><!-- spacer --></div>
+                        <div class="pad10"><!--spacer--></div>
                     </div>
-                    <a th:href="@{/cart/checkout}" class="button_flat button_flat_green">Give me Pizza !</a>
+                    <!--<a th:href="@{/cart/checkout}" class="button_flat button_flat_green">Give me Pizza !</a>-->
+                    <form th:action="@{/cart/checkout}" method="post">
+                        <input type="submit" class="button_flat button_flat_green" value="Give me Pizza !"/>
+                    </form>
                 </div>
 
             </div>

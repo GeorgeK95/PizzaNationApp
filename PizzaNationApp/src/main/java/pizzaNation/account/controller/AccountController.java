@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.account.service.IAccountService;
 import pizzaNation.app.contoller.BaseController;
+import pizzaNation.app.service.contract.IOrderService;
 import pizzaNation.user.service.IUserService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,10 +27,13 @@ public class AccountController extends BaseController {
 
     private final IAccountService accountService;
 
+    private final IOrderService orderService;
+
     @Autowired
-    public AccountController(IUserService userService, IAccountService accountService) {
+    public AccountController(IUserService userService, IAccountService accountService, IOrderService orderService) {
         this.userService = userService;
         this.accountService = accountService;
+        this.orderService = orderService;
     }
 
     @PreAuthorize("isAuthenticated()")
@@ -44,6 +48,12 @@ public class AccountController extends BaseController {
         this.accountService.tryConfirmAccount(request.getQueryString(), attributes);
 
         return super.redirect(LOGIN_URL);
+    }
+
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping(ORDERS_URL)
+    public ModelAndView orders() {
+        return super.view(this.orderService.getUserOrders(), Map.ofEntries(entry(PAGE_TITLE_STR, MY_PIZZA_NATION)));
     }
 
 }

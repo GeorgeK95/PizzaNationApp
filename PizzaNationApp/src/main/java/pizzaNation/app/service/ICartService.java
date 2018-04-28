@@ -1,7 +1,6 @@
 package pizzaNation.app.service;
 
 import pizzaNation.app.model.view.ConfirmOrderViewModel;
-import pizzaNation.app.model.view.ProductCartViewModel;
 import pizzaNation.app.model.view.ProductCartViewModelWrapper;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,4 +25,8 @@ public interface ICartService {
     boolean confirmOrder(HttpServletRequest request);
 
     ConfirmOrderViewModel prepareOrder(HttpServletRequest request);
+
+    boolean reorder(HttpServletRequest request, HttpServletResponse response);
+
+    boolean setCartCookie(HttpServletRequest request);
 }

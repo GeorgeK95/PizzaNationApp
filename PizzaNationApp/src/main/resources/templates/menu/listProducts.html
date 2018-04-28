@@ -44,14 +44,14 @@
                                 <div class="menu_desc">
                                     <div class="menu_desc_pad">
                                         <p class="title" th:text="*{name}"></p>
-                                        <p class="desc"
-                                           th:text="${#strings.abbreviate('baikoliobaikoliobaikoliobaikolioooo02',30)} "></p>
-                                        <p class="desc" th:text="|Sold: *{totalSales} time/s|"></p>
+                                        <!--<p class="desc" th:text="${#strings.abbreviate('sad',30)}"></p>-->
+                                        <p class="desc" th:text="|Price: £*{price}|"></p>
                                     </div>
                                 </div>
 
                                 <div class="menu_quick_add">
-                                    <a th:id="${product.getName()}" class="menu_link button_flat button_flat_red button_flat_right select_btn">
+                                    <a th:id="${product.getName()}"
+                                       class="menu_link button_flat button_flat_red button_flat_right select_btn">
                                         Select
                                     </a>
                                     <div class="clear"><!-- --></div>

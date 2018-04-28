@@ -9,7 +9,7 @@ import java.io.IOException;
 
 @Component
 public class CloudImageUploader {
-    private static final String PICTURE_FOLDER_ID = "1646477902";
+    static final String PICTURE_FOLDER_ID = "1646477902";
 
     private static final String QUERY_PATH_SEPARATOR = "?";
 

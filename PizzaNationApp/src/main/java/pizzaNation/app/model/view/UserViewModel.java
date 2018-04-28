@@ -24,6 +24,8 @@ public class UserViewModel {
 
     private String phone;
 
+    private String address;
+
     private Boolean emailNewsletters;
 
     private Date date;
@@ -62,6 +64,10 @@ public class UserViewModel {
         return emailVerificationCode;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -92,5 +98,9 @@ public class UserViewModel {
 
     public void setEmailVerificationCode(String emailVerificationCode) {
         this.emailVerificationCode = emailVerificationCode;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

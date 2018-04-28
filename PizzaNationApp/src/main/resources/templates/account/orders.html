@@ -1,0 +1,29 @@
+<main>
+
+    <div class="pad25"></div>
+
+    <div class="divTable">
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Buyer</th>
+                <th>Address</th>
+                <th>Status</th>
+            </tr>
+
+            <th:block th:each="order,iter : ${model}">
+                <tr>
+                    <td th:text="${iter.index + 1}"></td>
+                    <td th:text="${#dates.format(order.getDate(), 'hh:mm / dd-MMM-yyyy')}"></td>
+                    <td th:text="${order.getUser().getEmail()}"></td>
+                    <td th:text="${order.getUser().getAddress()}"></td>
+                    <td th:text="${order.getStatus()}"></td>
+                </tr>
+            </th:block>
+        </table>
+
+        <div class="pad30"></div>
+
+    </div>
+</main>

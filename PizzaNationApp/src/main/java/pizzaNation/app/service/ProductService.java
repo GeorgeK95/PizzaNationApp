@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.admin.repository.MenuRepository;
+import pizzaNation.app.exception.MenuNotFoundException;
 import pizzaNation.app.exception.ProductNotFoundException;
 import pizzaNation.app.model.entity.Menu;
 import pizzaNation.app.model.entity.Product;
@@ -64,16 +65,6 @@ public class ProductService extends BaseService implements IProductService {
         this.userService = userService;
     }
 
-    /*@Override
-    public ProductViewModel getLast() {
-        return DTOConverter.convert(this.productRepository.findAllOrderByDate().stream().findFirst().get(), ProductViewModel.class);
-    }
-
-    @Override
-    public ProductViewModel getBestSeller() {
-        return DTOConverter.convert(this.productRepository.getBestSeller().stream().findFirst().get(), ProductViewModel.class);
-    }*/
-
     @Override
     public HomeViewModel constructHomeModel() {
         ProductViewModel bestSeller = this.tryGetBestSeller();
@@ -98,16 +89,6 @@ public class ProductService extends BaseService implements IProductService {
         return this.productRepository.findAllByIdIn(productIds);
     }
 
-  /*  @Override
-    public void saveAll(Set<Product> allByIds) {
-        this.productRepository.saveAll(allByIds);
-    }*/
-
-    /*@Override
-    public Set<Product> findAllByMenuName(String name) {
-        return this.productRepository.findAllByMenuNameOrderByDate(name);
-    }*/
-
     @Override
     public boolean addProduct(AddProductRequestModel addProductRequestModel, RedirectAttributes attributes,
                               BindingResult bindingResult) {
@@ -122,24 +103,6 @@ public class ProductService extends BaseService implements IProductService {
         new Thread(this::sendEmailToSubscribers).start();
 
         return true;
-    }
-
-    private void sendEmailToSubscribers() {
-        Set<String> subscribersEmails = this.userService.getSubscribersEmails();
-
-        for (String email : subscribersEmails) {
-            this.jmsTemplate.convertAndSend(PROMOTIONAL_PRODUCT_DESTINATION,
-                    new Gson().toJson(new EmailVerification(email, PROMOTIONAL_PRODUCTS_ARRIVED_MESSAGE)));
-        }
-    }
-
-    private boolean checkForDuplicateName(String name, String error, RedirectAttributes attributes) {
-        if (this.productRepository.existsByName(name)) {
-            attributes.addFlashAttribute(error, PRODUCT_NAME_ALREADY_TAKEN_MESSAGE);
-            return true;
-        }
-
-        return false;
     }
 
     @Override
@@ -161,7 +124,6 @@ public class ProductService extends BaseService implements IProductService {
         if (product == null) throw new ProductNotFoundException();
 
         T model = DTOConverter.convert(product, clazz);
-//        model.setIngredientsIds(product.getIngredients().stream().map(Ingredient::getId).collect(Collectors.toSet()));
 
         return model;
     }
@@ -180,8 +142,6 @@ public class ProductService extends BaseService implements IProductService {
         product.setPrice(editProductRequestModel.getPrice());
         if (!editProductRequestModel.getImage().getOriginalFilename().isEmpty())
             product.setImage(this.imageService.uploadImage(editProductRequestModel.getImage()));
-        /*if (editProductRequestModel.getIngredientsIds() != null)
-            product.setIngredients(this.ingredientService.findAllByIds(editProductRequestModel.getIngredientsIds().toArray(new String[0])));*/
 
         this.productRepository.saveAndFlush(product);
 
@@ -203,23 +163,10 @@ public class ProductService extends BaseService implements IProductService {
         return true;
     }
 
-    private void clearProductFromItsMenus(Product product) {
-        Set<Product> newSet = new HashSet<>();
-
-        for (Menu menu : product.getMenus()) {
-            for (Product curr : menu.getProducts()) {
-                if (!curr.getName().equals(product.getName()))
-                    newSet.add(curr);
-            }
-
-            menu.setProducts(newSet);
-            this.menuRepository.saveAndFlush(menu);
-            newSet = new HashSet<>();
-        }
-    }
-
     @Override
     public List<MenuProductsViewModel> getMenuProducts(String menuName) {
+         if (this.menuRepository.findByName(menuName) == null) throw new MenuNotFoundException();
+
         Set<Product> menuProducts = this.productRepository.getMenuProducts(menuName);
         List<MenuProductsViewModel> convert = DTOConverter.convert(menuProducts, MenuProductsViewModel.class);
         return convert;
@@ -233,6 +180,39 @@ public class ProductService extends BaseService implements IProductService {
                 !product.getName().equals(editMenuRequestModel.getName())) return true;
 
         return super.containErrors(bindingResult, attributes, EDIT_PRODUCT_ERROR);
+    }
+
+    private void sendEmailToSubscribers() {
+        Set<String> subscribersEmails = this.userService.getSubscribersEmails();
+
+        for (String email : subscribersEmails) {
+            this.jmsTemplate.convertAndSend(PROMOTIONAL_PRODUCT_DESTINATION,
+                    new Gson().toJson(new EmailVerification(email, PROMOTIONAL_PRODUCTS_ARRIVED_MESSAGE)));
+        }
+    }
+
+    private boolean checkForDuplicateName(String name, String error, RedirectAttributes attributes) {
+        if (this.productRepository.existsByName(name)) {
+            attributes.addFlashAttribute(error, PRODUCT_NAME_ALREADY_TAKEN_MESSAGE);
+            return true;
+        }
+
+        return false;
+    }
+
+    private void clearProductFromItsMenus(Product product) {
+        Set<Product> newSet = new HashSet<>();
+
+        for (Menu menu : product.getMenus()) {
+            for (Product curr : menu.getProducts()) {
+                if (!curr.getName().equals(product.getName()))
+                    newSet.add(curr);
+            }
+
+            menu.setProducts(newSet);
+            this.menuRepository.saveAndFlush(menu);
+            newSet = new HashSet<>();
+        }
     }
 
     private ProductViewModel tryGetPromotional() {

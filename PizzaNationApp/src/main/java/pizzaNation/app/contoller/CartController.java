@@ -8,7 +8,6 @@ import org.springframework.web.servlet.ModelAndView;
 import pizzaNation.app.annotation.LoggerAction;
 import pizzaNation.app.enums.Action;
 import pizzaNation.app.enums.TableEnum;
-import pizzaNation.app.model.view.ConfirmOrderViewModel;
 import pizzaNation.app.service.ICartService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +38,7 @@ public class CartController extends BaseController {
         return super.view(this.cartService.getProducts(request), Map.ofEntries(entry(PAGE_TITLE_STR, SHOPPING_CART_PAGE_TITLE)));
     }
 
-    @LoggerAction(action = Action.ORDER, table = TableEnum.ORDER)
+    @LoggerAction(action = Action.PRODUCT_ORDERED, table = TableEnum.ORDER)
     @RequestMapping(value = CART_ADD_PRODUCT_URL, method = RequestMethod.POST, produces = APPLICATION_JSON_MIME)
     public @ResponseBody
     String addProduct(@RequestParam String productName, HttpServletRequest request, HttpServletResponse response) {
@@ -67,14 +66,34 @@ public class CartController extends BaseController {
     @PreAuthorize("isAuthenticated()")
     @GetMapping(CART_CHECKOUT_URL)
     public ModelAndView checkout(HttpServletRequest request) {
-        return super.view(this.cartService.prepareOrder(request), Map.ofEntries(entry(PAGE_TITLE_STR, SHOPPING_CART_PAGE_TITLE)));
+        if (this.cartService.prepareOrder(request) != null)
+            return super.view(this.cartService.prepareOrder(request), Map.ofEntries(entry(PAGE_TITLE_STR, SHOPPING_CART_PAGE_TITLE)));
+        return super.redirect(MENU_URL);
     }
 
     @PreAuthorize("isAuthenticated()")
     @PostMapping(CART_CHECKOUT_URL)
+    @LoggerAction(action = Action.PRODUCT_ORDERED, table = TableEnum.ORDER)
     public ModelAndView checkoutProcess(HttpServletRequest request) {
-        if (this.cartService.confirmOrder(request))
-            return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, SHOPPING_CART_PAGE_TITLE)));
-        return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, SHOPPING_CART_PAGE_TITLE)));
+        this.cartService.confirmOrder(request);
+
+        return super.redirectAndLog(SLASH_STR);
     }
+
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping(REORDER_URL)
+    public ModelAndView reorder(HttpServletRequest request, HttpServletResponse response) {
+        this.cartService.reorder(request, response);
+
+        return super.redirect(CART_CHECKOUT_URL);
+    }
+
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping(SET_CART_COOKIE_URL)
+    public ModelAndView setCookie(HttpServletRequest request, HttpServletResponse response) {
+        this.cartService.setCartCookie(request);
+
+        return super.redirect(SLASH_STR);
+    }
+
 }

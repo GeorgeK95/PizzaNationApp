@@ -4,11 +4,12 @@
             <div class="white_page">
                 <div class="page_pad">
 
-                    <!--<form method="post" th:action="@{/cart/checkout}">-->
+                    <div class="table_header">
+                        <div id="cartform_table_title">Menu items</div>
+                    </div>
+
                     <div class="div_padded_table">
-                        <div class="tr table_header">
-                            <div id="cartform_table_title">Menu items</div>
-                        </div>
+
 
                         <th:block th:if="${model} == null or ${#lists.size(model.getProducts())} == 0">
                             <div class="pad30"><!-- pad --></div>
@@ -49,7 +50,6 @@
 
                         <th:block th:if="${model} != null and ${#lists.size(model.getProducts())} > 0">
                             <div class="tr odd">
-                                <!--<div class="cart1">&nbsp;</div>-->
                                 <div class="cart2"><b>Subtotal</b></div>
                                 <div class="cart3 subtotal_price_holder"
                                      th:text="|£${model.calculateTotalPrice()}|"></div>
@@ -62,7 +62,6 @@
                             </div>
 
                             <div class="tr even">
-                                <!--<div class="cart1">&nbsp;</div>-->
                                 <div class="cart2"><b>Delivery to your door</b></div>
                                 <div class="cart3">£10</div>
                                 <div class="cart4">
@@ -71,10 +70,10 @@
                                 <div class="clear"><!-- clear --></div>
                             </div>
                             <div class="tr odd">
-                                <!--<div class="cart1">&nbsp;</div>-->
                                 <div class="cart2"><span style="font-size: 20px;"><b>Total</b></span></div>
-                                <div  class="cart3"><span class="total_price_holder" th:text="|£${model.calculateTotalPriceWithDelivery()}|"
-                                                               style="font-size: 20px; font-weight: bold"><b></b> </span>
+                                <div class="cart3"><span class="total_price_holder"
+                                                         th:text="|£${model.calculateTotalPriceWithDelivery()}|"
+                                                         style="font-size: 20px; font-weight: bold"><b></b> </span>
                                 </div>
                                 <div class="cart4">
                                     <div class="mobile_show" style="text-align: left; font-size: 20px;"><b
@@ -86,7 +85,6 @@
                             </div>
                         </th:block>
                     </div>
-                    <!--</form>-->
                 </div>
 
                 <div class="pad25"><!-- pad --></div>

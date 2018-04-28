@@ -106,11 +106,11 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args) {
-        this.addUsersWithRoles();
+        /*this.addUsersWithRoles();
         this.addMenus();
         this.addProducts();
         this.addIngredients();
-        this.addStore();
+        this.addStore();*/
     }
 
     private void setPromotionalProductsToPromotionsMenu(Set<Product> productsSet) {

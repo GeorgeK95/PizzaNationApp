@@ -10,9 +10,11 @@ import pizzaNation.app.model.entity.Image;
 import java.io.IOException;
 import java.util.*;
 
+import static pizzaNation.pcloud.image.CloudImageUploader.PICTURE_FOLDER_ID;
+
 @Component
 public class CloudImageExtractor {
-    private static final String PICTURE_FOLDER_ID = "1646477902";
+//    private static final String PICTURE_FOLDER_ID = "1646477902";
 
     private static final String QUERY_PATH_SEPARATOR = "?";
 

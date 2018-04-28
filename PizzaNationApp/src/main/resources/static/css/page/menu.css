@@ -64,7 +64,8 @@ div.menu_desc p.title a {
 }
 
 div.menu_desc p.desc {
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: lighter;
 }
 
 div.menu_desc p.desc a {

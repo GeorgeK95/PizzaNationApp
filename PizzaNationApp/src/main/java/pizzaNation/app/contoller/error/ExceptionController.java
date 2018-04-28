@@ -63,4 +63,8 @@ public class ExceptionController extends BaseController implements ErrorControll
     public String getErrorPath() {
         return UNAUTHORIZED_URL;
     }
+
+    public ModelAndView badRequest() {
+        return super.view(JSESSIONID_NOT_FOUND_EXCEPTION_MESSAGE, BAD_REQUEST_PAGE_TITLE_MAP, BAD_REQUEST_CODE);
+    }
 }

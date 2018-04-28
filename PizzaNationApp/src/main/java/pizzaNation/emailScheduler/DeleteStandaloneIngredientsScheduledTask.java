@@ -9,7 +9,7 @@ import pizzaNation.user.service.IUserService;
 
 import java.util.Set;
 
-import static pizzaNation.app.util.WebConstants.SCHEDULER_FIXED_RATE;
+import static pizzaNation.app.util.WebConstants.EMAIL_SCHEDULER_FIXED_RATE;
 
 /**
  * Created by George-Lenovo on 17/04/2018.
@@ -27,7 +27,7 @@ public class DeleteStandaloneIngredientsScheduledTask {
         this.ingredientService = ingredientService;
     }
 
-    @Scheduled(fixedRate = SCHEDULER_FIXED_RATE)
+    @Scheduled(fixedRate = EMAIL_SCHEDULER_FIXED_RATE)
     public void reportCurrentTime() {
         Set<Ingredient> allStandalone = this.ingredientService.findAllStandalone();
 

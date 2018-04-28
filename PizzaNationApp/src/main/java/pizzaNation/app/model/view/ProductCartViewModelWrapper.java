@@ -73,6 +73,8 @@ public class ProductCartViewModelWrapper {
     }
 
     public BigDecimal getTotalPriceWithDelivery() {
+        if (this.totalPriceWithDelivery==null)
+            this.setTotalPriceForCurrentProductsInCartWithDelivery();
         return totalPriceWithDelivery;
     }
 }

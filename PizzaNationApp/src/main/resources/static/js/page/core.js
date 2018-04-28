@@ -48,7 +48,6 @@ function addProductAjax(productName) {
 
     $.post("/cart/addProduct", name)
         .done(function (message) {
-            // console.log(message.cartSize);
             updateProductsCount(message.cartSize);
         })
         .fail(function () {
@@ -58,6 +57,7 @@ function addProductAjax(productName) {
 }
 
 function updateProductsCount(productsCount) {
+    if (productsCount === 0) removePaddedTable();
     $.get("/cart/cartSize", function () {
         let cartSizeElements = document.getElementsByClassName('cart_item_count');
         setCartSizeElementsInnerHtml(cartSizeElements, productsCount);
@@ -72,22 +72,3 @@ function setCartSizeElementsInnerHtml(cartSizeElements, productsCount) {
         current.innerHTML = productsCount;
     }
 }
-
-/*
-$(document).ready(function () {
-    $.get("/cart/cartSize", function (productsCount) {
-        // console.log(productsCount);
-        let cartSizeElements = document.getElementsByClassName('cart_item_count');
-        setCartSizeElementsInnerHtml(cartSizeElements, productsCount);
-    })
-        .fail(function () {
-            console.log('Failed.');
-        });
-})
-
-function setCartSizeElementsInnerHtml(cartSizeElements, productsCount) {
-    for (let i = 0; i < cartSizeElements.length; i++) {
-        let current = cartSizeElements[i];
-        current.innerHTML = productsCount;
-    }
-}*/

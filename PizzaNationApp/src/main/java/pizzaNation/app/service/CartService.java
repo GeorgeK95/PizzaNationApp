@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pizzaNation.app.config.PizzaNationSecurityConfiguration;
 import pizzaNation.app.enums.OrderStatus;
+import pizzaNation.app.exception.SessionNotFoundException;
 import pizzaNation.app.model.entity.Order;
 import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.model.view.ConfirmOrderViewModel;
@@ -39,6 +40,7 @@ public class CartService implements ICartService {
 
     private Map<String, String> sessionCartData;
     private Map<String, ProductCartViewModelWrapper> cartProductsSessionData;
+    private Map<String, ProductCartViewModelWrapper> oldCartProductsSessionData;
 
     @Autowired
     public CartService(IProductService productService, ProductRepository productRepository, IUserService userService, IOrderService orderRepository) {
@@ -48,6 +50,7 @@ public class CartService implements ICartService {
         this.orderRepository = orderRepository;
         this.sessionCartData = new HashMap<>();
         this.cartProductsSessionData = new HashMap<>();
+        this.oldCartProductsSessionData = new HashMap<>();
     }
 
     @Override
@@ -94,10 +97,7 @@ public class CartService implements ICartService {
             return false;
 
         String cartId = this.sessionCartData.get(request.getSession().getId());
-        if (!this.cartProductsSessionData.containsKey(cartId))
-            return false;
-
-        return true;
+        return this.cartProductsSessionData.containsKey(cartId);
     }
 
     @Override
@@ -135,25 +135,80 @@ public class CartService implements ICartService {
     public boolean confirmOrder(HttpServletRequest request) {
         if (!this.validateCartRequest(request)) return false;
 
-        Set<String> productsNames = this.getProducts(request).getProducts().stream().map(ProductCartViewModel::getName).collect(Collectors.toSet());
+        Order order = this.buildOrderObject(request);
 
-        Set<Product> productsAsEntityObjects = this.productRepository.findAllByNameIn(productsNames);
-
-        User user = this.userService.findUserByEmail(PizzaNationSecurityConfiguration.getCurrentlyLoggedInUserEmail());
-
-        Order order = new Order(productsAsEntityObjects, user, OrderStatus.IN_PROGRESS);
-
-        this.orderRepository.makeOrder(order);
+        this.orderRepository.persistOrder(order);
 
         return true;
     }
 
     @Override
     public ConfirmOrderViewModel prepareOrder(HttpServletRequest request) {
-        if (!this.validateCartRequest(request)) return null;
+        if (!this.validateCartRequest(request)) throw new SessionNotFoundException();
+
+        if (this.getCartSize(request) == 0) return null;
 
         User user = this.userService.findUserByEmail(PizzaNationSecurityConfiguration.getCurrentlyLoggedInUserEmail());
 
         return new ConfirmOrderViewModel(user.getAddress(), user.getPhone(), this.getProducts(request).getTotalPriceWithDelivery());
+    }
+
+    @Override
+    public boolean reorder(HttpServletRequest request, HttpServletResponse response) {
+        String cartId = this.sessionCartData.get(request.getSession().getId());
+        ProductCartViewModelWrapper products = oldCartProductsSessionData.get(cartId);
+
+        for (ProductCartViewModel current : products.getProducts()) {
+            this.addProduct(current.getName(), request, response);
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean setCartCookie(HttpServletRequest request) {
+        Optional<Cookie> cookieOptional = Arrays.stream(request.getCookies()).filter(c -> c.getName().equals(CART_ID_STR)).findFirst();
+
+        if (!cookieOptional.isPresent()) return false;
+
+        String cartCookie = cookieOptional.get().getValue();
+
+        if (this.oldCartProductsSessionData.containsKey(cartCookie)) {
+            this.sessionCartData.put(request.getSession().getId(), cartCookie);
+
+            ProductCartViewModelWrapper products = this.oldCartProductsSessionData.get(cartCookie);
+
+            this.cartProductsSessionData.put(cartCookie, products);
+        }
+
+        return true;
+    }
+
+
+    private Order buildOrderObject(HttpServletRequest request) {
+        Set<String> productsNames = this.getProducts(request).getProducts().stream().map(ProductCartViewModel::getName).collect(Collectors.toSet());
+
+        Set<Product> productsAsEntityObjects = this.productRepository.findAllByNameIn(productsNames);
+
+        User user = this.userService.findUserByEmail(PizzaNationSecurityConfiguration.getCurrentlyLoggedInUserEmail());
+
+        this.deleteCart(request, user.getEmail());
+
+        return new Order(productsAsEntityObjects, user, OrderStatus.IN_PROGRESS);
+    }
+
+    private void deleteCart(HttpServletRequest request, String email) {
+        String sessionId = request.getSession().getId();
+        Optional<Cookie> cartIdCookie = Arrays.stream(request.getCookies()).filter(c -> c.getName().equals(CART_ID_STR)).findFirst();
+
+        if (!this.sessionCartData.containsKey(sessionId) ||
+                !cartIdCookie.isPresent() ||
+                !this.cartProductsSessionData.containsKey(cartIdCookie.get().getValue()))
+            throw new SessionNotFoundException();
+
+        oldCartProductsSessionData.put(email, this.cartProductsSessionData.get(cartIdCookie.get().getValue())); //save user last order
+
+        this.sessionCartData.remove(sessionId);
+        this.cartProductsSessionData.remove(cartIdCookie.get().getValue());
     }
 }

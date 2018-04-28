@@ -1,5 +1,7 @@
 package pizzaNation.app.model.view;
 
+import java.math.BigDecimal;
+
 /**
  * Created by George-Lenovo on 23/04/2018.
  */
@@ -11,7 +13,7 @@ public class MenuProductsViewModel {
 
     private String details;
 
-    private Integer totalSales;
+    private BigDecimal price;
 
     private Boolean isPromotional;
 
@@ -19,16 +21,12 @@ public class MenuProductsViewModel {
 
     private IngredientViewModel ingredients;
 
-//    public String getId() {
-//        return id;
-//    }
-
     public String getName() {
         return name;
     }
 
-    public Integer getTotalSales() {
-        return totalSales;
+    public BigDecimal getPrice() {
+        return price;
     }
 
     public Boolean getPromotional() {
@@ -47,16 +45,8 @@ public class MenuProductsViewModel {
         return details;
     }
 
-//    public void setId(String id) {
-//        this.id = id;
-//    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setTotalSales(Integer totalSales) {
-        this.totalSales = totalSales;
     }
 
     public void setPromotional(Boolean promotional) {
@@ -73,5 +63,9 @@ public class MenuProductsViewModel {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }
