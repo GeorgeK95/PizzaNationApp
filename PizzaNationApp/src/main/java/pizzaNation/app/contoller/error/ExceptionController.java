@@ -1,7 +1,6 @@
 package pizzaNation.app.contoller.error;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -65,6 +64,6 @@ public class ExceptionController extends BaseController implements ErrorControll
     }
 
     public ModelAndView badRequest() {
-        return super.view(JSESSIONID_NOT_FOUND_EXCEPTION_MESSAGE, BAD_REQUEST_PAGE_TITLE_MAP, BAD_REQUEST_CODE);
+        return super.view(CART_NOT_FOUND_EXCEPTION_MESSAGE, BAD_REQUEST_PAGE_TITLE_MAP, BAD_REQUEST_CODE);
     }
 }

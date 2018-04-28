@@ -35,6 +35,6 @@ public interface ProductRepository extends JpaRepository<Product, String> {
     @Query("select p from Product p order by p.totalSales desc")
     Set<Product> getBestSeller();
 
-    @Query("select p from Product p where p.isPromotional = TRUE order by p.date desc")
+    @Query("select p from Product p where p.isPromotional = TRUE")
     Set<Product> getPromotionalProducts();
 }

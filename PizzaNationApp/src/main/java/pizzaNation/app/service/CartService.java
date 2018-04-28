@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pizzaNation.app.config.PizzaNationSecurityConfiguration;
 import pizzaNation.app.enums.OrderStatus;
-import pizzaNation.app.exception.SessionNotFoundException;
+import pizzaNation.app.exception.CartNotFoundException;
 import pizzaNation.app.model.entity.Order;
 import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.model.view.ConfirmOrderViewModel;
@@ -15,6 +15,7 @@ import pizzaNation.app.model.view.ProductCartViewModelWrapper;
 import pizzaNation.app.repository.ProductRepository;
 import pizzaNation.app.service.contract.IOrderService;
 import pizzaNation.app.service.contract.IProductService;
+import pizzaNation.app.util.DTOConverter;
 import pizzaNation.user.model.entity.User;
 import pizzaNation.user.service.IUserService;
 
@@ -40,7 +41,6 @@ public class CartService implements ICartService {
 
     private Map<String, String> sessionCartData;
     private Map<String, ProductCartViewModelWrapper> cartProductsSessionData;
-    private Map<String, ProductCartViewModelWrapper> oldCartProductsSessionData;
 
     @Autowired
     public CartService(IProductService productService, ProductRepository productRepository, IUserService userService, IOrderService orderRepository) {
@@ -50,32 +50,23 @@ public class CartService implements ICartService {
         this.orderRepository = orderRepository;
         this.sessionCartData = new HashMap<>();
         this.cartProductsSessionData = new HashMap<>();
-        this.oldCartProductsSessionData = new HashMap<>();
     }
 
     @Override
     public boolean addProduct(String productName, HttpServletRequest request, HttpServletResponse response) {
         String sessionId = request.getSession().getId();
 
-        //za taq sesiq   imash taq cart
-        String cartId = UUID.randomUUID().toString();
-        if (this.sessionCartData.containsKey(sessionId)) {
-            //imame value za takava sesiq, vzimame dr cart
-            cartId = this.sessionCartData.get(sessionId);
-        }
-
-        Optional<Cookie> cookieOptional = Arrays.stream(request.getCookies()).filter(c -> c.getName().equals(CART_ID_STR)).findFirst();
-        if (cookieOptional.isPresent() && this.sessionCartData.containsKey(sessionId)) {
-            //imam veche cart
-            cartId = cookieOptional.get().getValue();
-        } else {
-            //nqma, biem muy nov
+        String cartId;
+        Optional<Cookie> cartIdOptional = Arrays.stream(request.getCookies()).filter(c -> c.getName().equals(CART_ID_STR)).findFirst();
+        if (!cartIdOptional.isPresent()) {
+            cartId = UUID.randomUUID().toString();
             Cookie cookie = new Cookie(CART_ID_STR, cartId);
             cookie.setPath(SLASH_STR);
             response.addCookie(cookie);
+        } else {
+            cartId = cartIdOptional.get().getValue();
         }
 
-        //ako nqmash takava sesiq, zapisvame q s cartid
         this.sessionCartData.putIfAbsent(sessionId, cartId);
 
         ProductCartViewModelWrapper productsWrapper = new ProductCartViewModelWrapper();
@@ -124,6 +115,11 @@ public class CartService implements ICartService {
     }
 
     @Override
+    public int getCartSizeWithoutValidation(HttpServletRequest request) {
+        return this.getProducts(request).getProducts().size();
+    }
+
+    @Override
     public String getProductsAsJson(HttpServletRequest request) {
         ProductCartViewModelWrapper products = this.getProducts(request);
         products.setTotalPriceForCurrentProductsInCart();
@@ -144,7 +140,7 @@ public class CartService implements ICartService {
 
     @Override
     public ConfirmOrderViewModel prepareOrder(HttpServletRequest request) {
-        if (!this.validateCartRequest(request)) throw new SessionNotFoundException();
+        if (!this.validateCartRequest(request)) throw new CartNotFoundException();
 
         if (this.getCartSize(request) == 0) return null;
 
@@ -153,60 +149,38 @@ public class CartService implements ICartService {
         return new ConfirmOrderViewModel(user.getAddress(), user.getPhone(), this.getProducts(request).getTotalPriceWithDelivery());
     }
 
-    @Override
-    public boolean reorder(HttpServletRequest request, HttpServletResponse response) {
-        String cartId = this.sessionCartData.get(request.getSession().getId());
-        ProductCartViewModelWrapper products = oldCartProductsSessionData.get(cartId);
-
-        for (ProductCartViewModel current : products.getProducts()) {
-            this.addProduct(current.getName(), request, response);
-        }
-
-        return false;
-    }
-
-    @Override
-    public boolean setCartCookie(HttpServletRequest request) {
-        Optional<Cookie> cookieOptional = Arrays.stream(request.getCookies()).filter(c -> c.getName().equals(CART_ID_STR)).findFirst();
-
-        if (!cookieOptional.isPresent()) return false;
-
-        String cartCookie = cookieOptional.get().getValue();
-
-        if (this.oldCartProductsSessionData.containsKey(cartCookie)) {
-            this.sessionCartData.put(request.getSession().getId(), cartCookie);
-
-            ProductCartViewModelWrapper products = this.oldCartProductsSessionData.get(cartCookie);
-
-            this.cartProductsSessionData.put(cartCookie, products);
-        }
-
-        return true;
-    }
-
-
     private Order buildOrderObject(HttpServletRequest request) {
         Set<String> productsNames = this.getProducts(request).getProducts().stream().map(ProductCartViewModel::getName).collect(Collectors.toSet());
 
         Set<Product> productsAsEntityObjects = this.productRepository.findAllByNameIn(productsNames);
 
+        this.incrementProductSales(this.getProducts(request).getProducts());
+
         User user = this.userService.findUserByEmail(PizzaNationSecurityConfiguration.getCurrentlyLoggedInUserEmail());
 
-        this.deleteCart(request, user.getEmail());
+        this.deleteCart(request);
 
         return new Order(productsAsEntityObjects, user, OrderStatus.IN_PROGRESS);
     }
 
-    private void deleteCart(HttpServletRequest request, String email) {
+    private void incrementProductSales(List<ProductCartViewModel> productsAsEntityObjects) {
+        Set<Product> incrementedProducts = new HashSet<>();
+        for (ProductCartViewModel current : productsAsEntityObjects) {
+            Product product = this.productRepository.findByName(current.getName());
+            product.setTotalSales(product.getTotalSales() + 1);
+            incrementedProducts.add(product);
+        }
+        this.productRepository.saveAll(incrementedProducts);
+    }
+
+    private void deleteCart(HttpServletRequest request) {
         String sessionId = request.getSession().getId();
         Optional<Cookie> cartIdCookie = Arrays.stream(request.getCookies()).filter(c -> c.getName().equals(CART_ID_STR)).findFirst();
 
         if (!this.sessionCartData.containsKey(sessionId) ||
                 !cartIdCookie.isPresent() ||
                 !this.cartProductsSessionData.containsKey(cartIdCookie.get().getValue()))
-            throw new SessionNotFoundException();
-
-        oldCartProductsSessionData.put(email, this.cartProductsSessionData.get(cartIdCookie.get().getValue())); //save user last order
+            throw new CartNotFoundException();
 
         this.sessionCartData.remove(sessionId);
         this.cartProductsSessionData.remove(cartIdCookie.get().getValue());

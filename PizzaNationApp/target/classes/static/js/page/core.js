@@ -48,6 +48,7 @@ function addProductAjax(productName) {
 
     $.post("/cart/addProduct", name)
         .done(function (message) {
+            // console.log(message.cartSize);
             updateProductsCount(message.cartSize);
         })
         .fail(function () {
@@ -72,3 +73,27 @@ function setCartSizeElementsInnerHtml(cartSizeElements, productsCount) {
         current.innerHTML = productsCount;
     }
 }
+
+function removePaddedTable() {
+    let paddedTable = document.getElementsByClassName('div_padded_table');
+    paddedTable.innerHTML = "Your shopping cart is empty, you can add products from <a href=\"/menu\">here</a>.";
+}
+
+/*
+$(document).ready(function () {
+    $.get("/cart/cartSize", function (productsCount) {
+        // console.log(productsCount);
+        let cartSizeElements = document.getElementsByClassName('cart_item_count');
+        setCartSizeElementsInnerHtml(cartSizeElements, productsCount);
+    })
+        .fail(function () {
+            console.log('Failed.');
+        });
+})
+
+function setCartSizeElementsInnerHtml(cartSizeElements, productsCount) {
+    for (let i = 0; i < cartSizeElements.length; i++) {
+        let current = cartSizeElements[i];
+        current.innerHTML = productsCount;
+    }
+}*/

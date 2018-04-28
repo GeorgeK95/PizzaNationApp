@@ -30,8 +30,8 @@ public final class WebConstants {
     public static final String REGISTER_URL = "/register";
     public static final String LOGIN_URL = "/login";
     public static final String CONFIRM_URL = "/confirm";
-    public static final String ORDERS_URL = "/orders";
-    public static final String REORDER_URL = "/reorder";
+    public static final String ACCOUNT_ORDERS_URL = "/account/orders";
+    //    public static final String REORDER_URL = "/reorder";
     public static final String LOGOUT_URL = "/logout";
     public static final String CONTACT_US_URL = "/contactUs";
     public static final String STORES_URL = "/stores";
@@ -249,7 +249,7 @@ public final class WebConstants {
     public static final String ADMIN_EXCEPTION_MESSAGE = "Admin account cannot be modified.";
     public static final String PRODUCT_EXCEPTION_MESSAGE = "Product with given name was not found.";
     public static final String USER_WITH_GIVEN_CODE_EXCEPTION_MESSAGE = "Couldn't find user with the given verification code.";
-    public static final String JSESSIONID_NOT_FOUND_EXCEPTION_MESSAGE = "Your session is either invalid or missing.";
+    public static final String CART_NOT_FOUND_EXCEPTION_MESSAGE = "Empty cart, please add some products."; //Your session is either invalid or missing.
     public static final String INVALID_EMAIL_CONFIRM_REQUEST_MESSAGE = "No or invalid verification code found in the request.";
 
     //Names

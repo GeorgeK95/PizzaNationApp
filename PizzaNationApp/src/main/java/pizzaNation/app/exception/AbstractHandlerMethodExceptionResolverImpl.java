@@ -30,7 +30,7 @@ public class AbstractHandlerMethodExceptionResolverImpl extends AbstractHandlerM
 
     @Override
     @ExceptionHandler(value = {ProductNotFoundException.class, MenuNotFoundException.class, IngredientNotFoundException.class,
-            UserNotFoundException.class, ConfirmCodeNotFoundException.class, NoEmailVerificationCodeInGetRequestException.class, SessionNotFoundException.class})
+            UserNotFoundException.class, ConfirmCodeNotFoundException.class, NoEmailVerificationCodeInGetRequestException.class, CartNotFoundException.class})
     protected ModelAndView doResolveHandlerMethodException(HttpServletRequest httpServletRequest,
                                                            HttpServletResponse httpServletResponse,
                                                            HandlerMethod handlerMethod,
@@ -55,7 +55,7 @@ public class AbstractHandlerMethodExceptionResolverImpl extends AbstractHandlerM
             modelAndView = this.controller.ingredient();
         } else if (e instanceof ConfirmCodeNotFoundException) {
             modelAndView = this.controller.notConfirmed();
-        } else if (e instanceof SessionNotFoundException) {
+        } else if (e instanceof CartNotFoundException) {
             modelAndView = this.controller.badRequest();
         } else if (e instanceof NoEmailVerificationCodeInGetRequestException) {
             modelAndView = this.controller.invalidVerificationCodeRequest();

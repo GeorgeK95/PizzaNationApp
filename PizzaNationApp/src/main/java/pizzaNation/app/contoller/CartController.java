@@ -80,20 +80,20 @@ public class CartController extends BaseController {
         return super.redirectAndLog(SLASH_STR);
     }
 
-    @PreAuthorize("isAuthenticated()")
+    /*@PreAuthorize("isAuthenticated()")
     @GetMapping(REORDER_URL)
     public ModelAndView reorder(HttpServletRequest request, HttpServletResponse response) {
         this.cartService.reorder(request, response);
 
         return super.redirect(CART_CHECKOUT_URL);
-    }
+    }*/
 
-    @PreAuthorize("isAuthenticated()")
+    /*@PreAuthorize("isAuthenticated()")
     @GetMapping(SET_CART_COOKIE_URL)
-    public ModelAndView setCookie(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView setCookie(HttpServletRequest request) {
         this.cartService.setCartCookie(request);
 
         return super.redirect(SLASH_STR);
-    }
+    }*/
 
 }

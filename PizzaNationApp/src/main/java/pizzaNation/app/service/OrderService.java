@@ -67,7 +67,14 @@ public class OrderService implements IOrderService {
             ordersView.add(DTOConverter.convert(order, OrderViewModel.class));
         }
 
-        Comparator<OrderViewModel> ordersComparator = Comparator.comparing(OrderViewModel::getStatus);
+//        Comparator<OrderViewModel> ordersComparator = Comparator.comparing(OrderViewModel::getStatus);
+        Comparator<OrderViewModel> ordersComparator = (o1, o2) -> {
+            int dateCmp = o1.getStatus().compareTo(o2.getStatus());
+            if (dateCmp == 0)
+                return o2.getDate().compareTo(o1.getDate());
+            return dateCmp;
+        };
+
 
         Collections.sort(ordersView, ordersComparator);
 

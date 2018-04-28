@@ -1,4 +1,8 @@
 /*About Style*/
+p{
+    font-size: 15px;
+}
+
 div#page_hero {
     background-repeat: none;
     background-size: cover;

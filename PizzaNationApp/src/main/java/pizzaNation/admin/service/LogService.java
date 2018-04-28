@@ -26,6 +26,6 @@ public class LogService implements ILogService {
 
     @Override
     public List<LogViewModel> findAll() {
-        return DTOConverter.convert(this.logRepository.findAll(), LogViewModel.class);
+        return DTOConverter.convert(this.logRepository.findAllByDateDesc(), LogViewModel.class);
     }
 }

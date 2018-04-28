@@ -20,13 +20,15 @@ public interface ICartService {
 
     int getCartSize(HttpServletRequest request);
 
+    int getCartSizeWithoutValidation(HttpServletRequest request);
+
     String getProductsAsJson(HttpServletRequest request);
 
     boolean confirmOrder(HttpServletRequest request);
 
     ConfirmOrderViewModel prepareOrder(HttpServletRequest request);
 
-    boolean reorder(HttpServletRequest request, HttpServletResponse response);
+//    boolean reorder(HttpServletRequest request, HttpServletResponse response);
 
-    boolean setCartCookie(HttpServletRequest request);
+//    boolean setCartCookie(HttpServletRequest request);
 }

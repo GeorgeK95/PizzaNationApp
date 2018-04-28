@@ -51,7 +51,7 @@ public class AccountController extends BaseController {
     }
 
     @PreAuthorize("isAuthenticated()")
-    @GetMapping(ORDERS_URL)
+    @GetMapping(ACCOUNT_ORDERS_URL)
     public ModelAndView orders() {
         return super.view(this.orderService.getUserOrders(), Map.ofEntries(entry(PAGE_TITLE_STR, MY_PIZZA_NATION)));
     }
