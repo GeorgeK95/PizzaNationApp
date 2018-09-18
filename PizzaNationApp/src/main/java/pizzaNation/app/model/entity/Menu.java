@@ -10,9 +10,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by George-Lenovo on 01/04/2018.
- */
 @Entity
 public class Menu {
 
@@ -129,12 +126,4 @@ public class Menu {
         return true;
     }
 
-    /*public boolean removeProduct(Product product) {
-        for (Product currProd : this.products) {
-            if (currProd.getName().equals(product.getName())) {
-                this.products.remove(currProd);
-            }
-        }
-        return true;
-    }*/
 }

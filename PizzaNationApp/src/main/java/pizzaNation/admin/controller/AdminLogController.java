@@ -11,9 +11,6 @@ import pizzaNation.app.contoller.BaseController;
 import static pizzaNation.admin.controller.AdminController.ADMIN_PAGE_TITLE_MAP_ENTRY;
 import static pizzaNation.app.util.WebConstants.ADMIN_LOGS_ALL_URL;
 
-/**
- * Created by George-Lenovo on 17/04/2018.
- */
 @Controller
 public class AdminLogController extends BaseController {
 

@@ -2,9 +2,6 @@ package pizzaNation.app.util;
 
 import java.util.Set;
 
-/**
- * Created by George-Lenovo on 23/03/2018.
- */
 public final class WebConstants {
 
     //Paths
@@ -29,54 +26,40 @@ public final class WebConstants {
     public static final String CART_CHECKOUT_URL = "/cart/checkout";
     public static final String REGISTER_URL = "/register";
     public static final String LOGIN_URL = "/login";
-    public static final String CONFIRM_URL = "/confirm";
+    public static final String VERIFY_EMAIL = "/verify_email";
     public static final String ACCOUNT_ORDERS_URL = "/account/orders";
-    //    public static final String REORDER_URL = "/reorder";
     public static final String LOGOUT_URL = "/logout";
     public static final String CONTACT_US_URL = "/contactUs";
     public static final String STORES_URL = "/stores";
     public static final String BASE_LAYOUT_URL = "base-layout";
-    public static final String ADD_STORES_URL = "/stores/add";
-    public static final String DELETE_STORES_URL = "/stores/delete";
     public static final String ALL_MENUS_URL = "/menus/all";
     public static final String MENUS_URL = "/menus";
     public static final String MENU_URL = "/menu";
     public static final String ALL_PRODUCTS_URL = "/products/all";
     public static final String PRODUCTS_URL = "/products";
-    public static final String ALL_INGREDIENTS_URL = "/ingredients/all";
-    public static final String INGREDIENTS_URL = "/ingredients";
     public static final String ADD_MENUS_URL = "/menus/add";
     public static final String ADD_PRODUCTS_URL = "/products/add";
     public static final String EDIT_MENUS_URL = "/menus/edit/{name}";
     public static final String EDIT_USERS_URL = "/users/edit/{id}";
     public static final String EDIT_PRODUCTS_URL = "/products/edit/{name}";
-    public static final String EDIT_INGREDIENTS_URL = "/ingredients/edit/{id}";
     public static final String DELETE_MENUS_URL = "/menus/delete/{name}";
     public static final String DELETE_PRODUCTS_URL = "/products/delete/{name}";
     public static final String DELETE_USERS_URL = "/users/delete/{id}";
-    public static final String DELETE_INGREDIENTS_URL = "/ingredients/delete/{id}";
     public static final String ADMIN_ALL_MENUS_URL = "/admin/menus/all";
     public static final String ADMIN_ALL_PRODUCTS_URL = "/admin/products/all";
     public static final String ADMIN_ALL_USERS_URL = "/admin/users/all";
-    public static final String ADMIN_ALL_INGREDIENTS_URL = "/admin/ingredients/all";
     public static final String ADMIN_ADD_MENUS_URL = "/admin/menus/add";
     public static final String ADMIN_ADD_PRODUCTS_URL = "/admin/products/add";
     public static final String ADMIN_EDIT_MENUS_URL = "/admin/menus/edit";
     public static final String ADMIN_EDIT_PRODUCTS_URL = "/admin/products/edit";
-    public static final String ADMIN_EDIT_INGREDIENTS_URL = "/admin/ingredients/edit";
     public static final String ADMIN_EDIT_USERS_URL = "/admin/users/edit/{id}";
     public static final String USERS_URL = "/users";
     public static final String ALL_USERS_URL = "/users/all";
     public static final String EMPTY_URL = "";
     public static final String MENU_NAME_URL = "/menu/{menuName}";
-    public static final String VERIFICATION_MESSAGE = "Please, confirm your account from the following link:\r\n" +
-            "http://localhost:8008/confirm?verificationCode=%s";
-    public static final String ADD_PRODUCT_INGREDIENTS_URL = "/product/{productName}/addIngredients";
-    public static final String ADMIN_SET_PRODUCT_INGREDIENTS_URL = "/admin/product/{productName}/addIngredients";
     public static final String ADMIN_LOGS_ALL_URL = "/admin/logs/all";
     public static final String LOGIN_LOGOUT_URL = "/login?logout";
     public static final String PRODUCT_DETAILS_URL = "/productDetails";
-    public static final String SET_CART_COOKIE_URL = "/setCartCookie";
 
     //Page Titles
     public static final String ABOUT_US_PAGE_TITLE = "About Us";
@@ -94,7 +77,6 @@ public final class WebConstants {
     public static final String TERMS_AND_CONDITIONS_PAGE_TITLE = "Terms and Conditions";
     public static final String REGISTER_PAGE_TITLE = "Register";
     public static final String LOG_IN_PAGE_TITLE = "Log In";
-    public static final String CONFIRM_PAGE_TITLE = "Confirm Account";
     public static final String PIZZA_NATION_PAGE_TITLE = "Pizza Nation";
     public static final String MENU_PAGE_TITLE = "Menu";
 
@@ -113,21 +95,18 @@ public final class WebConstants {
     public static final String OPERATION_STR = "operation";
     public static final String MODIFIED_TABLE_STR = "modifiedTable";
     public static final String ACCOUNT_CONFIRMED_STR = "account_confirmed";
-    public static final String PRODUCT_NAME_STR = "productName";
-    public static final String SAVED_STR = "Saved.";
-    public static final String FAILED_STR = "Failed!";
-    public static final String DELETED_STR = "Deleted.";
     public static final String STATUS_CODE_STR = "StatusCode";
     public static final String EMAIL_STR = "email";
     public static final String PASSWORD_STR = "password";
     public static final String EQUALS_STR = "=";
     public static final String QUESTION_MARK_STR = "\\?";
-    public static final String VERIFICATION_CODE_STR = "verificationCode";
+    public static final String TOKEN = "token";
+    public static final String VERIFY_EMAIL_TOKEN = "verify_email?token=";
+    public static final String LOCAL_HOST = "http://localhost:8080/";
     public static final String CART_ADD_PRODUCT_URL = "/cart/addProduct";
     public static final String CART_PRODUCTS_SIZE_URL = "/cart/cartSize";
     public static final String CART_REMOVE_PRODUCT_URL = "/cart/removeProduct";
     public static final String CART_ID_STR = "cart_id";
-    public static final String CART_PRODUCTS_COUNT_STR = "cart_products_count";
 
     //Extensions
     public static final String CSS_EXTENSION = ".css";
@@ -138,18 +117,13 @@ public final class WebConstants {
     public static final String CONTACT_FORM_ERROR = "contact_form_error";
     public static final String USER_EDIT_ERROR = "user_edit_error";
     public static final String ADD_MENU_ERROR = "add_menu_error";
-    public static final String ADD_INGREDIENT_ERROR = "add_ingredient_error";
-    public static final String ADD_INGREDIENT_SUCCESS = "successfully_added_ingredient";
     public static final String ADD_PRODUCT_ERROR = "add_product_error";
     public static final String EDIT_MENU_ERROR = "edit_menu_error";
-    public static final String EDIT_INGREDIENT_ERROR = "edit_ingredient_error";
     public static final String EDIT_PRODUCT_ERROR = "edit_product_error";
 
     //Success
     public static final String CONTACT_FORM_SUCCESS = "contact_form_success";
     public static final String USER_EDIT_SUCCESS = "user_edit_success";
-    public static final String DELETE_INGREDIENT_SUCCESS = "delete_ingredient_success";
-    public static final String INGREDIENT_DELETED_SUCCESSFULLY_MESSAGE = "Ingredient was deleted successfully.";
 
     //Messages
     public static final String ACCOUNT_CONFIRMED_SUCCESSFULLY_MESSAGE = "Account confirmed successfully.";
@@ -173,7 +147,6 @@ public final class WebConstants {
     public static final String WRONG_LOGIN_DATA_MESSAGE = "Invalid email or password.";
     public static final String INVALID_MENU_NAME_MESSAGE = "Menu name cannot be empty and must less than 20 symbols long.";
     public static final String INVALID_INGREDIENT_NAME_MESSAGE = "Ingredient name cannot be empty and must less than 50 symbols long.";
-    public static final String INVALID_INGREDIENT_MESSAGE = "Ingredient name cannot be empty and must less than 50 symbols long and quantity must be between 0 and 1 000 000.";
     public static final String INVALID_DESCRIPTION_MESSAGE = "Description name cannot be empty.";
     public static final String INVALID_PRODUCT_MESSAGE = "Product description cannot be empty and must be less than 50 symbols long.";
     public static final String INVALID_PRIORITY_MESSAGE = "Priority name cannot be empty and must be between 1 and 50.";
@@ -185,22 +158,16 @@ public final class WebConstants {
     public static final String USER_REGISTER_SUCCESS_MESSAGE = "user_register_success";
     public static final String REGISTERED_SUCCESSFULLY_MESSAGE = "Registered successfully, we send you email for confirmation.";
     public static final String SUCCESSFULLY_SENT_FEEDBACK_MESSAGE = "Your feedback was sent successfully.";
-    public static final String SUCCESSFULLY_ADDED_INGREDIENT_MESSAGE = "Ingredients were added successfully.";
     public static final String LOGGER_MESSAGE = "Logger";
-    public static final String PRODUCT_ADDED_SUCCESSFULLY_MESSAGE = "Product added successfully.";
-    public static final String PRODUCT_REMOVED_SUCCESSFULLY_MESSAGE = "Product removed successfully.";
     public static final String PRODUCT_ADD_FAILED_MESSAGE = "Error ! Product was not added successfully.";
-    public static final String GET_PRODUCTS_SIZE_SUCCESS_MESSAGE = "Successfully got cart products size.";
-    public static final String GET_PRODUCTS_SIZE_FAIL_MESSAGE = "Error ! Couldn't get cart products size.";
     public static final String PRODUCT_REMOVE_FAILED_MESSAGE = "Error ! Product was not removed successfully.";
-    public static final String PROMOTIONAL_PRODUCTS_ARRIVED_MESSAGE = "New promotional products were just released on pizza nation, check them out !";
 
     //MIME-s
     public static final String APPLICATION_JSON_MIME = "application/json";
 
     //Admin Data
     public static final String ADMIN_EMAIL = "pizzanationapp@gmail.com";
-    public static final String ADMIN_PASSWORD = "pizzanationapp";
+    public static final String ADMIN_PASSWORD = "pizzanationapppizzanationapp";
     public static final String ADMIN_LAST_NAME = "Adminov";
     public static final String ADMIN_FIRST_NAME = "Admin";
     public static final String ADMIN_CITY = "Plovdiv";
@@ -236,7 +203,6 @@ public final class WebConstants {
     public static final String ADD_PRODUCT_REQUEST_MODEL = "addProductRequestModel";
     public static final String EDIT_MENU_REQUEST_MODEL = "editMenuRequestModel";
     public static final String EDIT_PRODUCT_REQUEST_MODEL = "editProductRequestModel";
-    public static final String EDIT_INGREDIENT_REQUEST_MODEL = "editIngredientRequestModel";
 
     //Patterns
     public static final String PHONE_PATTERN = "\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}";
@@ -244,6 +210,7 @@ public final class WebConstants {
 
     //Exceptions
     public static final String MENU_EXCEPTION_MESSAGE = "Menu with given name was not found.";
+    public static final String IMAGE_EXCEPTION_MESSAGE = "Image upload failed.";
     public static final String USER_EXCEPTION_MESSAGE = "User with given id was not found.";
     public static final String INGREDIENT_EXCEPTION_MESSAGE = "Ingredient with given name was not found.";
     public static final String ADMIN_EXCEPTION_MESSAGE = "Admin account cannot be modified.";
@@ -254,19 +221,14 @@ public final class WebConstants {
 
     //Names
     public static final String GENDERS_LIST = "gendersList";
-    public static final String INGREDIENTS_LIST = "ingredientsList";
     public static final String PRODUCTS_LIST = "productsList";
     public static final String MENUS_LIST = "menusList";
     public static final String UNITS_LIST = "unitsList";
 
     //jms
     public static final String SEND_EMAIL_DESTINATION = "client_feedback";
-    public static final String USER_ARRIVED_DESTINATION = "user_arrived";
-    public static final String PROMOTIONAL_PRODUCT_DESTINATION = "new_promotional_product_arrived";
 
     //Constants
-    public static final long INGREDIENT_QUANTITY_LIMIT = 1_000_000L;
-    public static final int EMAIL_SCHEDULER_FIXED_RATE = 120_000;
     public static final int CHECK_FOR_DELIVERED_ORDERS_SCHEDULER_FIXED_RATE = 60_000;
 
     //HTML symbols set

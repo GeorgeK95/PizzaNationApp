@@ -11,9 +11,6 @@ import java.util.Map;
 import static java.util.Map.entry;
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 02/04/2018.
- */
 @RestController
 public class ExceptionController extends BaseController implements ErrorController {
 
@@ -21,12 +18,7 @@ public class ExceptionController extends BaseController implements ErrorControll
     private static final Map<String, Object> BAD_REQUEST_PAGE_TITLE_MAP = Map.ofEntries(entry(PAGE_TITLE_STR, BAD_REQUEST_PAGE_TITLE));
 
     private static final int NOT_FOUND_CODE = 404;
-
     private static final int BAD_REQUEST_CODE = 400;
-
-    public ModelAndView ingredient() {
-        return super.view(INGREDIENT_EXCEPTION_MESSAGE, NOT_FOUND_PAGE_TITLE_MAP, NOT_FOUND_CODE);
-    }
 
     public ModelAndView user() {
         return super.view(USER_EXCEPTION_MESSAGE, NOT_FOUND_PAGE_TITLE_MAP, NOT_FOUND_CODE);
@@ -34,6 +26,10 @@ public class ExceptionController extends BaseController implements ErrorControll
 
     public ModelAndView menu() {
         return this.view(MENU_EXCEPTION_MESSAGE, NOT_FOUND_PAGE_TITLE_MAP, NOT_FOUND_CODE);
+    }
+
+    public ModelAndView image() {
+        return this.view(IMAGE_EXCEPTION_MESSAGE, BAD_REQUEST_PAGE_TITLE_MAP, BAD_REQUEST_CODE);
     }
 
     public ModelAndView product() {

@@ -21,9 +21,6 @@ import static pizzaNation.app.util.WebConstants.CONTACT_US_PAGE_TITLE;
 import static pizzaNation.app.util.WebConstants.CONTACT_US_URL;
 import static pizzaNation.app.util.WebConstants.PAGE_TITLE_STR;
 
-/**
- * Created by George-Lenovo on 14/03/2018.
- */
 @Controller
 public class ContactController extends BaseController {
 

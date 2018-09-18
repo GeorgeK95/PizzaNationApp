@@ -11,9 +11,6 @@ import static pizzaNation.app.util.WebConstants.ABOUT_URL;
 import static pizzaNation.app.util.WebConstants.ABOUT_US_PAGE_TITLE;
 import static pizzaNation.app.util.WebConstants.PAGE_TITLE_STR;
 
-/**
- * Created by George-Lenovo on 15/03/2018.
- */
 @Controller
 public class AboutController extends BaseController {
 

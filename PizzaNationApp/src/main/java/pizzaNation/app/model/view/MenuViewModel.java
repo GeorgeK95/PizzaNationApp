@@ -4,12 +4,6 @@ import javax.validation.constraints.NotBlank;
 
 import java.util.Date;
 
-import static pizzaNation.app.util.WebConstants.INVALID_DESCRIPTION_MESSAGE;
-import static pizzaNation.app.util.WebConstants.INVALID_PRIORITY_MESSAGE;
-
-/**
- * Created by George-Lenovo on 02/04/2018.
- */
 public class MenuViewModel {
 
     private String name;

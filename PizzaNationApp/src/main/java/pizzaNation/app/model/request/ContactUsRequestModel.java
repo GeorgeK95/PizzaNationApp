@@ -12,10 +12,6 @@ import static pizzaNation.app.util.WebConstants.INVALID_MESSAGE_LENGTH_MESSAGE;
 import static pizzaNation.app.util.WebConstants.INVALID_PHONE_FORMAT_MESSAGE;
 import static pizzaNation.app.util.WebConstants.PHONE_PATTERN;
 
-/**
- * Created by George-Lenovo on 14/03/2018.
- */
-
 public class ContactUsRequestModel {
 
     @NotBlank

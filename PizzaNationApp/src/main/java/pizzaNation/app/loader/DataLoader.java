@@ -6,10 +6,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import pizzaNation.admin.repository.MenuRepository;
 import pizzaNation.app.model.entity.*;
-import pizzaNation.app.enums.Unit;
-import pizzaNation.app.repository.IngredientRepository;
 import pizzaNation.app.repository.ProductRepository;
-import pizzaNation.app.repository.StoreRepository;
 import pizzaNation.user.enumeration.Gender;
 import pizzaNation.user.model.entity.Role;
 import pizzaNation.user.model.entity.User;
@@ -21,9 +18,6 @@ import java.util.stream.Collectors;
 
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 21/03/2018.
- */
 @Component
 public class DataLoader implements ApplicationRunner {
 
@@ -38,16 +32,16 @@ public class DataLoader implements ApplicationRunner {
     private static final String PEPPERONI_IMG_NAME = "pizza_img_1.jpg";
     private static final String ALLIGATOR_IMG_NAME = "pizza_img_1.jpg";
     private static final String NAPOLETAN_IMG_URL = "https://p-sf1.pcloud.com/DLZRjwk4JZam9ThJZekRUZZjdMVU7ZNVZZdy5ZXZ9qWZnkZZZAKxmESbM6U8h0clqv5tHpJSHlVL7/th-6197159206-600x300.jpg";
-    private static final String NAPOLITAN_PRODUCT_NAME = "Neapolitan Pizza ";
-    private static final String MEALTY_PRODUCT_NAME = "Mealty-one ";
-    private static final String YORK_PRODUCT_NAME = "New York Style Pizza ";
-    private static final String CHICAGO_PRODUCT_NAME = "Chicago Pizza ";
-    private static final String SICILIAN_PRODUCT_NAME = "Sicilian Pizza ";
-    private static final String GREEK_PRODUCT_NAME = "Greek Pizza ";
-    private static final String CALI_PRODUCT_NAME = "California Pizza ";
-    private static final String TOMATO_PRODUCT_NAME = "Tomato Pie ";
-    private static final String PEPPERONI_PRODUCT_NAME = "Double Pepperoni ";
-    private static final String NAPOLITAN_PRODUCT_DETAILS = "Neapolitan - the original pizza. This delicious pie has a history that dates all the way back to 18th century Naples, Italy. During this time, the poorer citizens of this seaside city frequently purchased food that was cheap and could be eaten quickly. Luckily for them, Neapolitan pizza – a flatbread with tomatoes, cheese, oil, and garlic – was affordable and readily available through numerous street vendors. ";
+    private static final String NAPOLITAN_PRODUCT_NAME = "Neapolitan Pizza";
+    private static final String MEALTY_PRODUCT_NAME = "Mealty-one";
+    private static final String YORK_PRODUCT_NAME = "New York Style Pizza";
+    private static final String CHICAGO_PRODUCT_NAME = "Chicago Pizza";
+    private static final String SICILIAN_PRODUCT_NAME = "Sicilian Pizza";
+    private static final String GREEK_PRODUCT_NAME = "Greek Pizza";
+    private static final String CALI_PRODUCT_NAME = "California Pizza";
+    private static final String TOMATO_PRODUCT_NAME = "Tomato Pie";
+    private static final String PEPPERONI_PRODUCT_NAME = "Double Pepperoni";
+    private static final String NAPOLITAN_PRODUCT_DETAILS = "Neapolitan - the original pizza. This delicious pie has a history that dates all the way back to 18th century Naples, Italy. During this time, the poorer citizens of this seaside city frequently purchased food that was cheap and could be eaten quickly. Luckily for them, Neapolitan pizza – a flatbread with tomatoes, cheese, oil, and garlic – was affordable and readily available through numerous street vendors.";
     private static final String MEALTY_PRODUCT_DETAILS = "Pizza with a log ot meat.";
     private static final String YORK_PRODUCT_DETAILS = "While New York-style pizza isn’t exactly the original, it’s become the most popular and widespread choice in the United States. Even though Neapolitan and New York pizzas share similarities, there are distinct differences. Some people will tell you that it’s the minerals in the Big Apple’s water used to make the dough that makes this pizza stand out. However, in order to make a proper New York-style pie, the crust still needs to be thin, like a Neapolitan, but thick enough to fold a slice in half lengthwise. This simplifies eating the pizza without utensils, which is a necessity in New York City's fast-paced setting.";
     private static final String CHICAGO_PRODUCT_DETAILS = "Chicago pizza, also commonly referred to as deep-dish pizza, gets its name from the city it was invented in. During the early 1900’s, Italian immigrants in the windy city were searching for something similar to the Neapolitan pizza that they knew and loved. Instead of imitating the notoriously thin pie, Ike Sewell had something else in mind. He created a pizza with a thick crust that had raised edges, similar to a pie, and ingredients in reverse, with slices of mozzarella lining the dough followed by meat, vegetables, and then topped with a can of crushed tomatoes. This original creation led Sewell to create the now famous chain restaurant, Pizzeria Uno.";
@@ -61,7 +55,7 @@ public class DataLoader implements ApplicationRunner {
     private static final boolean PROMOTIONAL = true;
     private static final boolean NON_PROMOTIONAl = false;
     private static final String ALLIGATOR_PRODUCT_NAME = "Alligator";
-    private static final String ALLIGATOR_PRODUCT_DETAILS = "When you eat a pizza like this, you become a real alligator ! ";
+    private static final String ALLIGATOR_PRODUCT_DETAILS = "When you eat a pizza like this, you become a real alligator !";
     private static final String MENU_PROMOTIONS_IMG_NAME = "prom_img_2.jpg";
     private static final String MENU_PIZZAS_IMG_NAME = "pizza_img_2.jpg";
     private static final String MENU_DRINKS_IMG_NAME = "drinks_img_2.jpg";
@@ -84,33 +78,34 @@ public class DataLoader implements ApplicationRunner {
     private static final String MAYONNAISE = "Mayonnaise";
     private static final String MUSTARD = "Mustard";
     private static final boolean NON_SUBSCRIBED = false;
-    private static final boolean SUBSCRIBED = true;
+    private static final boolean SUBSCRIBE = true;
     private static final boolean ENABLED = true;
     private static final BigDecimal LOW_PRICE = new BigDecimal(10);
     private static final BigDecimal MEDIUM_PRICE = new BigDecimal(20);
     private static final BigDecimal HIGH_PRICE = new BigDecimal(30);
+    private static final Boolean UNSUBSCRIBE = false;
 
     private final UserRepository userRepository;
     private final ProductRepository productRepository;
     private final MenuRepository menuRepository;
-    private final IngredientRepository ingredientRepository;
-    private final StoreRepository storeRepository;
+    //    private final IngredientRepository ingredientRepository;
+//    private final StoreRepository storeRepository;
 
     @Autowired
-    public DataLoader(UserRepository userRepository, ProductRepository productRepository, MenuRepository menuRepository, IngredientRepository ingredientRepository, StoreRepository storeRepository) {
+    public DataLoader(UserRepository userRepository, ProductRepository productRepository, MenuRepository menuRepository) {
         this.userRepository = userRepository;
         this.productRepository = productRepository;
         this.menuRepository = menuRepository;
-        this.ingredientRepository = ingredientRepository;
-        this.storeRepository = storeRepository;
+//        this.ingredientRepository = ingredientRepository;
+//        this.storeRepository = storeRepository;
     }
 
     public void run(ApplicationArguments args) {
-        /*this.addUsersWithRoles();
-        this.addMenus();
-        this.addProducts();
-        this.addIngredients();
-        this.addStore();*/
+        this.addUsersWithRoles();
+//        this.addMenus();
+//        this.addProducts();
+//        this.addIngredients();
+//        this.addStore();
     }
 
     private void setPromotionalProductsToPromotionsMenu(Set<Product> productsSet) {
@@ -122,35 +117,10 @@ public class DataLoader implements ApplicationRunner {
     }
 
     private void addStore() {
-        Store softUniLocation = new Store(SOFTUNI_LAT, SOFTUNI_LNG);
-        this.storeRepository.saveAndFlush(softUniLocation);
+//        Store softUniLocation = new Store(SOFTUNI_LAT, SOFTUNI_LNG);
+//        this.storeRepository.saveAndFlush(softUniLocation);
     }
 
-    private void addIngredients() {
-        Ingredient i = new Ingredient(2.2, Unit.KILOGRAMS, KETCHUP);
-        Ingredient i1 = new Ingredient(2.2, Unit.KILOGRAMS, MAYONNAISE);
-        Ingredient i2 = new Ingredient(2.2, Unit.KILOGRAMS, MUSTARD);
-
-        this.ingredientRepository.saveAll(Set.of(i, i1, i2/*, i3, i4, i5, i6, i7, i8, i9*/));
-    }
-
-    private void addMenus() {
-        Image promotionsImg = new Image(MENU_PROMOTIONS_IMG_NAME, NAPOLETAN_IMG_URL);
-        Image pizzasImg = new Image(MENU_PIZZAS_IMG_NAME, NAPOLETAN_IMG_URL);
-        Image drinksImg = new Image(MENU_DRINKS_IMG_NAME, NAPOLETAN_IMG_URL);
-        Image dessertsImg = new Image(MENU_DESSERTS_IMG_NAME, NAPOLETAN_IMG_URL);
-
-        Menu promotions = new Menu(MENU_PROMOTIONS_NAME, MENU_PROMOTIONS_DESCRIPTION
-                , PRIORITY_1, promotionsImg);
-        Menu pizzas = new Menu(MENU_PIZZAS_NAME, MENU_PIZZAS_DESCRIPTION
-                , PRIORITY_2, pizzasImg);
-        Menu drinks = new Menu(MENU_DRINKS_NAME, MENU_DRINKS_DESCRIPTION
-                , PRIORITY_3, drinksImg);
-        Menu desserts = new Menu(MENU_DESSERTS_NAME, MENU_DESSERTS_DESCRIPTION
-                , PRIORITY_4, dessertsImg);
-
-        this.menuRepository.saveAll(Set.of(promotions, pizzas, drinks, desserts));
-    }
 
     private void addProducts() {
         Image neapolitanImg = new Image(NAPOLITAN_IMG_NAME, NAPOLETAN_IMG_URL);
@@ -195,7 +165,7 @@ public class DataLoader implements ApplicationRunner {
                 MODERATOR_LAST_NAME, MODERATOR_ADDRESS, Gender.FEMALE, MODERATOR_PHONE, MODERATOR_CITY, NON_SUBSCRIBED);
         moderator.setEnabled(ENABLED);
         User user = new User(USER_EMAIL, USER_PASSWORD, USER_FIRST_NAME,
-                USER_LAST_NAME, USER_ADDRESS, Gender.FEMALE, USER_PHONE, USER_CITY, SUBSCRIBED);
+                USER_LAST_NAME, USER_ADDRESS, Gender.FEMALE, USER_PHONE, USER_CITY, UNSUBSCRIBE);
         user.setEnabled(ENABLED);
 
         Role roleAdmin = new Role(ROLE_ADMIN);
@@ -212,5 +182,30 @@ public class DataLoader implements ApplicationRunner {
         user.addRole(roleUser);
 
         this.userRepository.saveAll(Set.of(admin, moderator, user));
+    }
+
+    /*private void addIngredients() {
+        Ingredient i = new Ingredient(2.2, Unit.KILOGRAMS, KETCHUP);
+        Ingredient i1 = new Ingredient(2.2, Unit.KILOGRAMS, MAYONNAISE);
+        Ingredient i2 = new Ingredient(2.2, Unit.KILOGRAMS, MUSTARD);
+
+        this.ingredientRepository.saveAll(Set.of(i, i1, i2*//*, i3, i4, i5, i6, i7, i8, i9*//*));
+    }*/
+    private void addMenus() {
+        Image promotionsImg = new Image(MENU_PROMOTIONS_IMG_NAME, NAPOLETAN_IMG_URL);
+        Image pizzasImg = new Image(MENU_PIZZAS_IMG_NAME, NAPOLETAN_IMG_URL);
+        Image drinksImg = new Image(MENU_DRINKS_IMG_NAME, NAPOLETAN_IMG_URL);
+        Image dessertsImg = new Image(MENU_DESSERTS_IMG_NAME, NAPOLETAN_IMG_URL);
+
+        Menu promotions = new Menu(MENU_PROMOTIONS_NAME, MENU_PROMOTIONS_DESCRIPTION
+                , PRIORITY_1, promotionsImg);
+        Menu pizzas = new Menu(MENU_PIZZAS_NAME, MENU_PIZZAS_DESCRIPTION
+                , PRIORITY_2, pizzasImg);
+        Menu drinks = new Menu(MENU_DRINKS_NAME, MENU_DRINKS_DESCRIPTION
+                , PRIORITY_3, drinksImg);
+        Menu desserts = new Menu(MENU_DESSERTS_NAME, MENU_DESSERTS_DESCRIPTION
+                , PRIORITY_4, dessertsImg);
+
+        this.menuRepository.saveAll(Set.of(promotions, pizzas, drinks, desserts));
     }
 }

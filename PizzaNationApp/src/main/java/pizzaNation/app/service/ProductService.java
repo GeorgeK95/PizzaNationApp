@@ -1,14 +1,12 @@
 package pizzaNation.app.service;
 
-import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pizzaNation.admin.repository.MenuRepository;
+import pizzaNation.admin.service.IMenuService;
 import pizzaNation.app.exception.MenuNotFoundException;
 import pizzaNation.app.exception.ProductNotFoundException;
 import pizzaNation.app.model.entity.Menu;
@@ -16,15 +14,17 @@ import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.model.request.AddProductRequestModel;
 import pizzaNation.app.model.request.EditProductRequestModel;
 import pizzaNation.app.model.response.ProductResponseModel;
-import pizzaNation.app.model.transfer.EmailVerification;
 import pizzaNation.app.model.view.HomeViewModel;
 import pizzaNation.app.model.view.MenuProductsViewModel;
 import pizzaNation.app.model.view.ProductViewModel;
 import pizzaNation.app.repository.ProductRepository;
 import pizzaNation.app.service.contract.IImageService;
-import pizzaNation.app.service.contract.IIngredientService;
 import pizzaNation.app.service.contract.IProductService;
 import pizzaNation.app.util.DTOConverter;
+import pizzaNation.cloudinary.enumerations.Folder;
+import pizzaNation.email.factory.EmailFactory;
+import pizzaNation.email.model.Mail;
+import pizzaNation.email.service.api.IEmailService;
 import pizzaNation.user.service.BaseService;
 import pizzaNation.user.service.IUserService;
 
@@ -34,35 +34,27 @@ import java.util.Optional;
 import java.util.Set;
 
 import static pizzaNation.app.util.WebConstants.*;
+import static pizzaNation.email.util.Constants.NEW_PRODUCT_CONTENT;
+import static pizzaNation.email.util.Constants.NEW_PRODUCT_SUBJECT;
 
-/**
- * Created by George-Lenovo on 01/04/2018.
- */
 @Service
 @Transactional
 public class ProductService extends BaseService implements IProductService {
 
     private final ProductRepository productRepository;
-
-    private final MenuRepository menuRepository;
-
-    private final IIngredientService ingredientService;
-
+    private final IMenuService menuService;
     private final IImageService imageService;
-
-    private final JmsTemplate jmsTemplate;
-
     private final IUserService userService;
+    private final IEmailService emailService;
 
 
     @Autowired
-    public ProductService(ProductRepository productService, IIngredientService ingredientService, IImageService imageService, MenuRepository menuRepository, JmsTemplate jmsTemplate, IUserService userService) {
+    public ProductService(ProductRepository productService, IImageService imageService, IMenuService menuService, IUserService userService, IEmailService emailService) {
         this.productRepository = productService;
-        this.ingredientService = ingredientService;
         this.imageService = imageService;
-        this.menuRepository = menuRepository;
-        this.jmsTemplate = jmsTemplate;
+        this.menuService = menuService;
         this.userService = userService;
+        this.emailService = emailService;
     }
 
     @Override
@@ -96,11 +88,12 @@ public class ProductService extends BaseService implements IProductService {
 
         if (super.containErrors(bindingResult, attributes, ADD_PRODUCT_ERROR)) return false;
 
-        if (this.checkForDuplicateName(addProductRequestModel.getName(), ADD_PRODUCT_ERROR, attributes)) return false;
+        String productName = addProductRequestModel.getName();
+        if (this.checkForDuplicateName(productName, ADD_PRODUCT_ERROR, attributes)) return false;
 
         this.persistProduct(addProductRequestModel);
 
-        new Thread(this::sendEmailToSubscribers).start();
+        this.sendEmailToSubscribers(productName);
 
         return true;
     }
@@ -110,7 +103,8 @@ public class ProductService extends BaseService implements IProductService {
         Product product = DTOConverter.convert(addProductRequestModel, Product.class);
 
         MultipartFile productImage = addProductRequestModel.getImage();
-        if (!productImage.getName().isEmpty()) product.setImage(this.imageService.uploadImage(productImage));
+        if (!productImage.getName().isEmpty())
+            product.setImage(this.imageService.uploadImage(productImage, Folder.PRODUCT));
 
         this.productRepository.saveAndFlush(product);
 
@@ -123,9 +117,7 @@ public class ProductService extends BaseService implements IProductService {
 
         if (product == null) throw new ProductNotFoundException();
 
-        T model = DTOConverter.convert(product, clazz);
-
-        return model;
+        return DTOConverter.convert(product, clazz);
     }
 
     @Override
@@ -141,7 +133,7 @@ public class ProductService extends BaseService implements IProductService {
         product.setPromotional(editProductRequestModel.getPromotional());
         product.setPrice(editProductRequestModel.getPrice());
         if (!editProductRequestModel.getImage().getOriginalFilename().isEmpty())
-            product.setImage(this.imageService.uploadImage(editProductRequestModel.getImage()));
+            product.setImage(this.imageService.uploadImage(editProductRequestModel.getImage(), Folder.PRODUCT));
 
         this.productRepository.saveAndFlush(product);
 
@@ -154,7 +146,7 @@ public class ProductService extends BaseService implements IProductService {
 
         if (product == null) throw new ProductNotFoundException();
 
-        product.setIngredients(null); //release ingredients so they wont be deleted
+//        product.setIngredients(null); //release ingredients so they wont be deleted
 
         this.clearProductFromItsMenus(product);
 
@@ -165,11 +157,9 @@ public class ProductService extends BaseService implements IProductService {
 
     @Override
     public List<MenuProductsViewModel> getMenuProducts(String menuName) {
-         if (this.menuRepository.findByName(menuName) == null) throw new MenuNotFoundException();
-
+        if (this.menuService.findByName(menuName) == null) throw new MenuNotFoundException();
         Set<Product> menuProducts = this.productRepository.getMenuProducts(menuName);
-        List<MenuProductsViewModel> convert = DTOConverter.convert(menuProducts, MenuProductsViewModel.class);
-        return convert;
+        return DTOConverter.convert(menuProducts, MenuProductsViewModel.class);
     }
 
     private boolean hasErrors(Product product, EditProductRequestModel editMenuRequestModel, BindingResult bindingResult,
@@ -182,12 +172,13 @@ public class ProductService extends BaseService implements IProductService {
         return super.containErrors(bindingResult, attributes, EDIT_PRODUCT_ERROR);
     }
 
-    private void sendEmailToSubscribers() {
+    private void sendEmailToSubscribers(String productName) {
         Set<String> subscribersEmails = this.userService.getSubscribersEmails();
 
         for (String email : subscribersEmails) {
-            this.jmsTemplate.convertAndSend(PROMOTIONAL_PRODUCT_DESTINATION,
-                    new Gson().toJson(new EmailVerification(email, PROMOTIONAL_PRODUCTS_ARRIVED_MESSAGE)));
+            Mail emailVerification = EmailFactory.generateMailObject(ADMIN_EMAIL, email, NEW_PRODUCT_SUBJECT,
+                    String.format(NEW_PRODUCT_CONTENT, productName));
+            this.emailService.sendSimpleMessage(emailVerification);
         }
     }
 
@@ -210,7 +201,7 @@ public class ProductService extends BaseService implements IProductService {
             }
 
             menu.setProducts(newSet);
-            this.menuRepository.saveAndFlush(menu);
+            this.menuService.persistMenuEntity(menu);
             newSet = new HashSet<>();
         }
     }

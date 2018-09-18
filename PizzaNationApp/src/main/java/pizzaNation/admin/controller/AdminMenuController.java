@@ -32,9 +32,6 @@ import static pizzaNation.app.util.WebConstants.*;
 import static pizzaNation.app.util.WebConstants.ADMIN_ALL_MENUS_URL;
 import static pizzaNation.app.util.WebConstants.ADMIN_EDIT_MENUS_URL;
 
-/**
- * Created by George-Lenovo on 02/04/2018.
- */
 @Controller
 @RequestMapping(ADMIN_URL)
 public class AdminMenuController extends BaseController {

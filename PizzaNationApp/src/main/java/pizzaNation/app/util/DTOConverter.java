@@ -7,9 +7,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by George-Lenovo on 27/03/2018.
- */
 public final class DTOConverter {
 
     private DTOConverter() {

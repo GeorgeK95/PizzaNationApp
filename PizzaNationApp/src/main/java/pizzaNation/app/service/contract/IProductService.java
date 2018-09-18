@@ -13,15 +13,7 @@ import pizzaNation.app.model.view.ProductViewModel;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by George-Lenovo on 01/04/2018.
- */
-
 public interface IProductService {
-
-    /*ProductViewModel getLast();
-
-    ProductViewModel getBestSeller();*/
 
     HomeViewModel constructHomeModel();
 
@@ -30,8 +22,6 @@ public interface IProductService {
     List<ProductResponseModel> findAllByDate();
 
     Set<Product> getAllByIds(String[] productIds);
-
-//    Set<Product> findAllByMenuName(String name);
 
     boolean addProduct(AddProductRequestModel addProductRequestModel, RedirectAttributes attributes, BindingResult bindingResult);
 
@@ -44,6 +34,4 @@ public interface IProductService {
     boolean deleteProduct(String name);
 
     List<MenuProductsViewModel> getMenuProducts(String menuName);
-
-//    Set<String> getNewProductsNames();
 }

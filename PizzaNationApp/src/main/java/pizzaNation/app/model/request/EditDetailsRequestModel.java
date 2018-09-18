@@ -10,9 +10,6 @@ import java.util.Date;
 
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 08/04/2018.
- */
 public class EditDetailsRequestModel {
 
     @NotBlank

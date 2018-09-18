@@ -2,9 +2,6 @@ package pizzaNation.app.model.view;
 
 import java.math.BigDecimal;
 
-/**
- * Created by George-Lenovo on 27/04/2018.
- */
 public class ConfirmOrderViewModel {
 
     private String address;

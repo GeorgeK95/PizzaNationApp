@@ -27,9 +27,6 @@ import static pizzaNation.app.util.WebConstants.*;
 import static pizzaNation.app.util.WebConstants.MY_PIZZA_NATION;
 import static pizzaNation.app.util.WebConstants.PAGE_TITLE_STR;
 
-/**
- * Created by George-Lenovo on 08/04/2018.
- */
 @Controller
 public class AccountSettingsController extends BaseController {
 

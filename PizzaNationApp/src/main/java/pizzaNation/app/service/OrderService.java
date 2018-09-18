@@ -15,9 +15,6 @@ import pizzaNation.user.repository.UserRepository;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Created by George-Lenovo on 27/04/2018.
- */
 @Service
 @Transactional
 public class OrderService implements IOrderService {
@@ -56,18 +53,12 @@ public class OrderService implements IOrderService {
         return true;
     }
 
-    @Override
-    public OrderViewModel getLastOrder() {
-        return DTOConverter.convert(this.orderRepository.findLastByDate(), OrderViewModel.class);
-    }
-
     private List<OrderViewModel> convertUserOrders(Set<Order> orders) {
         List<OrderViewModel> ordersView = new ArrayList<>();
         for (Order order : orders) {
             ordersView.add(DTOConverter.convert(order, OrderViewModel.class));
         }
 
-//        Comparator<OrderViewModel> ordersComparator = Comparator.comparing(OrderViewModel::getStatus);
         Comparator<OrderViewModel> ordersComparator = (o1, o2) -> {
             int dateCmp = o1.getStatus().compareTo(o2.getStatus());
             if (dateCmp == 0)

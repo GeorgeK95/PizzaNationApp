@@ -5,9 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by George-Lenovo on 11/04/2018.
- */
 @Component
 public class PizzaNationActiveMqConfig {
 

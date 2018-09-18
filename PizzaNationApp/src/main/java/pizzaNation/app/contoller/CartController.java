@@ -17,9 +17,6 @@ import java.util.*;
 import static java.util.Map.entry;
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 15/03/2018.
- */
 @Controller
 public class CartController extends BaseController {
 
@@ -79,21 +76,5 @@ public class CartController extends BaseController {
 
         return super.redirectAndLog(SLASH_STR);
     }
-
-    /*@PreAuthorize("isAuthenticated()")
-    @GetMapping(REORDER_URL)
-    public ModelAndView reorder(HttpServletRequest request, HttpServletResponse response) {
-        this.cartService.reorder(request, response);
-
-        return super.redirect(CART_CHECKOUT_URL);
-    }*/
-
-    /*@PreAuthorize("isAuthenticated()")
-    @GetMapping(SET_CART_COOKIE_URL)
-    public ModelAndView setCookie(HttpServletRequest request) {
-        this.cartService.setCartCookie(request);
-
-        return super.redirect(SLASH_STR);
-    }*/
 
 }

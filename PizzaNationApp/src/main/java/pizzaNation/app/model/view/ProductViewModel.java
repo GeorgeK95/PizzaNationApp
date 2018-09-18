@@ -3,9 +3,6 @@ package pizzaNation.app.model.view;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import pizzaNation.app.util.DTOConverter;
 
-/**
- * Created by George-Lenovo on 01/04/2018.
- */
 public class ProductViewModel {
 
     private String id;

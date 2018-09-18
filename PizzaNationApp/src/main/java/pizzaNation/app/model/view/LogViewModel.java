@@ -2,13 +2,9 @@ package pizzaNation.app.model.view;
 
 import pizzaNation.app.enums.Action;
 import pizzaNation.app.enums.TableEnum;
-import pizzaNation.user.model.entity.User;
 
 import java.util.Date;
 
-/**
- * Created by George-Lenovo on 17/04/2018.
- */
 public class LogViewModel {
 
     private Action action;

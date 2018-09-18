@@ -12,9 +12,6 @@ import pizzaNation.app.interceptor.LoggerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Created by George-Lenovo on 16/04/2018.
- */
 @ControllerAdvice
 public class AbstractHandlerMethodExceptionResolverImpl extends AbstractHandlerMethodExceptionResolver {
 
@@ -29,8 +26,8 @@ public class AbstractHandlerMethodExceptionResolverImpl extends AbstractHandlerM
     }
 
     @Override
-    @ExceptionHandler(value = {ProductNotFoundException.class, MenuNotFoundException.class, IngredientNotFoundException.class,
-            UserNotFoundException.class, ConfirmCodeNotFoundException.class, NoEmailVerificationCodeInGetRequestException.class, CartNotFoundException.class})
+    @ExceptionHandler(value = {ProductNotFoundException.class, MenuNotFoundException.class, UserNotFoundException.class,
+            ConfirmCodeNotFoundException.class, NoEmailVerificationCodeInGetRequestException.class, CartNotFoundException.class})
     protected ModelAndView doResolveHandlerMethodException(HttpServletRequest httpServletRequest,
                                                            HttpServletResponse httpServletResponse,
                                                            HandlerMethod handlerMethod,
@@ -51,8 +48,6 @@ public class AbstractHandlerMethodExceptionResolverImpl extends AbstractHandlerM
             modelAndView = this.controller.menu();
         } else if (e instanceof UserNotFoundException) {
             modelAndView = this.controller.user();
-        } else if (e instanceof IngredientNotFoundException) {
-            modelAndView = this.controller.ingredient();
         } else if (e instanceof ConfirmCodeNotFoundException) {
             modelAndView = this.controller.notConfirmed();
         } else if (e instanceof CartNotFoundException) {

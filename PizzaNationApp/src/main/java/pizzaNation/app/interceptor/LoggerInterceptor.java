@@ -16,9 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 09/04/2018.
- */
 @Component
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
 

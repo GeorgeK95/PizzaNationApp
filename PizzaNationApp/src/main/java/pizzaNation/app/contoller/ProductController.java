@@ -14,9 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import static pizzaNation.app.util.WebConstants.APPLICATION_JSON_MIME;
 import static pizzaNation.app.util.WebConstants.PRODUCT_DETAILS_URL;
 
-/**
- * Created by George-Lenovo on 01/04/2018.
- */
 @Controller
 public class ProductController extends BaseController {
 

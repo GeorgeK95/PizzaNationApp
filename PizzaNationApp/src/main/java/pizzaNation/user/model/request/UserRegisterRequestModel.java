@@ -10,9 +10,6 @@ import java.net.URLEncoder;
 
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 27/03/2018.
- */
 public class UserRegisterRequestModel {
 
     //    sign in details

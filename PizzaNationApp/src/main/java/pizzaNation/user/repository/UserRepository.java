@@ -8,9 +8,6 @@ import pizzaNation.user.model.entity.User;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by George-Lenovo on 27/03/2018.
- */
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
 

@@ -1,2 +1,0 @@
-Refactoring: factories, many services/controllers, remove principal, delete comments, FatherClasses
-host app

@@ -87,7 +87,7 @@ function open_product_popup(productDetailsJson) {
     let prod_details_el = document.getElementById('product-details');
     prod_details_el.innerHTML = productDetailsJson.details;
 
-    createAndSetIngredientsParagraphs(productDetailsJson);
+    // createAndSetIngredientsParagraphs(productDetailsJson);
 
     let img_element = document.getElementById('popup_img');
     img_element.setAttribute("src", productDetailsJson.image.url);
@@ -96,7 +96,7 @@ function open_product_popup(productDetailsJson) {
     add_to_cart_btn_element[0].setAttribute("id", productDetailsJson.name);
 }
 
-function createAndSetIngredientsParagraphs(productDetailsJson) {
+/*function createAndSetIngredientsParagraphs(productDetailsJson) {
     let element = document.getElementById("ingredientsList");
 
     while (element.firstChild) {
@@ -120,7 +120,7 @@ function createAndSetIngredientsParagraphs(productDetailsJson) {
         element.appendChild(para);
     }
 
-}
+}*/
 
 function try_add_padding() {
     //removes padding if the screen is in mobile size range

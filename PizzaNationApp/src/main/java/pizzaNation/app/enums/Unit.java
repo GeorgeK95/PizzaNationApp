@@ -1,29 +1,28 @@
+/*
 package pizzaNation.app.enums;
 
-/**
- * Created by George-Lenovo on 01/04/2018.
- */
 public enum Unit {
     KILOGRAMS,
-//    CARATS,
+    CARATS,
     CENTIGRAMS,
     DECIGRAMS,
     DEKAGRAMS,
-//    GRAINS,
+    GRAINS,
     GRAMS,
-//    KILOGRAMS,
-//    MICROGRAMS,
+    KILOGRAMS,
+    MICROGRAMS,
     MILLIGRAMS,
-//    NEWTONS,
-//    OUNCES_AVOIR,
-//    OUNCES_TROY,
-//    PENNYWEIGHTS,
-//    POUNDS_AVOIR,
-//    POUNDS_TROY,
-//    SLUGS,
-//    STONE_UK,
-//    STONE_US,
+    NEWTONS,
+    OUNCES_AVOIR,
+    OUNCES_TROY,
+    PENNYWEIGHTS,
+    POUNDS_AVOIR,
+    POUNDS_TROY,
+    SLUGS,
+    STONE_UK,
+    STONE_US,
     TONNES,
-//    TONS_UK,
-//    TONS_US;
+    TONS_UK,
+    TONS_US;
 }
+*/

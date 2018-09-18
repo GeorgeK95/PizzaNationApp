@@ -5,9 +5,6 @@ import pizzaNation.app.enums.OrderStatus;
 import java.util.Comparator;
 import java.util.Date;
 
-/**
- * Created by George-Lenovo on 27/04/2018.
- */
 public class OrderViewModel implements Comparator<OrderViewModel> {
 
     private Date date;

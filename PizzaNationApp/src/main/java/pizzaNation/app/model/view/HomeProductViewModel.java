@@ -1,10 +1,5 @@
 package pizzaNation.app.model.view;
 
-import javax.swing.text.html.ImageView;
-
-/**
- * Created by George-Lenovo on 17/04/2018.
- */
 public class HomeProductViewModel {
 
     private String name;

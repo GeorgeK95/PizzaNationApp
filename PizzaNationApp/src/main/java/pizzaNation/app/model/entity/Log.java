@@ -8,9 +8,6 @@ import pizzaNation.user.model.entity.User;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Created by George-Lenovo on 09/04/2018.
- */
 @Entity
 public class Log {
 

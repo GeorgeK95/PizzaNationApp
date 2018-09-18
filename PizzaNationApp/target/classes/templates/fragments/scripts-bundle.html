@@ -8,6 +8,11 @@
 <th:block th:if="${pageScript} != null" th:each="current: ${pageScript}">
     <script th:inline="javascript" th:src="@{${current}}"></script>
     <th:block th:if="${#strings.equals(current, '/js/stores.js')}">
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW_AEkfqP5zRCJmRmbqRx7giXRRlVWK6o&callback=initMap"></script>
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+
+        <script src="../../static/js/page/map.js"></script>
     </th:block>
 </th:block>

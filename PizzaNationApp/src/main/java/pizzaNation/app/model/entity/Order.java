@@ -8,9 +8,6 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
-/**
- * Created by George-Lenovo on 25/04/2018.
- */
 @Entity
 @Table(name = "order_tbl")
 public class Order {

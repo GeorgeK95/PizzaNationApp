@@ -3,14 +3,11 @@ package pizzaNation.app.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import pizzaNation.app.interceptor.LoggerInterceptor;
 
-/**
- * Created by George-Lenovo on 09/04/2018.
- */
 @Configuration
-public class PizzaNationInterceptorConfiguration extends WebMvcConfigurerAdapter {
+public class PizzaNationInterceptorConfiguration implements WebMvcConfigurer {
 
     private final LoggerInterceptor loggerInterceptor;
 

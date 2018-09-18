@@ -23,9 +23,6 @@ import java.util.stream.Collectors;
 import static pizzaNation.admin.controller.AdminController.ADMIN_PAGE_TITLE_MAP_ENTRY;
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 02/04/2018.
- */
 @Controller
 @RequestMapping(ADMIN_URL)
 public class AdminUserController extends BaseController {

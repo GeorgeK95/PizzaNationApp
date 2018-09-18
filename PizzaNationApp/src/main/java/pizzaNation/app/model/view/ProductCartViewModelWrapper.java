@@ -8,9 +8,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * Created by George-Lenovo on 26/04/2018.
- */
 public class ProductCartViewModelWrapper {
 
     private static final BigDecimal DELIVERY_PRICE = new BigDecimal(10);

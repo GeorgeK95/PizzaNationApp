@@ -5,9 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import pizzaNation.app.model.entity.Order;
 
-/**
- * Created by George-Lenovo on 27/04/2018.
- */
 @Repository
 public interface OrderRepository extends JpaRepository<Order, String> {
 

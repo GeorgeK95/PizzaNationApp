@@ -8,9 +8,6 @@ import pizzaNation.user.service.IUserService;
 
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 25/04/2018.
- */
 @Service
 @Transactional
 public class AccountService implements IAccountService {
@@ -37,7 +34,7 @@ public class AccountService implements IAccountService {
             throw new NoEmailVerificationCodeInGetRequestException();
         }
 
-        if (!queryString.split(QUESTION_MARK_STR)[0].split(EQUALS_STR)[0].equals(VERIFICATION_CODE_STR))
+        if (!queryString.split(QUESTION_MARK_STR)[0].split(EQUALS_STR)[0].equals(TOKEN))
             //if so tries request as lh:80/confirm?sdasdaasd=123123
             //app accepts requests like lh:80/confirm?verificationCode=123123
             throw new NoEmailVerificationCodeInGetRequestException();

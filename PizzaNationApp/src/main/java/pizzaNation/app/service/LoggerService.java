@@ -17,9 +17,6 @@ import static pizzaNation.app.util.WebConstants.MODIFIED_TABLE_STR;
 import static pizzaNation.app.util.WebConstants.OPERATION_STR;
 import static pizzaNation.app.util.WebConstants.USER_STR;
 
-/**
- * Created by George-Lenovo on 09/04/2018.
- */
 @Service
 @Transactional
 public class LoggerService implements ILoggerService {

@@ -1,6 +1,10 @@
 <head th:fragment="head">
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
     <title th:if="${pageTitle}" th:text="${pageTitle}"></title>
+
+    <!--MAP-->
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1533195059"/>
 
     <!--API-->
     <link th:href="@{/css/api/ionicons.css}" rel="stylesheet" type="text/css"/>

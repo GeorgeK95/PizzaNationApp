@@ -9,9 +9,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import java.util.Date;
 
-/**
- * Created by George-Lenovo on 04/04/2018.
- */
 public class UserViewModel {
 
     private String id;

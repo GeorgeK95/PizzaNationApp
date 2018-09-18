@@ -10,9 +10,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by George-Lenovo on 01/04/2018.
- */
 @Entity
 public class Product {
     @Id
@@ -30,16 +27,11 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private Set<Menu> menus;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-    private Set<Ingredient> ingredients;
-
     private int totalSales;
 
     private Boolean isPromotional;
 
     @Column(nullable = false, precision = 7, scale = 2)
-//    @Price(digitsAfterDecPlate = 2)
-//    @Digits(integer = 18, fraction = 1)
     private BigDecimal price;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -80,10 +72,6 @@ public class Product {
         return details;
     }
 
-    public void setIngredients(Set<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
-
     public int getTotalSales() {
         return totalSales;
     }
@@ -118,10 +106,6 @@ public class Product {
 
     public void setMenus(Set<Menu> menu) {
         this.menus = menu;
-    }
-
-    public Set<Ingredient> getIngredients() {
-        return ingredients;
     }
 
     public void setTotalSales(int totalSales) {

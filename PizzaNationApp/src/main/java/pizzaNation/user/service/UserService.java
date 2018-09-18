@@ -1,6 +1,5 @@
 package pizzaNation.user.service;
 
-import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,9 +15,11 @@ import pizzaNation.app.config.PizzaNationSecurityConfiguration;
 import pizzaNation.app.exception.*;
 import pizzaNation.app.model.request.EditDetailsRequestModel;
 import pizzaNation.app.model.request.EditSignInRequestModel;
-import pizzaNation.app.model.transfer.EmailVerification;
 import pizzaNation.app.model.view.UserViewModel;
 import pizzaNation.app.repository.LoggerRepository;
+import pizzaNation.email.factory.EmailFactory;
+import pizzaNation.email.model.EmailVerification;
+import pizzaNation.email.service.api.IEmailService;
 import pizzaNation.user.model.entity.Role;
 import pizzaNation.user.model.entity.User;
 import pizzaNation.user.model.request.EditUserRequestModel;
@@ -33,9 +34,6 @@ import java.util.stream.Collectors;
 
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 27/03/2018.
- */
 @Service
 @Transactional
 public class UserService extends BaseService implements IUserService {
@@ -50,13 +48,16 @@ public class UserService extends BaseService implements IUserService {
 
     private final JmsTemplate jmsTemplate;
 
+    private final IEmailService emailService;
+
     @Autowired
-    public UserService(UserRepository userRepository, RoleRepository roleRepository, LoggerRepository loggerRepository, BCryptPasswordEncoder encoder, JmsTemplate jmsTemplate) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository, LoggerRepository loggerRepository, BCryptPasswordEncoder encoder, JmsTemplate jmsTemplate, IEmailService emailService) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.loggerRepository = loggerRepository;
         this.encoder = encoder;
         this.jmsTemplate = jmsTemplate;
+        this.emailService = emailService;
     }
 
     @Override
@@ -239,11 +240,6 @@ public class UserService extends BaseService implements IUserService {
         return this.userRepository.findAllSubscribed().stream().map(User::getEmail).collect(Collectors.toSet());
     }
 
-    /*@Override
-    public List<UserViewModel> findAllSubscribed() {
-        return DTOConverter.convert(this.userRepository.findAllSubscribed(), UserViewModel.class);
-    }*/
-
     private User editUser(EditDetailsRequestModel requestModel, Optional<User> toEdit) {
         User user = toEdit.get();
 
@@ -296,7 +292,8 @@ public class UserService extends BaseService implements IUserService {
     }
 
     private void sendConfirmEmail(String email, String code) {
-        jmsTemplate.convertAndSend(USER_ARRIVED_DESTINATION, new Gson().toJson(new EmailVerification(email, String.format(VERIFICATION_MESSAGE, code))));
+        EmailVerification emailVerification = EmailFactory.generateEmailVerificationObject(email, code);
+        this.emailService.sendSimpleMessage(emailVerification);
     }
 
 }

@@ -11,9 +11,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * Created by George-Lenovo on 25/04/2018.
- */
 @NotNull
 @Component
 @Constraint(validatedBy = PriceValidator.class)

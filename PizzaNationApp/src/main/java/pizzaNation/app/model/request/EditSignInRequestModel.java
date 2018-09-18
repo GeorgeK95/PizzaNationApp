@@ -7,9 +7,6 @@ import javax.validation.constraints.Size;
 
 import static pizzaNation.app.util.WebConstants.INVALID_PASSWORD_MESSAGE;
 
-/**
- * Created by George-Lenovo on 08/04/2018.
- */
 public class EditSignInRequestModel {
 
     @Email

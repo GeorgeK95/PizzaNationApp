@@ -10,9 +10,6 @@ import pizzaNation.app.util.DTOConverter;
 
 import java.util.List;
 
-/**
- * Created by George-Lenovo on 17/04/2018.
- */
 @Service
 @Transactional
 public class LogService implements ILogService {

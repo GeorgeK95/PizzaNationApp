@@ -27,9 +27,6 @@ import java.util.stream.Collectors;
 
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 26/04/2018.
- */
 @Service
 @Transactional
 public class CartService implements ICartService {
@@ -111,11 +108,6 @@ public class CartService implements ICartService {
     public int getCartSize(HttpServletRequest request) {
         if (!this.validateCartRequest(request)) return 0;
 
-        return this.getProducts(request).getProducts().size();
-    }
-
-    @Override
-    public int getCartSizeWithoutValidation(HttpServletRequest request) {
         return this.getProducts(request).getProducts().size();
     }
 

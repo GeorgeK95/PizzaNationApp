@@ -16,6 +16,7 @@ import pizzaNation.app.model.view.MenuViewModel;
 import pizzaNation.app.service.contract.IImageService;
 import pizzaNation.app.service.contract.IProductService;
 import pizzaNation.app.util.DTOConverter;
+import pizzaNation.cloudinary.enumerations.Folder;
 import pizzaNation.user.service.BaseService;
 
 import java.util.ArrayList;
@@ -26,9 +27,6 @@ import java.util.stream.Collectors;
 
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 01/04/2018.
- */
 @Service
 @Transactional
 public class MenuService extends BaseService implements IMenuService {
@@ -63,7 +61,7 @@ public class MenuService extends BaseService implements IMenuService {
         Menu menu = DTOConverter.convert(addMenuRequestModel, Menu.class);
 
         menu.setProducts(this.productService.getAllByIds(addMenuRequestModel.getProductsIds()));
-        menu.setImage(this.imageService.uploadImage(addMenuRequestModel.getImage()));
+        menu.setImage(this.imageService.uploadImage(addMenuRequestModel.getImage(), Folder.MENU));
 
         this.menuRepository.saveAndFlush(menu);
 
@@ -91,7 +89,7 @@ public class MenuService extends BaseService implements IMenuService {
 
         menu.setDescription(editMenuRequestModel.getDescription());
         if (!editMenuRequestModel.getImage().getOriginalFilename().isEmpty())
-            menu.setImage(this.imageService.uploadImage(editMenuRequestModel.getImage()));
+            menu.setImage(this.imageService.uploadImage(editMenuRequestModel.getImage(), Folder.MENU));
         menu.setName(editMenuRequestModel.getName());
         menu.setPriority(editMenuRequestModel.getPriority());
         menu.setProducts(DTOConverter.convertToSet(this.productService.getAllByIds(
@@ -132,6 +130,13 @@ public class MenuService extends BaseService implements IMenuService {
     @Override
     public List<MenuViewModel> findAllByDateDesc() {
         return DTOConverter.convert(this.menuRepository.findAllByDateDesc(), MenuViewModel.class);
+    }
+
+    @Override
+    public boolean persistMenuEntity(Menu menu) {
+        this.menuRepository.saveAndFlush(menu);
+
+        return true;
     }
 
     private boolean hasErrors(Menu menu, EditMenuRequestModel editMenuRequestModel, BindingResult bindingResult,

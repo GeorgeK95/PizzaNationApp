@@ -10,10 +10,6 @@ import pizzaNation.app.model.view.MenuViewModel;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by George-Lenovo on 01/04/2018.
- */
-
 public interface IMenuService {
     boolean addMenu(AddMenuRequestModel addMenuRequestModel, RedirectAttributes attributes, BindingResult bindingResult);
 
@@ -29,10 +25,7 @@ public interface IMenuService {
 
     EditMenuRequestModel findByName(String menuName);
 
-//    Menu findMenuEntityByName(String menuName);
-
-//    EditMenuRequestModel findById(String id);
-
     List<MenuViewModel> findAllByDateDesc();
 
+    boolean persistMenuEntity(Menu menu);
 }

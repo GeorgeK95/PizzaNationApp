@@ -2,9 +2,6 @@ package pizzaNation.app.util;
 
 import java.util.Set;
 
-/**
- * Created by George-Lenovo on 23/03/2018.
- */
 public class StaticFilesContainer {
 
     private Set<String> cssFiles;

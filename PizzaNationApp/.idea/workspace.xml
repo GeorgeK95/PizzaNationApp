@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/resources/static/css/page/menu.css" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb056588-6fc1-43fb-a539-ae2d159cb254" name="Default" comment="" />
+    <list default="true" id="9ac2a357-847a-456d-950b-794a3c0abc3a" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,217 +11,121 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProductService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/ProductService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="218" column="34" lean-forward="true" selection-start-line="218" selection-start-column="34" selection-end-line="218" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="about.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/about/about.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="12" column="120" selection-start-line="12" selection-start-column="120" selection-end-line="12" selection-end-column="120" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/page/home.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="65" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CartService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/CartService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="118" selection-start-line="118" selection-end-line="118" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="about.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/page/about.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminLogController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/admin/controller/AdminLogController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="29" column="47" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="47" />
-              <folding>
-                <element signature="e#977#978#0" expanded="true" />
-                <element signature="e#1065#1066#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ILogService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/admin/service/ILogService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/admin/service/LogService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/admin/repository/LogRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/repository/ProductRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="38" column="25" lean-forward="true" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
+        <option value="package-info" />
         <option value="Enum" />
-        <option value="AnnotationType" />
-        <option value="JavaScript File" />
         <option value="Class" />
-        <option value="HTML File" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>div_padded_table</find>
-      <find>console.log</find>
-      <find>sesion</find>
-      <find>UserViewModel</find>
-      <find>CART_CHECKOUT_URL</find>
-      <find>remove</find>
-      <find>cartId</find>
-      <find>loadUserBy</find>
-      <find>request.getCookie</find>
-      <find>url-s</find>
-      <find>setCartCookie</find>
-      <find>REORDER_URL</find>
-      <find>oldCartProductsSessionData</find>
-      <find>Your session is either invalid or missing.</find>
-      <find>ready</find>
-      <find>addPRod</find>
-      <find>sessionId</find>
+      <find>/cart/addProduct</find>
+      <find>productDetails</find>
+      <find />
+      <find>register</find>
+      <find>E</find>
+      <find>createAndSetIngredientsParagraphs</find>
+      <find>addProductAjax</find>
+      <find>ingred</find>
+      <find>\&lt;\!\-\-\&lt;label for\=\&quot;productsIds\&quot;\&gt;Products Included\&lt;\/label\&gt;\n                            \&lt;select multiple\=\&quot;\&quot; class\=\&quot;form_item\&quot; id\=\&quot;productsIds\&quot; th\:field\=\&quot;\*\{productsIds\}\&quot;\&gt;\n                                \&lt;option th\:each\=\&quot;product \: \$\{productsList\}\&quot; th\:value\=\&quot;\$\{product\.getId\(\)\}\&quot;\n                                        th\:text\=\&quot;\$\{product\.getName\(\)\}\&quot;\&gt;1\n                                \&lt;\/option\&gt;\n                            \&lt;\/select\&gt;\n                            \&lt;div class\=\&quot;pad5\&quot;\&gt;\&amp;lt\;\!\&amp;ndash\; spacer \&amp;ndash\;\&amp;gt\;\&lt;\/div\&gt;\-\-\&gt;</find>
+      <find>Products Included</find>
+      <find>cloudImageExtractor</find>
+      <find>stores</find>
+      <find>n mobile app is going to be released when i complete the SoftUni Android</find>
+      <find>img</find>
+      <find>@media</find>
+      <find>eb_left</find>
+      <find>token</find>
+      <find>sendE</find>
       <find>confirm</find>
-      <find>/cart/cartSize</find>
-      <find>console</find>
-      <find>[0]</find>
-      <find>removePaddedTable</find>
-      <find>Menu items</find>
-      <find>At Pizza Nation we believe that every person is an inventor and has the imagination to find the formula for the best pizza! We are only giving you the ingredients for your success.</find>
-      <find>At Pizza Nation we bel</find>
-      <find>allLogs</find>
-      <find>Checkout</find>
-      <find>p</find>
-      <find>addProd</find>
-      <find>cartSize</find>
+      <find>Create</find>
+      <find>/\*.*\*/</find>
+      <find>Created by George-Lenovo on</find>
+      <find>user</find>
+      <find>postma</find>
+      <find>nfirm =</find>
+      <find>jmsTemplate</find>
+      <find>send</find>
+      <find>new Thre</find>
+      <find>marker</find>
+      <find>Created by George-Lenovo</find>
     </findStrings>
     <replaceStrings>
       <replace />
-      <replace>model</replace>
-      <replace>ADMIN_PAGE_TITLE_MAP_ENTRY</replace>
-      <replace>0</replace>
-      <replace>menu_item_half_img</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>E:\GITHUB\PizzaNationApp\PizzaNationApp\src\main\java\pizzaNation\app</dir>
+      <dir>C:\Users\Georg\Desktop\PizzaNationApp\PizzaNationApp\src\main\java\pizzaNation\app\service</dir>
     </dirStrings>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../../MyFirstChat" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../android-chat-tutorial" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../android-mvp-demo/api" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../chatapp" value="PREVIEW" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/static/css/core/core.css" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/model/view/ConfirmOrderViewModel.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/page/menu.js" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/model/view/ProductCartViewModelWrapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/BaseController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/exception/badRequest.html" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/annotation/Price.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/config/PizzaNationActiveMqConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/config/PizzaNationBeanConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/enums/Action.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/product/allProducts.html" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/model/view/MenuProductsViewModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/admin/service/MenuService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/pcloud/image/CloudImageExtractor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/AbstractHandlerMethodExceptionResolverImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/css/page/orders.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/css/page/account.css" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/model/view/OrderViewModel.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/menu/listProducts.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/css/page/menu.css" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/emailScheduler/DeleteStandaloneIngredientsScheduledTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/emailScheduler/CheckForDeliveredOrdersScheduledTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/model/view/UserViewModel.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/account/orders.html" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/service/contract/IOrderService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/pcloud/auth/CloudAuthorizationService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/pcloud/image/CloudImageUploader.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/config/PizzaNationSecurityConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/loader/DataLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/interceptor/LoginInterceptor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/CartController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/service/ICartService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/config/PizzaNationInterceptorConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/SessionNotFoundException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/enums/OrderStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/enums/TableEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/enums/Unit.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/AdminModifyException.java" />
         <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/CartNotFoundException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/error/ExceptionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/ConfirmCodeNotFoundException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/IngredientNotFoundException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/MenuNotFoundException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/NoEmailVerificationCodeInGetRequestException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/ProductNotFoundException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/UserAlreadyExistException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/UserNotFoundException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/model/entity/Log.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/model/entity/Menu.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/model/entity/Order.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/model/entity/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/repository/ImageRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/repository/LoggerRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/repository/OrderRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/service/OrderService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/util/WebConstants.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/account/account.html" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/account/controller/AccountController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/page/cart.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/page/core.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/cart/cart.html" />
         <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/repository/ProductRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/service/ProductService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/css/page/about.css" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/admin/service/LogService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/admin/repository/LogRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/cart/checkout.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/about/about.html" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/service/contract/IContactService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/service/contract/ILoggerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/service/contract/IOrderService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/service/contract/IProductService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/service/ContactService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/service/ICartService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/service/OrderService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/util/DirectoryScanner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/util/DTOConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/util/StaticFilesContainer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/util/WebConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/validator/ImageValidator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/validator/PriceValidator.java" />
         <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/service/CartService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/page/home.js" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/AboutController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/BaseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/CartController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/ContactController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/TermsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/model/view/IngredientViewModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/model/request/IngredientsRequestModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/model/response/IngredientResponseModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/model/view/ProductDetailsViewModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/error/ExceptionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/AbstractHandlerMethodExceptionResolverImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pizzaNation/admin/controller/AdminProductController.java" />
       </list>
     </option>
   </component>
@@ -245,19 +146,16 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1378" />
-    <option name="height" value="744" />
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,166 +189,42 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="pizzaNation" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="pizzanation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PizzaNationApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pizzaNation" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pizzanation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PizzaNationApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pizzaNation" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pizzanation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PizzaNationApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pizzaNation" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pizzanation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PizzaNationApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pizzaNation" type="462c0819:PsiDirectoryNode" />
-              <item name="emailScheduler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pizzanation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PizzaNationApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pizzaNation" type="462c0819:PsiDirectoryNode" />
-              <item name="pcloud" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pizzanation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PizzaNationApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pizzaNation" type="462c0819:PsiDirectoryNode" />
-              <item name="pcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pizzanation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PizzaNationApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pizzaNation" type="462c0819:PsiDirectoryNode" />
-              <item name="pcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="http3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pizzanation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PizzaNationApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pizzaNation" type="462c0819:PsiDirectoryNode" />
-              <item name="pcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="image" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pizzanation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PizzaNationApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pizzanation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PizzaNationApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pizzanation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PizzaNationApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pizzanation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PizzaNationApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="SearchEverywhereHistoryKey" value="OrderViewModel&#9;FILE&#9;file://E:/GITHUB/PizzaNationApp/PizzaNationApp/src/main/java/pizzaNation/app/model/view/OrderViewModel.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Facets" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\GITHUB\PizzaNationApp\PizzaNationApp\src\main\resources\templates\exception" />
-      <recent name="E:\GITHUB\PizzaNationApp\PizzaNationApp\src\main\resources\templates\admin\ingredient" />
-      <recent name="E:\GITHUB\PizzaNationApp\PizzaNationApp\src\main\resources\templates\admin\product" />
-      <recent name="E:\GITHUB\PizzaNationApp\PizzaNationApp\src\main\resources\templates\account" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\GITHUB\PizzaNationApp\PizzaNationApp\src\main\resources\templates\fragments\cart" />
-      <recent name="E:\GITHUB\PizzaNationApp\PizzaNationApp\src\main\resources\templates\admin\ingredient" />
-      <recent name="E:\GITHUB\PizzaNationApp\PizzaNationApp\src\main\java\pizzaNation\pcloud" />
-      <recent name="E:\GITHUB\PizzaNationApp\PizzaNationApp\src\main\resources\templates\exception" />
-      <recent name="E:\GITHUB\PizzaNationApp\PizzaNationApp\src\main\resources\static" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="pizzaNation.app.interceptor" />
-      <recent name="pizzaNation.emailScheduler" />
-      <recent name="pizzaNation.app.model.view" />
-      <recent name="pizzaNation.app.contoller.error" />
+      <recent name="C:\Users\Georg\Desktop\PizzaNationApp\PizzaNationApp\src\main\resources\static\js\page" />
+      <recent name="C:\Users\Georg\Desktop\PizzaNationApp\PizzaNationApp\src\main\resources\static\css\page" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="pizzaNation.app.model.view" />
-      <recent name="pizzaNation.app.exception" />
-      <recent name="pizzaNation.app.repository" />
-      <recent name="pizzaNation.app.service.contract" />
-      <recent name="pizzaNation.app.service" />
+      <recent name="pizzaNation.email.service.api" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pizzaNation.cloudinary" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Georg\Desktop\PizzaNationApp\PizzaNationApp\src\main\resources\templates\map" />
+      <recent name="C:\Users\Georg\Desktop\PizzaNationApp\PizzaNationApp\src\main\java\pizzaNation\email" />
+      <recent name="C:\Users\Georg\Desktop\PizzaNationApp\PizzaNationApp\src\main\java\pizzaNation\email\service" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -517,23 +291,17 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bb056588-6fc1-43fb-a539-ae2d159cb254" name="Default" comment="" />
-      <created>1523470004322</created>
+      <changelist id="9ac2a357-847a-456d-950b-794a3c0abc3a" name="Default" comment="" />
+      <created>1537100831375</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1523470004322</updated>
-      <workItem from="1523470006157" duration="34244000" />
-      <workItem from="1523612231987" duration="19748000" />
-      <workItem from="1523692730015" duration="34045000" />
-      <workItem from="1523861289366" duration="38783000" />
-      <workItem from="1523977720744" duration="18536000" />
-      <workItem from="1524057427229" duration="17521000" />
-      <workItem from="1524474181887" duration="150301000" />
+      <updated>1537100831375</updated>
+      <workItem from="1537100833219" duration="32265000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313178000" />
+    <option name="totallyTimeSpent" value="32265000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -546,76 +314,73 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50073206" side_tool="true" weight="0.4" />
-      <window_info anchor="right" id="Maven Projects" order="9" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="8" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info id="Capture Tool" />
+      <window_info id="Designer" />
+      <window_info anchor="right" id="Database" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="4" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49926794" visible="true" weight="0.3984252" />
+      <window_info id="UI Designer" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.41732284" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32913387" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.32913387" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32913387" />
-      <window_info id="Persistence" order="7" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992126" weight="0.24963397" />
-      <window_info anchor="right" id="Bean Validation" order="8" />
-      <window_info id="Web" order="6" sideWeight="0.5007874" side_tool="true" weight="0.24963397" />
+      <window_info anchor="bottom" id="Messages" weight="0.32913387" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info id="Image Layers" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33700788" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32913387" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
+      <window_info anchor="right" id="Bean Validation" />
+      <window_info id="Web" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32913387" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info id="Favorites" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info id="Persistence" order="7" side_tool="true" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32913387" />
-      <window_info id="Capture Tool" order="8" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50073206" side_tool="true" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.32913387" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32913387" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
-      <window_info anchor="right" id="Maven Projects" order="9" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32913387" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4992126" visible="true" weight="0.24963397" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Web" order="6" sideWeight="0.5007874" side_tool="true" weight="0.24963397" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49926794" weight="0.42362204" />
-      <window_info anchor="right" id="Bean Validation" order="8" />
+      <window_info id="Designer" order="0" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="bottom" id="Run" order="9" weight="0.33700788" />
+      <window_info anchor="bottom" id="Spring" order="0" />
+      <window_info id="Image Layers" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="7" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32913387" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="3" weight="0.32913387" />
+      <window_info anchor="bottom" id="TODO" order="13" weight="0.32913387" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Java Enterprise" order="4" />
+      <window_info anchor="bottom" id="Database Changes" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="6" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven Projects" order="2" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.32913387" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.24963397" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info id="Web" order="5" side_tool="true" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="10" visible="true" weight="0.4" />
+      <window_info anchor="right" id="Bean Validation" order="6" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -629,570 +394,514 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/ImageService.java</url>
-          <line>46</line>
+          <line>25</line>
           <properties />
-          <option name="timeStamp" value="69" />
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/error/UnfoundController.java</url>
-          <line>29</line>
+          <url>file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/ProductService.java</url>
+          <line>177</line>
           <properties />
-          <option name="timeStamp" value="266" />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/ImageService.java</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pizzaNation/cloudinary/model/response/CloudResponseModel.java</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/ImageService.java</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="506" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="21" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="constraintValidatorContext" />
-        <watch expression="((HashMap)((CartController)this).sessionCartData).entrySet().toArray()[0]" custom="pizzaNation.app.contoller.CartController,java.util.HashMap" />
-        <watch expression="((CartController)this).cartProductsSessionData" custom="pizzaNation.app.contoller.CartController" />
-        <watch expression="incrementedProducts.toArray()[0]" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>modelAndView</expression-string>
+        <expression-string>new Gson()</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>com.google.gson.Gson,pizzaNation.cloudinary.model.response.CloudResponseModel</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>new Gson(response,CloudResponseModel.class)</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>com.google.gson.Gson,pizzaNation.cloudinary.model.response.CloudResponseModel</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>new Gson().fromJson(response)</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>com.google.gson.Gson</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>picture.getOriginalFilename()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>modelAndView.getModel();</expression-string>
+        <expression-string>this.productRepository.findByName(&quot;Greek Pizza &quot;);</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
-    </expressions>
-    <expressions id="evaluateExpression">
       <expression>
-        <expression-string>this.getProducts(request).getProducts()</expression-string>
+        <expression-string>this.productRepository.findByName(&quot;Greek Pizza&quot;);</expression-string>
         <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>request.getCookies()</expression-string>
+        <expression-string>this.productRepository.findByName(name);</expression-string>
         <language-id>JAVA</language-id>
-        <custom-info>pizzaNation.app.service.CartService,java.util.HashMap.Node,java.util.HashMap</custom-info>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>request.getMethod().equals(GET.toString())</expression-string>
+        <expression-string>this.productRepository.findByName(&quot;Neapolitan Pizza&quot;)</expression-string>
         <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.productService.getMenuProducts(menuName)</expression-string>
+        <expression-string>this.productRepository.findByName(name)</expression-string>
         <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.cloudAuthorizationService.getAccessToken()</expression-string>
+        <expression-string>this.productService.findByName(productName, ProductDetailsViewModel.class)</expression-string>
         <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>oldCartProductsSessionData.put(email, this.cartProductsSessionData.get(cartIdCookie.get().getValue()));</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>this.cloudAuthorizationService.getAccessToken()``</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>UPLOAD_FILE_URL
-                        + QUERY_PATH_SEPARATOR
-                        + FOLDER_ID_PARAMETER
-                        + PICTURE_FOLDER_ID
-                        + QUERY_PARAMETER_SEPARATOR
-                        + FILE_NAME_PARAMETER
-                        + file.getOriginalFilename()
-                        + QUERY_PARAMETER_SEPARATOR
-                        + AUTH_PARAMETER</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>UPLOAD_FILE_URL
-                        + QUERY_PATH_SEPARATOR
-                        + FOLDER_ID_PARAMETER
-                        + PICTURE_FOLDER_ID
-                        + QUERY_PARAMETER_SEPARATOR
-                        + FILE_NAME_PARAMETER</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/emailScheduler/CheckForDeliveredOrdersScheduledTask.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/UserNotFoundException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+        <state relative-caret-position="51">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/pcloud/auth/CloudAuthorizationCredentials.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/UserNotConfirmedException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        <state relative-caret-position="-153">
           <folding>
-            <element signature="e#348#349#0" expanded="true" />
-            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#0#603#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/pcloud/image/CloudImageExtractor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/UserAlreadyExistException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/pcloud/http3/HttpRequestExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/pcloud/image/CloudImageUploader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/contract/IProductService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="38" column="56" lean-forward="true" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/config/PizzaNationSecurityConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="31" column="6" lean-forward="true" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/user/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="92" column="76" lean-forward="true" selection-start-line="92" selection-start-column="76" selection-end-line="92" selection-end-column="76" />
+        <state relative-caret-position="51">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/interceptor/LoggerInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/pcloud/auth/CloudAuthorizationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.28/tomcat-embed-core-8.5.28.jar!/javax/servlet/http/HttpServletResponse.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.desktop/javax/swing/text/html/FormSubmitEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-586">
-          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/interceptor/LoginInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/config/PizzaNationInterceptorConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="85">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/loader/DataLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="90" column="49" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/page/menu.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/model/entity/Image.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="62" column="11" lean-forward="true" selection-start-line="54" selection-start-column="3" selection-end-line="62" selection-end-column="11" />
+        <state relative-caret-position="81">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/CartNotFoundException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/model/entity/Order.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+        <state relative-caret-position="51">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/error/ExceptionController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/model/entity/Log.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="66" column="26" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
+        <state relative-caret-position="85">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/user/model/entity/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/model/entity/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="139" selection-start-line="139" selection-end-line="139" />
-          <folding>
-            <element signature="e#3670#3671#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="986">
+          <caret line="72" column="20" lean-forward="true" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/model/view/OrderViewModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/model/entity/Product.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/repository/ImageRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/repository/LoggerRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/repository/OrderRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        <state relative-caret-position="51">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/ArrayList.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/repository/ProductRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="165" column="11" selection-start-line="165" selection-start-column="11" selection-end-line="165" selection-end-column="11" />
-          <folding>
-            <element signature="e#6326#6327#0" expanded="true" />
-            <element signature="e#6394#6395#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-123">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/Comparator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/contract/IContactService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="463" column="69" selection-start-line="463" selection-start-column="69" selection-end-line="463" selection-end-column="69" />
+        <state relative-caret-position="51">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/OrderService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/contract/IImageService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="71" column="3" lean-forward="true" selection-start-line="71" selection-start-column="3" selection-end-line="71" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/account/account.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/contract/ILoggerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/account/controller/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="53" column="24" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/model/view/ConfirmOrderViewModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        <state relative-caret-position="51">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/contract/IOrderService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/util/WebConstants.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/contract/IProductService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="126" column="50" selection-start-line="126" selection-start-column="50" selection-end-line="126" selection-end-column="50" />
+        <state relative-caret-position="186">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/CartController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/ContactService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="62" column="49" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2550#2551#0" expanded="true" />
-            <element signature="e#2626#2627#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-463">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/ICartService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        <state relative-caret-position="340">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/ImageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/page/cart.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/LoggerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        <state relative-caret-position="-140">
+          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/page/core.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/OrderService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/cart/cart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/model/view/ProductCartViewModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/repository/ProductRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="38" column="25" lean-forward="true" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        <state relative-caret-position="-4">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/ProductService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="218" column="34" lean-forward="true" selection-start-line="218" selection-start-column="34" selection-end-line="218" selection-end-column="34" />
+        <state relative-caret-position="-2856">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/log/allLogs.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/page/about.css">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/util/DirectoryScanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        <state relative-caret-position="85">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/admin/controller/AdminLogController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/util/DTOConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="29" column="47" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="47" />
-          <folding>
-            <element signature="e#977#978#0" expanded="true" />
-            <element signature="e#1065#1066#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="46">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/admin/service/LogService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/util/WebConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+        <state relative-caret-position="424">
+          <caret line="231" selection-start-line="231" selection-end-line="231" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/page/cart.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/menu/listProducts.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/util/StaticFilesContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="47" column="74" selection-start-line="47" selection-start-column="73" selection-end-line="47" selection-end-column="74" />
+        <state relative-caret-position="-38">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/admin/service/ILogService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/validator/ImageValidator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        <state relative-caret-position="51">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/cart/checkout.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/validator/PriceValidator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="16" column="90" selection-start-line="16" selection-start-column="90" selection-end-line="16" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/admin/repository/LogRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/about/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="120" selection-start-line="12" selection-start-column="120" selection-end-line="12" selection-end-column="120" />
+        <state relative-caret-position="149">
+          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/service/CartService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="118" selection-start-line="118" selection-end-line="118" />
+        <state relative-caret-position="132">
+          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/AboutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-752">
+          <caret line="22" column="75" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/CartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/ContactController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-157">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-157">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/model/view/IngredientViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="e#269#270#0" expanded="true" />
+            <element signature="e#304#305#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#364#365#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/page/home.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/IngredientNotFoundException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="65" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="65" />
+        <state>
+          <caret column="32" selection-start-column="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/model/response/IngredientResponseModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="33" lean-forward="true" selection-start-column="33" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
+            <element signature="e#442#443#0" expanded="true" />
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#508#509#0" expanded="true" />
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#622#623#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
+            <element signature="e#676#677#0" expanded="true" />
+            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#750#751#0" expanded="true" />
+            <element signature="e#788#789#0" expanded="true" />
+            <element signature="e#820#821#0" expanded="true" />
+            <element signature="e#868#869#0" expanded="true" />
+            <element signature="e#908#909#0" expanded="true" />
+            <element signature="e#946#947#0" expanded="true" />
+            <element signature="e#978#979#0" expanded="true" />
+            <element signature="e#1018#1019#0" expanded="true" />
+            <element signature="e#1050#1051#0" expanded="true" />
+            <element signature="e#1086#1087#0" expanded="true" />
+            <element signature="e#1114#1115#0" expanded="true" />
+            <element signature="e#1170#1171#0" expanded="true" />
+            <element signature="e#1208#1209#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/model/request/IngredientsRequestModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="33" lean-forward="true" selection-start-column="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/model/request/IngredientsRequestModelWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="31" selection-start-column="31" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/exception/ingredient.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/StoresController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/model/view/ProductDetailsViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/exception/AbstractHandlerMethodExceptionResolverImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/admin/controller/AdminProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1345#1346#0" expanded="true" />
+            <element signature="e#1397#1398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/error/ExceptionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaNation/app/contoller/TermsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>pizzanation:war</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Spring</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>9</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>JPA|pizzanation</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
-          <last-edited>9</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
+          <last-edited>10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

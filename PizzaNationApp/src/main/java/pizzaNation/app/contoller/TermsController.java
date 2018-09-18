@@ -11,9 +11,6 @@ import static pizzaNation.app.util.WebConstants.PAGE_TITLE_STR;
 import static pizzaNation.app.util.WebConstants.TERMS_AND_CONDITIONS_PAGE_TITLE;
 import static pizzaNation.app.util.WebConstants.TERMS_URL;
 
-/**
- * Created by George-Lenovo on 15/03/2018.
- */
 @Controller
 public class TermsController extends BaseController {
 

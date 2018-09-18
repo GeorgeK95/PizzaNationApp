@@ -18,9 +18,6 @@ import java.security.Principal;
 
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 30/03/2018.
- */
 @Service
 @Transactional
 public class ContactService extends BaseService implements IContactService {
@@ -41,7 +38,7 @@ public class ContactService extends BaseService implements IContactService {
 
         if (super.containErrors(bindingResult, attributes, CONTACT_FORM_ERROR)) return false;
 
-        new Thread(() -> this.sendEmail(requestModel)).start();
+        this.sendEmail(requestModel);
 
         attributes.addFlashAttribute(CONTACT_FORM_SUCCESS, SUCCESSFULLY_SENT_FEEDBACK_MESSAGE);
 

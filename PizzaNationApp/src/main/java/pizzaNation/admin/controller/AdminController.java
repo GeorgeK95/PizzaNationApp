@@ -11,9 +11,6 @@ import java.util.Map;
 import static java.util.Map.entry;
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 25/03/2018.
- */
 @Controller
 @RequestMapping(ADMIN_URL)
 public class AdminController extends BaseController {

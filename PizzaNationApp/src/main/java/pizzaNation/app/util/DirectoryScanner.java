@@ -9,9 +9,6 @@ import static pizzaNation.app.util.WebConstants.CSS_EXTENSION;
 import static pizzaNation.app.util.WebConstants.EMPTY_STR;
 import static pizzaNation.app.util.WebConstants.JS_EXTENSION;
 
-/**
- * Created by George-Lenovo on 23/03/2018.
- */
 public final class DirectoryScanner {
 
     public static Set<String> getDirectoryFilesNames(String path) {

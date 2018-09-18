@@ -11,10 +11,6 @@ import java.util.Map;
 
 import static pizzaNation.app.util.WebConstants.*;
 
-
-/**
- * Created by George-Lenovo on 15/03/2018.
- */
 public abstract class BaseController {
 
     @Autowired
@@ -24,10 +20,10 @@ public abstract class BaseController {
         StackTraceElement[] stackTraceElements = java.lang.Thread.currentThread().getStackTrace();
         StackTraceElement callee = stackTraceElements[3];
         String[] names = callee.getClassName().split("\\.");
-        String folder = names[names.length - 1].replace(CONTROLLER_STR, "")/*.toLowerCase()*/;
+        String folder = names[names.length - 1].replace(CONTROLLER_STR, "");
         String file = callee.getMethodName();
 
-        //split po glavni bukvi
+        //split by uppercase letters
         String[] r = folder.split(UPPERCASE_SPLIT_PATTERN);
         StringBuilder sb = new StringBuilder();
         Arrays.stream(r).forEach(cc -> sb.append(cc).append(SLASH_STR));

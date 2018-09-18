@@ -11,9 +11,6 @@ import java.util.Set;
 
 import static pizzaNation.app.util.WebConstants.INVALID_PRODUCT_MESSAGE;
 
-/**
- * Created by George-Lenovo on 03/04/2018.
- */
 public class EditProductRequestModel {
 
     @NotBlank

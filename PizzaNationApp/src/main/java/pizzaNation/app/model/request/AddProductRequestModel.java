@@ -12,9 +12,6 @@ import static pizzaNation.app.util.WebConstants.INVALID_DESCRIPTION_MESSAGE;
 import static pizzaNation.app.util.WebConstants.INVALID_MENU_NAME_MESSAGE;
 import static pizzaNation.app.util.WebConstants.INVALID_PRODUCT_MESSAGE;
 
-/**
- * Created by George-Lenovo on 03/04/2018.
- */
 public class AddProductRequestModel {
 
     @NotBlank

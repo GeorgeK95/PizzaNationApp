@@ -17,9 +17,6 @@ import java.util.Map;
 import static java.util.Map.entry;
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 06/04/2018.
- */
 @Controller
 public class AccountController extends BaseController {
 
@@ -43,7 +40,7 @@ public class AccountController extends BaseController {
     }
 
     @PreAuthorize("isAnonymous()")
-    @GetMapping(CONFIRM_URL)
+    @GetMapping(VERIFY_EMAIL)
     public ModelAndView confirm(HttpServletRequest request, RedirectAttributes attributes) {
         this.accountService.tryConfirmAccount(request.getQueryString(), attributes);
 

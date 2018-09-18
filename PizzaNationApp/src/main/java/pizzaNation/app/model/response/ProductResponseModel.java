@@ -2,9 +2,6 @@ package pizzaNation.app.model.response;
 
 import java.util.Date;
 
-/**
- * Created by George-Lenovo on 02/04/2018.
- */
 public class ProductResponseModel {
 
     private String name;

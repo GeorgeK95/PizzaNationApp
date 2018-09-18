@@ -6,9 +6,6 @@ import pizzaNation.app.annotation.Image;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-/**
- * Created by George-Lenovo on 13/04/2018.
- */
 public class ImageValidator implements ConstraintValidator<Image, MultipartFile> {
 
     @Override

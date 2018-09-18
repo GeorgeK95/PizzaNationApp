@@ -7,24 +7,12 @@ import javax.validation.constraints.*;
 
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 27/03/2018.
- */
 public class EditUserRequestModel {
 
     private String id;
-    //    sign in details
     @Email
     @NotBlank
     private String email;
-
-    /*@NotBlank
-    @Size(min = 8, max = 50, message = INVALID_PASSWORD_MESSAGE)
-    private String password;
-
-    @NotBlank
-    @Size(min = 8, max = 50, message = INVALID_PASSWORD_MESSAGE)
-    private String confirmPassword;*/
 
     //    billing address
     @NotBlank
@@ -60,18 +48,6 @@ public class EditUserRequestModel {
     public String getId() {
         return id;
     }
-
-    /*public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }*/
 
     public String getFirstName() {
         return firstName;
@@ -124,18 +100,6 @@ public class EditUserRequestModel {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    /*public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }*/
 
     public void setAddress(String address) {
         this.address = address;

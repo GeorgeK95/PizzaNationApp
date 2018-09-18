@@ -16,9 +16,6 @@ import java.security.Principal;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by George-Lenovo on 27/03/2018.
- */
 public interface IUserService extends UserDetailsService {
     UserDetails loadUserByUsername(String s);
 
@@ -45,6 +42,4 @@ public interface IUserService extends UserDetailsService {
     boolean confirmAccount(String token, RedirectAttributes attributes);
 
     Set<String> getSubscribersEmails();
-
-//    List<UserViewModel> findAllSubscribed();
 }

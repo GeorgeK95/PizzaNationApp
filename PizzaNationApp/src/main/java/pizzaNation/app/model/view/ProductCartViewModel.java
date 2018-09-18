@@ -2,9 +2,6 @@ package pizzaNation.app.model.view;
 
 import java.math.BigDecimal;
 
-/**
- * Created by George-Lenovo on 26/04/2018.
- */
 public class ProductCartViewModel {
 
     private String name;

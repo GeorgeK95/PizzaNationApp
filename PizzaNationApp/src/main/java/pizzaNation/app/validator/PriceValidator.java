@@ -6,13 +6,10 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.math.BigDecimal;
 
-/**
- * Created by George-Lenovo on 25/04/2018.
- */
 public class PriceValidator implements ConstraintValidator<Price, BigDecimal> {
     private static final int ZERO = 0;
 
-    int digits;
+    private int digits;
 
     @Override
     public void initialize(Price price) {
@@ -28,11 +25,7 @@ public class PriceValidator implements ConstraintValidator<Price, BigDecimal> {
     public boolean isValid(BigDecimal s, ConstraintValidatorContext constraintValidatorContext) {
         if (s == null) return false;
 
-        if (getDigitsAfterDecPlate(s.toString()) != this.digits && getDigitsAfterDecPlate(s.toString()) != 1 ||
-                s.compareTo(new BigDecimal(ZERO)) <= 0) {
-            return false;
-        }
-
-        return true;
+        return (getDigitsAfterDecPlate(s.toString()) == this.digits || getDigitsAfterDecPlate(s.toString()) == 1) &&
+                s.compareTo(new BigDecimal(ZERO)) > 0;
     }
 }

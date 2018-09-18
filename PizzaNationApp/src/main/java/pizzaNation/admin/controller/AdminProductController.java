@@ -11,11 +11,8 @@ import pizzaNation.app.annotation.LoggerAction;
 import pizzaNation.app.contoller.BaseController;
 import pizzaNation.app.enums.Action;
 import pizzaNation.app.enums.TableEnum;
-import pizzaNation.app.enums.Unit;
 import pizzaNation.app.model.request.AddProductRequestModel;
 import pizzaNation.app.model.request.EditProductRequestModel;
-import pizzaNation.app.model.response.IngredientResponseModel;
-import pizzaNation.app.service.contract.IIngredientService;
 import pizzaNation.app.service.contract.IProductService;
 
 import javax.validation.Valid;
@@ -25,45 +22,28 @@ import java.util.List;
 import static pizzaNation.admin.controller.AdminController.ADMIN_PAGE_TITLE_MAP_ENTRY;
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 02/04/2018.
- */
 @Controller
 @RequestMapping(ADMIN_URL)
+@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
 public class AdminProductController extends BaseController {
 
     private final IProductService productService;
-    private final IIngredientService ingredientService;
 
     @Autowired
-    public AdminProductController(IProductService productService, IIngredientService ingredientService) {
+    public AdminProductController(IProductService productService) {
         this.productService = productService;
-        this.ingredientService = ingredientService;
     }
 
-    @ModelAttribute(name = INGREDIENTS_LIST)
-    public List<IngredientResponseModel> getProducts() {
-        return this.ingredientService.findAllByDateDesc();
-    }
-
-    @ModelAttribute(name = UNITS_LIST)
-    public List<Unit> getUnits() {
-        return Arrays.asList(Unit.values());
-    }
-
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @RequestMapping(method = RequestMethod.GET, value = {ALL_PRODUCTS_URL, PRODUCTS_URL})
     public ModelAndView allProducts() {
         return super.view(this.productService.findAllByDate(), ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(ADD_PRODUCTS_URL)
     public ModelAndView addProduct(AddProductRequestModel addProductRequestModel) {
         return super.view(addProductRequestModel, ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(ADD_PRODUCTS_URL)
     @LoggerAction(table = TableEnum.PRODUCT, action = Action.ADD)
     public ModelAndView addProductProcess(@ModelAttribute @Valid AddProductRequestModel addProductRequestModel,
@@ -73,14 +53,11 @@ public class AdminProductController extends BaseController {
         return super.redirectAndLog(ADMIN_ALL_PRODUCTS_URL);
     }
 
-
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(EDIT_PRODUCTS_URL)
     public ModelAndView editProduct(@PathVariable String name) {
-        return super.view(this.productService.findByName(name,EditProductRequestModel.class), ADMIN_PAGE_TITLE_MAP_ENTRY);
+        return super.view(this.productService.findByName(name, EditProductRequestModel.class), ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(EDIT_PRODUCTS_URL)
     @LoggerAction(table = TableEnum.PRODUCT, action = Action.EDIT)
     public ModelAndView editProductProcess(@ModelAttribute @Valid EditProductRequestModel editProductRequestModel,
@@ -90,13 +67,11 @@ public class AdminProductController extends BaseController {
         return super.redirectAndLog(ADMIN_ALL_PRODUCTS_URL);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @GetMapping(DELETE_PRODUCTS_URL)
     public ModelAndView deleteProduct(@PathVariable String name) {
-        return super.view(this.productService.findByName(name,EditProductRequestModel.class), ADMIN_PAGE_TITLE_MAP_ENTRY);
+        return super.view(this.productService.findByName(name, EditProductRequestModel.class), ADMIN_PAGE_TITLE_MAP_ENTRY);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
     @PostMapping(DELETE_PRODUCTS_URL)
     @LoggerAction(table = TableEnum.PRODUCT, action = Action.DELETE)
     public ModelAndView deleteProductProcess(@PathVariable String name) {

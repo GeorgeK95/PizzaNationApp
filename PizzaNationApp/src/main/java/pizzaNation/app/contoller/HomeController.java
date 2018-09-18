@@ -14,9 +14,6 @@ import static pizzaNation.app.util.WebConstants.PAGE_TITLE_STR;
 import static pizzaNation.app.util.WebConstants.PIZZA_NATION_PAGE_TITLE;
 import static pizzaNation.app.util.WebConstants.SLASH_STR;
 
-/**
- * Created by George-Lenovo on 13/03/2018.
- */
 @Controller
 public class HomeController extends BaseController {
 

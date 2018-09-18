@@ -24,9 +24,6 @@ import java.util.stream.Collectors;
 import static java.util.Map.entry;
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 15/03/2018.
- */
 @Controller
 public class UserController extends BaseController {
 

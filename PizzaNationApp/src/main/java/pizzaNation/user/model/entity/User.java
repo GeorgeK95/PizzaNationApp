@@ -13,11 +13,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.*;
 
-/**
- * Created by George-Lenovo on 27/03/2018.
- */
 @Entity
-//@Table(name = "users")
 public class User implements UserDetails {
 
     @Id

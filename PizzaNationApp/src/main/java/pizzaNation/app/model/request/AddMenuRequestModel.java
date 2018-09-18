@@ -8,9 +8,6 @@ import javax.validation.constraints.*;
 
 import static pizzaNation.app.util.WebConstants.*;
 
-/**
- * Created by George-Lenovo on 01/04/2018.
- */
 public class AddMenuRequestModel implements MenuRequestModel {
 
     @NotBlank
