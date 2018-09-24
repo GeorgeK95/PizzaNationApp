@@ -1,7 +1,5 @@
 package pizzaNation.app.model.view;
 
-import java.util.Set;
-
 public class ProductDetailsViewModel {
 
     private String name;

@@ -11,18 +11,16 @@ import pizzaNation.app.model.entity.Menu;
 import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.model.request.AddMenuRequestModel;
 import pizzaNation.app.model.request.EditMenuRequestModel;
-import pizzaNation.app.model.request.contract.MenuRequestModel;
+import pizzaNation.app.model.request.api.MenuRequestModel;
 import pizzaNation.app.model.view.MenuViewModel;
-import pizzaNation.app.service.contract.IImageService;
-import pizzaNation.app.service.contract.IProductService;
+import pizzaNation.app.service.api.IImageService;
+import pizzaNation.app.service.api.IProductService;
 import pizzaNation.app.util.DTOConverter;
 import pizzaNation.cloudinary.enumerations.Folder;
 import pizzaNation.user.service.BaseService;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import static pizzaNation.app.util.WebConstants.*;

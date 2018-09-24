@@ -5,7 +5,6 @@ import org.springframework.web.servlet.ModelAndView;
 import pizzaNation.app.util.StaticFilesContainer;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +17,8 @@ public abstract class BaseController {
 
     protected ModelAndView view(Object viewModel) {
         StackTraceElement[] stackTraceElements = java.lang.Thread.currentThread().getStackTrace();
-        StackTraceElement callee = stackTraceElements[3];
+        StackTraceElement callee = stackTraceElements[STACK_TRACE_INDEX];
+        if (callee.getModuleName() != null && callee.getModuleName().startsWith(JAVA_STR)) callee = stackTraceElements[STACK_TRACE_INDEX - 1];
         String[] names = callee.getClassName().split("\\.");
         String folder = names[names.length - 1].replace(CONTROLLER_STR, "");
         String file = callee.getMethodName();

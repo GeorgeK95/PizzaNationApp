@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 import pizzaNation.admin.service.IMenuService;
-import pizzaNation.app.service.contract.IProductService;
+import pizzaNation.app.service.api.IProductService;
 
 import java.util.Map;
 

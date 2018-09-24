@@ -8,14 +8,10 @@ import pizzaNation.app.enums.Action;
 import pizzaNation.app.enums.TableEnum;
 import pizzaNation.app.model.entity.Log;
 import pizzaNation.app.repository.LoggerRepository;
-import pizzaNation.app.service.contract.ILoggerService;
+import pizzaNation.app.service.api.ILoggerService;
 import pizzaNation.user.repository.UserRepository;
 
-import java.util.Date;
-
-import static pizzaNation.app.util.WebConstants.MODIFIED_TABLE_STR;
-import static pizzaNation.app.util.WebConstants.OPERATION_STR;
-import static pizzaNation.app.util.WebConstants.USER_STR;
+import static pizzaNation.app.util.WebConstants.*;
 
 @Service
 @Transactional

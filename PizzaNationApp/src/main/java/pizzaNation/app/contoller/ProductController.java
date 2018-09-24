@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pizzaNation.app.model.view.ProductDetailsViewModel;
-import pizzaNation.app.service.contract.IProductService;
+import pizzaNation.app.service.api.IProductService;
 
 import javax.servlet.http.HttpServletRequest;
 

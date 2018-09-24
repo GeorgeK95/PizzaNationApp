@@ -8,7 +8,6 @@ public final class CloudConstants {
     public static final String API_KEY_VALUE = "625643926957863";
     public static final String CLOUD_NAME_VALUE = "ddtsclgue";
     public static final String PUBLIC_ID = "public_id";
-    public static final String SLASH = "/";
 
     private CloudConstants() {
     }

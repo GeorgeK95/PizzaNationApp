@@ -1,17 +1,12 @@
 package pizzaNation.app.model.request;
 
 import org.springframework.web.multipart.MultipartFile;
-import pizzaNation.app.annotation.Image;
-import pizzaNation.app.model.request.contract.MenuRequestModel;
-import pizzaNation.app.model.view.ProductViewModel;
+import pizzaNation.app.model.request.api.MenuRequestModel;
 
 import javax.validation.constraints.*;
-
 import java.util.Set;
 
-import static pizzaNation.app.util.WebConstants.INVALID_DESCRIPTION_MESSAGE;
-import static pizzaNation.app.util.WebConstants.INVALID_MENU_NAME_MESSAGE;
-import static pizzaNation.app.util.WebConstants.INVALID_PRIORITY_MESSAGE;
+import static pizzaNation.app.util.WebConstants.*;
 
 public class EditMenuRequestModel implements MenuRequestModel {
 

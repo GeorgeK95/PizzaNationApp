@@ -1,12 +1,9 @@
 package pizzaNation.user.model.request;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pizzaNation.user.annotation.Email;
 import pizzaNation.user.enumeration.Gender;
 
 import javax.validation.constraints.*;
-
-import java.net.URLEncoder;
 
 import static pizzaNation.app.util.WebConstants.*;
 

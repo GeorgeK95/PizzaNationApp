@@ -10,6 +10,7 @@ import pizzaNation.app.contoller.BaseController;
 
 import static pizzaNation.admin.controller.AdminController.ADMIN_PAGE_TITLE_MAP_ENTRY;
 import static pizzaNation.app.util.WebConstants.ADMIN_LOGS_ALL_URL;
+import static pizzaNation.app.util.WebConstants.HAS_ANY_ROLE_ROLE_ADMIN;
 
 @Controller
 public class AdminLogController extends BaseController {
@@ -21,7 +22,7 @@ public class AdminLogController extends BaseController {
         this.logService = logService;
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize(HAS_ANY_ROLE_ROLE_ADMIN)
     @GetMapping(ADMIN_LOGS_ALL_URL)
     public ModelAndView allLogs() {
         return super.view(this.logService.findAll(), ADMIN_PAGE_TITLE_MAP_ENTRY);

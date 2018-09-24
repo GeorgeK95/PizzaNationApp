@@ -2,7 +2,7 @@ package pizzaNation.app.model.request;
 
 import org.springframework.web.multipart.MultipartFile;
 import pizzaNation.app.annotation.Image;
-import pizzaNation.app.model.request.contract.MenuRequestModel;
+import pizzaNation.app.model.request.api.MenuRequestModel;
 
 import javax.validation.constraints.*;
 

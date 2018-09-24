@@ -13,11 +13,11 @@ import pizzaNation.app.model.view.ConfirmOrderViewModel;
 import pizzaNation.app.model.view.ProductCartViewModel;
 import pizzaNation.app.model.view.ProductCartViewModelWrapper;
 import pizzaNation.app.repository.ProductRepository;
-import pizzaNation.app.service.contract.IOrderService;
-import pizzaNation.app.service.contract.IProductService;
-import pizzaNation.app.util.DTOConverter;
+import pizzaNation.app.service.api.ICartService;
+import pizzaNation.app.service.api.IOrderService;
+import pizzaNation.app.service.api.IProductService;
 import pizzaNation.user.model.entity.User;
-import pizzaNation.user.service.IUserService;
+import pizzaNation.user.service.api.IUserService;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +25,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static pizzaNation.app.util.WebConstants.*;
+import static pizzaNation.app.util.WebConstants.CART_ID_STR;
+import static pizzaNation.app.util.WebConstants.SLASH_STR;
 
 @Service
 @Transactional

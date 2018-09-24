@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.app.exception.NoEmailVerificationCodeInGetRequestException;
-import pizzaNation.user.service.IUserService;
+import pizzaNation.user.service.api.IUserService;
 
 import static pizzaNation.app.util.WebConstants.*;
 

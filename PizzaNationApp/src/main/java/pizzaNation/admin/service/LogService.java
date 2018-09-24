@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pizzaNation.admin.repository.LogRepository;
-import pizzaNation.app.model.entity.Log;
 import pizzaNation.app.model.view.LogViewModel;
 import pizzaNation.app.util.DTOConverter;
 

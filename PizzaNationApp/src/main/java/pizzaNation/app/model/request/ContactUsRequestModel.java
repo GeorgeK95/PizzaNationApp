@@ -6,11 +6,8 @@ import pizzaNation.user.annotation.Email;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 import static pizzaNation.app.util.WebConstants.INVALID_MESSAGE_LENGTH_MESSAGE;
-import static pizzaNation.app.util.WebConstants.INVALID_PHONE_FORMAT_MESSAGE;
-import static pizzaNation.app.util.WebConstants.PHONE_PATTERN;
 
 public class ContactUsRequestModel {
 

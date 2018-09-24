@@ -5,7 +5,9 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import pizzaNation.admin.repository.MenuRepository;
-import pizzaNation.app.model.entity.*;
+import pizzaNation.app.model.entity.Image;
+import pizzaNation.app.model.entity.Menu;
+import pizzaNation.app.model.entity.Product;
 import pizzaNation.app.repository.ProductRepository;
 import pizzaNation.user.enumeration.Gender;
 import pizzaNation.user.model.entity.Role;
@@ -72,18 +74,18 @@ public class DataLoader implements ApplicationRunner {
     private static final int PRIORITY_2 = 2;
     private static final int PRIORITY_3 = 3;
     private static final int PRIORITY_4 = 4;
-    private static final double SOFTUNI_LAT = 42.667246311064275;
-    private static final double SOFTUNI_LNG = 23.352293102516114;
-    private static final String KETCHUP = "Ketchup";
-    private static final String MAYONNAISE = "Mayonnaise";
-    private static final String MUSTARD = "Mustard";
+//    private static final double SOFTUNI_LAT = 42.667246311064275;
+//    private static final double SOFTUNI_LNG = 23.352293102516114;
+//    private static final String KETCHUP = "Ketchup";
+//    private static final String MAYONNAISE = "Mayonnaise";
+//    private static final String MUSTARD = "Mustard";
     private static final boolean NON_SUBSCRIBED = false;
-    private static final boolean SUBSCRIBE = true;
     private static final boolean ENABLED = true;
     private static final BigDecimal LOW_PRICE = new BigDecimal(10);
     private static final BigDecimal MEDIUM_PRICE = new BigDecimal(20);
     private static final BigDecimal HIGH_PRICE = new BigDecimal(30);
     private static final Boolean UNSUBSCRIBE = false;
+    private static final boolean SUBSCRIBE = true;
 
     private final UserRepository userRepository;
     private final ProductRepository productRepository;
@@ -165,7 +167,7 @@ public class DataLoader implements ApplicationRunner {
                 MODERATOR_LAST_NAME, MODERATOR_ADDRESS, Gender.FEMALE, MODERATOR_PHONE, MODERATOR_CITY, NON_SUBSCRIBED);
         moderator.setEnabled(ENABLED);
         User user = new User(USER_EMAIL, USER_PASSWORD, USER_FIRST_NAME,
-                USER_LAST_NAME, USER_ADDRESS, Gender.FEMALE, USER_PHONE, USER_CITY, UNSUBSCRIBE);
+                USER_LAST_NAME, USER_ADDRESS, Gender.FEMALE, USER_PHONE, USER_CITY, SUBSCRIBE);
         user.setEnabled(ENABLED);
 
         Role roleAdmin = new Role(ROLE_ADMIN);

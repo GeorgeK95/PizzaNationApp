@@ -7,13 +7,12 @@ import pizzaNation.app.config.PizzaNationSecurityConfiguration;
 import pizzaNation.app.model.entity.Order;
 import pizzaNation.app.model.view.OrderViewModel;
 import pizzaNation.app.repository.OrderRepository;
-import pizzaNation.app.service.contract.IOrderService;
+import pizzaNation.app.service.api.IOrderService;
 import pizzaNation.app.util.DTOConverter;
 import pizzaNation.user.model.entity.User;
 import pizzaNation.user.repository.UserRepository;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional

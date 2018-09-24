@@ -5,6 +5,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzaNation.app.model.request.EditSignInRequestModel;
 import pizzaNation.user.model.request.UserRegisterRequestModel;
+import pizzaNation.user.service.api.IBaseService;
 
 import static pizzaNation.app.util.WebConstants.*;
 

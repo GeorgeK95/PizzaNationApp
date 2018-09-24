@@ -8,11 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 import pizzaNation.app.annotation.LoggerAction;
 import pizzaNation.app.enums.Action;
 import pizzaNation.app.enums.TableEnum;
-import pizzaNation.app.service.ICartService;
+import pizzaNation.app.service.api.ICartService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;
+import java.util.Map;
 
 import static java.util.Map.entry;
 import static pizzaNation.app.util.WebConstants.*;
@@ -60,7 +60,7 @@ public class CartController extends BaseController {
         return String.valueOf(this.cartService.getCartSize(request));
     }
 
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize(IS_AUTHENTICATED)
     @GetMapping(CART_CHECKOUT_URL)
     public ModelAndView checkout(HttpServletRequest request) {
         if (this.cartService.prepareOrder(request) != null)
@@ -68,7 +68,7 @@ public class CartController extends BaseController {
         return super.redirect(MENU_URL);
     }
 
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize(IS_AUTHENTICATED)
     @PostMapping(CART_CHECKOUT_URL)
     @LoggerAction(action = Action.PRODUCT_ORDERED, table = TableEnum.ORDER)
     public ModelAndView checkoutProcess(HttpServletRequest request) {

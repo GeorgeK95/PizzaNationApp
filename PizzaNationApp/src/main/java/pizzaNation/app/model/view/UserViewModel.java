@@ -1,12 +1,5 @@
 package pizzaNation.app.model.view;
 
-import pizzaNation.user.enumeration.Gender;
-import pizzaNation.user.model.entity.Role;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import java.util.Date;
 
 public class UserViewModel {

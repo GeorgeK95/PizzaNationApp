@@ -81,7 +81,9 @@ public final class WebConstants {
     public static final String MENU_PAGE_TITLE = "Menu";
 
     //Strings
+    public static final String JAVA_STR = "java";
     public static final String MAP_VIEW_STR = "mapView";
+    public static final String SLASH = "/";
     public static final String CONTROLLER_STR = "Controller";
     public static final String MODEL_STR = "model";
     public static final String SLASH_STR = "/";
@@ -89,6 +91,7 @@ public final class WebConstants {
     public static final String PAGE_SCRIPT_STR = "pageScript";
     public static final String VIEW_STR = "view";
     public static final String EMPTY_STR = "";
+    public static final String PRICE_SEPARATOR = "\\.";
     public static final String SPACE_STR = " ";
     public static final String REDIRECT_STR = "redirect:";
     public static final String USER_STR = "user";
@@ -101,8 +104,8 @@ public final class WebConstants {
     public static final String EQUALS_STR = "=";
     public static final String QUESTION_MARK_STR = "\\?";
     public static final String TOKEN = "token";
-    public static final String VERIFY_EMAIL_TOKEN = "verify_email?token=";
     public static final String LOCAL_HOST = "http://localhost:8080/";
+    public static final String VERIFY_EMAIL_TOKEN = "verify_email?token=";
     public static final String CART_ADD_PRODUCT_URL = "/cart/addProduct";
     public static final String CART_PRODUCTS_SIZE_URL = "/cart/cartSize";
     public static final String CART_REMOVE_PRODUCT_URL = "/cart/removeProduct";
@@ -184,7 +187,7 @@ public final class WebConstants {
     public static final String MODERATOR_LAST_NAME = "Moderatorov";
 
     //User Data
-    public static final String USER_EMAIL = "user@abv.bg";
+    public static final String USER_EMAIL = /*"jeki_7@abv.bg"; */"user@abv.bg";
     public static final String USER_PASSWORD = "useruser";
     public static final String USER_FIRST_NAME = "User";
     public static final String USER_LAST_NAME = "Userov";
@@ -230,9 +233,19 @@ public final class WebConstants {
 
     //Constants
     public static final int CHECK_FOR_DELIVERED_ORDERS_SCHEDULER_FIXED_RATE = 60_000;
+    public static final int STACK_TRACE_INDEX = 3;
 
     //HTML symbols set
     public static final Set<String> HTML_SYMBOLS_TO_ESCAPE = Set.of("%20");
+
+    //Roles
+    public static final String HAS_ANY_ROLE_ROLE_ADMIN = "hasAnyRole('ROLE_ADMIN')";
+    public static final String HAS_ROLE_ROLE_ADMIN = "hasRole('ROLE_ADMIN')";
+    public static final String HAS_ANY_ROLE_ROLE_ADMIN_ROLE_MODERATOR = "hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')";
+
+    //Auth
+    public static final String IS_ANONYMOUS = "isAnonymous()";
+    public static final String IS_AUTHENTICATED = "isAuthenticated()";
 
     private WebConstants() {
     }

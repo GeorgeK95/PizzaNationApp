@@ -7,9 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Map;
 
 import static java.util.Map.entry;
-import static pizzaNation.app.util.WebConstants.ABOUT_URL;
-import static pizzaNation.app.util.WebConstants.ABOUT_US_PAGE_TITLE;
-import static pizzaNation.app.util.WebConstants.PAGE_TITLE_STR;
+import static pizzaNation.app.util.WebConstants.*;
 
 @Controller
 public class AboutController extends BaseController {

@@ -5,9 +5,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import static pizzaNation.app.util.WebConstants.CSS_EXTENSION;
-import static pizzaNation.app.util.WebConstants.EMPTY_STR;
-import static pizzaNation.app.util.WebConstants.JS_EXTENSION;
+import static pizzaNation.app.util.WebConstants.*;
 
 public final class DirectoryScanner {
 

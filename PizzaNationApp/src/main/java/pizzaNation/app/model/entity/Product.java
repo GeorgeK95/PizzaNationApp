@@ -3,7 +3,6 @@ package pizzaNation.app.model.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;

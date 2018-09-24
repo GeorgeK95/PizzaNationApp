@@ -13,25 +13,29 @@ import pizzaNation.app.enums.Action;
 import pizzaNation.app.enums.TableEnum;
 import pizzaNation.app.model.request.AddProductRequestModel;
 import pizzaNation.app.model.request.EditProductRequestModel;
-import pizzaNation.app.service.contract.IProductService;
+import pizzaNation.app.service.api.IProductDeleteService;
+import pizzaNation.app.service.api.IProductEditService;
+import pizzaNation.app.service.api.IProductService;
 
 import javax.validation.Valid;
-import java.util.Arrays;
-import java.util.List;
 
 import static pizzaNation.admin.controller.AdminController.ADMIN_PAGE_TITLE_MAP_ENTRY;
 import static pizzaNation.app.util.WebConstants.*;
 
 @Controller
 @RequestMapping(ADMIN_URL)
-@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')")
+@PreAuthorize(HAS_ANY_ROLE_ROLE_ADMIN_ROLE_MODERATOR)
 public class AdminProductController extends BaseController {
 
     private final IProductService productService;
+    private final IProductEditService productEditService;
+    private final IProductDeleteService productDeleteService;
 
     @Autowired
-    public AdminProductController(IProductService productService) {
+    public AdminProductController(IProductService productService, IProductEditService productEditService, IProductDeleteService productDeleteService) {
         this.productService = productService;
+        this.productEditService = productEditService;
+        this.productDeleteService = productDeleteService;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = {ALL_PRODUCTS_URL, PRODUCTS_URL})
@@ -62,7 +66,7 @@ public class AdminProductController extends BaseController {
     @LoggerAction(table = TableEnum.PRODUCT, action = Action.EDIT)
     public ModelAndView editProductProcess(@ModelAttribute @Valid EditProductRequestModel editProductRequestModel,
                                            BindingResult bindingResult, @PathVariable String name, RedirectAttributes attributes) {
-        if (!this.productService.editProduct(editProductRequestModel, attributes, bindingResult, name))
+        if (!this.productEditService.editProduct(editProductRequestModel, attributes, bindingResult, name))
             return super.redirect(ADMIN_EDIT_PRODUCTS_URL.concat(SLASH_STR + name));
         return super.redirectAndLog(ADMIN_ALL_PRODUCTS_URL);
     }
@@ -75,7 +79,7 @@ public class AdminProductController extends BaseController {
     @PostMapping(DELETE_PRODUCTS_URL)
     @LoggerAction(table = TableEnum.PRODUCT, action = Action.DELETE)
     public ModelAndView deleteProductProcess(@PathVariable String name) {
-        if (!this.productService.deleteProduct(name))
+        if (!this.productDeleteService.deleteProduct(name))
             return super.redirectAndLog(DELETE_PRODUCTS_URL.concat(name));
         return super.redirectAndLog(ADMIN_ALL_PRODUCTS_URL);
     }

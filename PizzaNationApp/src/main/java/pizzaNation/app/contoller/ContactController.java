@@ -8,18 +8,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pizzaNation.app.service.contract.IContactService;
+import pizzaNation.app.service.api.IContactService;
 import pizzaNation.user.model.request.ContactUsRequestModel;
 
 import javax.validation.Valid;
-
 import java.security.Principal;
 import java.util.Map;
 
 import static java.util.Map.entry;
-import static pizzaNation.app.util.WebConstants.CONTACT_US_PAGE_TITLE;
-import static pizzaNation.app.util.WebConstants.CONTACT_US_URL;
-import static pizzaNation.app.util.WebConstants.PAGE_TITLE_STR;
+import static pizzaNation.app.util.WebConstants.*;
 
 @Controller
 public class ContactController extends BaseController {

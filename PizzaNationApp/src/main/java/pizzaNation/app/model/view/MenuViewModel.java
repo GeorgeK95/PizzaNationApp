@@ -1,7 +1,5 @@
 package pizzaNation.app.model.view;
 
-import javax.validation.constraints.NotBlank;
-
 import java.util.Date;
 
 public class MenuViewModel {

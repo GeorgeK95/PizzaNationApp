@@ -1,8 +1,5 @@
 package pizzaNation.app.model.view;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
-import pizzaNation.app.util.DTOConverter;
-
 public class ProductViewModel {
 
     private String id;

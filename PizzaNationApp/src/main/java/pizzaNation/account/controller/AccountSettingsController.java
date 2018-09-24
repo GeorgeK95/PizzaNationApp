@@ -13,7 +13,8 @@ import pizzaNation.app.contoller.BaseController;
 import pizzaNation.app.model.request.EditDetailsRequestModel;
 import pizzaNation.app.model.request.EditSignInRequestModel;
 import pizzaNation.user.enumeration.Gender;
-import pizzaNation.user.service.IUserService;
+import pizzaNation.user.service.api.IUserEditService;
+import pizzaNation.user.service.api.IUserService;
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -24,17 +25,17 @@ import java.util.stream.Collectors;
 
 import static java.util.Map.entry;
 import static pizzaNation.app.util.WebConstants.*;
-import static pizzaNation.app.util.WebConstants.MY_PIZZA_NATION;
-import static pizzaNation.app.util.WebConstants.PAGE_TITLE_STR;
 
 @Controller
 public class AccountSettingsController extends BaseController {
 
     private final IUserService userService;
+    private final IUserEditService userEditService;
 
     @Autowired
-    public AccountSettingsController(IUserService userService) {
+    public AccountSettingsController(IUserService userService, IUserEditService userEditService) {
         this.userService = userService;
+        this.userEditService = userEditService;
     }
 
     @ModelAttribute(name = GENDERS_LIST)
@@ -42,38 +43,38 @@ public class AccountSettingsController extends BaseController {
         return Arrays.stream(Gender.values()).map(Enum::toString).collect(Collectors.toList());
     }
 
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize(IS_AUTHENTICATED)
     @GetMapping(ACCOUNT_SETTINGS_URL)
     public ModelAndView settings() {
         return super.view(null, Map.ofEntries(entry(PAGE_TITLE_STR, MY_ACCOUNT_PAGE_TITLE)));
     }
 
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize(IS_AUTHENTICATED)
     @GetMapping(ACCOUNT_SETTINGS_EMAIL_URL)
     public ModelAndView signIn(Principal principal) {
         return super.view(this.userService.constructEditEmailModel(principal), Map.ofEntries(entry(PAGE_TITLE_STR, MY_PIZZA_NATION)));
     }
 
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize(IS_AUTHENTICATED)
     @PostMapping(ACCOUNT_SETTINGS_EMAIL_URL)
     public ModelAndView signInProcess(@ModelAttribute @Valid EditSignInRequestModel editSignInRequestModel, BindingResult result,
                                       RedirectAttributes attributes, Principal principal) {
-        if (!this.userService.editSignInInfo(editSignInRequestModel, attributes, result, principal))
+        if (!this.userEditService.editSignInInfo(editSignInRequestModel, attributes, result, principal))
             return super.redirect(ACCOUNT_SETTINGS_EMAIL_URL);
         return super.redirect(LOGOUT_URL);
     }
 
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize(IS_AUTHENTICATED)
     @GetMapping(ACCOUNT_SETTINGS_DETAILS_URL)
     public ModelAndView details() {
         return super.view(this.userService.constructEditDetailsModel(), Map.ofEntries(entry(PAGE_TITLE_STR, MY_PIZZA_NATION)));
     }
 
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize(IS_AUTHENTICATED)
     @PostMapping(ACCOUNT_SETTINGS_DETAILS_URL)
     public ModelAndView detailsProcess(@ModelAttribute @Valid EditDetailsRequestModel requestModel, BindingResult result,
                                        RedirectAttributes attributes, Principal principal) {
-        if (!this.userService.editUserDetails(principal.getName(), requestModel, attributes, result))
+        if (!this.userEditService.editUserDetails(principal.getName(), requestModel, attributes, result))
             return super.redirect(ACCOUNT_SETTINGS_DETAILS_URL);
         return super.redirect(ACCOUNT_URL);
     }

@@ -1,17 +1,22 @@
 package pizzaNation.app.config;
 
+import com.cloudinary.Cloudinary;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pizzaNation.app.util.DirectoryScanner;
 import pizzaNation.app.util.StaticFilesContainer;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import static pizzaNation.app.util.WebConstants.CSS_PAGE_FILES;
 import static pizzaNation.app.util.WebConstants.JS_PAGE_FILES;
+import static pizzaNation.cloudinary.CloudConstants.*;
 import static pizzaNation.email.util.Constants.*;
 
 @Configuration
@@ -47,5 +52,23 @@ public class PizzaNationBeanConfiguration {
     @Bean
     public BCryptPasswordEncoder getBCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public SimpleMailMessage getSimpleMailMessage() {
+        return new SimpleMailMessage();
+    }
+
+    @Bean
+    public Cloudinary getCloudinary() {
+        return new Cloudinary(this.configureCloudParams());
+    }
+
+    private Map<Object, Object> configureCloudParams() {
+        Map<Object, Object> config = new HashMap<>();
+        config.put(CLOUD_NAME, CLOUD_NAME_VALUE);
+        config.put(API_KEY, API_KEY_VALUE);
+        config.put(API_SECRET, SECRET_KEY_VALUE);
+        return config;
     }
 }

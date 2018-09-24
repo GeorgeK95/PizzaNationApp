@@ -9,8 +9,6 @@ import pizzaNation.app.model.entity.Order;
 import pizzaNation.user.enumeration.Gender;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 import java.util.*;
 
 @Entity

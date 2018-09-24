@@ -2,30 +2,22 @@ package pizzaNation.email.model;
 
 public class Mail {
 
-    private String email;
+    private String from;
 
-    private String firstName;
-
-    private String message;
+    private String to;
 
     private String subject;
+
+    private String message;
 
     public Mail() {
     }
 
-    public Mail(String email, String firstName, String message, String subject) {
-        this.email = email;
-        this.firstName = firstName;
+    public Mail(String from, String to, String message, String subject) {
+        this.from = from;
+        this.to = to;
         this.message = message;
         this.subject = subject;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getFirstName() {
-        return firstName;
     }
 
     public String getMessage() {
@@ -36,19 +28,27 @@ public class Mail {
         return subject;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public void setMessage(String message) {
         this.message = message;
     }
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
     }
 }
